@@ -36,5 +36,3 @@ ENDM
 MACRO oamdelete
 	db oamdelete_command
 ENDM
-
-DEF FIRST_OAM_CMD EQU LOW(const_value + 1)

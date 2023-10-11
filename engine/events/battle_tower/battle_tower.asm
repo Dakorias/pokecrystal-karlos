@@ -864,7 +864,7 @@ BattleTowerAction:
 	dw LoadBattleTowerLevelGroup
 	dw BattleTower_CheckSaveFileExistsAndIsYours
 	dw BattleTowerAction_0A
-	dw BattleTowerAction_GSBall
+	dw CheckMobileEventIndex
 	dw BattleTowerAction_0C
 	dw BattleTowerAction_0D
 	dw BattleTowerAction_EggTicket
@@ -1174,10 +1174,10 @@ BattleTowerAction_0A:
 	call MaxVolume
 	ret
 
-BattleTowerAction_GSBall:
-	ld a, BANK(sGSBallFlag)
+CheckMobileEventIndex: ; something to do with GS Ball
+	ld a, BANK(sMobileEventIndex)
 	call OpenSRAM
-	ld a, [sGSBallFlag]
+	ld a, [sMobileEventIndex]
 	ld [wScriptVar], a
 	call CloseSRAM
 	ret

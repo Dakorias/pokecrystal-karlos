@@ -48,6 +48,7 @@
 	const LANDMARK_DARK_CAVE         ; 2c
 	const LANDMARK_ROUTE_46          ; 2d
 	const LANDMARK_SILVER_CAVE       ; 2e
+
 DEF KANTO_LANDMARK EQU const_value
 	const LANDMARK_PALLET_TOWN       ; 2f
 	const LANDMARK_ROUTE_1           ; 30
@@ -98,6 +99,15 @@ DEF KANTO_LANDMARK EQU const_value
 	const LANDMARK_TOHJO_FALLS       ; 5d
 	const LANDMARK_ROUTE_28          ; 5e
 	const LANDMARK_FAST_SHIP         ; 5f
+
+	const LANDMARK_ONE_ISLAND_TOWN   ; 60
+	const LANDMARK_CLEAR_WATER_BRIDGE ; 61
+	const LANDMARK_CLEAR_WATER_TOWN  ; 62
+	const LANDMARK_ONE_ISLAND_ROUTE_1
+	const LANDMARK_KINDLE_BEACH
+	const LANDMARK_ONE_ISLAND_ROUTE_2
+	const LANDMARK_EMBER_SPRINGS
+	const LANDMARK_EMBER_CITY
 DEF NUM_LANDMARKS EQU const_value
 
 ; used in CaughtData

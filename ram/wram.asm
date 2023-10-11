@@ -203,7 +203,7 @@ wSpriteAnimData::
 
 wSpriteAnimDict::
 ; wSpriteAnimDict pairs keys with values
-; keys: SPRITE_ANIM_DICT_* indexes (taken from SpriteAnimObjects)
+; keys: SPRITE_ANIM_DICT_* indexes (taken from SpriteAnimSeqData)
 ; values: vTiles0 offsets
 	ds NUM_SPRITEANIMDICT_ENTRIES * 2
 
@@ -211,7 +211,7 @@ wSpriteAnimationStructs::
 ; wSpriteAnim1 - wSpriteAnim10
 for n, 1, NUM_SPRITE_ANIM_STRUCTS + 1
 ; field  0:   index
-; fields 1-3: loaded from SpriteAnimObjects
+; fields 1-3: loaded from SpriteAnimSeqData
 wSpriteAnim{d:n}:: sprite_anim_struct wSpriteAnim{d:n}
 endr
 wSpriteAnimationStructsEnd::
@@ -3041,87 +3041,26 @@ wFarfetchdPosition:: db
 	ds 13
 
 ; map scene ids
-wPokecenter2FSceneID::                            db
-wTradeCenterSceneID::                             db
-wColosseumSceneID::                               db
-wTimeCapsuleSceneID::                             db
-wPowerPlantSceneID::                              db
-wCeruleanGymSceneID::                             db
-wRoute25SceneID::                                 db
-wTrainerHouseB1FSceneID::                         db
-wVictoryRoadGateSceneID::                         db
-wSaffronMagnetTrainStationSceneID::               db
-wRoute16GateSceneID::                             db
-wRoute17Route18GateSceneID::                      db
-wIndigoPlateauPokecenter1FSceneID::               db
-wWillsRoomSceneID::                               db
-wKogasRoomSceneID::                               db
-wBrunosRoomSceneID::                              db
-wKarensRoomSceneID::                              db
-wLancesRoomSceneID::                              db
-wHallOfFameSceneID::                              db
-wRoute27SceneID::                                 db
-wNewBarkTownSceneID::                             db
-wElmsLabSceneID::                                 db
-wPlayersHouse1FSceneID::                          db
-wRoute29SceneID::                                 db
-wCherrygroveCitySceneID::                         db
-wMrPokemonsHouseSceneID::                         db
-wRoute32SceneID::                                 db
-wRoute35NationalParkGateSceneID::                 db
-wRoute36SceneID::                                 db
-wRoute36NationalParkGateSceneID::                 db
-wAzaleaTownSceneID::                              db
-wGoldenrodGymSceneID::                            db
-wGoldenrodMagnetTrainStationSceneID::             db
-wGoldenrodPokecenter1FSceneID::                   db
-wOlivineCitySceneID::                             db
-wRoute34SceneID::                                 db
-wRoute34IlexForestGateSceneID::                   db
-wEcruteakTinTowerEntranceSceneID::                db
-wWiseTriosRoomSceneID::                           db
-wEcruteakPokecenter1FSceneID::                    db
-wEcruteakGymSceneID::                             db
-wMahoganyTownSceneID::                            db
-wRoute42SceneID::                                 db
-wCianwoodCitySceneID::                            db
-wBattleTower1FSceneID::                           db
-wBattleTowerBattleRoomSceneID::                   db
-wBattleTowerElevatorSceneID::                     db
-wBattleTowerHallwaySceneID::                      db
-wBattleTowerOutsideSceneID::                      db
-wRoute43GateSceneID::                             db
-wMountMoonSceneID::                               db
-wSproutTower3FSceneID::                           db
-wTinTower1FSceneID::                              db
-wBurnedTower1FSceneID::                           db
-wBurnedTowerB1FSceneID::                          db
-wRadioTower5FSceneID::                            db
-wRuinsOfAlphOutsideSceneID::                      db
-wRuinsOfAlphResearchCenterSceneID::               db
-wRuinsOfAlphHoOhChamberSceneID::                  db
-wRuinsOfAlphKabutoChamberSceneID::                db
-wRuinsOfAlphOmanyteChamberSceneID::               db
-wRuinsOfAlphAerodactylChamberSceneID::            db
-wRuinsOfAlphInnerChamberSceneID::                 db
-wMahoganyMart1FSceneID::                          db
-wTeamRocketBaseB1FSceneID::                       db
-wTeamRocketBaseB2FSceneID::                       db
-wTeamRocketBaseB3FSceneID::                       db
-wGoldenrodUndergroundSwitchRoomEntrancesSceneID:: db
-wSilverCaveRoom3SceneID::                         db
-wVictoryRoadSceneID::                             db
-wDragonsDenB1FSceneID::                           db
-wDragonShrineSceneID::                            db
-wOlivinePortSceneID::                             db
-wVermilionPortSceneID::                           db
-wFastShip1FSceneID::                              db
-wFastShipB1FSceneID::                             db
-wMountMoonSquareSceneID::                         db
-wMobileTradeRoomSceneID::                         db
-wMobileBattleRoomSceneID::                        db
+wPokecenter2FSceneID::              db
+wTradeCenterSceneID::               db
+wColosseumSceneID::                 db
+wTimeCapsuleSceneID::               db
+wBattleTower1FSceneID::             db
+wBattleTowerBattleRoomSceneID::     db
+wBattleTowerElevatorSceneID::       db
+wBattleTowerHallwaySceneID::        db
+wPlayersHouse1FSceneID::            db
+wIndigoPlateauPokecenter1FSceneID:: db
+wWillsRoomSceneID::                 db
+wKogasRoomSceneID::                 db
+wBrunosRoomSceneID::                db
+wKarensRoomSceneID::                db
+wLancesRoomSceneID::                db
+wHallOfFameSceneID::                db
+wOneIslandTownSceneID::							db
+wOneIslandTownLabSceneID::					db
 
-	ds 49
+	ds 110
 
 ; fight counts
 wJackFightCount::    db
@@ -3274,6 +3213,7 @@ wPlayerDataEnd::
 wCurMapData::
 
 wVisitedSpawns:: flag_array NUM_SPAWNS
+	ds 3
 
 wDigWarpNumber:: db
 wDigMapGroup::   db
@@ -3542,13 +3482,13 @@ SECTION "Battle Animations", WRAMX
 
 wBattleAnimTileDict::
 ; wBattleAnimTileDict pairs keys with values
-; keys: BATTLE_ANIM_GFX_* indexes (taken from anim_*gfx arguments)
+; keys: ANIM_GFX_* indexes (taken from anim_*gfx arguments)
 ; values: vTiles0 offsets
 	ds NUM_BATTLEANIMTILEDICT_ENTRIES * 2
 
 wActiveAnimObjects::
 ; wAnimObject1 - wAnimObject10
-for n, 1, NUM_BATTLE_ANIM_STRUCTS + 1
+for n, 1, NUM_ANIM_OBJECTS + 1
 wAnimObject{d:n}:: battle_anim_struct wAnimObject{d:n}
 endr
 

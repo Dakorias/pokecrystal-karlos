@@ -1,7 +1,6 @@
 TypeNames:
 ; entries correspond to types (see constants/type_constants.asm)
 	table_width 2, TypeNames
-
 	dw Normal
 	dw Fighting
 	dw Flying
@@ -13,13 +12,17 @@ TypeNames:
 	dw Ghost
 	dw Steel
 	assert_table_length UNUSED_TYPES
-
-rept UNUSED_TYPES_END - UNUSED_TYPES - 1 ; discount CURSE_TYPE
 	dw Normal
-endr
+	dw Normal
+	dw Normal
+	dw Normal
+	dw Normal
+	dw Normal
+	dw Normal
+	dw Normal
+	dw Normal
 	dw CurseType
 	assert_table_length UNUSED_TYPES_END
-
 	dw Fire
 	dw Water
 	dw Grass

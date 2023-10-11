@@ -512,27 +512,27 @@ CalculateTrainerRankingsChecksum:
 	pop bc
 	ret
 
-BackupGSBallFlag:
-	ld a, BANK(sGSBallFlag)
+BackupMobileEventIndex:
+	ld a, BANK(sMobileEventIndex)
 	call OpenSRAM
-	ld a, [sGSBallFlag]
+	ld a, [sMobileEventIndex]
 	push af
-	ld a, BANK(sGSBallFlagBackup)
+	ld a, BANK(sMobileEventIndexBackup)
 	call OpenSRAM
 	pop af
-	ld [sGSBallFlagBackup], a
+	ld [sMobileEventIndexBackup], a
 	call CloseSRAM
 	ret
 
-RestoreGSBallFlag:
-	ld a, BANK(sGSBallFlagBackup)
+RestoreMobileEventIndex:
+	ld a, BANK(sMobileEventIndexBackup)
 	call OpenSRAM
-	ld a, [sGSBallFlagBackup]
+	ld a, [sMobileEventIndexBackup]
 	push af
-	ld a, BANK(sGSBallFlag)
+	ld a, BANK(sMobileEventIndex)
 	call OpenSRAM
 	pop af
-	ld [sGSBallFlag], a
+	ld [sMobileEventIndex], a
 	call CloseSRAM
 	ret
 
@@ -547,11 +547,11 @@ VerifyTrainerRankingsChecksum: ; unreferenced
 	cp [hl]
 	ret
 
-ClearGSBallFlag:
-	ld a, BANK(sGSBallFlag)
+DeleteMobileEventIndex:
+	ld a, BANK(sMobileEventIndex)
 	call OpenSRAM
 	xor a
-	ld [sGSBallFlag], a
+	ld [sMobileEventIndex], a
 	call CloseSRAM
 	ret
 
@@ -789,55 +789,53 @@ endr
 
 ; functions related to the cable club and various NPC scripts referencing communications
 
-CheckMobileAdapterStatusSpecial: ; unused
-	; this routine calls CheckMobileAdapterStatus
-	; in the Japanese version
+Mobile_DummyReturnFalse:
 	xor a
 	ld [wScriptVar], a
 	ret
 
-SetMobileAdapterStatus: ; unused
+Stubbed_Function106314:
 	ret
-	; the instructions below are the
-	; original Japanese version code
-	ld a, BANK(sMobileAdapterStatus)
+	ld a, BANK(s4_b000)
 	call OpenSRAM
 	ld a, c
 	cpl
-	ld [sMobileAdapterStatus], a
+	ld [s4_b000], a
 	call CloseSRAM
-	ld a, BANK(sMobileAdapterStatus2)
+	ld a, BANK(s7_a800)
 	call OpenSRAM
 	ld a, c
-	ld [sMobileAdapterStatus2], a
+	ld [s7_a800], a
 	call CloseSRAM
 	ret
 
-CheckMobileAdapterStatus: ; unused
+Mobile_AlwaysReturnNotCarry:
 	or a
 	ret
-	; the instructions below are the
-	; original Japanese version code
-	ld a, BANK(sMobileAdapterStatus)
+
+Function106331: ; unreferenced
+; called by Mobile_DummyReturnFalse in JP Crystal
+	; check ~[s4_b000] == [s7_a800]
+	ld a, BANK(s4_b000)
 	call OpenSRAM
-	ld a, [sMobileAdapterStatus]
+	ld a, [s4_b000]
 	cpl
 	ld b, a
 	call CloseSRAM
-	ld a, BANK(sMobileAdapterStatus2)
+	ld a, BANK(s7_a800)
 	call OpenSRAM
-	ld a, [sMobileAdapterStatus2]
+	ld a, [s7_a800]
 	ld c, a
 	call CloseSRAM
 	ld a, c
 	cp b
 	jr nz, .nope
 
-	; check [sMobileAdapterStatus2] != 0
+	; check [s7_a800] != 0
 	and a
 	jr z, .nope
 
-	; check !([sMobileAdapterStatus2] & %01110000)
+	; check !([s7_a800] & %01110000)
 	and %10001111
 	cp c
 	jr nz, .nope
@@ -893,7 +891,7 @@ Function106392:
 	ret
 
 .asm_1063a2
-	call CheckMobileAdapterStatus
+	call Mobile_AlwaysReturnNotCarry
 	ld a, c
 	and a
 	jr nz, .asm_1063b4
@@ -968,14 +966,14 @@ Function106403:
 	or c
 	inc a
 	ld c, a
-	call SetMobileAdapterStatus
+	call Stubbed_Function106314
 	ld a, [wMobileCommsJumptableIndex]
 	inc a
 	ld [wMobileCommsJumptableIndex], a
 	ret
 
 .asm_106426
-	call CheckMobileAdapterStatus
+	call Mobile_AlwaysReturnNotCarry
 	ld a, c
 	and a
 	jr z, .asm_106435
@@ -986,7 +984,7 @@ Function106403:
 
 .asm_106435
 	ld c, $0
-	call SetMobileAdapterStatus
+	call Stubbed_Function106314
 	ld a, [wMobileCommsJumptableIndex]
 	inc a
 	ld [wMobileCommsJumptableIndex], a
@@ -1016,16 +1014,8 @@ Stubbed_Function106462:
 	ret
 
 Function106464::
-	ld de, FontsExtra_SolidBlackGFX
-	ld hl, vTiles2 tile "■" ; $60
-	lb bc, BANK(FontsExtra_SolidBlackGFX), 1
-	call Get2bpp
-	ld de, FontsExtra2_UpArrowGFX
-	ld hl, vTiles2 tile "▲" ; $61
-	lb bc, BANK(FontsExtra2_UpArrowGFX), 1
-	call Get2bpp
 	ld de, MobileDialingFrameGFX
-	ld hl, vTiles2 tile "☎" ; $62
+	ld hl, vTiles2 tile $62
 	ld c, 9
 	ld b, BANK(MobileDialingFrameGFX)
 	call Get2bpp
@@ -1039,13 +1029,13 @@ Function106464::
 Function10649b: ; unreferenced
 	ld a, [wTextboxFrame]
 	maskbits NUM_FRAMES
-	ld bc, TEXTBOX_FRAME_TILES * LEN_1BPP_TILE
+	ld bc, 6 * LEN_1BPP_TILE
 	ld hl, Frames
 	call AddNTimes
 	ld d, h
 	ld e, l
-	ld hl, vTiles2 tile "┌" ; $79
-	ld c, TEXTBOX_FRAME_TILES ; "┌" to "┘"
+	ld hl, vTiles0 tile "┌" ; $ba
+	ld c, 6 ; "┌" to "┘"
 	ld b, BANK(Frames)
 	call Function1064c3
 	ld hl, vTiles2 tile " " ; $7f

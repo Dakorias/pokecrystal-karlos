@@ -54,6 +54,7 @@ Landmarks:
 	landmark 112,  72, DarkCaveName
 	landmark 124,  88, Route46Name
 	landmark 148,  68, SilverCaveName
+
 	assert_table_length KANTO_LANDMARK
 	landmark  52, 108, PalletTownName
 	landmark  52,  92, Route1Name
@@ -104,6 +105,16 @@ Landmarks:
 	landmark  12, 100, TohjoFallsName
 	landmark  20,  68, Route28Name
 	landmark 140, 116, FastShipName
+
+	landmark 140, 140, OneIslandTownName
+	landmark 141, 141, ClearBridgeName
+	landmark 142, 142, ClearTownName
+	landmark 142, 142, OneIsleRoute1Name
+	landmark 142, 142, KindleBeachName
+	landmark 142, 142, OneIsleRoute2Name
+	landmark 142, 142, EmberSpringsName
+	landmark 142, 142, EmberCityName
+
 	assert_table_length NUM_LANDMARKS
 
 NewBarkTownName:     db "NEW BARK¯TOWN@"
@@ -208,3 +219,11 @@ TohjoFallsName:      db "TOHJO FALLS@"
 UndergroundName:     db "UNDERGROUND@"
 BattleTowerName:     db "BATTLE¯TOWER@"
 SpecialMapName:      db "SPECIAL@"
+OneIslandTownName:   db "ONE ISLAND¯TOWN@"
+ClearBridgeName:     db "CLEARWATER¯BRIDGE@"
+ClearTownName:       db "CLEARWATER¯TOWN@"
+OneIsleRoute1Name:   db "ISLAND¯ROUTE 1@"
+KindleBeachName:     db "KINDLE¯BEACH@"
+OneIsleRoute2Name:   db "ISLAND¯ROUTE 2@"
+EmberSpringsName:    db "EMBER¯SPRINGS@"
+EmberCityName:			 db "EMBER¯CITY@"

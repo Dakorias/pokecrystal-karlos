@@ -4,10 +4,11 @@
 	const PLAYERSHOUSE1F_MOM3
 	const PLAYERSHOUSE1F_MOM4
 	const PLAYERSHOUSE1F_POKEFAN_F
+	const PLAYERSHOUSE1F_GOOD_RIVAL
 
 PlayersHouse1F_MapScripts:
 	def_scene_scripts
-	scene_script PlayersHouse1FNoop1Scene, SCENE_PLAYERSHOUSE1F_MEET_MOM
+	scene_script PlayersHouse1FNoop1Scene, SCENE_PLAYERSHOUSE1F_MEET_RIVAL
 	scene_script PlayersHouse1FNoop2Scene, SCENE_PLAYERSHOUSE1F_NOOP
 
 	def_callbacks
@@ -18,80 +19,40 @@ PlayersHouse1FNoop1Scene:
 PlayersHouse1FNoop2Scene:
 	end
 
-MeetMomLeftScript:
-	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-
-MeetMomRightScript:
-	playmusic MUSIC_MOM
-	showemote EMOTE_SHOCK, PLAYERSHOUSE1F_MOM1, 15
-	turnobject PLAYER, LEFT
-	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	iffalse .OnRight
-	applymovement PLAYERSHOUSE1F_MOM1, MomTurnsTowardPlayerMovement
-	sjump MeetMomScript
-
-.OnRight:
-	applymovement PLAYERSHOUSE1F_MOM1, MomWalksToPlayerMovement
-MeetMomScript:
+MeetRivalScript:
+	showemote EMOTE_SHOCK, PLAYER, 15
+	applymovement PLAYERSHOUSE1F_GOOD_RIVAL, RivalWalksToPlayerMovement
 	opentext
-	writetext ElmsLookingForYouText
-	promptbutton
-	getstring STRING_BUFFER_4, PokegearName
-	scall PlayersHouse1FReceiveItemStd
-	setflag ENGINE_POKEGEAR
-	setflag ENGINE_PHONE_CARD
-	addcellnum PHONE_MOM
-	setscene SCENE_PLAYERSHOUSE1F_NOOP
-	setevent EVENT_PLAYERS_HOUSE_MOM_1
-	clearevent EVENT_PLAYERS_HOUSE_MOM_2
-	writetext MomGivesPokegearText
-	promptbutton
-	special SetDayOfWeek
-.SetDayOfWeek:
-	writetext IsItDSTText
-	yesorno
-	iffalse .WrongDay
-	special InitialSetDSTFlag
-	yesorno
-	iffalse .SetDayOfWeek
-	sjump .DayOfWeekDone
-
-.WrongDay:
-	special InitialClearDSTFlag
-	yesorno
-	iffalse .SetDayOfWeek
-.DayOfWeekDone:
-	writetext ComeHomeForDSTText
-	yesorno
-	iffalse .ExplainPhone
-	sjump .KnowPhone
-
-.KnowPhone:
-	writetext KnowTheInstructionsText
-	promptbutton
-	sjump .FinishPhone
-
-.ExplainPhone:
-	writetext DontKnowTheInstructionsText
-	promptbutton
-	sjump .FinishPhone
-
-.FinishPhone:
-	writetext InstructionsNextText
+	writetext CeliosLookingForYouText
 	waitbutton
 	closetext
-	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	iftrue .FromRight
-	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
-	iffalse .FromLeft
-	sjump .Finish
-
-.FromRight:
-	applymovement PLAYERSHOUSE1F_MOM1, MomTurnsBackMovement
-	sjump .Finish
-
-.FromLeft:
-	applymovement PLAYERSHOUSE1F_MOM1, MomWalksBackMovement
+	follow PLAYERSHOUSE1F_GOOD_RIVAL, PLAYER
+	applymovement PLAYERSHOUSE1F_GOOD_RIVAL, RivalWalksWithPlayer
+	turnobject PLAYERSHOUSE1F_MOM1, RIGHT
+	turnobject PLAYERSHOUSE1F_GOOD_RIVAL, UP
+	opentext
+	writetext MomSaysGoodbye
+	waitbutton
+	closetext
+	turnobject PLAYERSHOUSE1F_MOM1, UP
+	opentext
+	writetext MomSaysGoodbye2
+	waitbutton
+	closetext
+	turnobject PLAYERSHOUSE1F_MOM1, RIGHT
+	opentext
+	writetext MomSaysGoodbye3
+	waitbutton
+	closetext
+	turnobject PLAYER, DOWN
+	opentext
+	stopfollow
+	writetext RivalSaysGoodbye
+	waitbutton
+	closetext
+	applymovement PLAYERSHOUSE1F_GOOD_RIVAL, RivalLeavesHouse
+	playsound SFX_EXIT_BUILDING
+	disappear PLAYERSHOUSE1F_GOOD_RIVAL
 	sjump .Finish
 
 .Finish:
@@ -101,13 +62,6 @@ MeetMomScript:
 
 MeetMomTalkedScript:
 	playmusic MUSIC_MOM
-	sjump MeetMomScript
-
-PokegearName:
-	db "#GEAR@"
-
-PlayersHouse1FReceiveItemStd:
-	jumpstd ReceiveItemScript
 	end
 
 MomScript:
@@ -122,7 +76,7 @@ MomScript:
 	iftrue .BankOfMom
 	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	iftrue .GaveMysteryEgg
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON_FROM_CELIO
 	iftrue .GotAPokemon
 	writetext HurryUpElmIsWaitingText
 	waitbutton
@@ -194,105 +148,85 @@ PlayersHouse1FSinkScript:
 PlayersHouse1FFridgeScript:
 	jumptext PlayersHouse1FFridgeText
 
-MomTurnsTowardPlayerMovement:
-	turn_head RIGHT
+
+RivalWalksToPlayerMovement:
+	big_step UP
+	big_step UP
+	big_step UP
+	big_step UP
 	step_end
 
-MomWalksToPlayerMovement:
-	slow_step RIGHT
+RivalWalksWithPlayer:
+	step DOWN
+	step DOWN
+	step LEFT
+	step DOWN
 	step_end
 
-MomTurnsBackMovement:
-	turn_head LEFT
+RivalLeavesHouse:
+	big_step LEFT
+	big_step DOWN
+	big_step DOWN
 	step_end
 
-MomWalksBackMovement:
-	slow_step LEFT
-	step_end
+CeliosLookingForYouText:
+	text "RIVAL: <PLAYER>!"
+	line "I came by to grab"
 
-ElmsLookingForYouText:
-	text "Oh, <PLAYER>…! Our"
-	line "neighbor, PROF."
+	para "you and take you"
+	line "to PROF. CELIO."
 
-	para "ELM, was looking"
-	line "for you."
+	para "He's asked us to"
+	line "run a few errands"
 
-	para "He said he wanted"
-	line "you to do some-"
-	cont "thing for him."
+	para "for him. Come on,"
+	line "I'll take you!"
 
-	para "Oh! I almost for-"
-	line "got! Your #MON"
-
-	para "GEAR is back from"
-	line "the repair shop."
-
-	para "Here you go!"
 	done
 
-MomGivesPokegearText:
-	text "#MON GEAR, or"
-	line "just #GEAR."
+MomSaysGoodbye:
+	text "MOM: Oh <PLAYER>,"
+	line "are you leaving"
 
-	para "It's essential if"
-	line "you want to be a"
-	cont "good trainer."
-
-	para "Oh, the day of the"
-	line "week isn't set."
-
-	para "You mustn't forget"
-	line "that!"
+	para "already? You have"
+	line "everything you"
+	cont "need? . . ."
 	done
 
-IsItDSTText:
-	text "Is it Daylight"
-	line "Saving Time now?"
+MomSaysGoodbye2:
+	text "I knew you"
+	line "would leave one"
+
+	para "day, but now it's"
+	line "here. . . You"
+	cont "grew up too fast."
 	done
 
-ComeHomeForDSTText:
-	text "Come home to"
-	line "adjust your clock"
+MomSaysGoodbye3:
+	text "Please remember"
+	line "to come back and"
 
-	para "for Daylight"
-	line "Saving Time."
+	para "visit, OK? Now,"
+	line "get going! I'll"
 
-	para "By the way, do you"
-	line "know how to use"
-	cont "the PHONE?"
+	para "be supporting you"
+	line "wherever you go!"
 	done
 
-KnowTheInstructionsText:
-	text "Don't you just"
-	line "turn the #GEAR"
+RivalSaysGoodbye:
+	text "RIVAL: Oh that"
+	line "reminds me, I"
 
-	para "on and select the"
-	line "PHONE icon?"
-	done
+	para "forgot my cash at"
+	line "home! I'll meet"
 
-DontKnowTheInstructionsText:
-	text "I'll read the"
-	line "instructions."
-
-	para "Turn the #GEAR"
-	line "on and select the"
-	cont "PHONE icon."
-	done
-
-InstructionsNextText:
-	text "Phone numbers are"
-	line "stored in memory."
-
-	para "Just choose a name"
-	line "you want to call."
-
-	para "Gee, isn't that"
-	line "convenient?"
+	para "you at the lab"
+	line "<PLAYER>!"
 	done
 
 HurryUpElmIsWaitingText:
-	text "PROF.ELM is wait-"
-	line "ing for you."
+	text "PROF.CELIO is"
+	line "waiting for you."
 
 	para "Hurry up, baby!"
 	done
@@ -387,13 +321,12 @@ PlayersHouse1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  6,  7, NEW_BARK_TOWN, 2
-	warp_event  7,  7, NEW_BARK_TOWN, 2
+	warp_event  6,  7, ONE_ISLAND_TOWN, 1
+	warp_event  7,  7, ONE_ISLAND_TOWN, 1
 	warp_event  9,  0, PLAYERS_HOUSE_2F, 1
 
 	def_coord_events
-	coord_event  8,  4, SCENE_PLAYERSHOUSE1F_MEET_MOM, MeetMomLeftScript
-	coord_event  9,  4, SCENE_PLAYERSHOUSE1F_MEET_MOM, MeetMomRightScript
+	coord_event  9,  1, SCENE_PLAYERSHOUSE1F_MEET_RIVAL, MeetRivalScript
 
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, PlayersHouse1FStoveScript
@@ -407,3 +340,4 @@ PlayersHouse1F_MapEvents:
 	object_event  7,  4, SPRITE_MOM, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, DAY, 0, OBJECTTYPE_SCRIPT, 0, MomScript, EVENT_PLAYERS_HOUSE_MOM_2
 	object_event  0,  2, SPRITE_MOM, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, NITE, 0, OBJECTTYPE_SCRIPT, 0, MomScript, EVENT_PLAYERS_HOUSE_MOM_2
 	object_event  4,  4, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, NeighborScript, EVENT_PLAYERS_HOUSE_1F_NEIGHBOR
+	object_event	9,  6, SPRITE_GOOD_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MeetRivalScript, EVENT_PLAYERS_HOUSE_RIVAL
