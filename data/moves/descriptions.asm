@@ -252,17 +252,15 @@ MoveDescriptions::
 	dw RockSmashDescription
 	dw WhirlpoolDescription
 	dw BeatUpDescription
+	dw Extra1Description
+	dw Extra2Description
+	dw Extra3Description
 	assert_table_length NUM_ATTACKS
-	dw MoveFCDescription
-	dw MoveFDDescription
-	dw MoveFEDescription
 	dw MoveFFDescription
 	dw Move00Description
 	assert_table_length $100
 
-MoveFCDescription:
-MoveFDDescription:
-MoveFEDescription:
+
 MoveFFDescription:
 Move00Description:
 	db "?@"
@@ -1270,3 +1268,15 @@ WhirlpoolDescription:
 BeatUpDescription:
 	db   "Party #MON join"
 	next "in the attack.@"
+
+Extra1Description:
+	db   "Pounds with fore-"
+	next "legs or tail.@"
+	
+Extra2Description:
+	db   "Pounds with fore-"
+	next "legs or tail.@"
+
+Extra3Description:
+	db   "Pounds with fore-"
+	next "legs or tail.@"

@@ -1,4 +1,4 @@
-	db TYROGUE ; 236
+	db TYROGUE ; 109
 
 	db  35,  35,  35,  35,  35,  35
 	;   hp  atk  def  spd  sat  sdf
@@ -17,5 +17,5 @@
 	dn EGG_NONE, EGG_NONE ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, TOXIC, ROCK_SMASH, HIDDEN_POWER, SUNNY_DAY, SNORE, PROTECT, ENDURE, FRUSTRATION, RETURN, MUD_SLAP, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, SWIFT, DETECT, REST, ATTRACT, THIEF, STRENGTH
-	; end
+	tmhm CURSE
+		; end

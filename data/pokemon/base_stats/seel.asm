@@ -1,4 +1,4 @@
-	db SEEL ; 086
+	db SEEL ; 129
 
 	db  65,  45,  55,  45,  45,  70
 	;   hp  atk  def  spd  sat  sdf
@@ -17,5 +17,5 @@
 	dn EGG_WATER_1, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, TOXIC, HIDDEN_POWER, SNORE, BLIZZARD, ICY_WIND, PROTECT, RAIN_DANCE, ENDURE, FRUSTRATION, RETURN, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, REST, ATTRACT, SURF, WHIRLPOOL, WATERFALL, ICE_BEAM
-	; end
+	tmhm CURSE
+		; end

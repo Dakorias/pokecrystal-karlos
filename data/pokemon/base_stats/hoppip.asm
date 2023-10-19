@@ -1,4 +1,4 @@
-	db HOPPIP ; 187
+	db HOPPIP ; 047
 
 	db  35,  35,  40,  50,  35,  55
 	;   hp  atk  def  spd  sat  sdf
@@ -17,5 +17,5 @@
 	dn EGG_FAIRY, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, TOXIC, HIDDEN_POWER, SUNNY_DAY, SWEET_SCENT, SNORE, PROTECT, GIGA_DRAIN, ENDURE, FRUSTRATION, SOLARBEAM, RETURN, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, DEFENSE_CURL, REST, ATTRACT, FLASH
-	; end
+	tmhm CURSE
+		; end

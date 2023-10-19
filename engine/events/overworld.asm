@@ -1188,7 +1188,7 @@ DisappearWhirlpool:
 	ret
 
 TryWhirlpoolOW::
-	ld d, WHIRLPOOL
+	ld d, ROCK_SMASH
 	call CheckPartyMove
 	jr c, .failed
 	ld de, ENGINE_GLACIERBADGE

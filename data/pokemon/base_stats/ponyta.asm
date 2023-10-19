@@ -1,4 +1,4 @@
-	db PONYTA ; 077
+	db PONYTA ; 157
 
 	db  50,  85,  55,  90,  65,  65
 	;   hp  atk  def  spd  sat  sdf
@@ -17,5 +17,5 @@
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm HEADBUTT, CURSE, TOXIC, HIDDEN_POWER, SUNNY_DAY, SNORE, PROTECT, ENDURE, FRUSTRATION, IRON_TAIL, RETURN, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, FIRE_BLAST, SWIFT, REST, ATTRACT, FLAMETHROWER
-	; end
+	tmhm CURSE
+		; end

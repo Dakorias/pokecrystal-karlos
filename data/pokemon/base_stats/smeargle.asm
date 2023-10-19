@@ -1,4 +1,4 @@
-	db SMEARGLE ; 235
+	db SMEARGLE ; 117
 
 	db  55,  20,  35,  75,  20,  45
 	;   hp  atk  def  spd  sat  sdf

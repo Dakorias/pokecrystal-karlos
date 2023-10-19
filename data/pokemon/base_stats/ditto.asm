@@ -1,4 +1,4 @@
-	db DITTO ; 132
+	db DITTO ; 066
 
 	db  48,  48,  48,  48,  48,  48
 	;   hp  atk  def  spd  sat  sdf
@@ -17,5 +17,5 @@
 	dn EGG_DITTO, EGG_DITTO ; egg groups
 
 	; tm/hm learnset
-	tmhm
-	; end
+	tmhm CURSE
+		; end

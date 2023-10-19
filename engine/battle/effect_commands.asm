@@ -180,8 +180,6 @@ BattleCommand_CheckTurn:
 
 	; Snore and Sleep Talk bypass sleep.
 	ld a, [wCurPlayerMove]
-	cp SNORE
-	jr z, .not_asleep
 	cp SLEEP_TALK
 	jr z, .not_asleep
 
@@ -197,8 +195,6 @@ BattleCommand_CheckTurn:
 	; Flame Wheel and Sacred Fire thaw the user.
 	ld a, [wCurPlayerMove]
 	cp FLAME_WHEEL
-	jr z, .not_frozen
-	cp SACRED_FIRE
 	jr z, .not_frozen
 
 	ld hl, FrozenSolidText
@@ -408,8 +404,6 @@ CheckEnemyTurn:
 .fast_asleep
 	; Snore and Sleep Talk bypass sleep.
 	ld a, [wCurEnemyMove]
-	cp SNORE
-	jr z, .not_asleep
 	cp SLEEP_TALK
 	jr z, .not_asleep
 	call CantMove
@@ -424,8 +418,6 @@ CheckEnemyTurn:
 	; Flame Wheel and Sacred Fire thaw the user.
 	ld a, [wCurEnemyMove]
 	cp FLAME_WHEEL
-	jr z, .not_frozen
-	cp SACRED_FIRE
 	jr z, .not_frozen
 
 	ld hl, FrozenSolidText
@@ -915,8 +907,6 @@ IgnoreSleepOnly:
 	call GetBattleVar
 
 	; Snore and Sleep Talk bypass sleep.
-	cp SNORE
-	jr z, .CheckSleep
 	cp SLEEP_TALK
 	jr z, .CheckSleep
 	and a
@@ -1043,18 +1033,11 @@ BattleCommand_DoTurn:
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
-	cp MIMIC
-	jr z, .mimic
 	ld hl, wWildMonMoves
 	add hl, bc
 	ld a, [hl]
-	cp MIMIC
 	ret z
 
-.mimic
-	ld hl, wWildMonPP
-	call .consume_pp
-	ret
 
 .out_of_pp
 	call BattleCommand_MoveDelay
@@ -1101,20 +1084,12 @@ CheckMimicUsed:
 
 	ld a, BATTLE_VARS_MOVE
 	call GetBattleVar
-	cp MIMIC
-	jr z, .mimic
 
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
-	cp MIMIC
-	jr nz, .mimic
 
 	scf
-	ret
-
-.mimic
-	and a
 	ret
 
 BattleCommand_Critical:
@@ -1132,33 +1107,9 @@ BattleCommand_Critical:
 	and a
 	ld hl, wEnemyMonItem
 	ld a, [wEnemyMonSpecies]
-	jr nz, .Item
 	ld hl, wBattleMonItem
 	ld a, [wBattleMonSpecies]
 
-.Item:
-	ld c, 0
-
-	cp CHANSEY
-	jr nz, .Farfetchd
-	ld a, [hl]
-	cp LUCKY_PUNCH
-	jr nz, .FocusEnergy
-
-; +2 critical level
-	ld c, 2
-	jr .Tally
-
-.Farfetchd:
-	cp FARFETCH_D
-	jr nz, .FocusEnergy
-	ld a, [hl]
-	cp STICK
-	jr nz, .FocusEnergy
-
-; +2 critical level
-	ld c, 2
-	jr .Tally
 
 .FocusEnergy:
 	ld a, BATTLE_VARS_SUBSTATUS4
@@ -1675,8 +1626,6 @@ BattleCommand_CheckHit:
 
 	cp EARTHQUAKE
 	ret z
-	cp FISSURE
-	ret z
 	cp MAGNITUDE
 	ret z
 
@@ -1732,8 +1681,6 @@ BattleCommand_CheckHit:
 	call GetBattleVar
 
 	cp EARTHQUAKE
-	ret z
-	cp FISSURE
 	ret z
 	cp MAGNITUDE
 	ret
@@ -2559,14 +2506,12 @@ PlayerAttackDamage:
 .physicalcrit
 	ld hl, wBattleMonAttack
 	call CheckDamageStatsCritical
-	jr c, .thickclub
 
 	ld hl, wEnemyDefense
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
 	ld hl, wPlayerAttack
-	jr .thickclub
 
 .special
 	ld hl, wEnemyMonSpclDef
@@ -2596,9 +2541,7 @@ PlayerAttackDamage:
 	call LightBallBoost
 	jr .done
 
-.thickclub
-; Note: Returns player attack at hl in hl.
-	call ThickClubBoost
+
 
 .done
 	call TruncateHL_BC
@@ -2703,20 +2646,7 @@ CheckDamageStatsCritical:
 	pop hl
 	ret
 
-ThickClubBoost:
-; Return in hl the stat value at hl.
 
-; If the attacking monster is Cubone or Marowak and
-; it's holding a Thick Club, double it.
-	push bc
-	push de
-	ld b, CUBONE
-	ld c, MAROWAK
-	ld d, THICK_CLUB
-	call SpeciesItemBoost
-	pop de
-	pop bc
-	ret
 
 LightBallBoost:
 ; Return in hl the stat value at hl.
@@ -2803,14 +2733,12 @@ EnemyAttackDamage:
 .physicalcrit
 	ld hl, wEnemyMonAttack
 	call CheckDamageStatsCritical
-	jr c, .thickclub
 
 	ld hl, wPlayerDefense
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
 	ld hl, wEnemyAttack
-	jr .thickclub
 
 .special
 	ld hl, wBattleMonSpclDef
@@ -2838,8 +2766,7 @@ EnemyAttackDamage:
 	call LightBallBoost
 	jr .done
 
-.thickclub
-	call ThickClubBoost
+
 
 .done
 	call TruncateHL_BC
@@ -4882,8 +4809,6 @@ CalcBattleStats:
 
 	ret
 
-INCLUDE "engine/battle/move_effects/bide.asm"
-
 BattleCommand_CheckRampage:
 	ld de, wPlayerRolloutCount
 	ldh a, [hBattleTurn]
@@ -5554,20 +5479,9 @@ BattleCommand_Charge:
 	text_asm
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
-	cp RAZOR_WIND
-	ld hl, .BattleMadeWhirlwindText
-	jr z, .done
 
 	cp SOLARBEAM
 	ld hl, .BattleTookSunlightText
-	jr z, .done
-
-	cp SKULL_BASH
-	ld hl, .BattleLoweredHeadText
-	jr z, .done
-
-	cp SKY_ATTACK
-	ld hl, .BattleGlowingText
 	jr z, .done
 
 	cp FLY
@@ -5656,11 +5570,7 @@ BattleCommand_TrapTarget:
 	jp StdBattleTextbox
 
 .Traps:
-	dbw BIND,      UsedBindText      ; 'used BIND on'
 	dbw WRAP,      WrappedByText     ; 'was WRAPPED by'
-	dbw FIRE_SPIN, FireSpinTrapText  ; 'was trapped!'
-	dbw CLAMP,     ClampedByText     ; 'was CLAMPED by'
-	dbw WHIRLPOOL, WhirlpoolTrapText ; 'was trapped!'
 
 INCLUDE "engine/battle/move_effects/mist.asm"
 
@@ -5985,8 +5895,6 @@ DoubleDamage:
 	ld [hl], a
 .quit
 	ret
-
-INCLUDE "engine/battle/move_effects/mimic.asm"
 
 INCLUDE "engine/battle/move_effects/leech_seed.asm"
 

@@ -3,7 +3,7 @@
 	db  70,  80,  100,  60,  80,  110
 	;   hp  atk  def  spd  sat  sdf
 
-	db GROUND, PSYCHIC ; type
+	db GROUND, PSYCHIC_TYPE ; type
 	db 45 ; catch rate
 	db 65 ; base exp
 	db NO_ITEM, NO_ITEM ; items
@@ -14,8 +14,8 @@
 	INCBIN "gfx/pokemon/charmander/front.dimensions"
 	dw NULL, NULL ; unused (beta front/back pics)
 	db GROWTH_MEDIUM_SLOW ; growth rate
-	dn EGG_MINERAL; egg groups
+	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm DYNAMICPUNCH, HEADBUTT, CURSE, TOXIC, ROCK_SMASH, HIDDEN_POWER, SUNNY_DAY, SNORE, PROTECT, ENDURE, FRUSTRATION, IRON_TAIL, DRAGONBREATH, RETURN, DIG, MUD_SLAP, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, FIRE_BLAST, SWIFT, DEFENSE_CURL, REST, ATTRACT, FIRE_PUNCH, FURY_CUTTER, CUT, STRENGTH, FLAMETHROWER
-	; end
+	tmhm CURSE
+		; end

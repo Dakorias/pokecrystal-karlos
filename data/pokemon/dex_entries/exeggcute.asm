@@ -1,10 +1,10 @@
-	db "EGG@" ; species name
-	dw 104, 60 ; height, weight
+	db "TINY BIRD@" ; species name
+	dw 100, 40 ; height, weight
 
-	db   "If even one is"
-	next "separated from the"
-	next "group, the energy"
+	db   "To protect its"
+	next "territory, it"
+	next "flies around"
 
-	page "bond between the"
-	next "six will make them"
-	next "rejoin instantly.@"
+	page "ceaselessly,"
+	next "making high-"
+	next "pitched cries.@"

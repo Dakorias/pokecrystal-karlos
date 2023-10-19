@@ -18,6 +18,4 @@ UsefulMoves:
 	db HYPNOSIS
 	db RECOVER
 	db FIRE_BLAST
-	db SOFTBOILED
-	db SUPER_FANG
 	db -1 ; end
