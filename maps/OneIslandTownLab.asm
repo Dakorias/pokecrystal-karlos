@@ -118,8 +118,8 @@ OneIslandTownLab_MapScripts:
 		checkevent EVENT_GOT_A_POKEMON_FROM_CELIO
 		iftrue LookAtPokeBallScript
 		refreshscreen
-		pokepic LARVITAR
-		cry LARVITAR
+		pokepic SALAMENCE
+		cry SALAMENCE
 		waitbutton
 		closepokepic
 		opentext
@@ -132,7 +132,7 @@ OneIslandTownLab_MapScripts:
 		playsound SFX_CAUGHT_MON
 		waitsfx
 		promptbutton
-		givepoke LARVITAR, 5, BERRY
+		givepoke SALAMENCE, 5, BERRY
 		closetext
 		sjump AfterPokemonScript
 

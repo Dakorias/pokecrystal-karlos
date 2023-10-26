@@ -255,8 +255,8 @@ MoveDescriptions::
 	dw Extra1Description
 	dw Extra2Description
 	dw Extra3Description
+	dw Extra4Description
 	assert_table_length NUM_ATTACKS
-	dw MoveFFDescription
 	dw Move00Description
 	assert_table_length $100
 
@@ -1272,11 +1272,15 @@ BeatUpDescription:
 Extra1Description:
 	db   "Pounds with fore-"
 	next "legs or tail.@"
-	
+
 Extra2Description:
 	db   "Pounds with fore-"
 	next "legs or tail.@"
 
 Extra3Description:
+	db   "Pounds with fore-"
+	next "legs or tail.@"
+
+Extra4Description:
 	db   "Pounds with fore-"
 	next "legs or tail.@"

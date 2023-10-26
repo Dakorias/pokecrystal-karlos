@@ -111,10 +111,10 @@ DEF KRIS EQU __trainer_class__
 	const ERIKA1
 
 	trainerclass YOUNGSTER ; 16
+	const TEST1
+	const TEST2
+	const TEST3
 	const JOEY1
-	const MIKEY
-	const ALBERT
-	const GORDON
 	const SAMUEL
 	const IAN
 	const JOEY2

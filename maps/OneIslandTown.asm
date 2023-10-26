@@ -3,7 +3,6 @@
 OneIslandTown_MapScripts:
 	def_scene_scripts
 
-
 OneIslandTown_MapEvents:
 	db 0, 0 ; filler
 

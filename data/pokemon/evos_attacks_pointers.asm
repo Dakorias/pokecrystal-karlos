@@ -132,7 +132,7 @@ EvosAttacksPointers::
 	dw LanturnEvosAttacks
 	dw SeelEvosAttacks
 	dw DewgongEvosAttacks
-	dw ConttoneeEvosAttacks
+	dw CottoneeEvosAttacks
 	dw WhimsicottEvosAttacks
 	dw EeveeEvosAttacks
 	dw VaporeonEvosAttacks
@@ -181,7 +181,7 @@ EvosAttacksPointers::
 	dw ArmaldoEvosAttacks
 	dw LileepEvosAttacks
 	dw CradillyEvosAttacks
-	dw YirtougaEvosAttacks
+	dw TirtougaEvosAttacks
 	dw CaracostaEvosAttacks
 	dw RotomEvosAttacks
 	dw RioluEvosAttacks
