@@ -34,7 +34,7 @@ BattleCommandPointers:
 	dw BattleCommand_MirrorMove
 	dw BattleCommand_StatUp
 	dw BattleCommand_StatDown
-	dw BattleCommand_PayDay
+	dw BattleCommand_ThunderFang
 	dw BattleCommand_Conversion
 	dw BattleCommand_ResetStats
 	dw BattleCommand_Curl
@@ -42,7 +42,7 @@ BattleCommandPointers:
 	dw BattleCommand_ForceSwitch
 	dw BattleCommand_EndLoop
 	dw BattleCommand_FlinchTarget
-	dw BattleCommand_OHKO
+	dw BattleCommand_FireFang
 	dw BattleCommand_Recoil
 	dw BattleCommand_Mist
 	dw BattleCommand_FocusEnergy
@@ -55,18 +55,18 @@ BattleCommandPointers:
 	dw BattleCommand_Paralyze
 	dw BattleCommand_Substitute
 	dw BattleCommand_RechargeNextTurn
-	dw BattleCommand_Curl
+	dw BattleCommand_IceFang
 	dw BattleCommand_Metronome
 	dw BattleCommand_LeechSeed
-	dw BattleCommand_Splash
+	dw BattleCommand_Curl
 	dw BattleCommand_Disable
 	dw BattleCommand_ClearText
 	dw BattleCommand_Charge
 	dw BattleCommand_CheckCharge
 	dw BattleCommand_TrapTarget
-	dw BattleCommand_Unused3C
-	dw BattleCommand_Rampage
-	dw BattleCommand_CheckRampage
+	dw BattleCommand_Defog
+	dw BattleCommand_Curl
+	dw BattleCommand_Curl
 	dw BattleCommand_ConstantDamage
 	dw BattleCommand_Counter
 	dw BattleCommand_Encore
@@ -97,13 +97,13 @@ BattleCommandPointers:
 	dw BattleCommand_Endure
 	dw BattleCommand_CheckCurl
 	dw BattleCommand_RolloutPower
-	dw BattleCommand_Unused5D
+	dw BattleCommand_Curl
 	dw BattleCommand_FuryCutter
 	dw BattleCommand_Attract
 	dw BattleCommand_HappinessPower
-	dw BattleCommand_Present
+	dw BattleCommand_KnockOff
 	dw BattleCommand_DamageCalc
-	dw BattleCommand_FrustrationPower
+	dw BattleCommand_TrickRoom
 	dw BattleCommand_Safeguard
 	dw BattleCommand_CheckSafeguard
 	dw BattleCommand_GetMagnitude
@@ -180,4 +180,5 @@ BattleCommandPointers:
 	dw BattleCommand_SuperEffectiveLoopText
 	dw BattleCommand_StartLoop
 	dw BattleCommand_Curl
+	dw BattleCommand_Hail
 	assert_table_length NUM_EFFECT_COMMANDS

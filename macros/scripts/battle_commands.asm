@@ -34,7 +34,7 @@ ENDM
 	command mirrormove              ; 1b
 	command statup                  ; 1c
 	command statdown                ; 1d
-	command payday                  ; 1e
+	command thunderfang             ; 1e
 	command conversion              ; 1f
 	command resetstats              ; 20
 	command storeenergy             ; 21
@@ -42,7 +42,7 @@ ENDM
 	command forceswitch             ; 23
 	command endloop                 ; 24
 	command flinchtarget            ; 25
-	command ohko                    ; 26
+	command firefang                ; 26
 	command recoil                  ; 27
 	command mist                    ; 28
 	command focusenergy             ; 29
@@ -55,18 +55,18 @@ ENDM
 	command paralyze                ; 30
 	command substitute              ; 31
 	command rechargenextturn        ; 32
-	command mimic                   ; 33
+	command icefang                 ; 33
 	command metronome               ; 34
 	command leechseed               ; 35
-	command splash                  ; 36
+	command eruption                ; 36
 	command disable                 ; 37
 	command cleartext               ; 38
 	command charge                  ; 39
 	command checkcharge             ; 3a
 	command traptarget              ; 3b
-	command effect0x3c              ; 3c
-	command rampage                 ; 3d
-	command checkrampage            ; 3e
+	command defog                   ; 3c
+	command roost                   ; 3d
+	command brine                   ; 3e
 	command constantdamage          ; 3f
 	command counter                 ; 40
 	command encore                  ; 41
@@ -97,13 +97,13 @@ ENDM
 	command endure                  ; 5a
 	command checkcurl               ; 5b
 	command rolloutpower            ; 5c
-	command effect0x5d              ; 5d
+	command phantomforce            ; 5d
 	command furycutter              ; 5e
 	command attract                 ; 5f
 	command happinesspower          ; 60
-	command present                 ; 61
+	command knockoff                ; 61
 	command damagecalc              ; 62
-	command frustrationpower        ; 63
+	command trickroom               ; 63
 	command safeguard               ; 64
 	command checksafeguard          ; 65
 	command getmagnitude            ; 66
@@ -180,6 +180,7 @@ ENDM
 	command supereffectivelooptext  ; ad
 	command startloop               ; ae
 	command curl                    ; af
+	command hail						    	  ; b0
 DEF NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1

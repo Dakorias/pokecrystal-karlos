@@ -157,7 +157,7 @@ MoveNames::
 	li "SHADOW SNEAK"
 	li "REST"
 	li "ROCK SLIDE"
-	li "SUCKER PUNCH"
+	li "KNOCK OFF"
 	li "SHARPEN"
 	li "CONVERSION"
 	li "TRI ATTACK"

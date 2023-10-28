@@ -16,35 +16,35 @@ MoveEffectsPointers:
 	dw SpeedUp
 	dw SpecialAttackUp
 	dw SpecialDefenseUp
-	dw AccuracyUp
+	dw Flatter
 	dw EvasionUp
 	dw NormalHit
 	dw AttackDown
 	dw DefenseDown
 	dw SpeedDown
-	dw SpecialAttackDown
-	dw SpecialDefenseDown
+	dw CalmMind
+	dw QuiverDance
 	dw AccuracyDown
-	dw EvasionDown
+	dw DarkVoid
 	dw ResetStats
-	dw Bide
-	dw Rampage
+	dw ChargeBeam
+	dw ThunderFang
 	dw ForceSwitch
 	dw MultiHit
 	dw Conversion
 	dw FlinchHit
 	dw Heal
 	dw Toxic
-	dw PayDay
+	dw FireFang
 	dw LightScreen
 	dw TriAttack
-	dw NormalHit
-	dw OHKOHit
-	dw RazorWind
-	dw SuperFang
+	dw IceFang
+	dw Eruption
+	dw WillOWisp
+	dw Defog
 	dw StaticDamage
 	dw TrapTarget
-	dw NormalHit
+	dw Roost
 	dw MultiHit
 	dw NormalHit
 	dw Mist
@@ -56,37 +56,37 @@ MoveEffectsPointers:
 	dw SpeedUp2
 	dw SpecialAttackUp2
 	dw SpecialDefenseUp2
-	dw AccuracyUp2
-	dw EvasionUp2
+	dw Brine
+	dw PhantomForce
 	dw Transform
 	dw AttackDown2
 	dw DefenseDown2
 	dw SpeedDown2
-	dw SpecialAttackDown2
-	dw SpecialDefenseDown2
-	dw AccuracyDown2
-	dw EvasionDown2
+	dw KnockOff
+	dw TrickRoom
+	dw Dive
+	dw CosmicPower
 	dw Reflect
 	dw DoPoison
 	dw DoParalyze
 	dw AttackDownHit
 	dw DefenseDownHit
 	dw SpeedDownHit
-	dw SpecialAttackDownHit
+	dw SpecialAttackDown2User
 	dw SpecialDefenseDownHit
 	dw AccuracyDownHit
-	dw EvasionDownHit
-	dw SkyAttack
+	dw Avalanche
+	dw Hail
 	dw ConfuseHit
 	dw PoisonMultiHit
-	dw NormalHit
+	dw BlastBurn
 	dw Substitute
 	dw HyperBeam
 	dw Rage
-	dw Mimic
+	dw HydroCannon
 	dw Metronome
 	dw LeechSeed
-	dw Splash
+	dw FrenzyPlant
 	dw Disable
 	dw StaticDamage
 	dw Psywave
@@ -123,8 +123,8 @@ MoveEffectsPointers:
 	dw FuryCutter
 	dw Attract
 	dw Return
-	dw Present
-	dw Frustration
+	dw NormalHit
+	dw NormalHit
 	dw Safeguard
 	dw SacredFire
 	dw Magnitude
@@ -158,4 +158,5 @@ MoveEffectsPointers:
 	dw BeatUp
 	dw Fly
 	dw DefenseCurl
+	dw FreezeHit
 	assert_table_length NUM_MOVE_EFFECTS

@@ -509,6 +509,8 @@ wWhichMonFaintedFirst:: db
 wLastPlayerCounterMove:: db
 wLastEnemyCounterMove:: db
 
+wTrickRoom:: db
+
 wEnemyMinimized:: db
 
 wAlreadyFailed:: db

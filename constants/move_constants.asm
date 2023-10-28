@@ -163,7 +163,7 @@
 	const SHADOW_SNEAK ; 9b
 	const REST         ; 9c
 	const ROCK_SLIDE   ; 9d
-	const SUCKER_PUNCH ; 9e
+	const KNOCK_OFF    ; 9e
 	const SHARPEN      ; 9f
 	const CONVERSION   ; a0
 	const TRI_ATTACK   ; a1

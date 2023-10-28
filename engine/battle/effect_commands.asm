@@ -1,3 +1,5 @@
+INCLUDE "engine/battle/move_effects/trick_room.asm"
+
 DoPlayerTurn:
 	call SetPlayerTurn
 
@@ -1060,14 +1062,10 @@ BattleCommand_DoTurn:
 	ret
 
 .continuousmoves
-	db EFFECT_RAZOR_WIND
-	db EFFECT_SKY_ATTACK
 	db EFFECT_SKULL_BASH
 	db EFFECT_SOLARBEAM
 	db EFFECT_FLY
 	db EFFECT_ROLLOUT
-	db EFFECT_BIDE
-	db EFFECT_RAMPAGE
 	db -1
 
 CheckMimicUsed:
@@ -1513,6 +1511,9 @@ BattleCommand_CheckHit:
 	call .ThunderRain
 	ret z
 
+	call .BlizzardHail
+	ret z
+
 	call .XAccuracy
 	ret nz
 
@@ -1696,6 +1697,16 @@ BattleCommand_CheckHit:
 	cp WEATHER_RAIN
 	ret
 
+.BlizzardHail:
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_BLIZZARD
+	ret nz
+
+	ld a, [wBattleWeather]
+	cp WEATHER_HAIL
+	ret
+
 .XAccuracy:
 	ld a, BATTLE_VARS_SUBSTATUS4
 	call GetBattleVar
@@ -1833,10 +1844,6 @@ BattleCommand_LowerSub:
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_RAZOR_WIND
-	jr z, .charge_turn
-	cp EFFECT_SKY_ATTACK
-	jr z, .charge_turn
 	cp EFFECT_SKULL_BASH
 	jr z, .charge_turn
 	cp EFFECT_SOLARBEAM
@@ -1871,8 +1878,6 @@ BattleCommand_LowerSub:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_ROLLOUT
-	jr z, .rollout_rampage
-	cp EFFECT_RAMPAGE
 	jr z, .rollout_rampage
 
 	ld a, 1
@@ -3077,11 +3082,14 @@ BattleCommand_ConstantDamage:
 	cp EFFECT_PSYWAVE
 	jr z, .psywave
 
-	cp EFFECT_SUPER_FANG
-	jr z, .super_fang
-
 	cp EFFECT_REVERSAL
-	jr z, .reversal
+	jp z, .reversal
+
+	cp EFFECT_ERUPTION
+	jp z, .eruption
+
+	cp EFFECT_BRINE
+	jp z, .brine
 
 	ld a, BATTLE_VARS_MOVE_POWER
 	call GetBattleVar
@@ -3102,29 +3110,6 @@ BattleCommand_ConstantDamage:
 	jr nc, .psywave_loop
 	ld b, a
 	ld a, 0
-	jr .got_power
-
-.super_fang
-	ld hl, wEnemyMonHP
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .got_hp
-	ld hl, wBattleMonHP
-.got_hp
-	ld a, [hli]
-	srl a
-	ld b, a
-	ld a, [hl]
-	rr a
-	push af
-	ld a, b
-	pop bc
-	and a
-	jr nz, .got_power
-	or b
-	ld a, 0
-	jr nz, .got_power
-	ld b, 1
 	jr .got_power
 
 .got_power
@@ -3193,6 +3178,142 @@ BattleCommand_ConstantDamage:
 	ldh a, [hBattleTurn]
 	and a
 	ld a, [hl]
+	jp nz, .notPlayersTurn
+
+	ld hl, wPlayerMoveStructPower
+	ld [hl], a
+	push hl
+	call PlayerAttackDamage
+	jp .notEnemysTurn
+
+.eruption
+	ld hl, wBattleMonHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .eruption_got_hp
+	ld hl, wEnemyMonHP
+.eruption_got_hp
+	xor a
+	ldh [hDividend], a
+	ldh [hMultiplicand + 0], a
+	ld a, [hli]
+	ldh [hMultiplicand + 1], a
+	ld a, [hli]
+	ldh [hMultiplicand + 2], a
+	ld a, 48
+	ldh [hMultiplier], a
+	call Multiply
+	ld a, [hli]
+	ld b, a
+	ld a, [hl]
+	ldh [hDivisor], a
+	ld a, b
+	and a
+	jr z, .skip_to_divide_eruption
+
+	ldh a, [hProduct + 4]
+	srl b
+	rr a
+	srl b
+	rr a
+	ldh [hDivisor], a
+	ldh a, [hProduct + 2]
+	ld b, a
+	srl b
+	ldh a, [hProduct + 3]
+	rr a
+	srl b
+	rr a
+	ldh [hDividend + 3], a
+	ld a, b
+	ldh [hDividend + 2], a
+
+.skip_to_divide_eruption
+	ld b, 4
+	call Divide
+	ldh a, [hQuotient + 3]
+	ld b, a
+	ld hl, EruptionPower
+
+.eruption_loop
+	ld a, [hli]
+	cp b
+	jr nc, .break_loop_eruption
+	inc hl
+	jr .eruption_loop
+
+.break_loop_eruption
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [hl]
+	jr nz, .notPlayersTurn
+
+	ld hl, wPlayerMoveStructPower
+	ld [hl], a
+	push hl
+	call PlayerAttackDamage
+	jr .notEnemysTurn
+
+.brine
+	ld hl, wBattleMonHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .brine_got_hp
+	ld hl, wEnemyMonHP
+.brine_got_hp
+	xor a
+	ldh [hDividend], a
+	ldh [hMultiplicand + 0], a
+	ld a, [hli]
+	ldh [hMultiplicand + 1], a
+	ld a, [hli]
+	ldh [hMultiplicand + 2], a
+	ld a, 48
+	ldh [hMultiplier], a
+	call Multiply
+	ld a, [hli]
+	ld b, a
+	ld a, [hl]
+	ldh [hDivisor], a
+	ld a, b
+	and a
+	jr z, .skip_to_divide_brine
+
+	ldh a, [hProduct + 4]
+	srl b
+	rr a
+	srl b
+	rr a
+	ldh [hDivisor], a
+	ldh a, [hProduct + 2]
+	ld b, a
+	srl b
+	ldh a, [hProduct + 3]
+	rr a
+	srl b
+	rr a
+	ldh [hDividend + 3], a
+	ld a, b
+	ldh [hDividend + 2], a
+
+.skip_to_divide_brine
+	ld b, 4
+	call Divide
+	ldh a, [hQuotient + 3]
+	ld b, a
+	ld hl, BrinePower
+
+.brine_loop
+	ld a, [hli]
+	cp b
+	jr nc, .break_loop_brine
+	inc hl
+	jr .brine_loop
+
+.break_loop_brine
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [hl]
 	jr nz, .notPlayersTurn
 
 	ld hl, wPlayerMoveStructPower
@@ -3214,6 +3335,10 @@ BattleCommand_ConstantDamage:
 	ret
 
 INCLUDE "data/moves/flail_reversal_power.asm"
+
+INCLUDE "data/moves/eruption_power.asm"
+
+INCLUDE "data/moves/brine_power.asm"
 
 INCLUDE "engine/battle/move_effects/counter.asm"
 
@@ -4370,16 +4495,10 @@ CheckMist:
 	call GetBattleVar
 	cp EFFECT_ATTACK_DOWN
 	jr c, .dont_check_mist
-	cp EFFECT_EVASION_DOWN + 1
-	jr c, .check_mist
 	cp EFFECT_ATTACK_DOWN_2
 	jr c, .dont_check_mist
-	cp EFFECT_EVASION_DOWN_2 + 1
-	jr c, .check_mist
 	cp EFFECT_ATTACK_DOWN_HIT
 	jr c, .dont_check_mist
-	cp EFFECT_EVASION_DOWN_HIT + 1
-	jr c, .check_mist
 .dont_check_mist
 	xor a
 	ret
@@ -4671,6 +4790,57 @@ BattleCommand_TriStatusChance:
 	dw BattleCommand_FreezeTarget ; freeze
 	dw BattleCommand_BurnTarget ; burn
 
+BattleCommand_ThunderFang:
+	call BattleCommand_EffectChance
+.loop
+	; 10% chance for both flinch and paralyze
+	call BattleRandom
+	swap a
+	and %11
+	jr z, .loop
+	dec a
+	ld hl, .ThunderFangStatus
+	rst JumpTable
+	ret
+
+.ThunderFangStatus
+	dw BattleCommand_ParalyzeTarget ; paralyze
+	dw BattleCommand_FlinchTarget ; flinch
+
+BattleCommand_FireFang:
+	call BattleCommand_EffectChance
+.loop
+	; 10% chance for both flinch and burn
+	call BattleRandom
+	swap a
+	and %11
+	jr z, .loop
+	dec a
+	ld hl, .FireFangStatus
+	rst JumpTable
+	ret
+
+.FireFangStatus
+	dw BattleCommand_BurnTarget; burn
+	dw BattleCommand_FlinchTarget ; flinch
+
+BattleCommand_IceFang:
+	call BattleCommand_EffectChance
+.loop
+	; 10% chance for both flinch and freeze
+	call BattleRandom
+	swap a
+	and %11
+	jr z, .loop
+	dec a
+	ld hl, .IceFangStatus
+	rst JumpTable
+	ret
+
+.IceFangStatus
+	dw BattleCommand_FreezeTarget; freeze
+	dw BattleCommand_FlinchTarget ; flinch
+
 BattleCommand_Curl:
 	ld a, BATTLE_VARS_SUBSTATUS2
 	call GetBattleVarAddr
@@ -4809,65 +4979,6 @@ CalcBattleStats:
 
 	ret
 
-BattleCommand_CheckRampage:
-	ld de, wPlayerRolloutCount
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .player
-	ld de, wEnemyRolloutCount
-.player
-	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
-	bit SUBSTATUS_RAMPAGE, [hl]
-	ret z
-	ld a, [de]
-	dec a
-	ld [de], a
-	jr nz, .continue_rampage
-
-	res SUBSTATUS_RAMPAGE, [hl]
-	call BattleCommand_SwitchTurn
-	call SafeCheckSafeguard
-	push af
-	call BattleCommand_SwitchTurn
-	pop af
-	jr nz, .continue_rampage
-
-	set SUBSTATUS_CONFUSED, [hl]
-	call BattleRandom
-	and %00000001
-	inc a
-	inc a
-	inc de ; ConfuseCount
-	ld [de], a
-.continue_rampage
-	ld b, rampage_command
-	jp SkipToBattleCommand
-
-BattleCommand_Rampage:
-; No rampage during Sleep Talk.
-	ld a, BATTLE_VARS_STATUS
-	call GetBattleVar
-	and SLP_MASK
-	ret nz
-
-	ld de, wPlayerRolloutCount
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ok
-	ld de, wEnemyRolloutCount
-.ok
-	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
-	set SUBSTATUS_RAMPAGE, [hl]
-; Rampage for 1 or 2 more turns
-	call BattleRandom
-	and %00000001
-	inc a
-	ld [de], a
-	ld a, 1
-	ld [wSomeoneIsRampaging], a
-	ret
 
 INCLUDE "engine/battle/move_effects/teleport.asm"
 
@@ -5735,6 +5846,8 @@ BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit:
 	ret z
 	cp EFFECT_SWAGGER
 	ret z
+	cp EFFECT_FLATTER
+	ret z
 	jp PrintDidntAffect2
 
 BattleCommand_Paralyze:
@@ -6189,6 +6302,8 @@ ResetTurn:
 
 INCLUDE "engine/battle/move_effects/thief.asm"
 
+INCLUDE "engine/battle/move_effects/knockoff.asm"
+
 BattleCommand_ArenaTrap:
 ; Doesn't work on an absent opponent.
 
@@ -6409,6 +6524,8 @@ BattleCommand_TimeBasedHealContinue:
 
 INCLUDE "engine/battle/move_effects/hidden_power.asm"
 
+INCLUDE "engine/battle/move_effects/defog.asm"
+
 INCLUDE "engine/battle/move_effects/rain_dance.asm"
 
 INCLUDE "engine/battle/move_effects/sunny_day.asm"
@@ -6450,6 +6567,8 @@ BattleCommand_SkipSunCharge:
 INCLUDE "engine/battle/move_effects/future_sight.asm"
 
 INCLUDE "engine/battle/move_effects/thunder.asm"
+
+INCLUDE "engine/battle/move_effects/hail.asm"
 
 CheckHiddenOpponent:
 ; BUG: Lock-On and Mind Reader don't always bypass Fly and Dig (see docs/bugs_and_glitches.md)

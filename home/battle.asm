@@ -260,6 +260,7 @@ GetBattleAnimByte::
 	ld a, [wBattleAnimByte]
 	ret
 
+
 PushLYOverrides::
 	ldh a, [hLCDCPointer]
 	and a
