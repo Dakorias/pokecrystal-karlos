@@ -517,6 +517,7 @@ GolbatEvosAttacks:
  db 0 ; no more level-up moves
 
  WooperEvosAttacks:
+ db EVOLVE_LEVEL, 20, QUAGSIRE
  db 0 ; no more evolutions
  db 1, TACKLE
  db 1, TAIL_WHIP
@@ -543,48 +544,132 @@ GolbatEvosAttacks:
  db 0 ; no more level-up moves
 
  GastlyEvosAttacks:
+ db EVOLVE_LEVEL, 25, HAUNTER
  db 0 ; no more evolutions
- db 1, POUND
+ db 1, HYPNOSIS
+ db 1, LICK
+ db 11, MEAN_LOOK
+ db 16, CURSE
+ db 19, WILL_O_WISP
+ db 22, NIGHT_SHADE
+ db 30, CONFUSE_RAY
+ db 35, DREAM_EATER
  db 0 ; no more level-up moves
 
  HaunterEvosAttacks:
+ db EVOLVE_LEVEL, 40, GENGAR
  db 0 ; no more evolutions
- db 1, POUND
+ db 1, HYPNOSIS
+ db 1, LICK
+ db 11, MEAN_LOOK
+ db 16, CURSE
+ db 19, WILL_O_WISP
+ db 22, NIGHT_SHADE
+ db 25, SHADOW_CLAW
+ db 32, DREAM_EATER
+ db 38, SHADOW_BALL
+ db 46, SHADOW_SNEAK
+ db 55, DESTINY_BOND
  db 0 ; no more level-up moves
 
  GengarEvosAttacks:
  db 0 ; no more evolutions
- db 1, POUND
+ db 1, HYPNOSIS
+ db 1, LICK
+ db 11, MEAN_LOOK
+ db 16, CURSE
+ db 19, WILL_O_WISP
+ db 22, NIGHT_SHADE
+ db 25, SHADOW_CLAW
+ db 32, DREAM_EATER
+ db 38, SHADOW_BALL
+ db 46, SHADOW_SNEAK
+ db 55, DESTINY_BOND
  db 0 ; no more level-up moves
 
  OnixEvosAttacks:
+ db EVOLVE_ITEM, METAL_COAT, STEELIX
  db 0 ; no more evolutions
+ db 1, TACKLE
+ db 1, HARDEN
+ db 1, WRAP
+ db 9, ROCK_THROW
+ db 14, RAGE
+ db 20, ROCK_TOMB
+ db 26, SANDSTORM
+ db 30, ROCK_POLISH
+ db 38, IRON_TAIL
+ db 42, STONE_EDGE
+ db 1, POUND
  db 1, POUND
  db 0 ; no more level-up moves
 
  SteelixEvosAttacks:
  db 0 ; no more evolutions
- db 1, POUND
+ db 1, TACKLE
+ db 1, HARDEN
+ db 1, WRAP
+ db 9, ROCK_THROW
+ db 14, RAGE
+ db 20, ROCK_TOMB
+ db 26, SANDSTORM
+ db 32, IRON_TAIL
+ db 40, CRUNCH
+ db 44, ROCK_SLIDE
+ db 58, FIRE_FANG
  db 0 ; no more level-up moves
 
  UnownEvosAttacks:
  db 0 ; no more evolutions
- db 1, POUND
+ db 1, HIDDEN_POWER
+ db 1, ANCIENTPOWER
  db 0 ; no more level-up moves
 
  HoppipEvosAttacks:
+ db EVOLVE_LEVEL, 18, SKIPLOOM
  db 0 ; no more evolutions
- db 1, POUND
+ db 1, TACKLE
+ db 1, TAIL_WHIP
+ db 5, SYNTHESIS
+ db 10, POISONPOWDER
+ db 12, STUN_SPORE
+ db 14, SLEEP_POWDER
+ db 20, MEGA_DRAIN
+ db 26, LEECH_SEED
+ db 34, GIGA_DRAIN
+ db 42, U_TURN
+ db 50, ENCORE
  db 0 ; no more level-up moves
 
  SkiploomEvosAttacks:
+ db EVOLVE_LEVEL, 28, JUMPLUFF
  db 0 ; no more evolutions
- db 1, POUND
+ db 1, TACKLE
+ db 1, TAIL_WHIP
+ db 5, SYNTHESIS
+ db 10, POISONPOWDER
+ db 12, STUN_SPORE
+ db 14, SLEEP_POWDER
+ db 20, MEGA_DRAIN
+ db 26, LEECH_SEED
+ db 34, GIGA_DRAIN
+ db 42, U_TURN
+ db 50, ENCORE
  db 0 ; no more level-up moves
 
  JumpluffEvosAttacks:
  db 0 ; no more evolutions
- db 1, POUND
+ db 1, TACKLE
+ db 1, TAIL_WHIP
+ db 5, SYNTHESIS
+ db 10, POISONPOWDER
+ db 12, STUN_SPORE
+ db 14, SLEEP_POWDER
+ db 20, MEGA_DRAIN
+ db 26, LEECH_SEED
+ db 34, GIGA_DRAIN
+ db 42, U_TURN
+ db 50, ENCORE
  db 0 ; no more level-up moves
 
  ApplinEvosAttacks:

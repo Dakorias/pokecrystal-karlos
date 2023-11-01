@@ -33,7 +33,7 @@ Moves:
 	move WING_ATTACK,  EFFECT_NORMAL_HIT,         60, FLYING,       100, 35,   0
 	move WHIRLWIND,    EFFECT_FORCE_SWITCH,        0, NORMAL,       100, 20,   0
 	move FLY,          EFFECT_FLY,                70, FLYING,        95, 15,   0
-	move U_TURN,       EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
+	move U_TURN,       EFFECT_UTURN,              70, BUG,          100,  5,   0
 	move DARK_PULSE,   EFFECT_FLINCH_HIT,         80, DARK,         100, 15,  20
 	move VINE_WHIP,    EFFECT_NORMAL_HIT,         35, GRASS,        100, 10,   0
 	move STOMP,        EFFECT_STOMP,              65, NORMAL,       100, 20,  30

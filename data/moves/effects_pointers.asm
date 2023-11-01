@@ -159,4 +159,5 @@ MoveEffectsPointers:
 	dw Fly
 	dw DefenseCurl
 	dw FreezeHit
+	dw Uturn
 	assert_table_length NUM_MOVE_EFFECTS
