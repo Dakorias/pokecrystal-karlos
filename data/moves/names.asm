@@ -2,7 +2,7 @@ MoveNames::
 	list_start MoveNames
 	li "POUND"
 	li "KARATE CHOP"
-	li "DOUBLESLAP"
+	li "SWIFT"
 	li "COMET PUNCH"
 	li "FLATTER"
 	li "BUG BUZZ"

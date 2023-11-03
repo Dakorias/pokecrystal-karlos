@@ -427,7 +427,9 @@ QuiverDance:
 	usedmovetext
 	doturn
 	specialattackup
+	statupmessage
 	specialdefenseup
+	statupmessage
 	speedup
 	lowersub
 	statupanim

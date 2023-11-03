@@ -8,7 +8,7 @@
 	const NO_MOVE      ; 00
 	const POUND        ; 01
 	const KARATE_CHOP  ; 02
-	const DOUBLESLAP   ; 03
+	const SWIFT        ; 03
 	const COMET_PUNCH  ; 04
 	const FLATTER      ; 05
 	const BUG_BUZZ	   ; 06
@@ -88,7 +88,7 @@
 	const AURA_SPHERE  ; 50
 	const STRING_SHOT  ; 51
 	const DRAGON_RAGE  ; 52
-	const BLAZE_KICK ; 53
+	const BLAZE_KICK   ; 53
 	const THUNDERSHOCK ; 54
 	const THUNDERBOLT  ; 55
 	const THUNDER_WAVE ; 56
