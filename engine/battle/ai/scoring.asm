@@ -90,32 +90,31 @@ AI_Setup:
 
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 
+	cp EFFECT_CURSE
+	jr nz, .not_curse
+	ld de, wEnemyMonType1
+	ld a, [de]
+	cp GHOST
+	jr nz, .checkmove
+	jr .statup
+
+.not_curse
 	cp EFFECT_ATTACK_UP
 	jr c, .checkmove
-	cp EFFECT_EVASION_UP + 1
+	cp EFFECT_ATTACK_DOWN
 	jr c, .statup
 
-;	cp EFFECT_ATTACK_DOWN - 1
-	jr z, .checkmove
-
-	cp EFFECT_ATTACK_UP_2
-	jr c, .checkmove
-;	cp EFFECT_ATTACK_DOWN_2 - 1
-	jr z, .checkmove
-
-	jr .checkmove
+	; stat-down move
+	ld a, [wPlayerTurnsTaken]
+	and a
+	jr nz, .discourage
+	jr .encourage
 
 .statup
 	ld a, [wEnemyTurnsTaken]
 	and a
 	jr nz, .discourage
-
 	jr .encourage
-
-.statdown
-	ld a, [wPlayerTurnsTaken]
-	and a
-	jr nz, .discourage
 
 .encourage
 	call AI_50_50
@@ -329,7 +328,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_PAIN_SPLIT,       AI_Smart_PainSplit
 	dbw EFFECT_SNORE,            AI_Smart_Snore
 	dbw EFFECT_CONVERSION2,      AI_Smart_Conversion2
-	dbw EFFECT_LOCK_ON,          AI_Smart_LockOn
 	dbw EFFECT_DEFROST_OPPONENT, AI_Smart_DefrostOpponent
 	dbw EFFECT_SLEEP_TALK,       AI_Smart_SleepTalk
 	dbw EFFECT_DESTINY_BOND,     AI_Smart_DestinyBond
@@ -362,6 +360,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_HIDDEN_POWER,     AI_Smart_HiddenPower
 	dbw EFFECT_RAIN_DANCE,       AI_Smart_RainDance
 	dbw EFFECT_SUNNY_DAY,        AI_Smart_SunnyDay
+	dbw EFFECT_HAIL,						 AI_Smart_Hail
 	dbw EFFECT_BELLY_DRUM,       AI_Smart_BellyDrum
 	dbw EFFECT_PSYCH_UP,         AI_Smart_PsychUp
 	dbw EFFECT_MIRROR_COAT,      AI_Smart_MirrorCoat
@@ -374,6 +373,12 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_SOLARBEAM,        AI_Smart_Solarbeam
 	dbw EFFECT_THUNDER,          AI_Smart_Thunder
 	dbw EFFECT_FLY,              AI_Smart_Fly
+	dbw EFFECT_DIVE,						 AI_Smart_Fly
+	dbw EFFECT_FLATTER,					 AI_Smart_Flatter
+	dbw EFFECT_UTURN,						 AI_Smart_Uturn
+	dbw EFFECT_DARK_VOID,				 AI_Smart_Sleep
+	dbw EFFECT_TRICK_ROOM,			 AI_Smart_Trick_Room
+	dbw EFFECT_ERUPTION, 				 AI_Smart_Eruption
 	db -1 ; end
 
 AI_Smart_Sleep:
@@ -429,109 +434,6 @@ AI_Smart_LeechHit:
 	inc [hl]
 	ret
 
-AI_Smart_LockOn:
-	ld a, [wPlayerSubStatus5]
-	bit SUBSTATUS_LOCK_ON, a
-	jr nz, .player_locked_on
-
-	push hl
-	call AICheckEnemyQuarterHP
-	jr nc, .discourage
-
-	call AICheckEnemyHalfHP
-	jr c, .skip_speed_check
-
-	call AICompareSpeed
-	jr nc, .discourage
-
-.skip_speed_check
-	ld a, [wPlayerEvaLevel]
-	cp BASE_STAT_LEVEL + 3
-	jr nc, .maybe_encourage
-	cp BASE_STAT_LEVEL + 1
-	jr nc, .do_nothing
-
-	ld a, [wEnemyAccLevel]
-	cp BASE_STAT_LEVEL - 2
-	jr c, .maybe_encourage
-	cp BASE_STAT_LEVEL
-	jr c, .do_nothing
-
-	ld hl, wEnemyMonMoves
-	ld c, NUM_MOVES + 1
-.checkmove
-	dec c
-	jr z, .discourage
-
-	ld a, [hli]
-	and a
-	jr z, .discourage
-
-	call AIGetEnemyMove
-
-	ld a, [wEnemyMoveStruct + MOVE_ACC]
-	cp 71 percent - 1
-	jr nc, .checkmove
-
-	ld a, 1
-	ldh [hBattleTurn], a
-
-	push hl
-	push bc
-	farcall BattleCheckTypeMatchup
-	ld a, [wTypeMatchup]
-	cp EFFECTIVE
-	pop bc
-	pop hl
-	jr c, .checkmove
-
-.do_nothing
-	pop hl
-	ret
-
-.discourage
-	pop hl
-	inc [hl]
-	ret
-
-.maybe_encourage
-	pop hl
-	call AI_50_50
-	ret c
-
-	dec [hl]
-	dec [hl]
-	ret
-
-.player_locked_on
-	push hl
-	ld hl, wEnemyAIMoveScores - 1
-	ld de, wEnemyMonMoves
-	ld c, NUM_MOVES + 1
-
-.checkmove2
-	inc hl
-	dec c
-	jr z, .dismiss
-
-	ld a, [de]
-	and a
-	jr z, .dismiss
-
-	inc de
-	call AIGetEnemyMove
-
-	ld a, [wEnemyMoveStruct + MOVE_ACC]
-	cp 71 percent - 1
-	jr nc, .checkmove2
-
-	dec [hl]
-	dec [hl]
-	jr .checkmove2
-
-.dismiss
-	pop hl
-	jp AIDiscourageMove
 
 AI_Smart_Selfdestruct:
 ; Selfdestruct, Explosion
@@ -1125,7 +1027,7 @@ AI_Smart_SpDefenseUp2:
 	ret
 
 AI_Smart_Fly:
-; Fly, Dig
+; Fly, Dig, Dive
 
 ; Greatly encourage this move if the player is
 ; flying or underground, and slower than the enemy.
@@ -1142,11 +1044,25 @@ AI_Smart_Fly:
 	dec [hl]
 	ret
 
-AI_Smart_SuperFang:
-; Discourage this move if player's HP is below 25%.
+AI_Smart_Trick_Room:
+; Greatly encourage this move if it would make us outspeed, discourage otherwise
+	call AICompareSpeed
+	jp c, AIDiscourageMove
 
-	call AICheckPlayerQuarterHP
-	ret c
+	; Avoid obvious PP stall by only encouraging the move if setting TR up
+	ld a, [wTrickRoom]
+	and a
+	ret nz
+
+	dec [hl]
+	dec [hl]
+	dec [hl]
+
+AI_Smart_Eruption:
+; Encourage this move above Half HP
+
+	call AICheckEnemyHalfHP
+	ret nc
 	inc [hl]
 	ret
 
@@ -2177,6 +2093,7 @@ AI_Smart_Rollout:
 	inc [hl]
 	ret
 
+AI_Smart_Flatter:
 AI_Smart_Swagger:
 AI_Smart_Attract:
 ; 80% chance to encourage this move during the first turn of player's Pokemon.
@@ -2238,6 +2155,7 @@ AI_Smart_Earthquake:
 	dec [hl]
 	ret
 
+AI_Smart_Uturn:
 AI_Smart_BatonPass:
 ; Discourage this move if the player hasn't shown super-effective moves against the enemy.
 ; Consider player's type(s) if its moves are unknown.
@@ -2371,6 +2289,46 @@ AI_Smart_SunnyDay:
 	ld hl, SunnyDayMoves
 
 	; fallthrough
+
+AI_Smart_Hail:
+	; Greatly discourage this move if the player is immune to Hail damage.
+		ld a, [wBattleMonType1]
+		cp ICE
+		jr z, .greatly_discourage
+
+		ld a, [wBattleMonType2]
+		cp ICE
+		jr z, .greatly_discourage
+
+	; Discourage this move if player's HP is below 50%.
+		call AICheckPlayerHalfHP
+		jr nc, .discourage
+
+	; Encourage move if AI has good Hail moves
+		push hl
+		ld hl, .GoodHailMoves
+		call AIHasMoveInArray
+		pop hl
+		jr c, .encourage
+
+	; 50% chance to encourage this move otherwise.
+		call AI_50_50
+		ret c
+
+	.encourage
+		dec [hl]
+		ret
+
+	.greatly_discourage
+		inc [hl]
+	.discourage
+		inc [hl]
+		ret
+
+	.GoodHailMoves
+		db BLIZZARD
+		db AVALANCHE
+		db -1 ; end
 
 AI_Smart_WeatherMove:
 ; Rain Dance, Sunny Day

@@ -895,6 +895,7 @@ GolbatEvosAttacks:
  db 0 ; no more level-up moves
 
  YanmaEvosAttacks:
+ db EVOLVE_LEVEL, 30, YANMEGA
  db 0 ; no more evolutions
  db 1, QUICK_ATTACK
  db 11, DOUBLE_TEAM

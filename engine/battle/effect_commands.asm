@@ -3255,11 +3255,11 @@ BattleCommand_ConstantDamage:
 	jr .notEnemysTurn
 
 .brine
-	ld hl, wBattleMonHP
+	ld hl, wEnemyMonHP
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .brine_got_hp
-	ld hl, wEnemyMonHP
+	ld hl, wBattleMonHP
 .brine_got_hp
 	xor a
 	ldh [hDividend], a

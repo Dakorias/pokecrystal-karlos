@@ -537,13 +537,7 @@ TrickRoom:
 	checkobedience
 	usedmovetext
 	doturn
-	checkhit
-	specialdefensedown2
-	lowersub
-	statdownanim
-	raisesub
-	statdownmessage
-	statdownfailtext
+	trickroom
 	endmove
 
 Dive:
@@ -1324,7 +1318,7 @@ Defog:
 	checkobedience
 	usedmovetext
 	doturn
-	startrain
+	defog
 	endmove
 
 Psywave:

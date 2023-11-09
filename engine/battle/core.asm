@@ -264,6 +264,9 @@ HandleBetweenTurnEffects:
 	call HandlePerishSong
 	call CheckFaint_PlayerThenEnemy
 	ret c
+	call HandleTrickRoom
+	call CheckFaint_PlayerThenEnemy
+	ret c
 	jr .NoMoreFaintingConditions
 
 .CheckEnemyFirst:
@@ -280,6 +283,9 @@ HandleBetweenTurnEffects:
 	ret c
 	call HandlePerishSong
 	call CheckFaint_EnemyThenPlayer
+	ret c
+	call HandleTrickRoom
+	call CheckFaint_PlayerThenEnemy
 	ret c
 
 .NoMoreFaintingConditions:
@@ -535,6 +541,10 @@ DetermineMoveOrder:
 	ld c, 2
 	call CompareBytes
 	jr z, .speed_tie
+	ld a, [wTrickRoom]
+	ld d, a
+	and d ; Is Trick Room active?
+	jp nz, .trick_room
 	jp nc, .player_first
 	jp .enemy_first
 
@@ -551,6 +561,7 @@ DetermineMoveOrder:
 	call BattleRandom
 	cp 50 percent + 1
 	jp c, .enemy_first
+
 .player_first
 	scf
 	ret
@@ -558,6 +569,27 @@ DetermineMoveOrder:
 .enemy_first
 	and a
 	ret
+
+.trick_room
+	ld hl, wTrickRoom
+	jp nc, .enemy_first
+	jp .player_first
+
+
+HandleTrickRoom:
+	ld hl, wTrickRoom
+	ld a, [hl]
+	and a
+	ret z
+	dec [hl]
+	ret nz
+	ld hl, TrickRoomEndedText
+	jp StdBattleTextbox
+
+.end_trick_room
+	ld hl, TrickRoomEndedText
+	jp StdBattleTextbox
+
 
 CheckContestBattleOver:
 	ld a, [wBattleType]

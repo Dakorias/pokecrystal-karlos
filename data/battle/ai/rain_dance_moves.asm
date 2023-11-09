@@ -7,4 +7,10 @@ RainDanceMoves:
 	db THUNDER
 	db WATERFALL
 	db CRABHAMMER
+	db HYDRO_CANNON
+	db DIVE
+	db MUDDY_WATER
+	db WATER_PULSE
+	db BRINE
+	db AQUA_JET
 	db -1 ; end

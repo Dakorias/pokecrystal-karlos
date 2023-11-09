@@ -114,9 +114,9 @@ DEF KRIS EQU __trainer_class__
 	const TEST1
 	const TEST2
 	const TEST3
+	const TEST4
+	const TEST5
 	const JOEY1
-	const SAMUEL
-	const IAN
 	const JOEY2
 	const JOEY3
 	const WARREN

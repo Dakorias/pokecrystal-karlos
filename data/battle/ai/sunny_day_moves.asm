@@ -8,4 +8,11 @@ SunnyDayMoves:
 	db FIRE_BLAST
 	db MORNING_SUN
 	db SYNTHESIS
+	db SOLARBEAM
+	db FLAME_WHEEL
+	db BLAST_BURN
+	db BLAZE_KICK
+	db LAVA_PLUME
+	db FIRE_FANG
+	db ERUPTION
 	db -1 ; end

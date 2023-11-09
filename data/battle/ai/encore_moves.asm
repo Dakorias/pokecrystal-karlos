@@ -22,5 +22,8 @@ EncoreMoves:
 	db CONVERSION
 	db SUBSTITUTE
 	db TRIPLE_KICK
-	db FLAME_WHEEL
+	db HAIL
+	db TRICK_ROOM
+	db HOWL
+	db TAIL_WHIP
 	db -1 ; end

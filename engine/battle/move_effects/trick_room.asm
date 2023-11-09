@@ -12,7 +12,8 @@ BattleCommand_TrickRoom:
 
 .new_trick_room
 	ld hl, TrickRoomText
-	call StdBattleTextbox
+	jp StdBattleTextbox
+	ret nz
 
 	ld a, [wFailedMessage]
 	and a

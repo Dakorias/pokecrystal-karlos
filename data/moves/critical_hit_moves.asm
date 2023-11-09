@@ -9,4 +9,5 @@ CriticalHitMoves:
 	db SHADOW_CLAW
 	db LEAF_BLADE
 	db CROSS_POISON
+	db CUT
 	db -1

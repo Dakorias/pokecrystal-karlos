@@ -1138,8 +1138,8 @@ KnockOffText:
 	prompt
 
 TrickRoomText:
-	text "<USER> twisted"
-	line "the dimentions!"
+	text "The dimentions"
+	line "were twisted!"
 	prompt
 
 TrickRoomEndedText:
