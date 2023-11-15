@@ -2537,11 +2537,11 @@ Pokedex_GetArea:
 	ld [hli], a ; tile id
 	inc de
 	push bc
-	ld c, PAL_OW_RED
+	ld c, PAL_OW_BLUE
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .male
-	inc c ; PAL_OW_BLUE
+	inc c ; PAL_OW_RED
 .male
 	ld a, c
 	ld [hli], a ; attributes
@@ -2750,11 +2750,11 @@ TownMapPlayerIcon:
 	call Request2bpp
 ; Animation/palette
 	depixel 0, 0
-	ld b, SPRITE_ANIM_INDEX_RED_WALK ; Male
+	ld b, SPRITE_ANIM_INDEX_BLUE_WALK ; Male
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .got_gender
-	ld b, SPRITE_ANIM_INDEX_BLUE_WALK ; Female
+	ld b, SPRITE_ANIM_INDEX_RED_WALK ; Female
 .got_gender
 	ld a, b
 	call InitSpriteAnimStruct

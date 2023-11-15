@@ -106,6 +106,7 @@
 	const SPRITE_BAD_RIVAL ; 67
 	const SPRITE_CELIO ; 68
 	const SPRITE_MAIN_GIRL ; 69
+	const SPRITE_MAIN_BOY ; 6a
 
 DEF NUM_OVERWORLD_SPRITES EQU const_value - 1
 

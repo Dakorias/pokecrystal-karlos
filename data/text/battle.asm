@@ -464,7 +464,7 @@ WhirlpoolTrapText:
 	line "was trapped!"
 	prompt
 
-FireSpinTrapText:
+SandTombTrapText:
 	text "<TARGET>"
 	line "was trapped!"
 	prompt

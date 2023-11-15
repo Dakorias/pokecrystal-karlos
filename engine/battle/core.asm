@@ -861,8 +861,8 @@ GetMovePriority:
 
 	ld b, a
 
-	; Vital Throw goes last.
-	cp WATERFALL
+	; Trick Room goes last.
+	cp TRICK_ROOM
 	ld a, 0
 	ret z
 

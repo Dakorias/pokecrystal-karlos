@@ -1005,9 +1005,6 @@ BattleCommand_DoTurn:
 
 .player
 	call GetPartyLocation
-	push hl
-	call CheckMimicUsed
-	pop hl
 	ret c
 
 .consume_pp
@@ -1034,10 +1031,8 @@ BattleCommand_DoTurn:
 	ld c, a
 	ld b, 0
 	add hl, bc
-	ld a, [hl]
 	ld hl, wWildMonMoves
 	add hl, bc
-	ld a, [hl]
 	ret z
 
 
@@ -1068,27 +1063,6 @@ BattleCommand_DoTurn:
 	db EFFECT_ROLLOUT
 	db -1
 
-CheckMimicUsed:
-	ldh a, [hBattleTurn]
-	and a
-	ld a, [wCurMoveNum]
-	jr z, .player
-	ld a, [wCurEnemyMoveNum]
-
-.player
-	ld c, a
-	ld a, MON_MOVES
-	call UserPartyAttr
-
-	ld a, BATTLE_VARS_MOVE
-	call GetBattleVar
-
-	ld b, 0
-	add hl, bc
-	ld a, [hl]
-
-	scf
-	ret
 
 BattleCommand_Critical:
 ; Determine whether this attack's hit will be critical.
@@ -5682,6 +5656,7 @@ BattleCommand_TrapTarget:
 
 .Traps:
 	dbw WRAP,      WrappedByText     ; 'was WRAPPED by'
+	dbw SAND_TOMB, SandTombTrapText  ; 'was TRAPPED'
 
 INCLUDE "engine/battle/move_effects/mist.asm"
 

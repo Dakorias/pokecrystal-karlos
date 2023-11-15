@@ -111,4 +111,5 @@ OverworldSprites:
 	overworld_sprite BadRivalSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	overworld_sprite CelioSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
 	overworld_sprite MainGirlSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
+	overworld_sprite MainBoySpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
 	assert_table_length NUM_OVERWORLD_SPRITES
