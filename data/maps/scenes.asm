@@ -25,7 +25,7 @@ MapScenes::
 	scene_var LANCES_ROOM,                  wLancesRoomSceneID
 	scene_var HALL_OF_FAME,                 wHallOfFameSceneID
 
-	scene_var ONE_ISLAND_TOWN,							wOneIslandTownSceneID
-	scene_var	ONE_ISLAND_TOWN_LAB, 					wOneIslandTownLabSceneID
+	scene_var HERALD_COVE,								wHeraldCoveSceneID
+	scene_var HERALD_LAB, 					        	wHeraldLabSceneID
 
 	db -1 ; end

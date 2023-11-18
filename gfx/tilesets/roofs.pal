@@ -18,10 +18,6 @@
 	RGB 21,21,21, 13,13,13 ; morn/day
 	RGB 11,11,19, 07,07,12 ; nite
 
-; group 1 (One Island)
-	RGB 20,31,14, 11,23,05 ; morn/day
-	RGB 09,13,08, 06,09,04 ; nite
-	
-; group 2 (Ember City)
+; group 1 (Herald Cove)
 	RGB 20,31,14, 11,23,05 ; morn/day
 	RGB 09,13,08, 06,09,04 ; nite

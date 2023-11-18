@@ -8,8 +8,7 @@ OutdoorSprites:
 	dw BattleTowerGroupSprites
 	dw NewBarkGroupSprites
 	dw IndigoGroupSprites
-	dw OneIslandTownGroupSprites
-	dw EmberCityGroupSprites
+	dw HeraldCoveGroupSprites
 	assert_table_length NUM_MAP_GROUPS
 
 CableClubGroupSprites:
@@ -43,8 +42,8 @@ IndigoGroupSprites:
 		; 0 of max 9 walking sprites
 		db 0 ; end
 
-OneIslandTownGroupSprites:
-	; OneIslandTown, ClearWaterBridge, ClearWaterTown
+HeraldCoveGroupSprites:
+	; HeraldCove, HeraldRoute
 		db SPRITE_TEACHER
 		db SPRITE_LASS
 		db SPRITE_FISHER
@@ -55,20 +54,7 @@ OneIslandTownGroupSprites:
 		db SPRITE_GOOD_RIVAL
 		db SPRITE_BAD_RIVAL
 		; 9 of 9 walking sprites
-		db SPRITE_POKE_BALL
-		db SPRITE_FRUIT_TREE
-		db 0 ; end
-
-EmberCityGroupSprites:
-	; OneIslandRoute1, OneIslandRoute2, KindleBeach, EmberSprings, EmberCity
-		db SPRITE_LASS
-		db SPRITE_POKEFAN_M
-		db SPRITE_FISHING_GURU
-		db SPRITE_YOUNGSTER
-		db SPRITE_GRAMPS
-		db SPRITE_GAMEBOY_KID
-		db SPRITE_COOLTRAINER_F
-		; 7 of 9 walking sprites
+		db SPRITE_NURSE
 		db SPRITE_POKE_BALL
 		db SPRITE_FRUIT_TREE
 		db 0 ; end

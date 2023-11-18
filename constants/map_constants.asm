@@ -64,40 +64,16 @@ ENDM
 	map_const HALL_OF_FAME,                                 5,  7 ;  7
 	endgroup
 
-	newgroup ONE_ISLAND                                           ;  5
-	map_const ONE_ISLAND_TOWN,														 10, 18 ;  1
-	map_const CLEAR_WATER_BRIDGE, 												 20, 18 ;  2
-	map_const CLEAR_WATER_TOWN,														 20,  9 ;  3
-	map_const PLAYERS_HOUSE_1F,                             5,  4 ;  4
-	map_const PLAYERS_HOUSE_2F,                             4,  3 ;  5
-	map_const ONE_ISLAND_TOWN_LAB,													5,  7 ;  6
-	map_const ONE_ISLAND_TOWN_HOUSE,												5,  4 ;  7
-	map_const ONE_ISLAND_TOWN_RIVAL,												5,  4 ;  8
-	map_const ONE_ISLAND_TOWN_PORT,													8,  6 ;  9
-	map_const CLEAR_WATER_BRIDGE_HOUSE,											5,  4 ; 10
-	map_const CLEAR_WATER_TOWN_HOUSE,												5,  4 ; 11
-	map_const CLEAR_WATER_TOWN_POKECENTER1F,								5,  4 ; 12
-	map_const CLEAR_WATER_TOWN_MART,											  4,  4 ; 13
-	map_const CLEAR_WATER_TOWN_PARTS_HOUSE,									7,  4 ; 14
-	endgroup
-
-	newgroup EMBER_CITY                                           ;  5
-	map_const ONE_ISLAND_ROUTE_1,													 10, 36 ;  1
-	map_const KINDLE_BEACH, 															 10, 27 ;  2
-	map_const ONE_ISLAND_ROUTE_2,													 10, 36 ;  3
-	map_const EMBER_SPRINGS,                             	 10, 18 ;  4
-	map_const EMBER_CITY,                            			 20, 18 ;  5
-	map_const KINDLE_BEACH_HOUSE,														5,  4 ;  6
-	map_const EMBER_CITY_GATE,															5,  4 ;  7
-	map_const EMBER_CITY_POKECENTER1F,											5,  4 ;  8
-	map_const EMBER_CITY_MART,															4,  4 ;  9
-	map_const EMBER_CITY_HOUSE,															5,  4 ;  10
-	map_const EMBER_CITY_UNDERGROUND,											 12,  8 ;  11
-	map_const EMBER_CITY_APARTMENT1F,												5,  4 ;  12
-	map_const EMBER_CITY_APARTMENT2F,												5,  4 ;  13
-	map_const EMBER_CITY_GYM,																8, 11 ;  14
-	map_const EMBER_CITY_RADIO_1F,													7,  4 ;  15
-
-
+	newgroup HERALD_COVE                                           ;  5
+	map_const HERALD_COVE,									20, 12 ;  1
+	map_const HERALD_ROUTE,									30,	12 ;  2
+	map_const HERALD_LAB,							         5,  7 ;  3
+	map_const HERALD_POKECENTER,				 			 7,  4 ;  4
+	map_const HERALD_GYM,							         5,  9 ;  5
+	map_const HERALD_HOUSE,									 5,  4 ;  6
+	map_const HERALD_PORT,									 8,  6 ;  7
+	map_const PLAYERS_HOUSE_1F,                              5,  4 ;  8
+	map_const PLAYERS_HOUSE_2F,                              4,  3 ;  9
+	map_const REGISTRATION_CENTER,							 5,  5 ; 10
 	endgroup
 DEF NUM_MAP_GROUPS EQU const_value ; 5

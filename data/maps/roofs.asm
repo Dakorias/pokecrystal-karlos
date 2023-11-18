@@ -16,8 +16,7 @@ MapGroupRoofs:
 	db ROOF_OLIVINE   ;  2 (Battle Tower)
 	db ROOF_NEW_BARK  ;  3 (New Bark)
 	db -1             ;  4
-	db ROOF_OLIVINE   ;  5 (One Island)
-	db -1							;  6 (Ember City)
+	db ROOF_OLIVINE   ;  5 (Herald Cove)
 	assert_table_length NUM_MAP_GROUPS + 1
 
 Roofs:

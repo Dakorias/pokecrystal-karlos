@@ -3059,8 +3059,8 @@ wBrunosRoomSceneID::                db
 wKarensRoomSceneID::                db
 wLancesRoomSceneID::                db
 wHallOfFameSceneID::                db
-wOneIslandTownSceneID::							db
-wOneIslandTownLabSceneID::					db
+wHeraldCoveSceneID::				db
+wHeraldLabSceneID::					db
 
 	ds 110
 

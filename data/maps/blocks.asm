@@ -31,6 +31,21 @@ SECTION "Map Blocks 2", ROMX
 NewBarkTown_Blocks:
 	INCBIN "maps/NewBarkTown.blk"
 
+HeraldCove_Blocks:
+	INCBIN "maps/HeraldCove.blk"
+
+HeraldRoute_Blocks:
+	INCBIN "maps/HeraldRoute.blk"
+
+HeraldLab_Blocks:
+	INCBIN "maps/HeraldLab.blk"
+
+HeraldGym_Blocks:
+	INCBIN "maps/HeraldGym.blk"
+
+RegistrationCenter_Blocks:
+	INCBIN "maps/RegistrationCenter.blk"
+
 SECTION "Map Blocks 3", ROMX
 
 IndigoPlateauPokecenter1F_Blocks:
@@ -56,8 +71,14 @@ HallOfFame_Blocks:
 
 SECTION "Map Blocks 4", ROMX
 
-OneIslandTown_Blocks:
-	INCBIN "maps/OneIslandTown.blk"
+HeraldHouse_Blocks:
+	INCBIN "maps/House.blk"
+
+HeraldPokecenter_Blocks:
+	INCBIN "maps/Pokecenter1F.blk"
+
+HeraldPort_Blocks:
+	INCBIN "maps/IslandPort.blk"
 
 PlayersHouse1F_Blocks:
 	INCBIN "maps/PlayersHouse1F.blk"
@@ -65,82 +86,4 @@ PlayersHouse1F_Blocks:
 PlayersHouse2F_Blocks:
 	INCBIN "maps/PlayersHouse2F.blk"
 
-ClearWaterBridge_Blocks:
-	INCBIN "maps/ClearWaterBridge.blk"
-
-ClearWaterTown_Blocks:
-	INCBIN "maps/ClearWaterTown.blk"
-
-OneIslandTownLab_Blocks:
-	INCBIN "maps/OneIslandTownLab.blk"
-
-OneIslandTownHouse_Blocks:
-	INCBIN "maps/House.blk"
-
-OneIslandTownRival_Blocks:
-	INCBIN "maps/House.blk"
-
-OneIslandTownPort_Blocks:
-	INCBIN "maps/IslandPort.blk"
-
-ClearWaterBridgeHouse_Blocks:
-	INCBIN "maps/House.blk"
-
-ClearWaterTownHouse_Blocks:
-	INCBIN "maps/House.blk"
-
-ClearWaterTownPokecenter1F_Blocks:
-	INCBIN "maps/Pokecenter1F.blk"
-
-ClearWaterTownMart_Blocks:
-	INCBIN "maps/PokeMart.blk"
-
-ClearWaterTownPartsHouse_Blocks:
-	INCBIN "maps/ClearWaterTownPartsHouse.blk"
-
 SECTION "Map Blocks 5", ROMX
-
-OneIslandRoute1_Blocks:
-	INCBIN "maps/OneIslandRoute1.blk"
-
-KindleBeach_Blocks:
-	INCBIN "maps/KindleBeach.blk"
-
-OneIslandRoute2_Blocks:
-	INCBIN "maps/OneIslandRoute2.blk"
-
-EmberSprings_Blocks:
-	INCBIN "maps/EmberSprings.blk"
-
-EmberCity_Blocks:
-	INCBIN "maps/EmberCity.blk"
-
-KindleBeachHouse_Blocks:
-	INCBIN "maps/House.blk"
-
-EmberCityGate_Blocks:
-	INCBIN "maps/NSGate.blk"
-
-EmberCityPokecenter1F_Blocks:
-	INCBIN "maps/Pokecenter1F.blk"
-
-EmberCityMart_Blocks:
-	INCBIN "maps/PokeMart.blk"
-
-EmberCityHouse_Blocks:
-	INCBIN "maps/House.blk"
-
-EmberCityUnderground_Blocks:
-	INCBIN "maps/EmberCityUnderground.blk"
-
-EmberCityApartment1F_Blocks:
-	INCBIN "maps/Apartment1F.blk"
-
-EmberCityApartment2F_Blocks:
-	INCBIN "maps/Apartment2F.blk"
-
-EmberCityGym_Blocks:
-	INCBIN "maps/EmberCityGym.blk"
-
-EmberCityRadio1F_Blocks:
-	INCBIN "maps/EmberCityRadio1F.blk"

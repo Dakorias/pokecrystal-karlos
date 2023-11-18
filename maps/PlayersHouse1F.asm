@@ -321,8 +321,8 @@ PlayersHouse1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  6,  7, ONE_ISLAND_TOWN, 1
-	warp_event  7,  7, ONE_ISLAND_TOWN, 1
+	warp_event  6,  7, HERALD_COVE, 1
+	warp_event  7,  7, HERALD_COVE, 1
 	warp_event  9,  0, PLAYERS_HOUSE_2F, 1
 
 	def_coord_events

@@ -97,54 +97,19 @@ MACRO connection
 ENDM
 
 	map_attributes NewBarkTown, NEW_BARK_TOWN, $05, 0
+	
+	map_attributes HeraldCove, HERALD_COVE, $35, WEST
+	connection west, HeraldRoute, HERALD_ROUTE, 0
 
-	map_attributes OneIslandTown, ONE_ISLAND_TOWN, $35, SOUTH | EAST
-	connection south, ClearWaterBridge, CLEAR_WATER_BRIDGE, 0
-	connection east, OneIslandRoute1, ONE_ISLAND_ROUTE_1, -20
+	map_attributes HeraldRoute, HERALD_ROUTE, $35, EAST
+	connection east, HeraldCove, HERALD_COVE, 0
 
-	map_attributes ClearWaterBridge, CLEAR_WATER_BRIDGE, $35, NORTH | SOUTH
-	connection north, OneIslandTown, ONE_ISLAND_TOWN, 0
-	connection south, ClearWaterTown, CLEAR_WATER_TOWN, 3
-
-	map_attributes ClearWaterTown, CLEAR_WATER_TOWN, $35, NORTH
-	connection north, ClearWaterBridge, CLEAR_WATER_BRIDGE, -3
-
-	map_attributes OneIslandRoute1, ONE_ISLAND_ROUTE_1, $35, NORTH | WEST
-	connection north, KindleBeach, KINDLE_BEACH, 0
-	connection west, OneIslandTown, ONE_ISLAND_TOWN, 20
-
-	map_attributes KindleBeach, KINDLE_BEACH, $35, NORTH | SOUTH
-	connection north, OneIslandRoute2, ONE_ISLAND_ROUTE_2, 0
-	connection south, OneIslandRoute1, ONE_ISLAND_ROUTE_1, 0
-
-	map_attributes OneIslandRoute2, ONE_ISLAND_ROUTE_2, $35, NORTH | SOUTH
-	connection north, EmberCity, EMBER_CITY, -5
-	connection south, KindleBeach, KINDLE_BEACH, 0
-
-	map_attributes EmberSprings, EMBER_SPRINGS, $09, 0
-
-	map_attributes EmberCity, EMBER_CITY, $71, SOUTH
-	connection south, OneIslandRoute2, ONE_ISLAND_ROUTE_2, 5
-
-	map_attributes OneIslandTownLab, ONE_ISLAND_TOWN_LAB, $00, 0
-	map_attributes OneIslandTownHouse, ONE_ISLAND_TOWN_HOUSE, $00, 0
-	map_attributes OneIslandTownRival, ONE_ISLAND_TOWN_RIVAL, $00, 0
-	map_attributes OneIslandTownPort, ONE_ISLAND_TOWN_PORT, $00, 0
-	map_attributes ClearWaterBridgeHouse, CLEAR_WATER_BRIDGE_HOUSE, $00, 0
-	map_attributes ClearWaterTownHouse, CLEAR_WATER_TOWN_HOUSE, $00, 0
-	map_attributes ClearWaterTownPokecenter1F, CLEAR_WATER_TOWN_POKECENTER1F, $00, 0
-	map_attributes ClearWaterTownMart, CLEAR_WATER_TOWN_MART, $00, 0
-	map_attributes ClearWaterTownPartsHouse, CLEAR_WATER_TOWN_PARTS_HOUSE, $00, 0
-	map_attributes KindleBeachHouse, KINDLE_BEACH_HOUSE, $00, 0
-	map_attributes EmberCityGate, EMBER_CITY_GATE, $00, 0
-	map_attributes EmberCityPokecenter1F, EMBER_CITY_POKECENTER1F, $00, 0
-	map_attributes EmberCityMart, EMBER_CITY_MART, $00, 0
-	map_attributes EmberCityHouse, EMBER_CITY_HOUSE, $00, 0
-	map_attributes EmberCityUnderground, EMBER_CITY_UNDERGROUND, $00, 0
-	map_attributes EmberCityApartment1F, EMBER_CITY_APARTMENT1F, $00, 0
-	map_attributes EmberCityApartment2F, EMBER_CITY_APARTMENT2F, $00, 0
-	map_attributes EmberCityGym, EMBER_CITY_GYM, $00, 0
-	map_attributes EmberCityRadio1F, EMBER_CITY_RADIO_1F, $00, 0
+	map_attributes HeraldLab, HERALD_LAB, $00, 0
+	map_attributes HeraldPokecenter, HERALD_POKECENTER, $00, 0
+	map_attributes HeraldGym, HERALD_GYM, $00, 0
+	map_attributes HeraldHouse, HERALD_HOUSE, $00, 0
+	map_attributes HeraldPort, HERALD_PORT, $00, 0
+	map_attributes RegistrationCenter, REGISTRATION_CENTER, $00, 0
 
 	map_attributes BattleTowerOutside, BATTLE_TOWER_OUTSIDE, $05, 0
 	map_attributes Pokecenter2F, POKECENTER_2F, $00, 0

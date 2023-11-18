@@ -18,6 +18,16 @@ INCLUDE "maps/BattleTowerBattleRoom.asm"
 SECTION "Map Scripts 3", ROMX
 
 INCLUDE "maps/NewBarkTown.asm"
+INCLUDE "maps/HeraldCove.asm"
+INCLUDE "maps/HeraldLab.asm"
+INCLUDE "maps/HeraldPokecenter.asm"
+INCLUDE "maps/HeraldGym.asm"
+INCLUDE "maps/HeraldHouse.asm"
+INCLUDE "maps/HeraldPort.asm"
+INCLUDE "maps/PlayersHouse1F.asm"
+INCLUDE "maps/PlayersHouse2F.asm"
+INCLUDE "maps/HeraldRoute.asm"
+INCLUDE "maps/RegistrationCenter.asm"
 
 
 SECTION "Map Scripts 4", ROMX
@@ -33,37 +43,9 @@ INCLUDE "maps/HallOfFame.asm"
 
 SECTION "Map Scripts 5", ROMX
 
-INCLUDE "maps/OneIslandTown.asm"
-INCLUDE "maps/PlayersHouse1F.asm"
-INCLUDE "maps/PlayersHouse2F.asm"
-INCLUDE "maps/ClearWaterBridge.asm"
-INCLUDE "maps/ClearWaterTown.asm"
-INCLUDE "maps/OneIslandTownLab.asm"
-INCLUDE "maps/OneIslandTownHouse.asm"
-INCLUDE "maps/OneIslandTownRival.asm"
-INCLUDE "maps/OneIslandTownPort.asm"
-INCLUDE "maps/ClearWaterBridgeHouse.asm"
-INCLUDE "maps/ClearWaterTownHouse.asm"
-INCLUDE "maps/ClearWaterTownPokecenter1F.asm"
-INCLUDE "maps/ClearWaterTownMart.asm"
-INCLUDE "maps/ClearWaterTownPartsHouse.asm"
 
 SECTION "Map Scripts 6", ROMX
-INCLUDE "maps/OneIslandRoute1.asm"
-INCLUDE "maps/KindleBeach.asm"
-INCLUDE "maps/OneIslandRoute2.asm"
-INCLUDE "maps/EmberSprings.asm"
-INCLUDE "maps/EmberCity.asm"
-INCLUDE "maps/KindleBeachHouse.asm"
-INCLUDE "maps/EmberCityGate.asm"
-INCLUDE "maps/EmberCityPokecenter1F.asm"
-INCLUDE "maps/EmberCityMart.asm"
-INCLUDE "maps/EmberCityHouse.asm"
-INCLUDE "maps/EmberCityUnderground.asm"
-INCLUDE "maps/EmberCityApartment1F.asm"
-INCLUDE "maps/EmberCityApartment2F.asm"
-INCLUDE "maps/EmberCityGym.asm"
-INCLUDE "maps/EmberCityRadio1F.asm"
+
 
 SECTION "Map Scripts 7", ROMX
 
