@@ -1,0 +1,348 @@
+	object_const_def
+	const HERALD_ROUTE_YOUNGSTER1
+	const HERALD_ROUTE_YOUNGSTER2
+	const HERALD_ROUTE_LASS1
+	const HERALD_ROUTE_COOLTRAINERF1
+	const HERALD_ROUTE_BLOCKING_LASS
+	const HERALD_ROUTE_YOUNGSTER3
+	const HERALD_ROUTE_LASS2
+	const HERALD_ROUTE_ROCKET1
+	const HERALD_ROUTE_ROCKET2
+
+HeraldRoute_MapScripts:
+	def_scene_scripts
+	scene_script HeraldRouteRockets, SCENE_HERALD_ROUTE_ROCKETS
+	scene_script HeraldRouteNoop1, SCENE_HERALD_ROUTE_NOOP1
+
+	def_callbacks
+
+	HeraldRouteRockets:
+		end
+
+	HeraldRouteNoop1:
+		end
+
+TrainerYoungsterKevin:
+	trainer YOUNGSTER, KEVIN, EVENT_BEAT_YOUNGSTER_KEVIN, YoungsterKevinSeenText, YoungsterKevinBeatenText, 0, .Script
+
+	.Script:
+		endifjustbattled
+		opentext
+		writetext YoungsterKevinAfterText
+		waitbutton
+		closetext
+		end
+
+TrainerYoungsterJames:
+	trainer YOUNGSTER, JAMES, EVENT_BEAT_YOUNGSTER_JAMES, YoungsterJamesSeenText, YoungsterJamesBeatenText, 0, .Script
+
+	.Script:
+		endifjustbattled
+		opentext
+		writetext YoungsterJamesAfterText
+		waitbutton
+		closetext
+		end
+
+TrainerLassAlexis:
+	trainer LASS, ALEXIS, EVENT_BEAT_LASS_ALEXIS, LassAlexisSeenText, LassAlexisBeatenText, 0, .Script
+
+	.Script:
+		endifjustbattled
+		opentext
+		writetext LassAlexisAfterText
+		waitbutton
+		closetext
+		end
+
+TrainerCoolTrainerFStacy:
+	trainer COOLTRAINERF, STACY, EVENT_BEAT_COOLTRAINERF_STACY, CoolTrainerFStacySeenText, CoolTrainerFStacyBeatenText, 0, .Script
+
+	.Script:
+		endifjustbattled
+		opentext
+		writetext CoolTrainerFStacyAfterText
+		waitbutton
+		closetext
+		end
+
+BlockingLassScript:
+	jumptextfaceplayer BlockingLassText
+
+HeraldRouteSignScript:
+	jumptext HeraldRouteSignText
+
+RegistrationCenterSignScript:
+	jumptext RegistrationCenterSignText
+
+HeraldRouteYoungsterScript:
+	jumptextfaceplayer HeraldRouteYoungsterText
+
+HeraldRouteLassScript:
+	jumptextfaceplayer HeraldRouteLassText
+
+BlockingRocket1Script:
+	faceplayer
+	opentext
+	writetext RocketBlocker1Text
+	waitbutton
+	closetext
+	pause 5
+	applymovement PLAYER, RocketPushesPlayerBack
+	pause 5
+	turnobject HERALD_ROUTE_ROCKET1, LEFT
+	end
+
+BlockingRocket2Script:
+	faceplayer
+	opentext
+	writetext RocketBlocker2Text
+	waitbutton
+	closetext
+	pause 5
+	applymovement PLAYER, RocketPushesPlayerBack
+	pause 5
+	turnobject HERALD_ROUTE_ROCKET2, RIGHT
+	end
+
+BlockingRocket3Script:
+	turnobject HERALD_ROUTE_ROCKET1, LEFT
+	opentext
+	writetext RocketBlocker1Text
+	waitbutton
+	closetext
+	applymovement HERALD_ROUTE_ROCKET1, RocketPushPlayerBackPosition1
+	pause 5
+	applymovement PLAYER, RocketPushesPlayerBack
+	pause 5
+	applymovement HERALD_ROUTE_ROCKET2, RocketGoesBack1
+	end
+
+BlockingRocket4Script:
+	turnobject HERALD_ROUTE_ROCKET2, RIGHT
+	opentext
+	writetext RocketBlocker2Text
+	waitbutton
+	closetext
+	applymovement HERALD_ROUTE_ROCKET2, RocketPushPlayerBackPosition2
+	pause 5
+	applymovement PLAYER, RocketPushesPlayerBack
+	pause 5
+	applymovement HERALD_ROUTE_ROCKET2, RocketGoesBack2
+	end
+
+HeraldRouteGrottoEntryScript:
+	opentext
+	writetext HeraldRouteGrottoEntryText
+	yesorno
+	iftrue .HeraldGrottoWarp
+	closetext
+	end
+
+	.HeraldGrottoWarp
+	closetext
+	playsound SFX_ENTER_DOOR
+	warp HERALD_GROTTO, 2, 13
+	end
+
+RocketPushesPlayerBack:
+	fix_facing
+	set_sliding
+	jump_step DOWN
+	remove_sliding
+	remove_fixed_facing
+	step_sleep 8
+	step_end
+
+RocketPushPlayerBackPosition1:
+	big_step UP
+	big_step LEFT
+	turn_head DOWN
+	step_end
+
+RocketPushPlayerBackPosition2:
+	big_step UP
+	big_step RIGHT
+	turn_head DOWN
+	step_end
+
+RocketGoesBack1:
+	big_step DOWN
+	big_step RIGHT
+	step_end
+
+RocketGoesBack2:
+	big_step DOWN
+	big_step LEFT
+	step_end
+
+YoungsterKevinSeenText:
+	text "Hey, I haven't"
+	line "seen you here"
+
+	para "before. You must"
+	line "be new here, but"
+
+	para "that won't stop"
+	line "me from beating"
+	cont "you! Come on!"
+	done
+
+YoungsterKevinBeatenText:
+	text "Aww. You're"
+	line "pretty good!"
+	done
+
+YoungsterKevinAfterText:
+	text "I caught my"
+	line "#MON right"
+	cont "here!"
+
+	para "But I need money"
+	line "to get more..."
+	done
+
+YoungsterJamesSeenText:
+	text "Go FLETCHLING!"
+	line "We will win this"
+	cont "time!"
+	done
+
+YoungsterJamesBeatenText:
+	text "Darn, not again..."
+	done
+
+YoungsterJamesAfterText:
+	text "I just got beat by"
+	line "some girl. She was"
+	cont "really tough."
+	done
+
+LassAlexisSeenText:
+	text "I found all of my"
+	line "#MON! Yours"
+	cont "look really tough."
+
+	para "Here, let me show"
+	line "you mine!"
+	done
+
+LassAlexisBeatenText:
+	text "I really like"
+	line "your #MON!"
+	done
+
+LassAlexisAfterText:
+	text "I caught a lot"
+	line "of #MON."
+
+	para "But I keep seeing"
+	line "different ones"
+	cont "sometimes."
+
+	para "I think one comes"
+	line "out at night too!"
+	done
+
+CoolTrainerFStacySeenText:
+	text "Oh good. I could"
+	line "use a warm up!"
+	done
+
+CoolTrainerFStacyBeatenText:
+	text "What?!"
+	done
+
+CoolTrainerFStacyAfterText:
+	text "You're good. Are"
+	line "you signing up?"
+	done
+
+BlockingLassText:
+	text "Sorry! I lost my"
+	line "# BALLS! I can't"
+	cont "find them at all!"
+
+	para "I'll battle you"
+	line "when I find them!"
+	done
+
+HeraldRouteYoungsterText:
+	text "I just heard some-"
+	line "thing down there."
+
+	para "I wonder what it"
+	line "could be, but it's"
+
+	para "too scary for me"
+	line "to check."
+	done
+
+HeraldRouteLassText:
+	text "There's a lot of"
+	line "different #MON"
+	cont "that live here!"
+
+	para "Some only come out"
+	line "at night, or early"
+	cont "in the morning."
+	done
+
+RocketBlocker1Text:
+	text "Hey, beat it! We"
+	line "don't need you"
+	cont "snooping around!"
+	done
+
+RocketBlocker2Text:
+	text "Turn around and"
+	line "go back where you"
+	cont "came from, kid."
+	done
+
+HeraldRouteSignText:
+	text "HERALD PASS"
+
+	para "HERALD COVE -"
+	line "SECOND TOWN"
+	done
+
+RegistrationCenterSignText:
+	text "BATTLE CONFERENCE"
+	line "REGISTRATION AREA"
+	done
+
+HeraldRouteGrottoEntryText:
+	text "The forest seems"
+	line "to open up here."
+
+	para "Would you like to"
+	line "step inside?"
+	done
+
+HeraldRoute_MapEvents:
+	db 0, 0 ; filler
+
+	def_warp_events
+	warp_event 26,  5, REGISTRATION_CENTER, 1
+
+	def_coord_events
+	coord_event 36, 2, SCENE_HERALD_ROUTE_ROCKETS, BlockingRocket3Script
+	coord_event 39, 2, SCENE_HERALD_ROUTE_ROCKETS, BlockingRocket4Script
+
+	def_bg_events
+	bg_event 5,  3, BGEVENT_READ, HeraldRouteGrottoEntryScript
+	bg_event 4,  3, BGEVENT_READ, HeraldRouteGrottoEntryScript
+	bg_event 40, 12, BGEVENT_READ, HeraldRouteSignScript
+	bg_event 22,  6, BGEVENT_READ, RegistrationCenterSignScript
+
+	def_object_events
+	object_event 48,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerYoungsterKevin, -1
+	object_event 26, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterJames, -1
+	object_event  8, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerLassAlexis, -1
+	object_event 19,  5, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCoolTrainerFStacy, -1
+	object_event  9, 16, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BlockingLassScript, EVENT_LASS_AT_HERALD_ROUTE
+	object_event  9,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, HeraldRouteYoungsterScript, -1
+	object_event 32,  6, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, HeraldRouteLassScript, -1
+	object_event  37,  2, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlockingRocket1Script, EVENT_ROCKETS_STEAL_SEALED_MAP
+	object_event  38,  2, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlockingRocket2Script, EVENT_ROCKETS_STEAL_SEALED_MAP

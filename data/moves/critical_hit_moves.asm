@@ -1,0 +1,13 @@
+CriticalHitMoves:
+	db KARATE_CHOP
+	db RAZOR_LEAF
+	db CRABHAMMER
+	db SLASH
+	db CROSS_CHOP
+	db NIGHT_SLASH
+	db BLAZE_KICK
+	db SHADOW_CLAW
+	db LEAF_BLADE
+	db CROSS_POISON
+	db CUT
+	db -1
