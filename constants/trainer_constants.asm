@@ -30,8 +30,8 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	trainerclass EDWARD ; 1
 	const EDWARD1
 
-	trainerclass WHITNEY ; 2
-	const WHITNEY1
+	trainerclass KENJI ; 2
+	const KENJI1
 
 	trainerclass BUGSY ; 3
 	const BUGSY1
@@ -59,6 +59,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const WILL1
 
 	trainerclass CAL ; c
+	const HARRISON1
 
 	trainerclass BRUNO ; d
 	const BRUNO1
@@ -95,6 +96,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const DANNY2
 	const WESLEY
 	const DAVID
+	const ANDREW
 
 	trainerclass DETECTIVE ; 17
 
@@ -132,6 +134,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	trainerclass BUG_CATCHER ; 24
 
 	trainerclass FISHER ; 25
+	const ARNOLD
 
 	trainerclass SWIMMERM ; 26
 
@@ -207,11 +210,17 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const BLAIRE_1_EKANS
 	const BLAIRE_1_HOUNDOUR
 	const BLAIRE_1_BALTOY
+	const BLAIRE_2_EKANS
+	const BLAIRE_2_HOUNDOUR
+	const BLAIRE_2_BALTOY
 
 	trainerclass PERCY ; 45
 	const PERCY_1_EKANS
 	const PERCY_1_HOUNDOUR
 	const PERCY_1_BALTOY
+	const PERCY_2_EKANS
+	const PERCY_2_HOUNDOUR
+	const PERCY_2_BALTOY
 
 	trainerclass BREEDER ; 46
 

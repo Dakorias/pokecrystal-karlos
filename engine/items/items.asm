@@ -13,13 +13,19 @@ _ReceiveItem::
 .Pockets:
 ; entries correspond to item types
 	dw .Item
+	dw .Medicine
 	dw .KeyItem
 	dw .Ball
 	dw .TMHM
+	dw .Berries
 
 .Item:
 	ld h, d
 	ld l, e
+	jp PutItemInPocket
+
+.Medicine:
+	ld hl, wNumMedicine
 	jp PutItemInPocket
 
 .KeyItem:
@@ -29,6 +35,10 @@ _ReceiveItem::
 
 .Ball:
 	ld hl, wNumBalls
+	jp PutItemInPocket
+
+.Berries:
+	ld hl, wNumBerries
 	jp PutItemInPocket
 
 .TMHM:
@@ -54,12 +64,22 @@ _TossItem::
 .Pockets:
 ; entries correspond to item types
 	dw .Item
+	dw .Medicine
 	dw .KeyItem
 	dw .Ball
 	dw .TMHM
+	dw .Berries
 
 .Ball:
 	ld hl, wNumBalls
+	jp RemoveItemFromPocket
+
+.Medicine:
+	ld hl, wNumMedicine
+	jp RemoveItemFromPocket
+
+.Berries:
+	ld hl, wNumBerries
 	jp RemoveItemFromPocket
 
 .TMHM:
@@ -97,12 +117,22 @@ _CheckItem::
 .Pockets:
 ; entries correspond to item types
 	dw .Item
+	dw .Medicine
 	dw .KeyItem
 	dw .Ball
 	dw .TMHM
+	dw .Berries
 
 .Ball:
 	ld hl, wNumBalls
+	jp CheckTheItem
+
+.Medicine:
+	ld hl, wNumMedicine
+	jp CheckTheItem
+
+.Berries:
+	ld hl, wNumBerries
 	jp CheckTheItem
 
 .TMHM:
@@ -152,6 +182,24 @@ GetPocketCapacity:
 	ret z
 
 .not_pc
+	ld c, MAX_MEDICINE
+	ld a, e
+	cp LOW(wNumMedicine)
+	jr nz, .not_medicine
+	ld a, d
+	cp HIGH(wNumMedicine)
+	ret z
+
+.not_medicine
+	ld c, MAX_BERRIES
+	ld a, e
+	cp LOW(wNumBerries)
+	jr nz, .not_berries
+	ld a, d
+	cp HIGH(wNumBerries)
+	ret z
+
+.not_berries
 	ld c, MAX_BALLS
 	ret
 

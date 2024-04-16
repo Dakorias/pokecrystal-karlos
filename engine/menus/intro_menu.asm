@@ -152,10 +152,16 @@ _ResetWRAM:
 	ld hl, wNumItems
 	call .InitList
 
+	ld hl, wNumMedicine
+	call .InitList
+
 	ld hl, wNumKeyItems
 	call .InitList
 
 	ld hl, wNumBalls
+	call .InitList
+
+	ld hl, wNumBerries
 	call .InitList
 
 	ld hl, wNumPCItems

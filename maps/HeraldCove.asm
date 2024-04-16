@@ -10,7 +10,6 @@
 	const HERALD_COVE_PERCY
 	const HERALD_COVE_FISHER
 	const HERALD_COVE_GRAMPS
-	const HERALD_COVE_YOUNGSTER2
 	const HERALD_COVE_LASS2
 	const HERALD_COVE_SAILOR5
 	const HERALD_COVE_ROCKET1
@@ -340,46 +339,8 @@ HeraldCoveOldRodFisher:
 		closetext
 		end
 
-HeraldCoveGramps:
-	jumptextfaceplayer HeraldCoveGrampsText
-
 HeraldCoveLass:
 	jumptextfaceplayer HeraldCoveLassText
-
-HeraldCoveYoungsterScript:
-	faceplayer
-	opentext
-	checkevent EVENT_BEAT_YOUNGSTER_DANNY1
-	iftrue .AfterBattle
-	writetext YoungsterDannyPracticeBattle
-	yesorno
-	iffalse .NoBattle
-	writetext YoungsterDannyBattleExcited
-	waitbutton
-	winlosstext DannyWinText, 0
-	setlasttalked HERALD_COVE_YOUNGSTER2
-	loadtrainer YOUNGSTER, DANNY1
-	startbattle
-	reloadmapafterbattle
-	opentext
-	writetext YoungsterDannyLossText
-	waitbutton
-	closetext
-	setevent EVENT_BEAT_YOUNGSTER_DANNY1
-	end
-
-.NoBattle
-	writetext YoungsterDannyGoodLuck
-	waitbutton
-	closetext
-	turnobject HERALD_COVE_YOUNGSTER2, LEFT
-	end
-
-.AfterBattle
-	writetext YoungsterDannyTrainMore
-	waitbutton
-	closetext
-	end
 
 BerryMasterScript:
 	faceplayer
@@ -1009,26 +970,6 @@ HeraldGymSignScript:
 		line "big one!"
 		done
 
-	HeraldCoveGrampsText:
-		text "You know, before"
-		line "they started work"
-
-		para "on the BATTLE"
-		line "CONFERENCE, things"
-		cont "were quiet here."
-
-		para "Occasionally, we"
-		line "would get people"
-		cont "visiting, but now"
-
-		para "its endless waves"
-		line "of trainers!"
-
-		para "I'll be glad when"
-		line "it's all back to"
-		cont "normal."
-		done
-
 	HeraldCoveLassText:
 		text "This beach is good"
 		line "to tan on, but you"
@@ -1042,70 +983,6 @@ HeraldGymSignScript:
 		para "Just stay clear of"
 		line "the trainers and"
 		cont "you'll be ok!"
-		done
-
-	YoungsterDannyPracticeBattle:
-		text "Oh man, I'm so"
-		line "nervous. I want to"
-		cont "sign up, but..."
-
-		para "I don't know if I"
-		line "can do it."
-
-		para "I've just arrived"
-		line "from SINNOH, but I"
-
-		para "might just want to"
-		line "watch instead."
-
-		para "You're a trainer?"
-		line "Do you want to do"
-		cont "a practice battle?"
-
-		para "It might help me"
-		line "clear my head."
-		done
-
-	YoungsterDannyBattleExcited:
-		text "Alright, great!"
-		line "Thanks a lot! Come"
-
-		para "on, BIDOOF! Let's"
-		line "do this!"
-		done
-
-	DannyWinText:
-		text "Wow, you're good."
-		done
-
-	YoungsterDannyLossText:
-		text "Thanks for the"
-		line "battle. I'm still"
-
-		para "not sure if I want"
-		line "to sign up yet."
-
-		para "You totally should"
-		line "though! You'd do"
-		cont "really well there."
-
-		para "I wish you the"
-		line "best!"
-		done
-
-	YoungsterDannyGoodLuck:
-		text "Ah ok, I get it."
-		line "I'll think on it"
-		cont "some more then."
-		done
-
-	YoungsterDannyTrainMore:
-		text "I'm going to do it"
-		line "I've decided! But"
-		cont "I need practice."
-
-		para "You go ahead, I'll"
-		line "catch up soon!"
 		done
 
 	BerryMasterIntro:
@@ -1288,8 +1165,6 @@ HeraldCove_MapEvents:
 	object_event  15, 16, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerLassCandice, EVENT_GYM_TRAINERS_IN_HERALD_COVE
 	object_event  39,  0, SPRITE_GOOD_RIVAL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_GYM_TRAINERS_IN_HERALD_COVE
 	object_event  29, 19, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HeraldCoveOldRodFisher, -1
-	object_event  15,  7, SPRITE_GRAMPS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HeraldCoveGramps, -1
-	object_event   9,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HeraldCoveYoungsterScript, EVENT_BEAT_YOUNGSTER_DANNY1
 	object_event  11,  4, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BerryMasterScript, -1
 	object_event  23, 20, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, HeraldCoveLass, -1
 	object_event  23,  6, SPRITE_SAILOR, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HeraldCoveSailorScript, -1

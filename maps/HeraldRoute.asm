@@ -8,6 +8,7 @@
 	const HERALD_ROUTE_LASS2
 	const HERALD_ROUTE_ROCKET1
 	const HERALD_ROUTE_ROCKET2
+	const HERALD_ROUTE_YOUNGSTER4
 
 HeraldRoute_MapScripts:
 	def_scene_scripts
@@ -143,6 +144,41 @@ HeraldRouteGrottoEntryScript:
 	closetext
 	playsound SFX_ENTER_DOOR
 	warp HERALD_GROTTO, 2, 13
+	end
+
+HeraldRouteYoungsterDannyScript:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_YOUNGSTER_DANNY1
+	iftrue .AfterBattle
+	writetext YoungsterDannyPracticeBattle
+	yesorno
+	iffalse .NoBattle
+	writetext YoungsterDannyBattleExcited
+	waitbutton
+	winlosstext DannyWinText, 0
+	setlasttalked HERALD_ROUTE_YOUNGSTER2
+	loadtrainer YOUNGSTER, DANNY1
+	startbattle
+	reloadmapafterbattle
+	opentext
+	writetext YoungsterDannyLossText
+	waitbutton
+	closetext
+	setevent EVENT_BEAT_YOUNGSTER_DANNY1
+	end
+
+.NoBattle
+	writetext YoungsterDannyGoodLuck
+	waitbutton
+	closetext
+	turnobject HERALD_ROUTE_YOUNGSTER2, LEFT
+	end
+
+.AfterBattle
+	writetext YoungsterDannyTrainMore
+	waitbutton
+	closetext
 	end
 
 RocketPushesPlayerBack:
@@ -320,6 +356,70 @@ HeraldRouteGrottoEntryText:
 	line "step inside?"
 	done
 
+YoungsterDannyPracticeBattle:
+	text "Oh man, I'm so"
+	line "nervous. I want to"
+	cont "sign up, but..."
+
+	para "I don't know if I"
+	line "can do it."
+
+	para "I've just arrived"
+	line "from SINNOH, but I"
+
+	para "might just want to"
+	line "watch instead."
+
+	para "You're a trainer?"
+	line "Do you want to do"
+	cont "a practice battle?"
+
+	para "It might help me"
+	line "clear my head."
+	done
+
+YoungsterDannyBattleExcited:
+	text "Alright, great!"
+	line "Thanks a lot! Come"
+
+	para "on, BIDOOF! Let's"
+	line "do this!"
+	done
+
+DannyWinText:
+	text "Wow, you're good."
+	done
+
+YoungsterDannyLossText:
+	text "Thanks for the"
+	line "battle. I'm still"
+
+	para "not sure if I want"
+	line "to sign up yet."
+
+	para "You totally should"
+	line "though! You'd do"
+	cont "really well there."
+
+	para "I wish you the"
+	line "best!"
+	done
+
+YoungsterDannyGoodLuck:
+	text "Ah ok, I get it."
+	line "I'll think on it"
+	cont "some more then."
+	done
+
+YoungsterDannyTrainMore:
+	text "I'm going to do it"
+	line "I've decided! But"
+	cont "I need practice."
+
+	para "You go ahead, I'll"
+	line "catch up soon!"
+	done
+
 HeraldRoute_MapEvents:
 	db 0, 0 ; filler
 
@@ -346,3 +446,4 @@ HeraldRoute_MapEvents:
 	object_event 32,  6, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, HeraldRouteLassScript, -1
 	object_event  37,  2, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlockingRocket1Script, EVENT_ROCKETS_STEAL_SEALED_MAP
 	object_event  38,  2, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlockingRocket2Script, EVENT_ROCKETS_STEAL_SEALED_MAP
+	object_event  54,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HeraldRouteYoungsterScript, EVENT_BEAT_YOUNGSTER_DANNY1

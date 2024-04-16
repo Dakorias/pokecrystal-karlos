@@ -18,11 +18,12 @@ EdwardGroup:
 	db  13, CORPHISH, WATER_GUN, LEER, FOCUS_ENERGY, VICEGRIP
 	db -1 ; end
 
-WhitneyGroup:
-	; WHITNEY (1)
-	db "WHITNEY@", TRAINERTYPE_MOVES
-	db 18, PIDGEY,   POUND, POUND, ENCORE, METRONOME
-	db 20, PIDGEY,    ROLLOUT, ATTRACT, STOMP, POUND
+KenjiGroup:
+	; KENJI (1)
+	db "KENJI@", TRAINERTYPE_MOVES
+	db 18, MACHOP,   FOCUS_ENERGY, KARATE_CHOP, LEER, FORESIGHT
+	db 17, MANKEY,   FURY_SWIPES, KARATE_CHOP, LEER, FOCUS_ENERGY
+	db 20, HERACROSS,  FOCUS_ENERGY, FURY_ATTACK, LEER, PIN_MISSILE
 	db -1 ; end
 
 BugsyGroup:
@@ -89,6 +90,12 @@ WillGroup:
 	db -1 ; end
 
 PKMNTrainerGroup:
+	; HARRISON (1)
+	db "HARRISON@", TRAINERTYPE_NORMAL
+	db 17, SHROOMISH
+	db 16, ONIX
+	db 18, COMBUSKEN
+	db -1 ; end
 
 BrunoGroup:
 	; BRUNO (1)
@@ -218,6 +225,12 @@ YoungsterGroup:
 	db 16, DUNSPARCE
 	db -1 ; end
 
+	; YOUNGSTER (8)
+	db "ANDREW@", TRAINERTYPE_NORMAL
+	db 17, MURKROW
+	db 19, CORSOLA
+	db -1 ; end
+
 SchoolboyGroup:
 
 BirdKeeperGroup:
@@ -291,6 +304,12 @@ SabrinaGroup:
 BugCatcherGroup:
 
 FisherGroup:
+	; FISHER (1)
+	db "ARNOLD@", TRAINERTYPE_NORMAL
+	db 12, CHINCHOU
+	db 12, CORPHISH
+	db 12, CARVANHA
+	db -1 ; end
 
 SwimmerMGroup:
 
@@ -418,38 +437,80 @@ MysticalmanGroup:
 	db -1 ; end
 
 BlaireGroup:
-	; BLAIRE (1)
+	; BLAIRE1 (1)
 	db "BLAIRE@", TRAINERTYPE_NORMAL
 	db  5, EKANS
 	db -1 ; end
 
-	; BLAIRE (2)
+	; BLAIRE1 (2)
 	db "BLAIRE@", TRAINERTYPE_NORMAL
 	db  5, HOUNDOUR
 	db -1 ; end
 
-	; BLAIRE (3)
+	; BLAIRE1 (3)
 	db "BLAIRE@", TRAINERTYPE_NORMAL
 	db  5, BALTOY
 	db -1 ; end
 
+	; BLAIRE2 (1)
+	db "BLAIRE@", TRAINERTYPE_NORMAL
+	db  16, ROCKRUFF
+	db  15, EEVEE
+	db  18, EKANS
+	db -1 ; end
+
+	; BLAIRE2 (2)
+	db "BLAIRE@", TRAINERTYPE_NORMAL
+	db  16, ROCKRUFF
+	db  15, EEVEE
+	db  18, HOUNDOUR
+	db -1 ; end
+
+	; BLAIRE2 (3)
+	db "BLAIRE@", TRAINERTYPE_NORMAL
+	db  16, ROCKRUFF
+	db  15, EEVEE
+	db  18, BALTOY
+	db -1 ; end
+
 PercyGroup:
-	; PERCY (1)
+	; PERCY1 (1)
 	db "PERCY@", TRAINERTYPE_NORMAL
 	db 9, FLETCHLING
 	db 11, EKANS
 	db -1 ; end
 
-	; PERCY (2)
+	; PERCY1 (2)
 	db "PERCY@", TRAINERTYPE_NORMAL
 	db 9, PIDGEY
 	db 11, HOUNDOUR
 	db -1 ; end
 
-	; PERCY (3)
+	; PERCY1 (3)
 	db "PERCY@", TRAINERTYPE_NORMAL
 	db 9, MURKROW
 	db 11, BALTOY
+	db -1 ; end
+
+	; PERCY2 (1)
+	db "PERCY@", TRAINERTYPE_NORMAL
+	db 16, ROCKRUFF
+	db 15, FLETCHLING
+	db 17, EKANS
+	db -1 ; end
+
+	; PERCY2 (2)
+	db "PERCY@", TRAINERTYPE_NORMAL
+	db 16, ROCKRUFF
+	db 15, PIDGEY
+	db 17, HOUNDOUR
+	db -1 ; end
+
+	; PERCY2 (3)
+	db "PERCY@", TRAINERTYPE_NORMAL
+	db 16, ROCKRUFF
+	db 15, MURKROW
+	db 17, BALTOY
 	db -1 ; end
 
 BreederGroup:

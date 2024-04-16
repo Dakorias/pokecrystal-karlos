@@ -336,10 +336,10 @@ WRAMX 1
 	"WRAM 1"
 	"Miscellaneous WRAM 1"
 	"More WRAM 1"
-	"Enemy Party"
 	"Party"
 WRAMX 2
 	"Pic Animations"
+	"Enemy Party"
 WRAMX 3
 	"Battle Tower RAM"
 WRAMX 4

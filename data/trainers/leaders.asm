@@ -6,7 +6,7 @@
 
 GymLeaders:
 	db EDWARD
-	db WHITNEY
+	db KENJI
 	db BUGSY
 	db MORTY
 	db PRYCE
