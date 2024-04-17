@@ -13,10 +13,10 @@ _ReceiveItem::
 .Pockets:
 ; entries correspond to item types
 	dw .Item
-	dw .Medicine
 	dw .KeyItem
 	dw .Ball
 	dw .TMHM
+	dw .Medicine
 	dw .Berries
 
 .Item:
@@ -64,10 +64,10 @@ _TossItem::
 .Pockets:
 ; entries correspond to item types
 	dw .Item
-	dw .Medicine
 	dw .KeyItem
 	dw .Ball
 	dw .TMHM
+	dw .Medicine
 	dw .Berries
 
 .Ball:
@@ -117,10 +117,10 @@ _CheckItem::
 .Pockets:
 ; entries correspond to item types
 	dw .Item
-	dw .Medicine
 	dw .KeyItem
 	dw .Ball
 	dw .TMHM
+	dw .Medicine
 	dw .Berries
 
 .Ball:
@@ -184,19 +184,19 @@ GetPocketCapacity:
 .not_pc
 	ld c, MAX_MEDICINE
 	ld a, e
-	cp LOW(wNumMedicine)
+	cp LOW(wMedicine)
 	jr nz, .not_medicine
 	ld a, d
-	cp HIGH(wNumMedicine)
+	cp HIGH(wMedicine)
 	ret z
 
 .not_medicine
 	ld c, MAX_BERRIES
 	ld a, e
-	cp LOW(wNumBerries)
+	cp LOW(wBerries)
 	jr nz, .not_berries
 	ld a, d
-	cp HIGH(wNumBerries)
+	cp HIGH(wBerries)
 	ret z
 
 .not_berries

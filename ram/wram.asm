@@ -2245,7 +2245,7 @@ wPoisonStepPartyFlags:: ds PARTY_LENGTH
 wPoisonStepDataEnd::
 ENDU
 
-
+ds 20
 
 SECTION "More WRAM 1", WRAMX
 
@@ -2272,19 +2272,19 @@ wLastPocket:: db
 wPCItemsCursor::        db
 wPartyMenuCursor::      db
 wItemsPocketCursor::    db
-wMedicinePocketCursor::    db
 wKeyItemsPocketCursor:: db
 wBallsPocketCursor::    db
 wTMHMPocketCursor::     db
+wMedicinePocketCursor::    db
 wBerriesPocketCursor::    db
 
 wPCItemsScrollPosition::        db
 	ds 1
 wItemsPocketScrollPosition::    db
-wMedicinePocketScrollPosition::    db
 wKeyItemsPocketScrollPosition:: db
 wBallsPocketScrollPosition::    db
 wTMHMPocketScrollPosition::     db
+wMedicinePocketScrollPosition::    db
 wBerriesPocketScrollPosition::    db
 
 wSwitchMon::
@@ -2796,7 +2796,8 @@ wDudeItems:: ds 2 * 4 + 1
 wDudeNumBerries::
 wDudeNumMedicine::
 wDudeNumKeyItems:: db
-wDudeKeyItems:: ds 18 + 1
+wDudeKeyItems:: ds 18
+wDudeKeyItemsEnd:: db
 
 wDudeNumBalls:: db
 wDudeBalls:: ds 2 * 4 + 1
@@ -3019,10 +3020,10 @@ wNumBalls:: db
 wBalls:: ds MAX_BALLS * 2 + 1
 
 wNumMedicine:: db
-wMedicine:: ds MAX_PC_ITEMS * 2 + 1
+wMedicine:: ds MAX_MEDICINE * 2 + 1
 
 wNumBerries:: db
-wBerries:: ds MAX_PC_ITEMS * 2 + 1
+wBerries:: ds MAX_BERRIES * 2 + 1
 
 wNumPCItems:: db
 wPCItems:: ds MAX_PC_ITEMS * 2 + 1
@@ -3049,6 +3050,8 @@ wTradeFlags:: flag_array NUM_NPC_TRADES
 wMooMooBerries:: db
 wUndergroundSwitchPositions:: db
 wFarfetchdPosition:: db
+
+		ds 2
 
 ; map scene ids
 wPokecenter2FSceneID::              db
@@ -3105,6 +3108,7 @@ wKenjiFightCount::   db ; unreferenced
 wParryFightCount::   db
 wErinFightCount::    db
 
+	ds 50
 
 wEventFlags:: flag_array NUM_EVENTS
 

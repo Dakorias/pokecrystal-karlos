@@ -265,9 +265,9 @@ Pack:
 	ld [wMenuScrollPosition], a
 	call ScrollingMenu
 	ld a, [wMenuScrollPosition]
-	ld [wBallsPocketScrollPosition], a
+	ld [wBerriesPocketScrollPosition], a
 	ld a, [wMenuCursorY]
-	ld [wBallsPocketCursor], a
+	ld [wBerriesPocketCursor], a
 	ld b, PACKSTATE_INITTMHMPOCKET ; left
 	ld c, PACKSTATE_INITITEMSPOCKET ; right
 	call Pack_InterpretJoypad
@@ -863,9 +863,9 @@ BattlePack:
 	ld [wMenuScrollPosition], a
 	call ScrollingMenu
 	ld a, [wMenuScrollPosition]
-	ld [wBallsPocketScrollPosition], a
+	ld [wBerriesPocketScrollPosition], a
 	ld a, [wMenuCursorY]
-	ld [wBallsPocketCursor], a
+	ld [wBerriesPocketCursor], a
 	ld b, PACKSTATE_INITTMHMPOCKET ; left
 	ld c, PACKSTATE_INITITEMSPOCKET ; right
 	call Pack_InterpretJoypad
@@ -1199,7 +1199,10 @@ DepositSellTutorial_InterpretJoypad:
 .d_left
 	ld a, [wJumptableIndex]
 	dec a
-	maskbits NUM_POCKETS
+	cp -2
+	jr nz, .left_ok
+	ld a, NUM_POCKETS - 1
+	.left_ok
 	ld [wJumptableIndex], a
 	push de
 	ld de, SFX_SWITCH_POCKETS
@@ -1211,7 +1214,10 @@ DepositSellTutorial_InterpretJoypad:
 .d_right
 	ld a, [wJumptableIndex]
 	inc a
-	maskbits NUM_POCKETS
+	cp -2
+	jr nz, .right_ok
+	ld a, NUM_POCKETS - 1
+	.right_ok
 	ld [wJumptableIndex], a
 	push de
 	ld de, SFX_SWITCH_POCKETS
@@ -1319,8 +1325,8 @@ TutorialPack:
 	dba UpdateItemDescription
 
 .Berries:
-	ld a, BALL_POCKET
-	ld hl, .BallsMenuHeader
+	ld a, BERRY_POCKET
+	ld hl, .BerriesMenuHeader
 	jr .DisplayPocket
 
 .BerriesMenuHeader:
