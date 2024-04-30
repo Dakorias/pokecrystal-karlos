@@ -117,3 +117,6 @@ SecondTownFishing_Blocks:
 
 BeachGrotto_Blocks:
 	INCBIN "maps/BeachGrotto.blk"
+
+MountainGym_Blocks:
+	INCBIN "maps/MountainGym.blk"

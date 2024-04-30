@@ -58,7 +58,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	trainerclass WILL ; b
 	const WILL1
 
-	trainerclass CAL ; c
+	trainerclass HARRISON ; c
 	const HARRISON1
 
 	trainerclass BRUNO ; d

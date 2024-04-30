@@ -14,7 +14,7 @@ TrainerPicPointers::
 	dba Rival1Pic
 	dba PokemonProfPic
 	dba WillPic
-	dba CalPic
+	dba HarrisonPic
 	dba BrunoPic
 	dba KarenPic
 	dba KogaPic
@@ -70,8 +70,8 @@ TrainerPicPointers::
 	dba OfficerPic
 	dba GruntfPic
 	dba MysticalmanPic
-	dba Rival1Pic
-	dba YoungsterPic
+	dba BlairePic
+	dba PercyPic
 	dba YoungsterPic
 	dba YoungsterPic
 	dba YoungsterPic

@@ -84,11 +84,12 @@ MountainCave_MapEvents:
 
 	def_warp_events
 	warp_event 5,  25, MOUNTAIN_ROUTE, 1
+	warp_event 14,  5, MOUNTAIN_GYM, 1
 	def_coord_events
 
 	def_bg_events
 
 	def_object_events
-	object_event  7,  21, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerHikerDonny, -1
-	object_event  13, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerYoungsterDavid, -1
-	object_event  6,   8, SPRITE_SAILOR, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerHikerConnor, -1
+	object_event  11, 23, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerHikerDonny, -1
+	object_event  3,  14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerYoungsterDavid, -1
+	object_event  6,   6, SPRITE_SAILOR, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerHikerConnor, -1

@@ -16,7 +16,7 @@ IrwinRumorScript:
 	iftrue .RisingBadge
 	checkflag ENGINE_FOGBADGE
 	iftrue .FogBadge
-	checkflag ENGINE_PLAINBADGE
+	checkflag ENGINE_CRUSHBADGE
 	iftrue .PlainBadge
 	farwritetext IrwinCalledRightAwayText
 	promptbutton

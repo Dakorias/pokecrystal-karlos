@@ -475,7 +475,7 @@ SECTION "Pics 15", ROMX
 
 FletchlingBackpic:   INCBIN "gfx/pokemon/fletchling/back.2bpp.lz"
 PokemonProfPic:      INCBIN "gfx/trainers/oak.2bpp.lz"
-CalPic:              INCBIN "gfx/trainers/cal.2bpp.lz"
+HarrisonPic:              INCBIN "gfx/trainers/harrison.2bpp.lz"
 SwimmerfPic:         INCBIN "gfx/trainers/swimmer_f.2bpp.lz"
 SpiritombFrontpic:     INCBIN "gfx/pokemon/spiritomb/front.animated.2bpp.lz"
 OfficerPic:          INCBIN "gfx/trainers/officer.2bpp.lz"
@@ -725,6 +725,8 @@ MaractusBackpic:        INCBIN "gfx/pokemon/maractus/back.2bpp.lz"
 TreekoFrontpic:       INCBIN "gfx/pokemon/treeko/front.animated.2bpp.lz"
 MaractusFrontpic:       INCBIN "gfx/pokemon/maractus/front.animated.2bpp.lz"
 EdwardPic:           INCBIN "gfx/trainers/edward.2bpp.lz"
+BlairePic:            INCBIN "gfx/trainers/blaire.2bpp.lz"
+PercyPic:             INCBIN "gfx/trainers/percy.2bpp.lz"
 
 
 ; Sections "Pics 20" to "Pics 24" are not used for any graphics,

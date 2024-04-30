@@ -2245,7 +2245,8 @@ wPoisonStepPartyFlags:: ds PARTY_LENGTH
 wPoisonStepDataEnd::
 ENDU
 
-ds 20
+	ds 23
+
 
 SECTION "More WRAM 1", WRAMX
 
@@ -2275,7 +2276,7 @@ wItemsPocketCursor::    db
 wKeyItemsPocketCursor:: db
 wBallsPocketCursor::    db
 wTMHMPocketCursor::     db
-wMedicinePocketCursor::    db
+wMedicinePocketCursor:: db
 wBerriesPocketCursor::    db
 
 wPCItemsScrollPosition::        db
@@ -2284,8 +2285,8 @@ wItemsPocketScrollPosition::    db
 wKeyItemsPocketScrollPosition:: db
 wBallsPocketScrollPosition::    db
 wTMHMPocketScrollPosition::     db
-wMedicinePocketScrollPosition::    db
-wBerriesPocketScrollPosition::    db
+wMedicinePocketScrollPosition:: db
+wBerriesPocketScrollPosition:: 		db
 
 wSwitchMon::
 wSwitchItem::
@@ -2793,11 +2794,10 @@ NEXTU
 wDudeNumItems:: db
 wDudeItems:: ds 2 * 4 + 1
 
-wDudeNumBerries::
 wDudeNumMedicine::
+wDudeNumBerries::
 wDudeNumKeyItems:: db
-wDudeKeyItems:: ds 18
-wDudeKeyItemsEnd:: db
+wDudeKeyItems:: ds 18 + 1
 
 wDudeNumBalls:: db
 wDudeBalls:: ds 2 * 4 + 1
@@ -3028,6 +3028,7 @@ wBerries:: ds MAX_BERRIES * 2 + 1
 wNumPCItems:: db
 wPCItems:: ds MAX_PC_ITEMS * 2 + 1
 
+
 wPokegearFlags::
 ; bit 0: map
 ; bit 1: radio
@@ -3051,7 +3052,7 @@ wMooMooBerries:: db
 wUndergroundSwitchPositions:: db
 wFarfetchdPosition:: db
 
-		ds 2
+	ds 13
 
 ; map scene ids
 wPokecenter2FSceneID::              db
@@ -3108,7 +3109,7 @@ wKenjiFightCount::   db ; unreferenced
 wParryFightCount::   db
 wErinFightCount::    db
 
-	ds 50
+	ds 68
 
 wEventFlags:: flag_array NUM_EVENTS
 

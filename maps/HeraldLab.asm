@@ -236,7 +236,6 @@ HeraldLab_MapScripts:
 		end
 
 	BlaireFightLeftScript:
-		setevent EVENT_BATTLE_PERCY_2ND_GYM
 		disappear HERALD_LAB_BLAIRE
 		moveobject HERALD_LAB_BLAIRE, 5, 4
 		appear HERALD_LAB_BLAIRE

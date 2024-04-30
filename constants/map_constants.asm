@@ -88,6 +88,7 @@ ENDM
 	map_const SECOND_TOWN_POKECENTER,				 								7,  4 ; 7
 	map_const SECOND_TOWN_FISHING,												  5,  4 ; 8
 	map_const BEACH_GROTTO, 																5,  5 ; 9
+	map_const MOUNTAIN_GYM,																	5,  5 ; 10
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 6

@@ -51,6 +51,7 @@ INCLUDE "maps/SecondTownHouse2.asm"
 INCLUDE "maps/SecondTownPokecenter.asm"
 INCLUDE "maps/SecondTownFishing.asm"
 INCLUDE "maps/BeachGrotto.asm"
+INCLUDE "maps/MountainGym.asm"
 
 SECTION "Map Scripts 6", ROMX
 

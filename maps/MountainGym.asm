@@ -1,9 +1,9 @@
 	object_const_def
-	MOUNTAIN_GYM_KENJI
-	MOUNTAIN_GYM_BLAIRE
-	MOUNTAIN_GYM_PERCY
-	MOUNTAIN_GYM_HARRISON
-	MOUNTAIN_GYM_YOUNGSTER1
+	const MOUNTAIN_GYM_KENJI
+	const MOUNTAIN_GYM_BLAIRE
+	const MOUNTAIN_GYM_PERCY
+	const MOUNTAIN_GYM_HARRISON
+	const MOUNTAIN_GYM_YOUNGSTER1
 
 MountainGym_MapScripts:
 	def_scene_scripts
@@ -122,7 +122,7 @@ MountainCaveGymScript:
 	loadtrainer BLAIRE, BLAIRE_1_HOUNDOUR
 	startbattle
 	reloadmapafterbattle
-	sjump .AfterPercyBattle
+	sjump .AfterBlaireBattle
 
 	.BlaireEkans
 	winlosstext Blaire2GymWinText, 0
@@ -130,7 +130,7 @@ MountainCaveGymScript:
 	loadtrainer BLAIRE, BLAIRE_1_EKANS
 	startbattle
 	reloadmapafterbattle
-	sjump .AfterPercyBattle
+	sjump .AfterBlaireBattle
 
 	.BlaireBaltoy
 	winlosstext Blaire2GymWinText, 0
@@ -138,7 +138,7 @@ MountainCaveGymScript:
 	loadtrainer BLAIRE, BLAIRE_1_BALTOY
 	startbattle
 	reloadmapafterbattle
-	sjump .AfterPercyBattle
+	sjump .AfterBlaireBattle
 
 	.AfterBlaireBattle
 	opentext
@@ -171,7 +171,7 @@ MountainCaveGymScript:
 	closetext
 	winlosstext HarrisonGymWinText, 0
 	setlasttalked MOUNTAIN_GYM_HARRISON
-	loadtrainer CAL, HARRISON
+	loadtrainer HARRISON, HARRISON1
 	startbattle
 	reloadmapafterbattle
 	opentext
@@ -251,6 +251,12 @@ MountainCaveGymScript:
 	closetext
 	end
 
+	LeaveGymScript:
+	writetext KenjiNotReady
+	waitbutton
+	closetext
+	end
+
 	KenjiLeadsPlayerMovement:
 	step UP
 	step UP
@@ -286,6 +292,7 @@ MountainCaveGymScript:
 	step_end
 
 	KenjiWelcomesPlayerText:
+	KenjiNotReady:
 	KenjiLeadsPlayerIntoGym:
 	KenjiStayHereText:
 	KenjiShoutsFor1stFight:
@@ -315,15 +322,12 @@ MountainCaveGymScript:
 	text "TEST"
 	done
 
-
-
-
 MountainGym_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 3,  9, MOUNTAIN_CAVE, 6
-	warp_event 4,  9, MOUNTAIN_CAVE, 6
+	warp_event 3,  9, MOUNTAIN_CAVE, 2
+	warp_event 4,  9, MOUNTAIN_CAVE, 2
 
 	def_coord_events
 
@@ -331,8 +335,8 @@ MountainGym_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  7, 	2, SPRITE_BLACKBELT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KenjiTalkToScript, -1
+	object_event  4, 	6, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KenjiTalkToScript, -1
 	object_event  8,  0, SPRITE_BAD_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
 	object_event  8,  0, SPRITE_GOOD_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
-	object_event  8,  0, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
+	object_event  8,  0, SPRITE_HARRISON, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
 	object_event  8,  0, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1

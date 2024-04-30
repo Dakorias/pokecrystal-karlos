@@ -1,5 +1,5 @@
 BetaLoadPlayerTrainerClass: ; unreferenced
-	ld c, CAL
+	ld c, HARRISON
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .got_class

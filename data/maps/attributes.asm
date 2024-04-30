@@ -129,6 +129,7 @@ ENDM
 	map_attributes SecondTownPokecenter, SECOND_TOWN_POKECENTER, $00, 0
 	map_attributes SecondTownFishing, SECOND_TOWN_FISHING, $00, 0
 	map_attributes BeachGrotto, BEACH_GROTTO, $71, 0
+	map_attributes MountainGym, MOUNTAIN_GYM, $00, 0
 
 
 	map_attributes BattleTowerOutside, BATTLE_TOWER_OUTSIDE, $05, 0

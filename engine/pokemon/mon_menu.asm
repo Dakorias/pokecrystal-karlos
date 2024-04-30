@@ -2,13 +2,13 @@ HasNoItems:
 	ld a, [wNumItems]
 	and a
 	ret nz
-	ld a, [wNumMedicine]
-	and a
-	ret nz
 	ld a, [wNumKeyItems]
 	and a
 	ret nz
 	ld a, [wNumBalls]
+	and a
+	ret nz
+	ld a, [wNumMedicine]
 	and a
 	ret nz
 	ld a, [wNumBerries]
