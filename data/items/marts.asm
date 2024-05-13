@@ -39,6 +39,8 @@ Marts:
 	dw MartHeraldBerries
 	dw MartSecondTown1
 	dw MartSecondTown2
+	dw MartSecondTown3
+	dw MartSecondTown4
 	assert_table_length NUM_MARTS
 
 MartCherrygrove:
@@ -416,17 +418,41 @@ MartHeraldBerries:
 	db -1 ; end
 
 MartSecondTown1:
+	db 3 ; # items
+	db X_ATTACK
+	db X_DEFEND
+	db X_ACCURACY
+	db -1 ; end
+
+MartSecondTown2:
 	db 5 ; # items
-	db POKE_BALL
+	db BERRY
+	db PSNCUREBERRY
+	db PRZCUREBERRY
+	db MINT_BERRY
+	db DREAM_BERRY
+	db -1 ; end
+
+MartSecondTown3:
+	db 5 ; # items
 	db POTION
+	db SUPER_POTION
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db REPEL
 	db -1 ; end
 
-MartSecondTown2:
-	db 1 ; # items
-	db SURF_MAIL
+MartSecondTown4:
+	db 9 ; # items
+	db POKE_BALL
+	db RESCUE_BALL
+	db DUSK_BALL
+	db DAWN_BALL
+	db TIMER_BALL
+	db SPEED_BALL
+	db SHINY_BALL
+	db VIRAL_BALL
+	db FORTUNE_BALL
 	db -1 ; end
 
 DefaultMart:

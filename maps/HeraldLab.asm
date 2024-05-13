@@ -305,8 +305,8 @@ HeraldLab_MapScripts:
 		startbattle
 		dontrestartmapmusic
 		reloadmap
-		iftrue .AfterVictorious
-		sjump .AfterYourDefeat
+		iftrue .AfterYourDefeat
+		sjump .AfterVictorious
 
 	.AfterVictorious:
 		opentext
@@ -316,6 +316,7 @@ HeraldLab_MapScripts:
 		sjump .FinishRival
 
 	.AfterYourDefeat
+		setevent EVENT_BATTLE_PERCY_2ND_GYM
 		opentext
 		writetext RivalBlaireYouLostText
 		waitbutton
@@ -396,13 +397,6 @@ HeraldLab_MapScripts:
 		waitbutton
 		writetext OakGivesOutPokedex
 		waitbutton
-		applymovement HERALD_LAB_OAK, OakWalksToPokedex
-		pause 5
-		playsound SFX_BUMP
-		playsound SFX_BUMP
-		playsound SFX_BUMP
-		pause 5
-		applymovement HERALD_LAB_OAK, OakWalksBackFromPokedex
 		pause 5
 		writetext PlayerReceivesPokedex
 		playsound SFX_KEY_ITEM
@@ -608,16 +602,6 @@ HeraldLab_MapScripts:
 		step UP
 		step_end
 
-	OakWalksToPokedex:
-		step UP
-		step LEFT
-		step_end
-
-	OakWalksBackFromPokedex:
-		step RIGHT
-		step DOWN
-		step_end
-
 	PercyLeavesLabPokedex:
 		big_step DOWN
 		big_step DOWN
@@ -699,7 +683,7 @@ HeraldLab_MapScripts:
 		done
 
 	BlaireGetsStarterText:
-		text "BLAIRE got a"
+		text "BLAIRE got"
 		line "@"
 		text_ram wStringBuffer3
 		text "!"
@@ -712,7 +696,7 @@ HeraldLab_MapScripts:
 		done
 
 	PercyGetsStarterText:
-		text "PERCY got a"
+		text "PERCY got"
 		line "@"
 		text_ram wStringBuffer3
 		text "!"

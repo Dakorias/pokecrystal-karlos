@@ -1534,7 +1534,7 @@ _OakText1::
 
 	para "but most people"
 	line "call me the"
-	cont "#MON Professor."
+	cont "#MON PROF."
 	prompt
 
 _OakText2::

@@ -116,11 +116,6 @@ PlayBattleMusic:
 	jr z, .done
 	cp BLAIRE
 	jr nz, .othertrainer
-
-	ld a, [wOtherTrainerID]
-	cp BLAINE1 ; Rival in Indigo Plateau
-	jr c, .done
-	ld de, MUSIC_CHAMPION_BATTLE
 	jr .done
 
 .othertrainer

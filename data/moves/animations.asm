@@ -172,7 +172,7 @@ BattleAnimations::
 	dw BattleAnim_Thief
 	dw BattleAnim_SpiderWeb
 	dw BattleAnim_MindReader
-	dw BattleAnim_Nightmare
+	dw BattleAnim_BulletSeed
 	dw BattleAnim_FlameWheel
 	dw BattleAnim_Snore
 	dw BattleAnim_Curse
@@ -3198,14 +3198,23 @@ BattleAnim_MindReader:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_Nightmare:
-	anim_1gfx ANIM_GFX_ANGELS
-	anim_bgp $1b
-	anim_obp0 $f
-	anim_obj ANIM_OBJ_NIGHTMARE, 132, 40, $0
-	anim_obj ANIM_OBJ_NIGHTMARE, 132, 40, $a0
-	anim_sound 0, 1, SFX_NIGHTMARE
-	anim_wait 96
+BattleAnim_BulletSeed:
+	anim_2gfx ANIM_GFX_PLANT, ANIM_GFX_HIT
+.loop
+	anim_obj ANIM_OBJ_BULLET_SEED, 64, 92, $18
+	anim_wait 4
+	anim_obj ANIM_OBJ_BULLET_SEED, 56, 84, $18
+	anim_sound 0, 1, SFX_PECK
+	anim_obj ANIM_OBJ_HIT_SMALL, 136, 56, $0
+	anim_wait 4
+	anim_obj ANIM_OBJ_BULLET_SEED, 52, 88, $18
+	anim_sound 0, 1, SFX_PECK
+	anim_obj ANIM_OBJ_HIT_SMALL, 128, 48, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_PECK
+	anim_obj ANIM_OBJ_HIT_SMALL, 132, 52, $0
+	anim_loop 5, .loop
+	anim_wait 16
 	anim_ret
 
 BattleAnim_FlameWheel:

@@ -105,7 +105,7 @@
 	const WHT_APRICORN ; 61
 	const BLACKBELT_I  ; 62
 	const BLK_APRICORN ; 63
-	const ITEM_64      ; 64
+	const RESCUE_BALL  ; 64
 	const PNK_APRICORN ; 65
 	const BLACKGLASSES ; 66
 	const SLOWPOKETAIL ; 67
@@ -125,7 +125,7 @@
 	const MIRACLE_SEED ; 75
 	const THICK_CLUB   ; 76
 	const FOCUS_BAND   ; 77
-	const ITEM_78      ; 78
+	const DUSK_BALL	   ; 78
 	const ENERGYPOWDER ; 79
 	const ENERGY_ROOT  ; 7a
 	const HEAL_POWDER  ; 7b
@@ -135,24 +135,24 @@
 	const CARD_KEY     ; 7f
 	const MACHINE_PART ; 80
 	const EGG_TICKET   ; 81
-	const LOST_ITEM    ; 82
+	const DAWN_BALL    ; 82
 	const STARDUST     ; 83
 	const STAR_PIECE   ; 84
 	const BASEMENT_KEY ; 85
 	const PASS         ; 86
 	const CAMPING_KIT  ; 87
-	const ITEM_88      ; 88
-	const ITEM_89      ; 89
+	const TIMER_BALL   ; 88
+	const SPEED_BALL   ; 89
 	const CHARCOAL     ; 8a
 	const BERRY_JUICE  ; 8b
 	const SCOPE_LENS   ; 8c
-	const ITEM_8D      ; 8d
-	const ITEM_8E      ; 8e
+	const SHINY_BALL   ; 8d
+	const VIRAL_BALL   ; 8e
 	const METAL_COAT   ; 8f
 	const DRAGON_FANG  ; 90
-	const ITEM_91      ; 91
+	const FORTUNE_BALL ; 91
 	const LEFTOVERS    ; 92
-	const ITEM_93      ; 93
+	const DREAM_BERRY  ; 93
 	const ITEM_94      ; 94
 	const ITEM_95      ; 95
 	const MYSTERYBERRY ; 96
@@ -221,54 +221,52 @@ DEF TM01 EQU const_value
 	add_tm WATER_PULSE  ; c0
 	add_tm CURSE        ; c1
 	add_tm ROLLOUT      ; c2
-	const ITEM_C3       ; c3
-	add_tm ROAR         ; c4
-	add_tm TOXIC        ; c5
-	add_tm WILL_O_WISP  ; c6
-	add_tm ROCK_SMASH   ; c7
-	add_tm CHARGE_BEAM  ; c8
-	add_tm HIDDEN_POWER ; c9
-	add_tm SUNNY_DAY    ; ca
-	add_tm U_TURN       ; cb
-	add_tm HAIL         ; cc
-	add_tm AURORA_BEAM  ; cd
-	add_tm HYPER_BEAM   ; ce
-	add_tm SIGNAL_BEAM  ; cf
-	add_tm PROTECT      ; d0
-	add_tm RAIN_DANCE   ; d1
-	add_tm GIGA_DRAIN   ; d2
-	add_tm ROCK_TOMB    ; d3
-	add_tm ZEN_HEADBUTT ; d4
-	add_tm SOLARBEAM    ; d5
-	add_tm IRON_TAIL    ; d6
-	add_tm CROSS_POISON ; d7
-	add_tm AVALANCHE    ; d8
-	add_tm EARTHQUAKE   ; d9
-	add_tm RETURN       ; da
-	add_tm DIG          ; db
-	const ITEM_DC       ; dc
-	add_tm PSYCHIC_M    ; dd
-	add_tm SHADOW_BALL  ; de
-	add_tm MUD_SLAP     ; df
-	add_tm DOUBLE_TEAM  ; e0
-	add_tm ICE_PUNCH    ; e1
-	add_tm SWAGGER      ; e2
-	add_tm SLEEP_TALK   ; e3
-	add_tm POISON_JAB   ; e4
-	add_tm SANDSTORM    ; e5
-	add_tm FIRE_BLAST   ; e6
-	add_tm COUNTER      ; e7
-	add_tm DEFENSE_CURL ; e8
-	add_tm THUNDERPUNCH ; e9
-	add_tm DREAM_EATER  ; ea
-	add_tm AIR_SLASH    ; eb
-	add_tm REST         ; ec
-	add_tm ATTRACT      ; ed
-	add_tm THIEF        ; ee
-	add_tm STEEL_WING   ; ef
-	add_tm FIRE_PUNCH   ; f0
-	add_tm SPIKES       ; f1
-	add_tm SUBSTITUTE   ; f2
+	add_tm ROAR         ; c3
+	add_tm TOXIC        ; c4
+	add_tm WILL_O_WISP  ; c5
+	add_tm ROCK_SMASH   ; c6
+	add_tm CHARGE_BEAM  ; c7
+	add_tm HIDDEN_POWER ; c8
+	add_tm SUNNY_DAY    ; c9
+	add_tm U_TURN       ; ca
+	add_tm HAIL         ; cb
+	add_tm AURORA_BEAM  ; cc
+	add_tm HYPER_BEAM   ; cd
+	add_tm SIGNAL_BEAM  ; ce
+	add_tm PROTECT      ; cf
+	add_tm RAIN_DANCE   ; d0
+	add_tm GIGA_DRAIN   ; d1
+	add_tm ROCK_TOMB    ; d2
+	add_tm ZEN_HEADBUTT ; d3
+	add_tm SOLARBEAM    ; d4
+	add_tm IRON_TAIL    ; d5
+	add_tm CROSS_POISON ; d6
+	add_tm AVALANCHE    ; d7
+	add_tm EARTHQUAKE   ; d8
+	add_tm RETURN       ; d9
+	add_tm DIG          ; da
+	add_tm PSYCHIC_M    ; db
+	add_tm SHADOW_BALL  ; dc
+	add_tm MUD_SLAP     ; dd
+	add_tm DOUBLE_TEAM  ; de
+	add_tm ICE_PUNCH    ; df
+	add_tm SWAGGER      ; e0
+	add_tm SLEEP_TALK   ; e1
+	add_tm POISON_JAB   ; e2
+	add_tm SANDSTORM    ; e3
+	add_tm FIRE_BLAST   ; e4
+	add_tm COUNTER      ; e5
+	add_tm DEFENSE_CURL ; e6
+	add_tm THUNDERPUNCH ; e7
+	add_tm DREAM_EATER  ; e8
+	add_tm AIR_SLASH    ; e9
+	add_tm REST         ; ea
+	add_tm ATTRACT      ; eb
+	add_tm THIEF        ; ec
+	add_tm STEEL_WING   ; ed
+	add_tm FIRE_PUNCH   ; ee
+	add_tm SPIKES       ; ef
+	add_tm SUBSTITUTE   ; f0
 DEF NUM_TMS EQU __tmhm_value__ - 1
 
 MACRO add_hm
@@ -283,12 +281,12 @@ MACRO add_hm
 ENDM
 
 DEF HM01 EQU const_value
-	add_hm CUT          ; f3
-	add_hm FLY          ; f4
-	add_hm SURF         ; f5
-	add_hm STRENGTH     ; f6
-	add_hm DIVE         ; f7
-	add_hm WATERFALL    ; f8
+	add_hm CUT          ; f1
+	add_hm FLY          ; f2
+	add_hm SURF         ; f3
+	add_hm STRENGTH     ; f4
+	add_hm DIVE         ; f5
+	add_hm WATERFALL    ; f6
 DEF NUM_HMS EQU __tmhm_value__ - NUM_TMS - 1
 
 MACRO add_mt

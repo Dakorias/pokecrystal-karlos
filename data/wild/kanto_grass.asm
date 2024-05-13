@@ -7,7 +7,7 @@ KantoGrassWildMons:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	;	 %,  Species,				min, max
-	db 25,  PIDGEY,					2,  4
+	db 30,  PIDGEY,					2,  4
 	db 25,  SENTRET,				2,  4
 	db 25,  CATERPIE,				2,  5
 	db 10,  FLETCHLING,			3,  5
@@ -17,7 +17,7 @@ KantoGrassWildMons:
 	db  1,  COTTONEE,				2,  6
 
 	; day
-	db 25,  PIDGEY,					2,  4
+	db 30,  PIDGEY,					2,  4
 	db 25,  SENTRET,				2,  4
 	db 25,  CATERPIE,				2,  5
 	db 10,  FLETCHLING,			3,  5
@@ -27,7 +27,7 @@ KantoGrassWildMons:
 	db  1,  SHINX,			  	2,  6
 
 	; nite
-	db 25,  PIDGEY,					2,  4
+	db 30,  PIDGEY,					2,  4
 	db 25,  SENTRET,				2,  4
 	db 25,  CATERPIE,				2,  5
 	db 10,  FLETCHLING,			3,  5
@@ -45,7 +45,7 @@ KantoGrassWildMons:
 	db 20,  PIDGEY,					7,  8
 	db 30,  BIDOOF,					6,  8
 	db 25,  SURSKIT,				8,  9
-	db 10,  KRABBY,					7,  9
+	db 15,  KRABBY,					7,  9
 	db  5,  CORPHISH,				8,  9
 	db  2,  KRABBY,					8,  9
 	db  2,  BIDOOF,					7,  9
@@ -55,7 +55,7 @@ KantoGrassWildMons:
 	db 20,  PIDGEY,					7,  8
 	db 30,  BIDOOF,					6,  8
 	db 25,  SURSKIT,				8,  9
-	db 10,  KRABBY,					7,  9
+	db 15,  KRABBY,					7,  9
 	db  5,  CORPHISH,				8,  9
 	db  2,  KRABBY,					8,  9
 	db  2,  BIDOOF,					7,  9
@@ -65,7 +65,7 @@ KantoGrassWildMons:
 	db 20,  PIDGEY,					7,  8
 	db 30,  BIDOOF,					6,  8
 	db 25,  SURSKIT,				8,  9
-	db 10,  KRABBY,					7,  9
+	db 15,  KRABBY,					7,  9
 	db  5,  CORPHISH,				8,  9
 	db  2,  KRABBY,					8,  9
 	db  2,  BIDOOF,					7,  9
@@ -80,7 +80,7 @@ KantoGrassWildMons:
 	db 25,  FLETCHLING,			10,  12
 	db 25,  MACHOP,					9,  12
 	db 25,  TYROGUE,			 	10, 11
-	db 10,  BIDOOF,		  		10, 12
+	db 15,  BIDOOF,		  		10, 12
 	db  5,  MACHOP,					11,  13
 	db  2,  FLETCHLING,			11,  12
 	db  2,  BIDOOF,					11,  12
@@ -90,7 +90,7 @@ KantoGrassWildMons:
 	db 25,  FLETCHLING,			10,  12
 	db 25,  MACHOP,					9,  12
 	db 25,  TYROGUE,			 	10, 11
-	db 10,  BIDOOF,		  		10, 12
+	db 15,  BIDOOF,		  		10, 12
 	db  5,  MACHOP,					11,  13
 	db  2,  FLETCHLING,			11,  12
 	db  2,  BIDOOF,					11,  12
@@ -100,7 +100,7 @@ KantoGrassWildMons:
 	db 25,  FLETCHLING,			10,  12
 	db 25,  MACHOP,					9,  12
 	db 25,  TYROGUE,			 	10, 11
-	db 10,  BIDOOF,		  		10, 12
+	db 15,  BIDOOF,		  		10, 12
 	db  5,  MACHOP,					11,  13
 	db  2,  FLETCHLING,			11,  12
 	db  2,  BIDOOF,					11,  12
@@ -115,7 +115,7 @@ KantoGrassWildMons:
 	db 25,  GEODUDE,				10,  12
 	db 25,  MACHOP,					9,  12
 	db 25,  TYROGUE,			 	10, 11
-	db 10,  ROCKRUFF,		 		10, 12
+	db 15,  ROCKRUFF,		 		10, 12
 	db  5,  ARON,						11,  13
 	db  2,  GEODUDE,				11,  12
 	db  2,  DUNSPARCE,	    11,  12
@@ -125,7 +125,7 @@ KantoGrassWildMons:
 	db 25,  GEODUDE,				10,  12
 	db 25,  MACHOP,					9,  12
 	db 25,  TYROGUE,			 	10, 11
-	db 10,  ROCKRUFF,		 		10, 12
+	db 15,  ROCKRUFF,		 		10, 12
 	db  5,  ARON,						11,  13
 	db  2,  GEODUDE,				11,  12
 	db  2,  DUNSPARCE,	    11,  12
@@ -135,7 +135,7 @@ KantoGrassWildMons:
 	db 25,  GEODUDE,				10,  12
 	db 25,  MACHOP,					9,  12
 	db 25,  TYROGUE,			 	10, 11
-	db 10,  ROCKRUFF,		 		10, 12
+	db 15,  ROCKRUFF,		 		10, 12
 	db  5,  ARON,						11,  13
 	db  2,  GEODUDE,				11,  12
 	db  2,  DUNSPARCE,	    11,  12

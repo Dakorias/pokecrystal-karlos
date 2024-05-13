@@ -62,8 +62,8 @@ FisherArnoldLetsBattle:
 	para "You must be a good"
 	line "battler then."
 
-	para "How about you and I"
-	line "go a round?"
+	para "How about you and"
+	line "I go a round?"
 	done
 
 ArnoldWinText:
@@ -84,13 +84,13 @@ ArnoldLossText:
 	line "like your winning"
 	cont "in my place!"
 
-	para "Go win it for us"
+	para "Go win it for us,"
 	line "kid!"
 	done
 
 ArnoldGoodLuck:
 	text "No? Alright, your"
-	line "loss kid. I had a"
+	line "loss, kid. I had a"
 	cont "lot to show you."
 	done
 
@@ -119,5 +119,5 @@ SecondTownFishing_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  7,  3, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DaveTradeEevee, -1
-	object_event  2,  3, SPRITE_FISHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SecondTownHouseFisherBattleScript, -1
+	object_event  7,  3, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DaveTradeEevee, -1
+	object_event  2,  3, SPRITE_FISHING_GURU, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SecondTownHouseFisherBattleScript, -1

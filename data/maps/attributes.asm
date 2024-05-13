@@ -110,11 +110,11 @@ ENDM
 	connection south, HeraldRoute, HERALD_ROUTE, -15
 
 	map_attributes SecondTown, SECOND_TOWN, $35, NORTH | SOUTH
-	connection north, MountainRoute, MOUNTAIN_ROUTE, 3
+	connection north, MountainRoute, MOUNTAIN_ROUTE, 6
 	connection south, BeachRoute, BEACH_ROUTE, 0
 
 	map_attributes MountainRoute, MOUNTAIN_ROUTE, $35, SOUTH
-	connection south, SecondTown, SECOND_TOWN, -3
+	connection south, SecondTown, SECOND_TOWN, -6
 
 	map_attributes HeraldLab, HERALD_LAB, $00, 0
 	map_attributes HeraldPokecenter, HERALD_POKECENTER, $00, 0

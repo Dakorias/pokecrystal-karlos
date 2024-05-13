@@ -82,7 +82,7 @@ HeraldCove_MapScripts:
 	playsound SFX_ENTER_DOOR
 	stopfollow
 	setscene SCENE_HERALD_COVE_NOOP1
-	pause 40
+	pause 5
 	applymovement PLAYER, PlayerEntersLab
 	warpcheck
 	end
@@ -223,6 +223,10 @@ TrainerLassCandice:
 		checkevent EVENT_BATTLE_PERCY_BEACH
 		iftrue .SkipGiveCoin
 		opentext
+		writetext PlayerStumblesOntoCoin
+		waitbutton
+		closetext
+		opentext
 		writetext PlayerFoundGymCoin
 		playsound SFX_ITEM
 		waitsfx
@@ -279,7 +283,12 @@ TrainerLassCandice:
 		giveitem EDWARD_COIN
 		applymovement HERALD_COVE_PERCY, PercyLeavesAfterFight
 		disappear HERALD_COVE_PERCY
+		end
 	.SkipGiveCoin
+		opentext
+		writetext PlayerStumblesOntoCoin
+		waitbutton
+		closetext
 		opentext
 		verbosegiveitem EDWARD_COIN
 		closetext
@@ -290,24 +299,14 @@ TrainerLassCandice:
 HeraldCoveOldRodFisher:
 	faceplayer
 	opentext
-	checkitem OLD_ROD
+	checkitem EVENT_GOT_OLD_ROD
 	iftrue .AfterOldRod
-	checkevent EVENT_GOT_OLD_ROD
-	iftrue .AlreadyTalkedTo
 	writetext FisherAskToSeeKrabbyText
 	yesorno
 	iffalse .SaidNo
 	special BillsGrandfather
 	ifnotequal KRABBY, .NotKrabby
 	scall .IsKrabby
-
-	.AlreadyTalkedTo
-		writetext FisherAskToSeeKrabby2Text
-		yesorno
-		iffalse .SaidNo
-		special BillsGrandfather
-		ifnotequal KRABBY, .NotKrabby
-		scall .IsKrabby
 
 	.SaidNo
 		writetext DontHaveKrabbyText
@@ -332,8 +331,10 @@ HeraldCoveOldRodFisher:
 	.IsKrabby
 		writetext ThatsAKrabbyText
 		waitbutton
+		closetext
 		verbosegiveitem OLD_ROD
 		setevent EVENT_GOT_OLD_ROD
+		opentext
 		writetext ThanksForHelpingFisherText
 		waitbutton
 		closetext
@@ -351,8 +352,8 @@ BerryMasterScript:
 	waitbutton
 	setevent EVENT_TALKED_TO_HERALD_BERRY_MASTER
 .BerryShop
-	closetext
 	pokemart MARTTYPE_STANDARD, MART_HERALD_BERRIES
+	closetext
 	end
 
 BerryMasterSignScript:
@@ -378,6 +379,8 @@ RocketRobbedOakScript1:
 	showemote	EMOTE_SHOCK, PLAYER, 15
 	moveobject HERALD_COVE_ROCKET1, 19, 9
 	moveobject HERALD_COVE_ROCKET2, 19, 9
+	appear HERALD_COVE_ROCKET1
+	appear HERALD_COVE_ROCKET2
 	playmusic MUSIC_ROCKET_ENCOUNTER
 	applymovement HERALD_COVE_ROCKET1, RocketRunsIntoPlayer1
 	playsound SFX_BUMP
@@ -407,8 +410,8 @@ RocketRobbedOakScript1:
 	applymovement PLAYER, RocketShovesPlayer
 	applymovement HERALD_COVE_ROCKET1, Rocket1Leaves1
 	disappear HERALD_COVE_ROCKET1
-	appear HERALD_COVE_OAK
 	moveobject HERALD_COVE_OAK, 19, 9
+	appear HERALD_COVE_OAK
 	applymovement HERALD_COVE_OAK, OakWalksToPlayer
 	opentext
 	writetext OakTheyStoleTheMapText
@@ -416,7 +419,7 @@ RocketRobbedOakScript1:
 	closetext
 	applymovement HERALD_COVE_OAK, OakWalksToHeraldRoute
 	disappear HERALD_COVE_OAK
-	playmapmusic
+	playmusic MUSIC_VERMILION_CITY
 	setscene SCENE_HERALD_COVE_NOOP1
 	setmapscene HERALD_ROUTE, SCENE_HERALD_ROUTE_NOOP1
 	setevent EVENT_ROCKETS_STEAL_SEALED_MAP
@@ -431,6 +434,8 @@ RocketRobbedOakScript2:
 	showemote	EMOTE_SHOCK, PLAYER, 15
 	moveobject HERALD_COVE_ROCKET1, 27, 7
 	moveobject HERALD_COVE_ROCKET2, 27, 7
+	appear HERALD_COVE_ROCKET1
+	appear HERALD_COVE_ROCKET2
 	playmusic MUSIC_ROCKET_ENCOUNTER
 	applymovement HERALD_COVE_ROCKET1, RocketRunsIntoPlayer2
 	playsound SFX_BUMP
@@ -451,7 +456,7 @@ RocketRobbedOakScript2:
 	closetext
 	applymovement HERALD_COVE_ROCKET2, Rocket2RunsPastRocket
 	disappear HERALD_COVE_ROCKET2
-	turnobject HERALD_COVE_ROCKET1, LEFT
+	turnobject HERALD_COVE_ROCKET1, DOWN
 	opentext
 	writetext RocketTalksToPlayer
 	waitbutton
@@ -459,9 +464,10 @@ RocketRobbedOakScript2:
 	playsound SFX_TACKLE
 	applymovement PLAYER, RocketShovesPlayer
 	applymovement HERALD_COVE_ROCKET1, Rocket1Leaves2
+	pause 3
 	disappear HERALD_COVE_ROCKET1
-	appear HERALD_COVE_OAK
 	moveobject HERALD_COVE_OAK, 27, 8
+	appear HERALD_COVE_OAK
 	applymovement HERALD_COVE_OAK, OakWalksToPlayerPort
 	opentext
 	writetext OakTheyStoleTheMapText
@@ -469,7 +475,7 @@ RocketRobbedOakScript2:
 	closetext
 	applymovement HERALD_COVE_OAK, OakWalksToHeraldRoutePort
 	disappear HERALD_COVE_OAK
-	playmapmusic
+	playmusic MUSIC_VERMILION_CITY
 	setscene SCENE_HERALD_COVE_NOOP1
 	setmapscene HERALD_ROUTE, SCENE_HERALD_ROUTE_NOOP1
 	setevent EVENT_ROCKETS_STEAL_SEALED_MAP
@@ -623,6 +629,7 @@ HeraldGymSignScript:
 		step DOWN
 		step LEFT
 		step LEFT
+		turn_head DOWN
 		step_end
 
 		OakWalksToHeraldRoute:
@@ -857,6 +864,13 @@ HeraldGymSignScript:
 		cont "time!"
 		done
 
+	PlayerStumblesOntoCoin:
+		text "Wait, what's that"
+		line "in the sand?"
+
+		para "..."
+		done
+
 	PlayerFoundGymCoin:
 		text "<PLAYER> found"
 		line "EDWARD COIN!"
@@ -896,7 +910,7 @@ HeraldGymSignScript:
 
 		para "A deal's a deal,"
 		line "I'll do my own"
-		cont "gym challenge!"
+		cont "GYM challenge!"
 
 		para "See you later,"
 		line "<PLAYER>!"
@@ -1033,7 +1047,7 @@ HeraldGymSignScript:
 		line ""
 
 		para "The call of a new"
-		cont "adventure awaits."
+		line "adventure awaits."
 		done
 
 	HeraldLabSignText:
@@ -1079,7 +1093,7 @@ HeraldGymSignScript:
 
 		RocketShoutsAtPlayer:
 		text "OW! Hey, watch it"
-		line "run or I'll. . ."
+		line "runt, or I'll..."
 		done
 
 		RocketWeHaveToGo:
@@ -1113,7 +1127,7 @@ HeraldGymSignScript:
 		text "OAK: <PLAYER>! Are"
 		line "you alright?"
 
-		para ". . . Ok, good."
+		para "...Ok, good."
 		line "Those goons stole"
 		cont "the SEALED MAP!"
 
@@ -1123,7 +1137,7 @@ HeraldGymSignScript:
 		para "here, or why they"
 		line "want the map, but"
 
-		para "whatever it is"
+		para "whatever it is, it"
 		line "can't be good."
 
 		para "Come with me to"
@@ -1145,8 +1159,8 @@ HeraldCove_MapEvents:
 	coord_event 23, 17, SCENE_HERALD_COVE_GYM_CHALLENGE, HeraldCoveRivalGymBattle
 	coord_event 6,  16, SCENE_HERALD_COVE_GYM_CHALLENGE, GymChallengeScript
 	coord_event 19, 18, SCENE_HERALD_COVE_GYM_CHALLENGE, PokecenterEnterScript
-	coord_event 13, 12, SCENE_HERALD_COVE_OAK_ROBBED, PokecenterEnterScript
-	coord_event 25, 14, SCENE_HERALD_COVE_OAK_ROBBED, PokecenterEnterScript
+	coord_event 13, 12, SCENE_HERALD_COVE_OAK_ROBBED, RocketRobbedOakScript1
+	coord_event 25, 14, SCENE_HERALD_COVE_OAK_ROBBED, RocketRobbedOakScript2
 
 	def_bg_events
 	bg_event 10,  4, BGEVENT_READ, BerryMasterSignScript
@@ -1161,8 +1175,8 @@ HeraldCove_MapEvents:
 	object_event  13, 14, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Sailor2and3ScriptGym, EVENT_GYM_TRAINERS_IN_HERALD_COVE
 	object_event  25, 16, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Sailor2and3ScriptGym, EVENT_GYM_TRAINERS_IN_HERALD_COVE
 	object_event  18, 18, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Sailor2and3ScriptGym, EVENT_GYM_TRAINERS_IN_HERALD_COVE
-	object_event  10, 18, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerYoungsterAlex, EVENT_GYM_TRAINERS_IN_HERALD_COVE
-	object_event  15, 16, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerLassCandice, EVENT_GYM_TRAINERS_IN_HERALD_COVE
+	object_event  10, 18, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerYoungsterAlex, EVENT_GYM_TRAINERS_IN_HERALD_COVE
+	object_event  15, 16, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerLassCandice, EVENT_GYM_TRAINERS_IN_HERALD_COVE
 	object_event  39,  0, SPRITE_GOOD_RIVAL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_GYM_TRAINERS_IN_HERALD_COVE
 	object_event  29, 19, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HeraldCoveOldRodFisher, -1
 	object_event  11,  4, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BerryMasterScript, -1

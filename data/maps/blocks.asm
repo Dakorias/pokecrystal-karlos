@@ -89,10 +89,10 @@ PlayersHouse2F_Blocks:
 HeraldGrotto_Blocks:
 	INCBIN "maps/HeraldGrotto.blk"
 
-SECTION "Map Blocks 5", ROMX
-
 BeachRoute_Blocks:
 	INCBIN "maps/BeachRoute.blk"
+	
+SECTION "Map Blocks 5", ROMX
 
 SecondTown_Blocks:
 	INCBIN "maps/SecondTown.blk"

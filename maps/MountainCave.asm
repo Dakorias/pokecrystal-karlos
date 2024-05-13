@@ -43,39 +43,72 @@ MountainCave_MapScripts:
 
 
 	HikerDonnySeenText:
-		text "TEST"
+		text "The light from the"
+		line "GYM is keeping"
+		cont "this cave lit."
+
+		para "That means it's"
+		line "ripe for"
+		cont "exploring!"
 		done
 
 	HikerDonnyBeatenText:
-		text "TEST"
+		text "I should have"
+		line "brought some"
+		cont "POTIONS. . ."
 		done
 
 	HikerDonnyAfterText:
-		text "TEST"
+		text "This cave opened"
+		line "up fairly"
+		cont "recently."
+
+		para "They were digging"
+		line "it out to prepare"
+
+		para "for the new"
+		line "CONFERENCE, I"
+		cont "think."
 		done
 
 	YoungsterDavidSeenText:
-		text "TEST"
+		text "AHHH!"
 		done
 
 	YoungsterDavidBeatenText:
-		text "TEST"
+		text "Don't sneak up on"
+		line "me like that!"
 		done
 
 	YoungsterDavidAfterText:
-		text "TEST"
+		text "I think I went"
+		line "the wrong way."
+
+		para "I can't find my"
+		line "way out now."
 		done
 
 	HikerConnorSeenText:
-		text "TEST"
+		text "I got wiped out at"
+		line "the GYM. It's"
+		cont "rough in there!"
 		done
 
 	HikerConnorBeatenText:
-		text "TEST"
+		text "You might be good"
+		line "enough!"
 		done
 
 	HikerConnorAfterText:
-		text "TEST"
+		text "I don't know how"
+		line "the challenge"
+		cont "works."
+
+		para "All I know is"
+		line "that you have to"
+
+		para "win a lot of"
+		line "battles!"
 		done
 
 
@@ -90,6 +123,6 @@ MountainCave_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  11, 23, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerHikerDonny, -1
-	object_event  3,  14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerYoungsterDavid, -1
-	object_event  6,   6, SPRITE_SAILOR, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerHikerConnor, -1
+	object_event  11, 23, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerHikerDonny, -1
+	object_event  3,  14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerYoungsterDavid, -1
+	object_event  6,   6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerHikerConnor, -1

@@ -17,10 +17,10 @@ INCLUDE "data/pokemon/evos_attacks_pointers.asm"
 EkansEvosAttacks:
 db EVOLVE_LEVEL, 25, ARBOK
 db 0 ; no more evolutions
-db 1, ROCK_TOMB
+db 1, BITE
 db 1, LEER
-db 6, WRAP
-db 11, BITE
+db 6, POISON_STING
+db 11, WRAP
 db 16, GLARE
 db 20, SCREECH
 db 20, SLUDGE
@@ -33,10 +33,10 @@ db 0 ; no more level-up moves
 
 ArbokEvosAttacks:
 db 0 ; no more evolutions
-db 1, POISON_STING
+db 1, BITE
 db 1, LEER
-db 6, WRAP
-db 11, BITE
+db 6, POISON_STING
+db 11, WRAP
 db 16, GLARE
 db 20, SCREECH
 db 20, SLUDGE
@@ -82,13 +82,13 @@ db 0 ; no more level-up moves
  BaltoyEvosAttacks:
  db EVOLVE_LEVEL, 25, CLAYDOL
  db 0 ; no more evolutions
- db 1, CONFUSION
- db 1, RAPID_SPIN
+ db 1, SAND_TOMB
  db 1, HARDEN
- db 6, SAND_TOMB
- db 18, PSYBEAM
- db 22, SANDSTORM
- db 25, ANCIENTPOWER
+ db 6, RAPID_SPIN
+ db 11, CONFUSION
+ db 18, SANDSTORM
+ db 22, PSYBEAM
+ db 27, ANCIENTPOWER
  db 35, HYPER_BEAM
  db 42, EARTH_POWER
  db 48, PSYCHIC_M
@@ -98,13 +98,13 @@ db 0 ; no more level-up moves
 
  ClaydolEvosAttacks:
  db 0 ; no more evolutions
- db 1, CONFUSION
- db 1, RAPID_SPIN
+ db 1, SAND_TOMB
  db 1, HARDEN
- db 6, SAND_TOMB
- db 18, PSYBEAM
- db 22, SANDSTORM
- db 25, ANCIENTPOWER
+ db 6, RAPID_SPIN
+ db 11, CONFUSION
+ db 18, SANDSTORM
+ db 22, PSYBEAM
+ db 27, ANCIENTPOWER
  db 35, HYPER_BEAM
  db 42, EARTH_POWER
  db 48, PSYCHIC_M

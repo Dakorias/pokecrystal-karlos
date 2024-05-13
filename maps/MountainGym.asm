@@ -47,6 +47,7 @@ MountainCaveGymScript:
 	writetext KenjiShoutsFor1stFight
 	waitbutton
 	closetext
+	turnobject PLAYER, RIGHT
 	checkevent EVENT_BATTLE_PERCY_2ND_GYM
 	iffalse BlaireEnterGymScript
 
@@ -63,7 +64,7 @@ MountainCaveGymScript:
 	iftrue .PercyEkans
 	winlosstext Percy2GymWinText, 0
 	setlasttalked MOUNTAIN_GYM_PERCY
-	loadtrainer PERCY, PERCY_1_HOUNDOUR
+	loadtrainer PERCY, PERCY_2_HOUNDOUR
 	startbattle
 	reloadmapafterbattle
 	sjump .AfterPercyBattle
@@ -71,7 +72,7 @@ MountainCaveGymScript:
 	.PercyEkans
 	winlosstext Percy2GymWinText, 0
 	setlasttalked MOUNTAIN_GYM_PERCY
-	loadtrainer PERCY, PERCY_1_EKANS
+	loadtrainer PERCY, PERCY_2_EKANS
 	startbattle
 	reloadmapafterbattle
 	sjump .AfterPercyBattle
@@ -79,7 +80,7 @@ MountainCaveGymScript:
 	.PercyBaltoy
 	winlosstext Percy2GymWinText, 0
 	setlasttalked MOUNTAIN_GYM_PERCY
-	loadtrainer PERCY, PERCY_1_BALTOY
+	loadtrainer PERCY, PERCY_2_BALTOY
 	startbattle
 	reloadmapafterbattle
 	sjump .AfterPercyBattle
@@ -114,20 +115,20 @@ MountainCaveGymScript:
 	waitbutton
 	closetext
 	checkevent EVENT_GOT_EKANS_FROM_OAK
-	iftrue .BlaireBaltoy
+	iftrue .BlaireHoundour
 	checkevent EVENT_GOT_HOUNDOUR_FROM_OAK
-	iftrue .BlaireEkans
+	iftrue .BlaireBaltoy
 	winlosstext Blaire2GymWinText, 0
 	setlasttalked MOUNTAIN_GYM_BLAIRE
-	loadtrainer BLAIRE, BLAIRE_1_HOUNDOUR
+	loadtrainer BLAIRE, BLAIRE_2_EKANS
 	startbattle
 	reloadmapafterbattle
 	sjump .AfterBlaireBattle
 
-	.BlaireEkans
+	.BlaireHoundour
 	winlosstext Blaire2GymWinText, 0
 	setlasttalked MOUNTAIN_GYM_BLAIRE
-	loadtrainer BLAIRE, BLAIRE_1_EKANS
+	loadtrainer BLAIRE, BLAIRE_2_HOUNDOUR
 	startbattle
 	reloadmapafterbattle
 	sjump .AfterBlaireBattle
@@ -135,7 +136,7 @@ MountainCaveGymScript:
 	.BlaireBaltoy
 	winlosstext Blaire2GymWinText, 0
 	setlasttalked MOUNTAIN_GYM_BLAIRE
-	loadtrainer BLAIRE, BLAIRE_1_BALTOY
+	loadtrainer BLAIRE, BLAIRE_2_BALTOY
 	startbattle
 	reloadmapafterbattle
 	sjump .AfterBlaireBattle
@@ -150,6 +151,7 @@ MountainCaveGymScript:
 	playsound SFX_EXIT_BUILDING
 	pause 5
 	applymovement MOUNTAIN_GYM_KENJI, KenjiHealsPlayerMovement
+	turnobject PLAYER, UP
 	opentext
 	writetext KenjiHealsAfter1st
 	waitbutton
@@ -183,6 +185,7 @@ MountainCaveGymScript:
 	playsound SFX_EXIT_BUILDING
 	pause 5
 	applymovement MOUNTAIN_GYM_KENJI, KenjiHealsPlayerMovement
+	turnobject PLAYER, UP
 	opentext
 	writetext KenjiHealsAfter2nd
 	waitbutton
@@ -215,6 +218,7 @@ MountainCaveGymScript:
 	playsound SFX_EXIT_BUILDING
 	pause 5
 	applymovement MOUNTAIN_GYM_KENJI, KenjiHealsPlayerMovement
+	turnobject PLAYER, UP
 	opentext
 	writetext KenjiHealsAfter3rd
 	waitbutton
@@ -255,6 +259,7 @@ MountainCaveGymScript:
 	writetext KenjiNotReady
 	waitbutton
 	closetext
+	applymovement PLAYER, PlayerWalksDownMovementKenji
 	end
 
 	KenjiLeadsPlayerMovement:
@@ -275,6 +280,7 @@ MountainCaveGymScript:
 	step DOWN
 	step LEFT
 	step LEFT
+	step LEFT
 	step_end
 
 	KenjiHealsPlayerMovement:
@@ -291,36 +297,219 @@ MountainCaveGymScript:
 	step DOWN
 	step_end
 
+	PlayerWalksDownMovementKenji:
+	step DOWN
+	step_end
+
 	KenjiWelcomesPlayerText:
+		text "Welcome to my GYM!"
+		line "My name is KENJI,"
+
+		para "are you prepared"
+		line "for my challenge?"
+		done
+
 	KenjiNotReady:
+		text "Ah, then return"
+		line "when you are"
+		cont "more prepared!"
+		done
+
 	KenjiLeadsPlayerIntoGym:
+		text "Excellent. Follow"
+		line "me."
+		done
+
 	KenjiStayHereText:
+		text "Stand here."
+		done
+
 	KenjiShoutsFor1stFight:
+		text "The first opponent"
+		line "may come out and"
+		cont "fight!"
+		done
+
 	Percy2ndGymChallenge:
+		text "PERCY: <PLAYER>! I"
+		line "knew you'd be here"
+
+		para "soon so I waited"
+		line "for you!"
+
+		para "Let's get this"
+		line "battle started!"
+		done
+
 	Percy2GymWinText:
+		text "Man, you really"
+		line "tough you know?"
+
+		para "Contrats, <PLAYER>!"
+		line "You earned it!"
+		done
+
 	Percy2ndGymAfter:
+		text "I'm going to train"
+		line "some more and come"
+		cont "back later."
+
+		para "See you around!"
+		line ""
+		done
 	KenjiHealsAfter1st:
+		text "KENJI: Well done,"
+		line "have a short rest."
+		done
+
 	KenjiShoutsFor2ndFight:
+		text "The next opponent"
+		line "may come out and"
+		cont "fight!"
+		done
+
 	Blaire2ndGymChallenge:
+		text "BLAIRE: <PLAYER>."
+		line "I figured that"
+		cont "you'd get here."
+
+		para "I'm glad, because"
+		line "now I can start to"
+
+		para "show you how much"
+		line "stronger I am."
+		cont "Let's do this!"
+		done
+
 	Blaire2GymWinText:
+		text "What?! But how?"
+		done
+
 	Blaire2ndGymAfter:
+		text ". . . Fine. You"
+		line "win for now."
+
+		para "But don't you get"
+		line "comfy. You should"
+
+		para "keep training hard"
+		line "so it feels right"
+
+		para "when I beat you."
+		line "See you around."
+		done
+
 	Harrison2ndGymChallenge:
+		text "Hi there. Name's"
+		line "HARRISON. You?"
+
+		para ". . . <PLAYER>?"
+		line "Good to meet you!"
+
+		para "Alright, let's get"
+		line "this show on the"
+		cont "road! Here we go!"
+		done
+
 	HarrisonGymWinText:
+		text "Wow, you're really"
+		line "something!"
+		done
+
 	Harrison2ndGymAfter:
+		text "Guess I have some"
+		line "training to do."
+
+		para "I'll get going,"
+		line "maybe I'll see you"
+		cont "around. See ya!"
+		done
+
 	KenjiHealsAfter2nd:
+		text "KENJI: Very good!"
+		line "Have a short rest."
+		done
+
 	KenjiShoutsFor3rdFight:
+		text "The final opponent"
+		line "may come out and"
+		cont "fight!"
+		done
+
 	Youngster2ndGymChallenge:
+		text "Let's get this"
+		line "over with! I want"
+		cont "my badge!"
+		done
+
 	YoungsterGymWinText:
+		text "What?! No fair!"
+		done
+
 	Youngster2ndGymAfter:
+		text "Aww man. I was so"
+		line "close too. . ."
+		done
+
 	KenjiHealsAfter3rd:
+		text "KENJI: Great job!"
+		line "Have a short rest."
+		done
+
 	KenjiChallengeFinishText:
+		text "You have proven"
+		line "you can challenge"
+		cont "me now."
+		done
+
 	KenjiReadyforGymFight:
+		text "It is not often"
+		line "that someone goes"
+		cont "undefeated here."
+
+		para "I am KENJI, the"
+		line "martial arts"
+
+		para "master on these"
+		line "islands."
+
+		para "I have trained my"
+		line "entire life."
+
+		para "I will not lose."
+		line "Lets go."
+		done
+
 	KenjiGymBattleWin:
+		text "Ah, well done!"
+		line "You have earned"
+		cont "the CRUSH BADGE!"
+		done
+
 	ReceivedCrushBadgeText:
+		text "<PLAYER> received"
+		line "the CRUSH BADGE!"
+		done
+
 	KenjiBeatenText:
+		text "Congratulations!"
+		line "You are the clear"
+		cont "winner here."
+
+		para "It was no contest"
+		line "at all!"
+		done
+
 	KenjiFightOverText:
-	text "TEST"
-	done
+		text "You will do well"
+		line "as you continue"
+
+		para "to obtain more"
+		line "badges."
+
+		para "I wish you the"
+		line "best of luck!"
+		done
 
 MountainGym_MapEvents:
 	db 0, 0 ; filler
