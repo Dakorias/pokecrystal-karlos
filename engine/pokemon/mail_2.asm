@@ -134,16 +134,16 @@ endc
 MailGFXPointers:
 ; entries correspond to *MAIL_INDEX constants
 	table_width 3, MailGFXPointers
-	dbw FLOWER_MAIL,  LoadFlowerMailGFX
-	dbw SURF_MAIL,    LoadSurfMailGFX
-	dbw LITEBLUEMAIL, LoadLiteBlueMailGFX
-	dbw PORTRAITMAIL, LoadPortraitMailGFX
-	dbw LOVELY_MAIL,  LoadLovelyMailGFX
-	dbw EON_MAIL,     LoadEonMailGFX
-	dbw MORPH_MAIL,   LoadMorphMailGFX
-	dbw BLUESKY_MAIL, LoadBlueSkyMailGFX
-	dbw MUSIC_MAIL,   LoadMusicMailGFX
-	dbw MIRAGE_MAIL,  LoadMirageMailGFX
+	dbw TOWN_MAP,  LoadFlowerMailGFX
+	dbw TOWN_MAP,  LoadFlowerMailGFX
+	dbw TOWN_MAP,  LoadFlowerMailGFX
+	dbw TOWN_MAP,  LoadFlowerMailGFX
+	dbw TOWN_MAP,  LoadFlowerMailGFX
+	dbw TOWN_MAP,  LoadFlowerMailGFX
+	dbw TOWN_MAP,  LoadFlowerMailGFX
+	dbw TOWN_MAP,  LoadFlowerMailGFX
+	dbw TOWN_MAP,  LoadFlowerMailGFX
+	dbw TOWN_MAP,  LoadFlowerMailGFX
 	assert_table_length NUM_MAIL
 	db -1 ; end
 

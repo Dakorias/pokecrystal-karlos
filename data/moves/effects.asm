@@ -1542,13 +1542,6 @@ MeanLook:
 	arenatrap
 	endmove
 
-Nightmare:
-	checkobedience
-	usedmovetext
-	doturn
-	nightmare
-	endmove
-
 FlameWheel:
 	checkobedience
 	usedmovetext
@@ -1830,6 +1823,8 @@ RapidSpin:
 	clearhazards
 	checkfaint
 	buildopponentrage
+	speedup
+	statdownmessage
 	kingsrock
 	endmove
 
@@ -2095,13 +2090,6 @@ Thunder:
 	checkfaint
 	buildopponentrage
 	paralyzetarget
-	endmove
-
-Teleport:
-	checkobedience
-	usedmovetext
-	doturn
-	teleport
 	endmove
 
 BeatUp:

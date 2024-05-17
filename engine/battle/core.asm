@@ -647,7 +647,7 @@ ParsePlayerAction:
 .not_encored
 	ld a, [wBattlePlayerAction]
 	cp BATTLEPLAYERACTION_SWITCH
-	jr z, .reset_rage
+	jp z, .reset_rage
 	and a
 	jr nz, .reset_bide
 	ld a, [wPlayerSubStatus3]
@@ -671,6 +671,7 @@ ParsePlayerAction:
 	ldh [hBGMapMode], a
 	pop af
 	ret nz
+	call SetChoiceLock
 
 .encored
 	call SetPlayerTurn
@@ -1326,9 +1327,33 @@ HandleLeftovers:
 	ld [wNamedObjectIndex], a
 	call GetItemName
 	ld a, b
+	cp HELD_BLACK_SLUDGE
+	jr nz, .check_leftovers
+
+; check if user is poison type
+	ld hl, wBattleMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .gottype
+	ld hl, wEnemyMonType1
+.gottype
+	ld a, [hli]
+	cp POISON
+	jp z, .get_hp
+	ld a, [hl]
+	cp POISON
+	jp z, .get_hp
+
+; User is not poison, deal damage
+	call GetEighthMaxHP
+	call SubtractHPFromTarget
+	ld hl, BattleText_UsersHurtByStringBuffer1
+	jp StdBattleTextbox
+
+.check_leftovers
 	cp HELD_LEFTOVERS
 	ret nz
-
+.get_hp
 	ld hl, wBattleMonHP
 	ldh a, [hBattleTurn]
 	and a
@@ -1354,6 +1379,7 @@ HandleLeftovers:
 	call RestoreHP
 	ld hl, BattleText_TargetRecoveredWithItem
 	jp StdBattleTextbox
+
 
 HandleMysteryberry:
 	ldh a, [hSerialConnectionStatus]
@@ -5889,6 +5915,7 @@ ParseEnemyAction:
 	bit SUBSTATUS_ENCORED, [hl]
 	ld a, [wLastEnemyMove]
 	jp nz, .finish
+	call SetChoiceLock
 	ld hl, wEnemyMonMoves
 	ld b, 0
 	add hl, bc
@@ -5969,6 +5996,7 @@ ParseEnemyAction:
 
 .skip_load
 	call SetEnemyTurn
+	call SetChoiceLock
 	callfar UpdateMoveData
 	call CheckEnemyLockedIn
 	jr nz, .raging
@@ -6004,6 +6032,30 @@ ParseEnemyAction:
 .struggle
 	ld a, STRUGGLE
 	jr .finish
+
+SetChoiceLock:
+	push hl
+	push bc
+	callfar GetUserItem
+	ld a, b
+	cp HELD_CHOICE_BOOST
+	jr nz, .done
+	ld hl, wPlayerEncoreCount
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .GotEncoreCount
+	ld hl, wEnemyEncoreCount
+.GotEncoreCount
+	ld a, -1 ; Set encore count to 255
+	ld [hl], a
+	ld a, BATTLE_VARS_SUBSTATUS5
+	call GetBattleVarAddr
+	set SUBSTATUS_ENCORED, [hl]
+
+.done
+	pop bc
+	pop hl
+	ret
 
 ResetVarsForSubstatusRage:
 	xor a
@@ -7484,6 +7536,37 @@ BoostExp:
 	adc b
 	ldh [hProduct + 2], a
 	pop bc
+	ret
+
+CheckOpponentFullHP:
+; check if the opponent has full HP
+; z: yes, nz: no
+	ld hl, wEnemyMonHP
+	ld a, [hBattleTurn]
+	and a
+	jr z, DoCheckFullHP
+	ld hl, wBattleMonHP
+	jr DoCheckFullHP
+
+CheckFullHP:
+; check if the user has full HP
+; z: yes, nz: no
+	ld hl, wBattleMonHP
+	ld a, [hBattleTurn]
+	and a
+	jr z, DoCheckFullHP
+	ld hl, wEnemyMonHP
+	; fallthrough
+DoCheckFullHP:
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	cp b
+	ret nz
+	ld a, [hl]
+	cp c
 	ret
 
 Text_MonGainedExpPoint:

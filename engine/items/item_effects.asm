@@ -161,53 +161,50 @@ ItemEffects:
 	dw PokeBallEffect      ; FORTUNE_BALL
 	dw NoEffect            ; LEFTOVERS
 	dw DreamBerryEffect    ; DREAM_BERRY
-	dw NoEffect            ; ITEM_94
-	dw NoEffect            ; ITEM_95
+	dw TeachyTVEffect      ; TEACHY_TV
+	dw NoEffect            ; LIGHT_CLAY
 	dw RestorePPEffect     ; MYSTERYBERRY
 	dw NoEffect            ; DRAGON_SCALE
 	dw NoEffect            ; BERSERK_GENE
-	dw NoEffect            ; ITEM_99
-	dw NoEffect            ; ITEM_9A
-	dw NoEffect            ; ITEM_9B
+	dw NoEffect            ; ICY_ROCK
+	dw NoEffect            ; HEAT_ROCK
+	dw NoEffect            ; SMOOTH_ROCK
 	dw SacredAshEffect     ; SACRED_ASH
 	dw PokeBallEffect      ; HEAVY_BALL
-	dw NoEffect            ; FLOWER_MAIL
+	dw NoEffect            ; EXPERT_BELT
 	dw PokeBallEffect      ; LEVEL_BALL
 	dw PokeBallEffect      ; LURE_BALL
 	dw PokeBallEffect      ; FAST_BALL
-	dw NoEffect            ; ITEM_A2
+	dw NoEffect            ; DAMP_ROCK
 	dw NoEffect            ; LIGHT_BALL
 	dw PokeBallEffect      ; FRIEND_BALL
 	dw PokeBallEffect      ; MOON_BALL
 	dw PokeBallEffect      ; LOVE_BALL
-	dw NormalBoxEffect     ; NORMAL_BOX
-	dw GorgeousBoxEffect   ; GORGEOUS_BOX
+	dw NoEffect            ; RAZOR_CLAW
+	dw NoEffect					   ; CHOICE_SPECS
 	dw EvoStoneEffect      ; SUN_STONE
-	dw NoEffect            ; POLKADOT_BOW
-	dw NoEffect            ; ITEM_AB
+	dw NoEffect            ; CHOICE_SCARF
+	dw NoEffect            ; ZOOM_LENS
 	dw NoEffect            ; UP_GRADE
 	dw RestoreHPEffect     ; BERRY
 	dw RestoreHPEffect     ; GOLD_BERRY
 	dw SquirtbottleEffect  ; SQUIRTBOTTLE
-	dw NoEffect            ; ITEM_B0
+	dw NoEffect            ; BLACK_SLUDGE
 	dw PokeBallEffect      ; PARK_BALL
 	dw NoEffect            ; RAINBOW_WING
-	dw NoEffect            ; ITEM_B3
-	assert_table_length ITEM_B3
-; The items past ITEM_B3 do not have effect entries:
-;	BRICK_PIECE
-;	SURF_MAIL
-;	LITEBLUEMAIL
-;	PORTRAITMAIL
-;	LOVELY_MAIL
-;	EON_MAIL
-;	MORPH_MAIL
-;	BLUESKY_MAIL
-;	MUSIC_MAIL
-;	MIRAGE_MAIL
-;	ITEM_BE
-; They all have the ITEMMENU_NOUSE attribute so they can't be used anyway.
-; NoEffect would be appropriate, with the table then being NUM_ITEMS long.
+	dw NoEffect            ; EJECT_BUTTON
+	dw NoEffect            ; BRICK_PIECE
+	dw NoEffect            ; FOCUS_SASH
+	dw NoEffect            ; LIFE_ORB
+	dw NoEffect            ; METRONOME_I
+	dw NoEffect            ; LOADED_DICE
+	dw NoEffect            ; WHITE_HERB
+	dw NoEffect            ; MUSCLE_BAND
+	dw NoEffect            ; SHELL_BELL
+	dw NoEffect            ; WISE_GLASSES
+	dw NoEffect            ; WKNESSPOLICY
+	dw NoEffect            ; CHOICE_BAND
+	assert_table_length CHOICE_BAND
 
 PokeBallEffect:
 ; BUG: The Dude's catching tutorial may crash if his Poké Ball can't be used (see docs/bugs_and_glitches.md)
@@ -908,10 +905,11 @@ DuskBallMultiplier:
 
 RescueBallMultiplier:
 ;	status effect?
+	ld b, a
 	ld a, [wEnemyMonStatus]
 	and a
 	jr z, .hasstatus
-	ret nz ; neither night nor cave
+	ret nz ; no status
 .hasstatus
 ; b is the catch rate
 ; a := b + b + b == b × 3
@@ -1377,6 +1375,10 @@ TownMapEffect:
 
 BicycleEffect:
 	farcall BikeFunction
+	ret
+
+TeachyTVEffect:
+	farcall TeachyTv
 	ret
 
 EvoStoneEffect:

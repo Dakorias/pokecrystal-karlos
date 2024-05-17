@@ -299,7 +299,7 @@ TrainerLassCandice:
 HeraldCoveOldRodFisher:
 	faceplayer
 	opentext
-	checkitem EVENT_GOT_OLD_ROD
+	checkevent EVENT_GOT_OLD_ROD
 	iftrue .AfterOldRod
 	writetext FisherAskToSeeKrabbyText
 	yesorno
@@ -341,6 +341,28 @@ HeraldCoveOldRodFisher:
 		end
 
 HeraldCoveLass:
+	giveitem LIGHT_CLAY
+	giveitem ICY_ROCK
+	giveitem HEAT_ROCK
+	giveitem SMOOTH_ROCK
+	giveitem DAMP_ROCK
+	giveitem CHOICE_BAND
+	giveitem CHOICE_SPECS
+	giveitem CHOICE_SCARF
+	giveitem WIDE_LENS
+	giveitem BLACK_SLUDGE
+	giveitem FOCUS_SASH
+	giveitem LIFE_ORB
+	giveitem MUSCLE_BAND
+	giveitem WISE_GLASSES
+	giveitem SHELL_BELL
+	giveitem ROCKY_HELMET
+	giveitem SCOPE_LENS
+	giveitem RAZOR_CLAW
+	givepoke LUXRAY, 30
+	givepoke MILOTIC, 34
+	givepoke BAYLEEF, 20
+	givepoke CROBAT, 36
 	jumptextfaceplayer HeraldCoveLassText
 
 BerryMasterScript:

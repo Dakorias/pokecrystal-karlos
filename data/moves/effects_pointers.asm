@@ -108,7 +108,6 @@ MoveEffectsPointers:
 	dw TripleKick
 	dw Thief
 	dw MeanLook
-	dw Nightmare
 	dw FlameWheel
 	dw Curse
 	dw NormalHit
@@ -154,7 +153,6 @@ MoveEffectsPointers:
 	dw Stomp
 	dw Solarbeam
 	dw Thunder
-	dw Teleport
 	dw BeatUp
 	dw Fly
 	dw DefenseCurl

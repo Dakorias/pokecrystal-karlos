@@ -46,7 +46,7 @@ Moves:
 	move STONE_EDGE,   EFFECT_NORMAL_HIT,        100, ROCK,          80, 10,   0
 	move FURY_ATTACK,  EFFECT_MULTI_HIT,          10, NORMAL,        85, 20,   0
 	move NIGHT_SLASH,  EFFECT_NORMAL_HIT,         70, NORMAL,       100, 20,   0
-	move TACKLE,       EFFECT_NORMAL_HIT,         35, NORMAL,       100, 35,   0
+	move TACKLE,       EFFECT_NORMAL_HIT,         45, NORMAL,       100, 35,   0
 	move BODY_SLAM,    EFFECT_PARALYZE_HIT,       85, NORMAL,       100, 15,  30
 	move WRAP,         EFFECT_TRAP_TARGET,        35, NORMAL,       100, 20,   0
 	move TAKE_DOWN,    EFFECT_RECOIL_HIT,         90, NORMAL,        85, 20,   0
@@ -242,7 +242,7 @@ Moves:
 	move BATON_PASS,   EFFECT_BATON_PASS,          0, NORMAL,       100, 10,   0
 	move ENCORE,       EFFECT_ENCORE,              0, NORMAL,       100,  5,   0
 	move PURSUIT,      EFFECT_PURSUIT,            40, DARK,         100, 20,   0
-	move RAPID_SPIN,   EFFECT_RAPID_SPIN,         20, NORMAL,       100, 40,   0
+	move RAPID_SPIN,   EFFECT_RAPID_SPIN,         35, NORMAL,       100, 40,   0
 	move POISON_JAB,   EFFECT_POISON_HIT,         80, NORMAL,       100, 15,  30
 	move IRON_TAIL,    EFFECT_DEFENSE_DOWN_HIT,  100, STEEL,         90, 15,  30
 	move METAL_CLAW,   EFFECT_ATTACK_UP_HIT,      65, STEEL,        100, 35,  10

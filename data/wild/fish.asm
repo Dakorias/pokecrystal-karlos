@@ -41,8 +41,8 @@ FishGroups:
 
 .Ocean_Old:
 	db  70 percent + 1, MAGIKARP,   10
-	db  85 percent + 1, MAGIKARP,   10
-	db 100 percent,     SKRELP,  10
+	db  85 percent + 1, CORPHISH,   10
+	db 100 percent,     KRABBY,  10
 .Ocean_Good:
 	db  35 percent,     MAGIKARP,   20
 	db  70 percent,     SKRELP,  20

@@ -437,12 +437,24 @@ AlreadyConfusedText:
 	line "already confused!"
 	prompt
 
+BattleText_UserLostSomeOfItsHP:
+	text "<USER> lost"
+	line "some HP!"
+	prompt
+
 BattleText_UsersHurtByStringBuffer1:
 	text "<USER>'s"
 	line "hurt by"
 	cont "@"
 	text_ram wStringBuffer1
 	text "!"
+	prompt
+
+BattleText_RockyHelmet:
+	text "<USER>"
+	line "was hurt by"
+	cont "<TARGET>'s"
+	cont "ROCKY HELMET!"
 	prompt
 
 BattleText_UserWasReleasedFromStringBuffer1:

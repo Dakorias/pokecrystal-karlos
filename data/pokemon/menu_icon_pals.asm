@@ -27,17 +27,17 @@ MonMenuIconPals:
 	icon_pals GREEN, PURPLE ; CATERPIE
 	icon_pals GREEN, PURPLE ; METAPOD
 	icon_pals PURPLE, PURPLE ; BUTTERFREE
-	icon_pals PURPLE, PURPLE ; EKANS
-	icon_pals PURPLE, PURPLE ; EKANS
+	icon_pals BLUE, PURPLE ; SURSKIT
+	icon_pals BLUE, PURPLE ; MASQUERAIN
 	icon_pals PURPLE, PURPLE ; EKANS
 	icon_pals PURPLE, PURPLE ; EKANS
 	icon_pals PURPLE, PURPLE ; EKANS
 	icon_pals BLUE, PURPLE ; SHINX
 	icon_pals BLUE, PURPLE ; LUXIO
 	icon_pals BLUE, PURPLE ; LUXRAY
-	icon_pals PURPLE, PURPLE ; EKANS
-	icon_pals PURPLE, PURPLE ; EKANS
-	icon_pals PURPLE, PURPLE ; EKANS
+	icon_pals GRAY, PURPLE ; GEODUDE
+	icon_pals GRAY, PURPLE ; GRAVELER
+	icon_pals GRAY, PURPLE ; GOLEM
 	icon_pals PURPLE, PURPLE ; EKANS
 	icon_pals PURPLE, PURPLE ; EKANS
 	icon_pals PURPLE, PURPLE ; EKANS

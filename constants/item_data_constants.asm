@@ -116,9 +116,16 @@ DEF MAIL_STRUCT_LENGTH_JP EQU $2a ; mailmsg_jp struct
 	const HELD_38
 
 	const_next 40
-	const_skip
-	const_skip
+	const HELD_LIFE_ORB
+	const HELD_FOCUS_SASH
+	const HELD_CHOICE_BOOST
+	const HELD_EXPERT_BELT
+	const HELD_BLACK_SLUDGE
+	const HELD_CATEGORY_BOOST
 	const HELD_METAL_POWDER
+	const HELD_SHELL_BELL
+	const HELD_ROCKY_HELMET
+	const HELD_ZOOM_LENS
 
 	const_next 50
 	const HELD_NORMAL_BOOST
@@ -141,7 +148,7 @@ DEF MAIL_STRUCT_LENGTH_JP EQU $2a ; mailmsg_jp struct
 
 	const_next 70
 	const HELD_CATCH_CHANCE
-	const HELD_71
+	const HELD_ACCURACY_BOOST
 	const HELD_ESCAPE
 	const HELD_CRITICAL_UP
 	const HELD_QUICK_CLAW
