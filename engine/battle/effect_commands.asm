@@ -172,8 +172,6 @@ BattleCommand_CheckTurn:
 	call CallBattleCore
 	ld a, $1
 	ldh [hBGMapMode], a
-	ld hl, wPlayerSubStatus1
-	res SUBSTATUS_NIGHTMARE, [hl]
 	jr .not_asleep
 
 .fast_asleep
@@ -399,8 +397,6 @@ CheckEnemyTurn:
 	call CallBattleCore
 	ld a, $1
 	ldh [hBGMapMode], a
-	ld hl, wEnemySubStatus1
-	res SUBSTATUS_NIGHTMARE, [hl]
 	jr .not_asleep
 
 .fast_asleep
@@ -1079,11 +1075,13 @@ BattleCommand_Critical:
 	and a
 	ld hl, wEnemyMonItem
 	ld a, [wEnemyMonSpecies]
+	jr nz, .FocusEnergy
 	ld hl, wBattleMonItem
 	ld a, [wBattleMonSpecies]
 
 
 .FocusEnergy:
+	ld c, 0
 	ld a, BATTLE_VARS_SUBSTATUS4
 	call GetBattleVar
 	bit SUBSTATUS_FOCUS_ENERGY, a
@@ -1100,17 +1098,17 @@ BattleCommand_Critical:
 	push bc
 	call IsInArray
 	pop bc
-	jr nc, .ScopeLens
+	jr nc, .RazorClaw
 
 ; +2 critical level
 	inc c
 	inc c
 
-.ScopeLens:
+.RazorClaw:
 	push bc
 	call GetUserItem
 	ld a, b
-	cp HELD_CRITICAL_UP ; Increased critical chance. Only Scope Lens has this.
+	cp HELD_CRITICAL_UP ; Increased critical chance. Only Razor Claw has this.
 	pop bc
 	jr nz, .Tally
 
@@ -1316,6 +1314,52 @@ BattleCommand_Stab:
 	and %10000000
 	or b
 	ld [wTypeModifier], a
+
+; Check for Expert Belt
+	call GetUserItem
+
+	ld a, b
+	and a
+	ret z
+
+	cp HELD_EXPERT_BELT
+	ret nz
+
+	ld a, [wTypeMatchup]
+	and $7f
+	cp 11 ; 10 = normal effectiveness
+	ret c
+
+; Don't multiply if damage is zero
+	ld hl, wCurDamage + 1
+	ld a, [hl]
+	and a
+	ret z
+
+; load Current Damage into Multiplicand
+	xor a
+	ldh [hMultiplicand + 0], a
+	dec hl
+	ld a, [hli]
+	ldh [hMultiplicand + 1], a
+	ld a, [hl]
+	ldh [hMultiplicand + 2], a
+; Multiply by 120
+	ld a, 20
+	add 100
+	ldh [hMultiplier], a
+	call Multiply
+; Divide by 100
+	ld a, 100
+	ldh [hDivisor], a
+	ld b, 4
+	call Divide
+; load hQuotient back into wCurDamage
+	ldh a, [hQuotient + 2]
+	ld hl, wCurDamage
+	ld [hli], a
+	ldh a, [hQuotient + 3]
+	ld [hl], a
 	ret
 
 BattleCheckTypeMatchup:
@@ -1476,9 +1520,6 @@ BattleCommand_CheckHit:
 	call .DrainSub
 	jp z, .Miss
 
-	call .LockOn
-	ret nz
-
 	call .FlyDigMoves
 	jp nz, .Miss
 
@@ -1492,7 +1533,7 @@ BattleCommand_CheckHit:
 	ret nz
 
 	; Perfect-accuracy moves
-	ld a, BATTLE_VARS_MOVE_EFFECT
+  ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_ALWAYS_HIT
 	ret z
@@ -1503,30 +1544,62 @@ BattleCommand_CheckHit:
 	ld b, a
 	ldh a, [hBattleTurn]
 	and a
-	jr z, .BrightPowder
+	jr z, .CheckItems
 	ld a, [wEnemyMoveStruct + MOVE_ACC]
 	ld b, a
 
-.BrightPowder:
-	push bc
+.CheckItems:
+	xor a
+	ldh [hMultiplicand + 0], a
+	ldh [hMultiplicand + 1], a
+	ld a, b
+	ldh [hMultiplicand + 2], a
+	call GetUserItem
+	ld a, b
+	cp HELD_ACCURACY_BOOST
+	jr z, .boost_item
+	cp HELD_ZOOM_LENS
+	jr nz, .check_brightpowder
+	call CheckOpponentWentFirst
+	jr z, .check_brightpowder
+
+.boost_item
+	ld a, c ; % miss
+	add 100
+	ldh [hMultiplier], a
+	call Multiply
+	ld a, 100
+	ldh [hDivisor], a
+	ld b, 4
+	call Divide
+
+.check_brightpowder
 	call GetOpponentItem
 	ld a, b
 	cp HELD_BRIGHTPOWDER
-	ld a, c ; % miss
-	pop bc
 	jr nz, .skip_brightpowder
-
-	ld c, a
-	ld a, b
-	sub c
-	ld b, a
-	jr nc, .skip_brightpowder
-	ld b, 0
+	ld a, 100
+	ldh [hMultiplier], a
+	call Multiply
+	ld a, c ; % miss
+	add 100
+	ldh [hDivisor], a
+	ld b, 4
+	call Divide
 
 .skip_brightpowder
-	ld a, b
+	ldh a, [hMultiplicand + 0]
+	ld b, a
+	ldh a, [hMultiplicand + 1]
+	or b
+	ret nz ; If either upper byte of result has data, then we are over 100%
+	ldh a, [hMultiplicand + 2]
 	cp -1
-	jr z, .Hit
+	ret z ; $ff = 100%
+	ld b, a
+	call BattleRandom
+	cp b
+	ret c ;
 
 	call BattleRandom
 	cp b
@@ -1578,33 +1651,6 @@ BattleCommand_CheckHit:
 	ld c, 40
 	call DelayFrames
 
-	ld a, 1
-	and a
-	ret
-
-.LockOn:
-; Return nz if we are locked-on and aren't trying to use Earthquake,
-; Fissure or Magnitude on a monster that is flying.
-	ld a, BATTLE_VARS_SUBSTATUS5_OPP
-	call GetBattleVarAddr
-	bit SUBSTATUS_LOCK_ON, [hl]
-	res SUBSTATUS_LOCK_ON, [hl]
-	ret z
-
-	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
-	bit SUBSTATUS_FLYING, a
-	jr z, .LockedOn
-
-	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
-
-	cp EARTHQUAKE
-	ret z
-	cp MAGNITUDE
-	ret z
-
-.LockedOn:
 	ld a, 1
 	and a
 	ret
@@ -2031,10 +2077,12 @@ BattleCommand_FailureText:
 	jp EndMoveEffect
 
 BattleCommand_ApplyDamage:
+; applydamage
+
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
 	call GetBattleVar
 	bit SUBSTATUS_ENDURE, a
-	jr z, .focus_band
+	jr z, .check_item
 
 	call BattleCommand_FalseSwipe
 	ld b, 0
@@ -2042,13 +2090,29 @@ BattleCommand_ApplyDamage:
 	ld b, 1
 	jr .damage
 
-.focus_band
+.check_item
 	call GetOpponentItem
+	ld a, [hl]
+	ld [wNamedObjectIndex], a
+	call GetItemName
 	ld a, b
 	cp HELD_FOCUS_BAND
 	ld b, 0
+	jr z, .focus_band
+	cp HELD_FOCUS_SASH
 	jr nz, .damage
 
+; check if target is at full hp
+	farcall CheckOpponentFullHP
+	jr nz, .damage
+	call BattleCommand_FalseSwipe
+	ld b, 0
+	jr nc, .damage
+	callfar ConsumeHeldItem
+	ld b, 2
+	jr .damage
+
+.focus_band
 	call BattleRandom
 	cp c
 	jr nc, .damage
@@ -2082,10 +2146,6 @@ BattleCommand_ApplyDamage:
 	jp StdBattleTextbox
 
 .focus_band_text
-	call GetOpponentItem
-	ld a, [hl]
-	ld [wNamedObjectIndex], a
-	call GetItemName
 	ld hl, HungOnText
 	jp StdBattleTextbox
 
@@ -2891,14 +2951,23 @@ BattleCommand_DamageCalc:
 
 	ld a, b
 	and a
-	jr z, .DoneItem
+	jp z, .DoneItem
+
+	cp HELD_LIFE_ORB
+	jr z, .LifeOrb
+
+	cp HELD_CATEGORY_BOOST
+	jr z, .CategoryBoost
+
+	cp HELD_CHOICE_BOOST
+	jr z, .ChoiceBoost
 
 	ld hl, TypeBoostItems
 
 .NextItem:
 	ld a, [hli]
 	cp -1
-	jr z, .DoneItem
+	jp z, .DoneItem
 
 ; Item effect
 	cp b
@@ -2919,6 +2988,78 @@ BattleCommand_DamageCalc:
 	call Multiply
 
 ; / 100
+	ld a, 100
+	ldh [hDivisor], a
+	ld b, 4
+	call Divide
+	jp .DoneItem
+
+.LifeOrb
+	ld a, 30
+	add 100
+	ldh [hMultiplier], a
+	call Multiply
+
+	ld a, 100
+	ldh [hDivisor], a
+	ld b, 4
+	call Divide
+	jr .DoneItem
+
+.CategoryBoost
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVar
+	cp SPECIAL
+	jr nc, .special
+; physical
+	ld a, [hl]
+	cp MUSCLE_BAND
+	jr z, .doCategoryBoost
+	jr .DoneItem
+
+.special
+	ld a, [hl]
+	cp WISE_GLASSES
+	jr nz, .DoneItem
+
+.doCategoryBoost
+	ld a, 10
+	add 100
+	ldh [hMultiplier], a
+	call Multiply
+
+	ld a, 100
+	ldh [hDivisor], a
+	ld b, 4
+	call Divide
+	jr .DoneItem
+
+.ChoiceBoost
+	ld a, c
+	cp SP_ATTACK
+	jr z, .choice_specs
+	and a
+	jr nz, .DoneItem ; Must be Scarf, so no boost
+
+; Choice Band
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVar
+	cp SPECIAL
+	jr c, .doChoiceBoost
+	jr .DoneItem
+
+.choice_specs
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVar
+	cp SPECIAL
+	jr c, .DoneItem
+
+.doChoiceBoost
+	ld a, 50
+	add 100
+	ldh [hMultiplier], a
+	call Multiply
+
 	ld a, 100
 	ldh [hDivisor], a
 	ld b, 4
@@ -3053,8 +3194,6 @@ BattleCommand_ConstantDamage:
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_PSYWAVE
-	jr z, .psywave
 
 	cp EFFECT_REVERSAL
 	jp z, .reversal
@@ -3069,21 +3208,6 @@ BattleCommand_ConstantDamage:
 	call GetBattleVar
 	ld b, a
 	ld a, $0
-	jr .got_power
-
-.psywave
-	ld a, b
-	srl a
-	add b
-	ld b, a
-.psywave_loop
-	call BattleRandom
-	and a
-	jr z, .psywave_loop
-	cp b
-	jr nc, .psywave_loop
-	ld b, a
-	ld a, 0
 	jr .got_power
 
 .got_power
@@ -4390,7 +4514,7 @@ CheckMist:
 	cp EFFECT_ATTACK_DOWN
 	jr c, .dont_check_mist
 	cp EFFECT_ATTACK_DOWN_2
-	jr c, .dont_check_mist
+	jr c, .check_mist
 	cp EFFECT_ATTACK_DOWN_HIT
 	jr c, .dont_check_mist
 .dont_check_mist
@@ -4778,6 +4902,8 @@ CalcPlayerStats:
 
 	call BattleCommand_SwitchTurn
 
+	call ApplyChoiceScarfOnSpeed
+
 	ld hl, ApplyPrzEffectOnSpeed
 	call CallBattleCore
 
@@ -4795,6 +4921,8 @@ CalcEnemyStats:
 	call CalcBattleStats
 
 	call BattleCommand_SwitchTurn
+
+	call ApplyChoiceScarfOnSpeed
 
 	ld hl, ApplyPrzEffectOnSpeed
 	call CallBattleCore
@@ -4872,9 +5000,6 @@ CalcBattleStats:
 	jr nz, .loop
 
 	ret
-
-
-INCLUDE "engine/battle/move_effects/teleport.asm"
 
 SetBattleDraw:
 	ld a, [wBattleResult]
@@ -5318,33 +5443,105 @@ CheckOpponentWentFirst:
 	pop bc
 	ret
 
-BattleCommand_HeldFlinch:
-; kingsrock
+	BattleCommand_HeldFlinch:
+	; kingsrock
+	; Appropriated this function to handle all post-hit items
+		ld a, [wAttackMissed]
+		and a
+		ret nz
 
-	ld a, [wAttackMissed]
-	and a
-	ret nz
+		call GetOpponentItem
+		ld a, b
+		cp HELD_ROCKY_HELMET
+		jr nz, .check_user_item
 
-	call GetUserItem
-	ld a, b
-	cp HELD_FLINCH
-	ret nz
+	; Rocky Helmet
+		call .checkfaint
+		ret z
+		call CheckContactMove
+		jr c, .check_user_item
+		farcall GetEighthMaxHP
+		farcall SubtractHPFromUser
+		ld hl, BattleText_RockyHelmet
+		call StdBattleTextbox
 
-	call CheckSubstituteOpp
-	ret nz
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVarAddr
-	ld d, h
-	ld e, l
-	call GetUserItem
-	call BattleRandom
-	cp c
-	ret nc
-	call EndRechargeOpp
-	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVarAddr
-	set SUBSTATUS_FLINCHED, [hl]
+	.check_user_item
+		call GetUserItem
+		ld a, b
+		cp HELD_FLINCH
+		jr z, .flinch
+		cp HELD_LIFE_ORB
+		jr z, .lifeorb
+		cp HELD_SHELL_BELL
+		jr z, .shellbell
+		ret
+
+	.flinch
+		call CheckSubstituteOpp
+		ret nz
+		ld a, BATTLE_VARS_MOVE_EFFECT
+		call GetBattleVarAddr
+		ld d, h
+		ld e, l
+		call GetUserItem
+		call BattleRandom
+		cp c
+		ret nc
+		call EndRechargeOpp
+		ld a, BATTLE_VARS_SUBSTATUS3_OPP
+		call GetBattleVarAddr
+		set SUBSTATUS_FLINCHED, [hl]
+		ret
+
+	.lifeorb
+		call .checkfaint
+		ret z
+		xor a
+		farcall GetEighthMaxHP
+		farcall SubtractHPFromUser
+		ld hl, BattleText_UserLostSomeOfItsHP
+		jp StdBattleTextbox
+
+	.shellbell
+		call .checkfaint
+		ret z
+		farcall CheckFullHP
+		ret z
+		ld a, [wCurDamage]
+		ld b, a
+		ld a, [wCurDamage + 1]
+		ld c, a
+		or b
+		ret z ; No damage
+		; halve bc 3 times to get 1/8th
+		srl b
+		rr c
+		srl b
+		rr c
+		srl b
+		rr c
+
+	.checkfaint
+		; if we fainted, abort the move sequence
+		farcall HasUserFainted
+		ret nz
+		call EndMoveEffect
+		xor a
+		ret
+
+CheckContactMove:
+; Check if user's move makes contact. Return nc if it does.
+	ld a, BATTLE_VARS_MOVE
+	call GetBattleVar
+	ld de, 1
+	ld hl, ContactMoves
+	push bc
+	call IsInArray
+	pop bc
+	ccf
 	ret
+
+INCLUDE "data/moves/contact_moves.asm"
 
 BattleCommand_OHKO:
 	call ResetDamage
@@ -5885,11 +6082,7 @@ DoubleDamage:
 
 INCLUDE "engine/battle/move_effects/leech_seed.asm"
 
-INCLUDE "engine/battle/move_effects/splash.asm"
-
 INCLUDE "engine/battle/move_effects/disable.asm"
-
-INCLUDE "engine/battle/move_effects/pay_day.asm"
 
 INCLUDE "engine/battle/move_effects/conversion.asm"
 
@@ -6039,6 +6232,8 @@ ResetActorDisable:
 	ret
 
 BattleCommand_Screen:
+; screen
+
 	ld hl, wPlayerScreens
 	ld bc, wPlayerLightScreenCount
 	ldh a, [hBattleTurn]
@@ -6056,8 +6251,7 @@ BattleCommand_Screen:
 	bit SCREENS_LIGHT_SCREEN, [hl]
 	jr nz, .failed
 	set SCREENS_LIGHT_SCREEN, [hl]
-	ld a, 5
-	ld [bc], a
+
 	ld hl, LightScreenEffectText
 	jr .good
 
@@ -6069,11 +6263,27 @@ BattleCommand_Screen:
 	; LightScreenCount -> ReflectCount
 	inc bc
 
-	ld a, 5
-	ld [bc], a
 	ld hl, ReflectEffectText
 
 .good
+; check for Light Clay
+	push hl
+	ld a, [hBattleTurn]
+	and a
+	ld hl, wBattleMonItem
+	jr z, .got_item
+	ld hl, wEnemyMonItem
+.got_item
+	ld a, [hl]
+	cp LIGHT_CLAY
+	ld a, 5
+	jr nz, .no_clay
+	inc a
+	inc a
+	inc a
+.no_clay
+	ld [bc], a
+	pop hl
 	call AnimateCurrentMove
 	jp StdBattleTextbox
 
@@ -6201,8 +6411,6 @@ BattleCommand_ArenaTrap:
 .failed
 	call AnimateFailedMove
 	jp PrintButItFailed
-
-INCLUDE "engine/battle/move_effects/nightmare.asm"
 
 BattleCommand_Defrost:
 ; Thaw the user.
@@ -6679,4 +6887,69 @@ _CheckBattleScene:
 	pop bc
 	pop de
 	pop hl
+	ret
+
+ApplyChoiceScarfOnSpeed:
+; This routine is called from the opposite turn's perspective
+	call GetOpponentItem
+	ld a, b
+	cp HELD_CHOICE_BOOST
+	ret nz
+	ld a, c
+	cp SPEED
+	ret nz
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .enemy
+; load wBattleMonSpeed into hMultiplicand
+	ld hl, wBattleMonSpeed
+	xor a
+	ldh [hMultiplicand + 0], a
+	ld a, [hli]
+	ldh [hMultiplicand + 1], a
+	ld a, [hl]
+	ldh [hMultiplicand + 2], a
+; Multiply by 150
+	ld a, 50
+	add 100
+	ldh [hMultiplier], a
+	call Multiply
+; Divide by 100
+	ld a, 100
+	ldh [hDivisor], a
+	ld b, 4
+	call Divide
+; load hQuotient back into wBattleMonSpeed
+	ldh a, [hQuotient + 2]
+	ld hl, wBattleMonSpeed
+	ld [hli], a
+	ldh a, [hQuotient + 3]
+	ld [hl], a
+	ret
+
+.enemy
+; load wEnemyMonSpeed into hMultiplicand
+	ld hl, wEnemyMonSpeed
+	xor a
+	ldh [hMultiplicand + 0], a
+	ld a, [hli]
+	ldh [hMultiplicand + 1], a
+	ld a, [hl]
+	ldh [hMultiplicand + 2], a
+; Multiply by 150
+	ld a, 50
+	add 100
+	ldh [hMultiplier], a
+	call Multiply
+; Divide by 100
+	ld a, 100
+	ldh [hDivisor], a
+	ld b, 4
+	call Divide
+; load hQuotient back into wEnemyMonSpeed
+	ldh a, [hQuotient + 2]
+	ld hl, wEnemyMonSpeed
+	ld [hli], a
+	ldh a, [hQuotient + 3]
+	ld [hl], a
 	ret

@@ -113,7 +113,7 @@ ItemEffects:
 	dw NoEffect            ; WHT_APRICORN
 	dw NoEffect            ; BLACKBELT_I
 	dw NoEffect            ; BLK_APRICORN
-	dw NoEffect            ; ITEM_64
+	dw PokeBallEffect      ; RESCUE_BALL
 	dw NoEffect            ; PNK_APRICORN
 	dw NoEffect            ; BLACKGLASSES
 	dw NoEffect            ; SLOWPOKETAIL
@@ -133,7 +133,7 @@ ItemEffects:
 	dw NoEffect            ; MIRACLE_SEED
 	dw NoEffect            ; THICK_CLUB
 	dw NoEffect            ; FOCUS_BAND
-	dw NoEffect            ; ITEM_78
+	dw PokeBallEffect      ; DUSK_BALL
 	dw EnergypowderEffect  ; ENERGYPOWDER
 	dw EnergyRootEffect    ; ENERGY_ROOT
 	dw HealPowderEffect    ; HEAL_POWDER
@@ -143,57 +143,68 @@ ItemEffects:
 	dw CardKeyEffect       ; CARD_KEY
 	dw NoEffect            ; MACHINE_PART
 	dw NoEffect            ; EGG_TICKET
-	dw NoEffect            ; LOST_ITEM
+	dw PokeBallEffect      ; DAWN_BALL
 	dw NoEffect            ; STARDUST
 	dw NoEffect            ; STAR_PIECE
 	dw BasementKeyEffect   ; BASEMENT_KEY
 	dw NoEffect            ; PASS
 	dw CampingKitEffect    ; CAMPING_KIT
-	dw NoEffect            ; ITEM_88
-	dw NoEffect            ; ITEM_89
+	dw PokeBallEffect      ; TIMER_BALL
+	dw PokeBallEffect      ; SPEED_BALL
 	dw NoEffect            ; CHARCOAL
 	dw RestoreHPEffect     ; BERRY_JUICE
 	dw NoEffect            ; SCOPE_LENS
-	dw NoEffect            ; ITEM_8D
-	dw NoEffect            ; ITEM_8E
+	dw PokeBallEffect      ; SHINY_BALL
+	dw PokeBallEffect      ; VIRAL_BALL
 	dw NoEffect            ; METAL_COAT
 	dw NoEffect            ; DRAGON_FANG
-	dw NoEffect            ; ITEM_91
+	dw PokeBallEffect      ; FORTUNE_BALL
 	dw NoEffect            ; LEFTOVERS
-	dw NoEffect            ; ITEM_93
-	dw NoEffect            ; ITEM_94
-	dw NoEffect            ; ITEM_95
+	dw NoEffect            ; DREAM_BERRY
+	dw NoEffect            ; TEACHY_TV
+	dw NoEffect            ; LIGHT_CLAY
 	dw RestorePPEffect     ; MYSTERYBERRY
 	dw NoEffect            ; DRAGON_SCALE
 	dw NoEffect            ; BERSERK_GENE
-	dw NoEffect            ; ITEM_99
-	dw NoEffect            ; ITEM_9A
-	dw NoEffect            ; ITEM_9B
+	dw NoEffect            ; ICY_ROCK
+	dw NoEffect            ; HEAT_ROCK
+	dw NoEffect            ; SMOOTH_ROCK
 	dw SacredAshEffect     ; SACRED_ASH
 	dw PokeBallEffect      ; HEAVY_BALL
 	dw NoEffect            ; FLOWER_MAIL
 	dw PokeBallEffect      ; LEVEL_BALL
 	dw PokeBallEffect      ; LURE_BALL
 	dw PokeBallEffect      ; FAST_BALL
-	dw NoEffect            ; ITEM_A2
+	dw NoEffect            ; DAMP_ROCK
 	dw NoEffect            ; LIGHT_BALL
 	dw PokeBallEffect      ; FRIEND_BALL
 	dw PokeBallEffect      ; MOON_BALL
 	dw PokeBallEffect      ; LOVE_BALL
-	dw NormalBoxEffect     ; NORMAL_BOX
-	dw GorgeousBoxEffect   ; GORGEOUS_BOX
+	dw NoEffect     			 ; RAZOR_CLAW
+	dw NoEffect 				   ; CHOICE_SPECS
 	dw EvoStoneEffect      ; SUN_STONE
-	dw NoEffect            ; POLKADOT_BOW
-	dw NoEffect            ; ITEM_AB
+	dw NoEffect            ; CHOICE_SCARF
+	dw NoEffect            ; WIDE_LENS
 	dw NoEffect            ; UP_GRADE
 	dw RestoreHPEffect     ; BERRY
 	dw RestoreHPEffect     ; GOLD_BERRY
 	dw SquirtbottleEffect  ; SQUIRTBOTTLE
-	dw NoEffect            ; ITEM_B0
+	dw NoEffect            ; BLACK_SLUDGE
 	dw PokeBallEffect      ; PARK_BALL
 	dw NoEffect            ; RAINBOW_WING
-	dw NoEffect            ; ITEM_B3
-	assert_table_length ITEM_B3
+	dw NoEffect            ; ROCKY_HELMET
+	dw NoEffect            ; BRICK_PIECE
+	dw NoEffect            ; FOCUS_SASH
+	dw NoEffect            ; LIFE_ORB
+	dw NoEffect            ; METRONOME_I
+	dw NoEffect            ; LOADED_DICE
+	dw NoEffect            ; WHITE_HERB
+	dw NoEffect            ; MUSCLE_BAND
+	dw NoEffect            ; SHELL_BELL
+	dw NoEffect            ; WISE_GLASSES
+	dw NoEffect            ; WKNESSPOLICY
+	dw NoEffect            ; CHOICE_BAND
+	assert_table_length CHOICE_BAND
 ; The items past ITEM_B3 do not have effect entries:
 ;	BRICK_PIECE
 ;	SURF_MAIL
@@ -336,12 +347,12 @@ PokeBallEffect:
 	jr nz, .statuscheck
 	ld a, 1
 .statuscheck
-; BUG: BRN/PSN/PAR do not affect catch rate (see docs/bugs_and_glitches.md)
 	ld b, a
 	ld a, [wEnemyMonStatus]
 	and 1 << FRZ | SLP_MASK
 	ld c, 10
 	jr nz, .addstatus
+	ld a, [wEnemyMonStatus]
 	and a
 	ld c, 5
 	jr nz, .addstatus
@@ -546,7 +557,7 @@ PokeBallEffect:
 
 	ld a, [wPartyCount]
 	cp PARTY_LENGTH
-	jr z, .SendToPC
+	jp z, .SendToPC
 
 	xor a ; PARTYMON
 	ld [wMonType], a
@@ -557,8 +568,12 @@ PokeBallEffect:
 	farcall SetCaughtData
 
 	ld a, [wCurItem]
+	cp FORTUNE_BALL
+	jr z, .fortune_ball_partymon
+	cp SHINY_BALL
+	jr z, .shiny_ball_partymon
 	cp FRIEND_BALL
-	jr nz, .SkipPartyMonFriendBall
+	jp nz, .SkipPartyMonFriendBall
 
 	ld a, [wPartyCount]
 	dec a
@@ -567,6 +582,74 @@ PokeBallEffect:
 	call AddNTimes
 
 	ld a, FRIEND_BALL_HAPPINESS
+	ld [hl], a
+
+.fortune_ball_partymon
+	ld a, [wPartyCount]
+	dec a
+	ld hl, wPartyMon1
+	ld bc, PARTYMON_STRUCT_LENGTH
+	rst AddNTimes
+	ld b, h
+	ld c, l
+
+	ld hl, MON_DVS
+	add hl, bc
+	call .apply_fortune_ball_DVs
+	ld hl, MON_MAXHP
+	add hl, bc
+	ld d, h
+	ld e, l
+	ld hl, MON_STAT_EXP - 1
+	add hl, bc
+
+	; Needs to be preserved since we're in a battle
+	ld a, [wCurPartyMon]
+	push af
+	ld a, [wPartyCount]
+	dec a
+	ld [wCurPartyMon], a
+	callba UpdatePkmnStats
+	pop af
+	ld [wCurPartyMon], a
+
+	ld a, $aa ;So it appears shiny in nickname menu
+	ld hl, wTempMon + MON_DVS
+	ld [hli], a
+	ld [hl], a
+
+.shiny_ball_partymon
+	ld a, [wPartyCount]
+	dec a
+	ld hl, wPartyMon1
+	ld bc, PARTYMON_STRUCT_LENGTH
+	rst AddNTimes
+	ld b, h
+	ld c, l
+
+	ld hl, MON_DVS
+	add hl, bc
+	call .apply_shiny_ball_DVs
+	ld hl, MON_MAXHP
+	add hl, bc
+	ld d, h
+	ld e, l
+	ld hl, MON_STAT_EXP - 1
+	add hl, bc
+
+	; Needs to be preserved since we're in a battle
+	ld a, [wCurPartyMon]
+	push af
+	ld a, [wPartyCount]
+	dec a
+	ld [wCurPartyMon], a
+	callba UpdatePkmnStats
+	pop af
+	ld [wCurPartyMon], a
+
+	ld a, $aa ;So it appears shiny in nickname menu
+	ld hl, wTempMon + MON_DVS
+	ld [hli], a
 	ld [hl], a
 
 .SkipPartyMonFriendBall:
@@ -622,8 +705,21 @@ PokeBallEffect:
 	set BATTLERESULT_BOX_FULL, [hl]
 .BoxNotFullYet:
 	ld a, [wCurItem]
+	cp FORTUNE_BALL
+	jr z, .fortune_ball_boxmon
+	cp SHINY_BALL
+	jr z, .shiny_ball_boxmon
 	cp FRIEND_BALL
 	jr nz, .SkipBoxMonFriendBall
+
+.fortune_ball_boxmon
+	ld hl, sBoxMon1DVs
+	call .apply_shiny_ball_DVs
+
+.shiny_ball_boxmon
+	ld hl, sBoxMon1DVs
+	call .apply_shiny_ball_DVs
+
 	; The captured mon is now first in the box
 	ld a, FRIEND_BALL_HAPPINESS
 	ld [sBoxMon1Happiness], a
@@ -680,6 +776,68 @@ PokeBallEffect:
 	call LoadStandardFont
 	jr .return_from_capture
 
+.apply_fortune_ball_DVs
+	push bc
+	ld a, [hli]
+	ld b, a
+	ld c, [hl]
+	push hl
+	push bc
+	ld hl, sp + 0
+	ld b, 2
+	call CountSetBits
+	pop hl
+	pop hl
+	ld [hl], $aa
+	dec hl
+	ld c, a
+	ld a, [hl]
+	and $c0
+	ld b, a
+	or $2a
+	ld [hl], a
+	ld a, b
+	sub $40
+	add a, a
+	sbc a
+	add a, c
+	pop bc
+	rra
+	ret nc
+	set 4, [hl]
+	ret
+
+.apply_shiny_ball_DVs
+	push bc
+	ld a, [hli]
+	ld b, a
+	ld c, [hl]
+	push hl
+	push bc
+	ld hl, sp + 0
+	ld b, 2
+	call CountSetBits
+	pop hl
+	pop hl
+	ld [hl], $aa
+	dec hl
+	ld c, a
+	ld a, [hl]
+	and $c0
+	ld b, a
+	or $2a
+	ld [hl], a
+	ld a, b
+	sub $40
+	add a, a
+	sbc a
+	add a, c
+	pop bc
+	rra
+	ret nc
+	set 4, [hl]
+	ret
+
 .catch_bug_contest_mon
 	farcall BugContest_SetCaughtContestMon
 	jr .return_from_capture
@@ -721,17 +879,138 @@ PokeBallEffect:
 BallMultiplierFunctionTable:
 ; table of routines that increase or decrease the catch rate based on
 ; which ball is used in a certain situation.
-	dbw ULTRA_BALL,  UltraBallMultiplier
-	dbw GREAT_BALL,  GreatBallMultiplier
-	dbw SAFARI_BALL, SafariBallMultiplier ; Safari Ball, leftover from RBY
-	dbw HEAVY_BALL,  HeavyBallMultiplier
-	dbw LEVEL_BALL,  LevelBallMultiplier
-	dbw LURE_BALL,   LureBallMultiplier
-	dbw FAST_BALL,   FastBallMultiplier
-	dbw MOON_BALL,   MoonBallMultiplier
-	dbw LOVE_BALL,   LoveBallMultiplier
-	dbw PARK_BALL,   ParkBallMultiplier
+	dbw ULTRA_BALL,    UltraBallMultiplier
+	dbw GREAT_BALL,    GreatBallMultiplier
+	dbw SAFARI_BALL,   SafariBallMultiplier ; Safari Ball, leftover from RBY
+	dbw HEAVY_BALL,    HeavyBallMultiplier
+	dbw LEVEL_BALL,    LevelBallMultiplier
+	dbw LURE_BALL,     LureBallMultiplier
+	dbw FAST_BALL,     FastBallMultiplier
+	dbw MOON_BALL,     MoonBallMultiplier
+	dbw LOVE_BALL,     LoveBallMultiplier
+	dbw PARK_BALL,     ParkBallMultiplier
+	dbw RESCUE_BALL,   RescueBallMultiplier
+	dbw DUSK_BALL,     DuskBallMultiplier
+	dbw DAWN_BALL,     DawnBallMultiplier
+	dbw TIMER_BALL,    TimerBallMultiplier
+	dbw SPEED_BALL,    SpeedBallMultiplier
+	dbw SHINY_BALL,    GreatBallMultiplier
+	dbw VIRAL_BALL,    GreatBallMultiplier
+	dbw FORTUNE_BALL,  GreatBallMultiplier
 	db -1 ; end
+
+TimerBallMultiplier:
+; multiply catch rate by 1 + (turns passed * 3) / 10, capped at 4
+	ld a, [wPlayerTurnsTaken]
+	and a
+	ret z ; no boost on first turn
+
+	push bc
+	ld b, a
+	add b
+	add b
+	add 10
+	cp 40
+	jr c, .no_cap
+	ld a, 40
+.no_cap
+	pop bc
+	ld c, b
+	call Multiply
+	ld c, 10
+	call Divide
+	ret
+
+DuskBallMultiplier:
+; is it night?
+	ld a, [wTimeOfDay]
+	cp NITE
+	jr z, .night_or_cave
+; or are we in a cave?
+	ld a, [wEnvironment]
+	cp CAVE
+	jr z, .night_or_cave
+; neither night nor cave
+	ret
+
+.night_or_cave
+; b is the catch rate
+; a := b / 2 + b + b + b == b x 3.5
+	ld a, b
+	srl a
+rept 3
+	add b
+	jr c, .max
+endr
+	ret
+
+.max
+	ld b, $ff
+	ret
+
+DawnBallMultiplier:
+; is it day?
+	ld a, [wTimeOfDay]
+	cp DAY
+	jr z, .daytime
+; not daytime
+	ret
+
+.daytime
+; b is the catch rate
+; a := b / 2 + b + b + b == b x 3.5
+	ld a, b
+	srl a
+rept 3
+	add b
+	jr c, .max
+endr
+	ret
+
+.max
+	ld b, $ff
+	ret
+
+RescueBallMultiplier:
+	; is the enemy statused?
+	ld b, a
+	ld a, [wEnemyMonStatus]
+	and a
+	jr nz, .statuseffect
+	; no status effect
+	ret
+
+.statuseffect
+; b is the catch rate
+; a := b / 2 + b + b + b == b x 3.5
+	ld a, b
+	srl a
+rept 3
+	add b
+	jr c, .max
+endr
+	ret
+
+.max
+	ld b, $ff
+	ret
+
+SpeedBallMultiplier:
+; multiply catch rate by 5 on first turn
+	ld a, [wPlayerTurnsTaken]
+	and a
+	ret nz
+
+	ld a, b
+rept 4
+	add b
+	jr c, .max
+endr
+	ret
+
+.max
+	ld b, $ff
+	ret
 
 UltraBallMultiplier:
 ; multiply catch rate by 2
@@ -917,11 +1196,10 @@ MoonBallMultiplier:
 	inc hl
 	inc hl
 
-; BUG: Moon Ball does not boost catch rate (see docs/bugs_and_glitches.md)
 	push bc
 	ld a, BANK("Evolutions and Attacks")
 	call GetFarByte
-	cp MOON_STONE_RED ; BURN_HEAL
+	cp MOON_STONE
 	pop bc
 	ret nz
 
