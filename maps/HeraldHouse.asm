@@ -12,8 +12,8 @@ HeraldHouse_MapScripts:
 		writetext HeraldHouseCooltrainerMoving
 		yesorno
 		iffalse .No
-		closetext
 		pokemart MARTTYPE_STANDARD, MART_HERALD_COVE
+		closetext
 		end
 
 	.No

@@ -20,7 +20,7 @@ PnP_HiddenPeople_BeatE4:
 PnP_HiddenPeople_BeatKanto:
 	db BLAIRE
 	db POKEMON_PROF
-	db CAL
+	db HARRISON
 	db PERCY
 	db RED
 	db -1

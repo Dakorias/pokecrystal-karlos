@@ -76,18 +76,19 @@ ENDM
 	map_const PLAYERS_HOUSE_2F,                             4,  3 ;  9
 	map_const REGISTRATION_CENTER,							 						5,  5 ; 10
 	map_const HERALD_GROTTO,																4,  8 ; 11
+	map_const BEACH_ROUTE,																 12, 40 ; 12
 	endgroup
 
 	newgroup SECOND_TOWN																					; 6
-	map_const BEACH_ROUTE,																 12, 40 ; 1
-	map_const SECOND_TOWN,																 20, 16 ; 2
-	map_const MOUNTAIN_ROUTE, 														 14, 26 ; 3
-	map_const MOUNTAIN_CAVE, 															 10, 14 ; 4
-	map_const SECOND_TOWN_HOUSE1,													  5,  4 ; 5
-	map_const SECOND_TOWN_HOUSE2,													  5,  4 ; 6
-	map_const SECOND_TOWN_POKECENTER,				 								7,  4 ; 7
-	map_const SECOND_TOWN_FISHING,												  5,  4 ; 8
-	map_const BEACH_GROTTO, 																5,  5 ; 9
+	map_const SECOND_TOWN,																 20, 16 ; 1
+	map_const MOUNTAIN_ROUTE, 														 14, 26 ; 2
+	map_const MOUNTAIN_CAVE, 															 10, 14 ; 3
+	map_const SECOND_TOWN_HOUSE1,													  5,  4 ; 4
+	map_const SECOND_TOWN_HOUSE2,													  5,  4 ; 5
+	map_const SECOND_TOWN_POKECENTER,				 								7,  4 ; 6
+	map_const SECOND_TOWN_FISHING,												  5,  4 ; 7
+	map_const BEACH_GROTTO, 																5,  5 ; 8
+	map_const MOUNTAIN_GYM,																	5,  5 ; 9
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 6

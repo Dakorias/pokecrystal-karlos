@@ -3218,13 +3218,13 @@ BattleAnim_MindReader:
 BattleAnim_BulletSeed:
 	anim_2gfx ANIM_GFX_PLANT, ANIM_GFX_HIT
 .loop
-	anim_obj ANIM_OBJ_NEEDLE, 64, 92, $18
+	anim_obj ANIM_OBJ_BULLET_SEED, 64, 92, $18
 	anim_wait 4
-	anim_obj ANIM_OBJ_NEEDLE, 56, 84, $18
+	anim_obj ANIM_OBJ_BULLET_SEED, 56, 84, $18
 	anim_sound 0, 1, SFX_PECK
 	anim_obj ANIM_OBJ_HIT_SMALL, 136, 56, $0
 	anim_wait 4
-	anim_obj ANIM_OBJ_NEEDLE, 52, 88, $18
+	anim_obj ANIM_OBJ_BULLET_SEED, 52, 88, $18
 	anim_sound 0, 1, SFX_PECK
 	anim_obj ANIM_OBJ_HIT_SMALL, 128, 48, $0
 	anim_wait 4

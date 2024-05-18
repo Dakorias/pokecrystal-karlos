@@ -39,6 +39,8 @@ Marts:
 	dw MartHeraldBerries
 	dw MartSecondTown1
 	dw MartSecondTown2
+	dw MartSecondTown3
+	dw MartSecondTown4
 	assert_table_length NUM_MARTS
 
 MartCherrygrove:
@@ -72,7 +74,7 @@ MartViolet:
 	db -1 ; end
 
 MartAzalea:
-	db 9 ; # items
+	db 8 ; # items
 	db CHARCOAL
 	db POKE_BALL
 	db POTION
@@ -104,7 +106,7 @@ MartGoldenrod2F1:
 	db -1 ; end
 
 MartGoldenrod2F2:
-	db 8 ; # items
+	db 7 ; # items
 	db POKE_BALL
 	db GREAT_BALL
 	db ESCAPE_ROPE
@@ -165,7 +167,7 @@ MartGoldenrod5F4:
 	db -1 ; end
 
 MartOlivine:
-	db 9 ; # items
+	db 8 ; # items
 	db GREAT_BALL
 	db SUPER_POTION
 	db HYPER_POTION
@@ -199,7 +201,7 @@ MartMahogany1:
 	db -1 ; end
 
 MartMahogany2:
-	db 9 ; # items
+	db 8 ; # items
 	db RAGECANDYBAR
 	db GREAT_BALL
 	db SUPER_POTION
@@ -224,7 +226,7 @@ MartBlackthorn:
 	db -1 ; end
 
 MartViridian:
-	db 9 ; # items
+	db 8 ; # items
 	db ULTRA_BALL
 	db HYPER_POTION
 	db FULL_HEAL
@@ -247,7 +249,7 @@ MartPewter:
 	db -1 ; end
 
 MartCerulean:
-	db 9 ; # items
+	db 8 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db SUPER_POTION
@@ -271,7 +273,7 @@ MartLavender:
 	db -1 ; end
 
 MartVermilion:
-	db 8 ; # items
+	db 7 ; # items
 	db ULTRA_BALL
 	db SUPER_POTION
 	db HYPER_POTION
@@ -316,7 +318,7 @@ MartCeladon3F:
 	db -1 ; end
 
 MartCeladon4F:
-	db 3 ; # items
+	db 1 ; # items
 	db POKE_DOLL
 	db -1 ; end
 
@@ -341,7 +343,7 @@ MartCeladon5F2:
 	db -1 ; end
 
 MartFuchsia:
-	db 7 ; # items
+	db 6 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db SUPER_POTION
@@ -351,7 +353,7 @@ MartFuchsia:
 	db -1 ; end
 
 MartSaffron:
-	db 8 ; # items
+	db 7 ; # items
 	db GREAT_BALL
 	db ULTRA_BALL
 	db HYPER_POTION
@@ -362,7 +364,7 @@ MartSaffron:
 	db -1 ; end
 
 MartMtMoon:
-	db 6 ; # items
+	db 5 ; # items
 	db POKE_DOLL
 	db FRESH_WATER
 	db SODA_POP
@@ -403,17 +405,41 @@ MartHeraldBerries:
 	db -1 ; end
 
 MartSecondTown1:
+	db 3 ; # items
+	db X_ATTACK
+	db X_DEFEND
+	db X_ACCURACY
+	db -1 ; end
+
+MartSecondTown2:
 	db 5 ; # items
-	db POKE_BALL
+	db BERRY
+	db PSNCUREBERRY
+	db PRZCUREBERRY
+	db MINT_BERRY
+	db DREAM_BERRY
+	db -1 ; end
+
+MartSecondTown3:
+	db 5 ; # items
 	db POTION
+	db SUPER_POTION
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db REPEL
 	db -1 ; end
 
-MartSecondTown2:
-	db 1 ; # items
-	db POTION
+MartSecondTown4:
+	db 9 ; # items
+	db POKE_BALL
+	db RESCUE_BALL
+	db DUSK_BALL
+	db DAWN_BALL
+	db TIMER_BALL
+	db SPEED_BALL
+	db SHINY_BALL
+	db VIRAL_BALL
+	db FORTUNE_BALL
 	db -1 ; end
 
 DefaultMart:

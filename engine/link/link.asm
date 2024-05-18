@@ -470,7 +470,7 @@ endc
 	ld a, [wLinkMode]
 	cp LINK_COLOSSEUM
 	jr nz, .ready_to_trade
-	ld a, CAL
+	ld a, HARRISON
 	ld [wOtherTrainerClass], a
 	call ClearScreen
 	farcall Link_WaitBGMap

@@ -91,6 +91,7 @@ BeachRoute_MapScripts:
 		turnobject BEACH_ROUTE_ROCKET2, DOWN
 		showemote EMOTE_SHOCK, BEACH_ROUTE_ROCKET1, 15
 		showemote EMOTE_SHOCK, BEACH_ROUTE_ROCKET2, 15
+		playmusic MUSIC_ROCKET_ENCOUNTER
 		applymovement BEACH_ROUTE_ROCKET1, RocketCornersPlayer
 		turnobject PLAYER, LEFT
 		opentext
@@ -101,6 +102,7 @@ BeachRoute_MapScripts:
 		turnobject BEACH_ROUTE_ROCKET1, DOWN
 		showemote EMOTE_SHOCK, BEACH_ROUTE_ROCKET1, 15
 		moveobject BEACH_ROUTE_OAK, 7, 80
+		appear BEACH_ROUTE_OAK
 		applymovement BEACH_ROUTE_OAK, OakWalksToRockets
 		opentext
 		writetext OakandPlayerFightRocketsText
@@ -117,6 +119,8 @@ BeachRoute_MapScripts:
 		closetext
 		applymovement BEACH_ROUTE_ROCKET1, Rocket2RunsAway
 		applymovement BEACH_ROUTE_ROCKET2, Rocket1RunsAway
+		disappear BEACH_ROUTE_ROCKET1
+		disappear BEACH_ROUTE_ROCKET2
 		pause 8
 		applymovement BEACH_ROUTE_OAK, PlayerWalksToRockets
 		turnobject PLAYER, LEFT
@@ -127,6 +131,7 @@ BeachRoute_MapScripts:
 		turnobject PLAYER, DOWN
 		applymovement BEACH_ROUTE_OAK, OakLeavesBeachMovement
 		disappear BEACH_ROUTE_OAK
+		playmusic MUSIC_ROUTE_30
 		setevent EVENT_BEAT_ROCKET_THEIVES
 		setscene SCENE_BEACH_ROUTE_NOOP1
 		end
@@ -173,6 +178,7 @@ BeachRoute_MapScripts:
 
 	RocketCornersPlayer:
 	big_step DOWN
+	turn_head RIGHT
 	step_end
 
 	OakWalksToRockets:
@@ -245,7 +251,7 @@ BeachRoute_MapScripts:
 		done
 
 	YoungsterAllenBeatenText:
-		text "Well that didn't"
+		text "Well, that didn't"
 		line "help at all."
 		done
 
@@ -275,7 +281,7 @@ BeachRoute_MapScripts:
 		done
 
 	YoungsterDanny2SeenText:
-		text "Hey remember me?"
+		text "Hey, remember me?"
 		line "I signed up like I"
 		cont "said I would!"
 
@@ -311,7 +317,7 @@ BeachRoute_MapScripts:
 	Rocket1TalksToRocket2Text:
 		text "It's fine, I made"
 		line "a copy. Now we"
-		cont "just have to. . ."
+		cont "just have to..."
 		done
 
 	RockerCornersPlayerText:
@@ -327,10 +333,10 @@ BeachRoute_MapScripts:
 		done
 
 	OakandPlayerFightRocketsText:
-		text "OAK: Well it"
+		text "OAK: Well, it"
 		line "wouldnt be fair"
 
-		para "without me would"
+		para "without me, would"
 		line "it?"
 
 		para "<PLAYER>, help me"
@@ -340,7 +346,7 @@ BeachRoute_MapScripts:
 
 	BeachRocketWinText:
 		text "Argh, this kid's"
-		line "not bad. . ."
+		line "not bad..."
 		done
 
 	RocketsEscapeText:

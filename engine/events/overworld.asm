@@ -130,7 +130,7 @@ CutFunction:
 	dw .FailCut
 
 .CheckAble:
-	ld de, ENGINE_CRUSHBADGE
+	ld de, ENGINE_HIVEBADGE
 	call CheckBadge
 	jr c, .nohivebadge
 	call CheckMapForSomethingToCut
@@ -963,7 +963,7 @@ StrengthFunction:
 	ret
 
 .TryStrength:
-	ld de, ENGINE_PLAINBADGE
+	ld de, ENGINE_CRUSHBADGE
 	call CheckBadge
 	jr c, .Failed
 	jr .UseStrength
@@ -1060,7 +1060,7 @@ TryStrengthOW:
 	call CheckPartyMove
 	jr c, .nope
 
-	ld de, ENGINE_PLAINBADGE
+	ld de, ENGINE_CRUSHBADGE
 	call CheckEngineFlag
 	jr c, .nope
 
@@ -1765,7 +1765,7 @@ TryCutOW::
 	call CheckPartyMove
 	jr c, .cant_cut
 
-	ld de, ENGINE_CRUSHBADGE
+	ld de, ENGINE_HIVEBADGE
 	call CheckEngineFlag
 	jr c, .cant_cut
 

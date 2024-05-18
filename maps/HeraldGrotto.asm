@@ -50,7 +50,7 @@ HeraldGrotto_MapEvents:
 
 	def_warp_events
 	warp_event 2,  13, HERALD_ROUTE, 2
-	warp_event 3,  13, HERALD_ROUTE, 3
+	warp_event 3,  13, HERALD_ROUTE, 2
 
 	def_coord_events
 

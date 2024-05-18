@@ -19,7 +19,7 @@ INCBIN "gfx/trainers/clair.gbcpal", middle_colors
 INCBIN "gfx/trainers/rival1.gbcpal", middle_colors
 INCBIN "gfx/trainers/oak.gbcpal", middle_colors
 INCBIN "gfx/trainers/will.gbcpal", middle_colors
-INCBIN "gfx/trainers/cal.gbcpal", middle_colors
+INCBIN "gfx/trainers/harrison.gbcpal", middle_colors
 INCBIN "gfx/trainers/bruno.gbcpal", middle_colors
 INCBIN "gfx/trainers/karen.gbcpal", middle_colors
 INCBIN "gfx/trainers/koga.gbcpal", middle_colors
@@ -75,8 +75,8 @@ INCBIN "gfx/trainers/blue.gbcpal", middle_colors
 INCBIN "gfx/trainers/officer.gbcpal", middle_colors
 INCBIN "gfx/trainers/grunt_f.gbcpal", middle_colors
 INCBIN "gfx/trainers/mysticalman.gbcpal", middle_colors
-INCBIN "gfx/trainers/rival1.gbcpal", middle_colors
-INCBIN "gfx/trainers/camper.gbcpal", middle_colors
+INCBIN "gfx/trainers/blaire.gbcpal", middle_colors
+INCBIN "gfx/trainers/percy.gbcpal", middle_colors
 INCBIN "gfx/trainers/camper.gbcpal", middle_colors
 INCBIN "gfx/trainers/camper.gbcpal", middle_colors
 INCBIN "gfx/trainers/camper.gbcpal", middle_colors

@@ -225,7 +225,7 @@ YoungsterGroup:
 	db 16, DUNSPARCE
 	db -1 ; end
 
-	; YOUNGSTER (8)
+	; YOUNGSTER (9)
 	db "ANDREW@", TRAINERTYPE_NORMAL
 	db 17, MURKROW
 	db 19, CORSOLA
@@ -308,7 +308,7 @@ FisherGroup:
 	db "ARNOLD@", TRAINERTYPE_NORMAL
 	db 12, CHINCHOU
 	db 12, CORPHISH
-	db 12, CARVANHA
+	db 12, HORSEA
 	db -1 ; end
 
 SwimmerMGroup:

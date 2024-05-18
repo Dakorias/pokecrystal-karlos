@@ -39,8 +39,7 @@ HeraldPort_MapScripts:
 		writetext OakTalksToPlayer1Text
 		waitbutton
 		closetext
-		playsound SFX_BUMP
-		playsound SFX_BUMP
+		pause 4
 		showemote EMOTE_SHOCK, HERALD_PORT_OAK, 15
 		turnobject HERALD_PORT_OAK, UP
 		pause 15
@@ -78,9 +77,6 @@ HeraldPort_MapScripts:
 		playsound SFX_EXIT_BUILDING
 		disappear HERALD_PORT_PERCY
 		pause 30
-		playsound SFX_BUMP
-		playsound SFX_BUMP
-		pause 15
 		turnobject HERALD_PORT_OAK, UP
 		turnobject PLAYER, UP
 		playsound SFX_ENTER_DOOR

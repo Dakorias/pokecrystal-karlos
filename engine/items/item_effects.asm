@@ -160,8 +160,13 @@ ItemEffects:
 	dw NoEffect            ; DRAGON_FANG
 	dw PokeBallEffect      ; FORTUNE_BALL
 	dw NoEffect            ; LEFTOVERS
+<<<<<<< HEAD
 	dw NoEffect            ; DREAM_BERRY
 	dw NoEffect            ; TEACHY_TV
+=======
+	dw DreamBerryEffect    ; DREAM_BERRY
+	dw TeachyTVEffect      ; TEACHY_TV
+>>>>>>> temp
 	dw NoEffect            ; LIGHT_CLAY
 	dw RestorePPEffect     ; MYSTERYBERRY
 	dw NoEffect            ; DRAGON_SCALE
@@ -171,7 +176,7 @@ ItemEffects:
 	dw NoEffect            ; SMOOTH_ROCK
 	dw SacredAshEffect     ; SACRED_ASH
 	dw PokeBallEffect      ; HEAVY_BALL
-	dw NoEffect            ; FLOWER_MAIL
+	dw NoEffect            ; EXPERT_BELT
 	dw PokeBallEffect      ; LEVEL_BALL
 	dw PokeBallEffect      ; LURE_BALL
 	dw PokeBallEffect      ; FAST_BALL
@@ -205,20 +210,6 @@ ItemEffects:
 	dw NoEffect            ; WKNESSPOLICY
 	dw NoEffect            ; CHOICE_BAND
 	assert_table_length CHOICE_BAND
-; The items past ITEM_B3 do not have effect entries:
-;	BRICK_PIECE
-;	SURF_MAIL
-;	LITEBLUEMAIL
-;	PORTRAITMAIL
-;	LOVELY_MAIL
-;	EON_MAIL
-;	MORPH_MAIL
-;	BLUESKY_MAIL
-;	MUSIC_MAIL
-;	MIRAGE_MAIL
-;	ITEM_BE
-; They all have the ITEMMENU_NOUSE attribute so they can't be used anyway.
-; NoEffect would be appropriate, with the table then being NUM_ITEMS long.
 
 PokeBallEffect:
 ; BUG: The Dude's catching tutorial may crash if his Poké Ball can't be used (see docs/bugs_and_glitches.md)
@@ -589,7 +580,6 @@ PokeBallEffect:
 	dec a
 	ld hl, wPartyMon1
 	ld bc, PARTYMON_STRUCT_LENGTH
-	rst AddNTimes
 	ld b, h
 	ld c, l
 
@@ -609,11 +599,11 @@ PokeBallEffect:
 	ld a, [wPartyCount]
 	dec a
 	ld [wCurPartyMon], a
-	callba UpdatePkmnStats
+	callba CalcMonStats
 	pop af
 	ld [wCurPartyMon], a
 
-	ld a, $aa ;So it appears shiny in nickname menu
+	ld a, $aa
 	ld hl, wTempMon + MON_DVS
 	ld [hli], a
 	ld [hl], a
@@ -623,7 +613,6 @@ PokeBallEffect:
 	dec a
 	ld hl, wPartyMon1
 	ld bc, PARTYMON_STRUCT_LENGTH
-	rst AddNTimes
 	ld b, h
 	ld c, l
 
@@ -643,7 +632,7 @@ PokeBallEffect:
 	ld a, [wPartyCount]
 	dec a
 	ld [wCurPartyMon], a
-	callba UpdatePkmnStats
+	callba CalcMonStats
 	pop af
 	ld [wCurPartyMon], a
 
@@ -723,6 +712,13 @@ PokeBallEffect:
 	; The captured mon is now first in the box
 	ld a, FRIEND_BALL_HAPPINESS
 	ld [sBoxMon1Happiness], a
+
+.fortune_ball_boxmon
+	ld hl, sBoxMon1DVs
+	call .apply_fortune_ball_DVs
+.shiny_ball_boxmon
+	ld hl, sBoxMon1DVs
+	call .apply_shiny_ball_DVs
 .SkipBoxMonFriendBall:
 	call CloseSRAM
 
@@ -791,11 +787,11 @@ PokeBallEffect:
 	ld [hl], $aa
 	dec hl
 	ld c, a
-	ld a, [hl]
+	ld a, [hli]
 	and $c0
 	ld b, a
 	or $2a
-	ld [hl], a
+	ld [hli], a
 	ld a, b
 	sub $40
 	add a, a
@@ -879,135 +875,129 @@ PokeBallEffect:
 BallMultiplierFunctionTable:
 ; table of routines that increase or decrease the catch rate based on
 ; which ball is used in a certain situation.
-	dbw ULTRA_BALL,    UltraBallMultiplier
-	dbw GREAT_BALL,    GreatBallMultiplier
-	dbw SAFARI_BALL,   SafariBallMultiplier ; Safari Ball, leftover from RBY
-	dbw HEAVY_BALL,    HeavyBallMultiplier
-	dbw LEVEL_BALL,    LevelBallMultiplier
-	dbw LURE_BALL,     LureBallMultiplier
-	dbw FAST_BALL,     FastBallMultiplier
-	dbw MOON_BALL,     MoonBallMultiplier
-	dbw LOVE_BALL,     LoveBallMultiplier
-	dbw PARK_BALL,     ParkBallMultiplier
-	dbw RESCUE_BALL,   RescueBallMultiplier
-	dbw DUSK_BALL,     DuskBallMultiplier
-	dbw DAWN_BALL,     DawnBallMultiplier
-	dbw TIMER_BALL,    TimerBallMultiplier
-	dbw SPEED_BALL,    SpeedBallMultiplier
-	dbw SHINY_BALL,    GreatBallMultiplier
-	dbw VIRAL_BALL,    GreatBallMultiplier
-	dbw FORTUNE_BALL,  GreatBallMultiplier
+	dbw ULTRA_BALL,   UltraBallMultiplier
+	dbw GREAT_BALL,   GreatBallMultiplier
+	dbw SAFARI_BALL,  SafariBallMultiplier ; Safari Ball, leftover from RBY
+	dbw HEAVY_BALL,   HeavyBallMultiplier
+	dbw LEVEL_BALL,   LevelBallMultiplier
+	dbw LURE_BALL,    LureBallMultiplier
+	dbw FAST_BALL,    FastBallMultiplier
+	dbw MOON_BALL,    MoonBallMultiplier
+	dbw LOVE_BALL,    LoveBallMultiplier
+	dbw PARK_BALL,    ParkBallMultiplier
+	dbw RESCUE_BALL,  RescueBallMultiplier
+	dbw DUSK_BALL,    DuskBallMultiplier
+	dbw DAWN_BALL,    DawnBallMultiplier
+	dbw TIMER_BALL,   TimerBallMultiplier
+	dbw SPEED_BALL,   SpeedBallMultiplier
+	dbw VIRAL_BALL,   GreatBallMultiplier
+	dbw FORTUNE_BALL, GreatBallMultiplier
 	db -1 ; end
 
-TimerBallMultiplier:
-; multiply catch rate by 1 + (turns passed * 3) / 10, capped at 4
-	ld a, [wPlayerTurnsTaken]
-	and a
-	ret z ; no boost on first turn
-
-	push bc
-	ld b, a
-	add b
-	add b
-	add 10
-	cp 40
-	jr c, .no_cap
-	ld a, 40
-.no_cap
-	pop bc
-	ld c, b
-	call Multiply
-	ld c, 10
-	call Divide
-	ret
-
 DuskBallMultiplier:
-; is it night?
+;	is it night?
 	ld a, [wTimeOfDay]
 	cp NITE
 	jr z, .night_or_cave
 ; or are we in a cave?
 	ld a, [wEnvironment]
 	cp CAVE
-	jr z, .night_or_cave
-; neither night nor cave
-	ret
-
+	ret nz ; neither night nor cave
 .night_or_cave
 ; b is the catch rate
-; a := b / 2 + b + b + b == b x 3.5
+; a := b + b + b == b × 3
 	ld a, b
-	srl a
-rept 3
+	add a
+	jr c, .max
 	add b
 	jr c, .max
-endr
+	ld b, a
 	ret
-
-.max
-	ld b, $ff
-	ret
-
-DawnBallMultiplier:
-; is it day?
-	ld a, [wTimeOfDay]
-	cp DAY
-	jr z, .daytime
-; not daytime
-	ret
-
-.daytime
-; b is the catch rate
-; a := b / 2 + b + b + b == b x 3.5
-	ld a, b
-	srl a
-rept 3
-	add b
-	jr c, .max
-endr
-	ret
-
 .max
 	ld b, $ff
 	ret
 
 RescueBallMultiplier:
-	; is the enemy statused?
+;	status effect?
 	ld b, a
 	ld a, [wEnemyMonStatus]
 	and a
-	jr nz, .statuseffect
-	; no status effect
-	ret
-
-.statuseffect
+	jr z, .hasstatus
+	ret nz ; no status
+.hasstatus
 ; b is the catch rate
-; a := b / 2 + b + b + b == b x 3.5
+; a := b + b + b == b × 3
 	ld a, b
-	srl a
-rept 3
+	add a
+	jr c, .max
 	add b
 	jr c, .max
-endr
+	ld b, a
 	ret
-
 .max
 	ld b, $ff
 	ret
 
 SpeedBallMultiplier:
-; multiply catch rate by 5 on first turn
-	ld a, [wPlayerTurnsTaken]
-	and a
-	ret nz
+  ; multiply rate by 4 if base speed >= 100, multiplied by 2 if >= 70
+  ld a, [wTempEnemyMonSpecies]
+  ld [wCurSpecies], a
+  call GetBaseData
+  ld a, [wBaseSpeed]
+  cp 70
+  ret c
+  sla b
+  jr c, .max
+	cp 100
+  ret c
+  sla b
+  jr c, .max
+  ret
+.max
+  ld b, $ff
+  ret
 
-	ld a, b
-rept 4
+
+TimerBallMultiplier:
+; multiply catch rate by 1 + (turns passed * 3) / 10, capped at 4
+	ld a, [wPlayerTurnsTaken]
+	ld b, a
+	add a
 	add b
-	jr c, .max
-endr
+	add 1
+	cp 4
+	jr c, .nocap
+	ld a, 4
+
+.nocap
+	and a
+	ret z
+	push bc
+	ld b, a
+	xor a
+.loop
+	add c
+	dec b
+	jr nz, .loop
+	pop bc
 	ret
 
+
+DawnBallMultiplier:
+	ld a, [wTimeOfDay]
+	cp DAY
+	jr z, .daytime
+	ret nz ; not daytime
+.daytime
+; b is the catch rate
+; a := b + b + b == b × 3
+	ld a, b
+	add a
+	jr c, .max
+	add b
+	jr c, .max
+	ld b, a
+	ret
 .max
 	ld b, $ff
 	ret
@@ -1251,12 +1241,11 @@ LoveBallMultiplier:
 	inc d   ; female
 .got_wild_gender
 
-; BUG: Love Ball boosts catch rate for the wrong gender (see docs/bugs_and_glitches.md)
 	ld a, d
 	pop de
 	cp d
 	pop bc
-	ret nz
+	ret z
 
 	sla b
 	jr c, .max
@@ -1282,7 +1271,6 @@ FastBallMultiplier:
 	ld d, 3
 
 .loop
-; BUG: Fast Ball only boosts catch rate for three Pokémon (see docs/bugs_and_glitches.md)
 	ld a, BANK(FleeMons)
 	call GetFarByte
 
@@ -1290,7 +1278,7 @@ FastBallMultiplier:
 	cp -1
 	jr z, .next
 	cp c
-	jr nz, .next
+	jr nz, .loop
 	sla b
 	jr c, .max
 
@@ -1401,6 +1389,10 @@ TownMapEffect:
 
 BicycleEffect:
 	farcall BikeFunction
+	ret
+
+TeachyTVEffect:
+	farcall TeachyTv
 	ret
 
 EvoStoneEffect:
@@ -2016,6 +2008,16 @@ EnergypowderEnergyRootCommon:
 
 .skip_happiness
 	jp StatusHealer_Jumptable
+
+DreamBerryEffect:
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVarAddr
+	ld d, h
+	ld e, l
+	ld a, [de]
+	and SLP_MASK
+	ld hl, FellAsleepText
+	call StdBattleTextbox
 
 ItemRestoreHP:
 	ld b, PARTYMENUACTION_HEALING_ITEM

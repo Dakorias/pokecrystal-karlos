@@ -23,6 +23,7 @@ RegistrationCenterOfficerScript:
 	waitbutton
 	verbosegiveitem ID_CARD
 	writetext RegistrationStarterKit
+	waitbutton
 	verbosegiveitem POTION
 	verbosegiveitem CANDY_BAG
 	verbosegiveitem EXP_SHARE

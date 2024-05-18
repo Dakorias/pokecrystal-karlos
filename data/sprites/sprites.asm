@@ -116,4 +116,5 @@ OverworldSprites:
 	overworld_sprite MainBoyRunSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
 	overworld_sprite GiovanniHatSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
 	overworld_sprite EdwardSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
+	overworld_sprite HarrisonSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	assert_table_length NUM_OVERWORLD_SPRITES

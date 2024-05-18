@@ -89,9 +89,10 @@ BlockingRocket1Script:
 	waitbutton
 	closetext
 	pause 5
+	playsound SFX_TACKLE
 	applymovement PLAYER, RocketPushesPlayerBack
 	pause 5
-	turnobject HERALD_ROUTE_ROCKET1, LEFT
+	turnobject HERALD_ROUTE_ROCKET1, RIGHT
 	end
 
 BlockingRocket2Script:
@@ -101,9 +102,10 @@ BlockingRocket2Script:
 	waitbutton
 	closetext
 	pause 5
+	playsound SFX_TACKLE
 	applymovement PLAYER, RocketPushesPlayerBack
 	pause 5
-	turnobject HERALD_ROUTE_ROCKET2, RIGHT
+	turnobject HERALD_ROUTE_ROCKET2, LEFT
 	end
 
 BlockingRocket3Script:
@@ -114,9 +116,10 @@ BlockingRocket3Script:
 	closetext
 	applymovement HERALD_ROUTE_ROCKET1, RocketPushPlayerBackPosition1
 	pause 5
+	playsound SFX_TACKLE
 	applymovement PLAYER, RocketPushesPlayerBack
 	pause 5
-	applymovement HERALD_ROUTE_ROCKET2, RocketGoesBack1
+	applymovement HERALD_ROUTE_ROCKET1, RocketGoesBack1
 	end
 
 BlockingRocket4Script:
@@ -127,6 +130,7 @@ BlockingRocket4Script:
 	closetext
 	applymovement HERALD_ROUTE_ROCKET2, RocketPushPlayerBackPosition2
 	pause 5
+	playsound SFX_TACKLE
 	applymovement PLAYER, RocketPushesPlayerBack
 	pause 5
 	applymovement HERALD_ROUTE_ROCKET2, RocketGoesBack2
@@ -143,6 +147,7 @@ HeraldRouteGrottoEntryScript:
 	.HeraldGrottoWarp
 	closetext
 	playsound SFX_ENTER_DOOR
+	pause 5
 	warp HERALD_GROTTO, 2, 13
 	end
 
@@ -425,6 +430,7 @@ HeraldRoute_MapEvents:
 
 	def_warp_events
 	warp_event 26,  5, REGISTRATION_CENTER, 1
+	warp_event 4,   4, HERALD_GROTTO, 1
 
 	def_coord_events
 	coord_event 36, 2, SCENE_HERALD_ROUTE_ROCKETS, BlockingRocket3Script
@@ -444,6 +450,6 @@ HeraldRoute_MapEvents:
 	object_event  9, 16, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BlockingLassScript, EVENT_LASS_AT_HERALD_ROUTE
 	object_event  9,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, HeraldRouteYoungsterScript, -1
 	object_event 32,  6, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, HeraldRouteLassScript, -1
-	object_event  37,  2, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlockingRocket1Script, EVENT_ROCKETS_STEAL_SEALED_MAP
-	object_event  38,  2, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlockingRocket2Script, EVENT_ROCKETS_STEAL_SEALED_MAP
-	object_event  54,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HeraldRouteYoungsterScript, EVENT_BEAT_YOUNGSTER_DANNY1
+	object_event  37,  2, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlockingRocket1Script, EVENT_ROCKETS_STEAL_SEALED_MAP
+	object_event  38,  2, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlockingRocket2Script, EVENT_ROCKETS_STEAL_SEALED_MAP
+	object_event  54,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HeraldRouteYoungsterDannyScript, EVENT_BEAT_YOUNGSTER_DANNY1
