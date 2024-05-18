@@ -124,16 +124,6 @@ endc
 MailGFXPointers:
 ; entries correspond to *MAIL_INDEX constants
 	table_width 3, MailGFXPointers
-	dbw TOWN_MAP,  LoadFlowerMailGFX
-	dbw TOWN_MAP,  LoadFlowerMailGFX
-	dbw TOWN_MAP,  LoadFlowerMailGFX
-	dbw TOWN_MAP,  LoadFlowerMailGFX
-	dbw TOWN_MAP,  LoadFlowerMailGFX
-	dbw TOWN_MAP,  LoadFlowerMailGFX
-	dbw TOWN_MAP,  LoadFlowerMailGFX
-	dbw TOWN_MAP,  LoadFlowerMailGFX
-	dbw TOWN_MAP,  LoadFlowerMailGFX
-	dbw TOWN_MAP,  LoadFlowerMailGFX
 	assert_table_length NUM_MAIL
 	db -1 ; end
 
@@ -712,12 +702,6 @@ MailGFX_PlaceMessage:
 	and a
 	ret z
 	ld a, [wCurMailIndex]
-	hlcoord 8, 14
-	cp PORTRAITMAIL_INDEX
-	jr z, .place_author
-	hlcoord 6, 14
-	cp MORPH_MAIL_INDEX
-	jr z, .place_author
 	hlcoord 5, 14
 
 .place_author

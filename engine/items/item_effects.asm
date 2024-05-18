@@ -160,13 +160,8 @@ ItemEffects:
 	dw NoEffect            ; DRAGON_FANG
 	dw PokeBallEffect      ; FORTUNE_BALL
 	dw NoEffect            ; LEFTOVERS
-<<<<<<< HEAD
-	dw NoEffect            ; DREAM_BERRY
-	dw NoEffect            ; TEACHY_TV
-=======
 	dw DreamBerryEffect    ; DREAM_BERRY
 	dw TeachyTVEffect      ; TEACHY_TV
->>>>>>> temp
 	dw NoEffect            ; LIGHT_CLAY
 	dw RestorePPEffect     ; MYSTERYBERRY
 	dw NoEffect            ; DRAGON_SCALE
@@ -701,14 +696,6 @@ PokeBallEffect:
 	cp FRIEND_BALL
 	jr nz, .SkipBoxMonFriendBall
 
-.fortune_ball_boxmon
-	ld hl, sBoxMon1DVs
-	call .apply_shiny_ball_DVs
-
-.shiny_ball_boxmon
-	ld hl, sBoxMon1DVs
-	call .apply_shiny_ball_DVs
-
 	; The captured mon is now first in the box
 	ld a, FRIEND_BALL_HAPPINESS
 	ld [sBoxMon1Happiness], a
@@ -716,9 +703,11 @@ PokeBallEffect:
 .fortune_ball_boxmon
 	ld hl, sBoxMon1DVs
 	call .apply_fortune_ball_DVs
+
 .shiny_ball_boxmon
 	ld hl, sBoxMon1DVs
 	call .apply_shiny_ball_DVs
+	
 .SkipBoxMonFriendBall:
 	call CloseSRAM
 
