@@ -89,30 +89,30 @@ PlayersHouse2F_Blocks:
 HeraldGrotto_Blocks:
 	INCBIN "maps/HeraldGrotto.blk"
 
-BeachRoute_Blocks:
-	INCBIN "maps/BeachRoute.blk"
-	
+CraggyBeach_Blocks:
+	INCBIN "maps/CraggyBeach.blk"
+
 SECTION "Map Blocks 5", ROMX
 
-SecondTown_Blocks:
-	INCBIN "maps/SecondTown.blk"
+CraggyCoast_Blocks:
+	INCBIN "maps/CraggyCoast.blk"
 
-MountainRoute_Blocks:
-	INCBIN "maps/MountainRoute.blk"
+ScenicBluff_Blocks:
+	INCBIN "maps/ScenicBluff.blk"
 
 MountainCave_Blocks:
 	INCBIN "maps/MountainCave.blk"
 
-SecondTownHouse1_Blocks:
+CraggyCoastHouse1_Blocks:
 	INCBIN "maps/House.blk"
 
-SecondTownHouse2_Blocks:
+CraggyCoastHouse2_Blocks:
 	INCBIN "maps/House.blk"
 
-SecondTownPokecenter_Blocks:
+CraggyCoastPokecenter_Blocks:
 	INCBIN "maps/Pokecenter1F.blk"
 
-SecondTownFishing_Blocks:
+CraggyCoastFishing_Blocks:
 	INCBIN "maps/House.blk"
 
 BeachGrotto_Blocks:
@@ -120,3 +120,9 @@ BeachGrotto_Blocks:
 
 MountainGym_Blocks:
 	INCBIN "maps/MountainGym.blk"
+
+BerryForest_Blocks:
+	INCBIN "maps/BerryForest.blk"
+
+BerryForestHouse_Blocks:
+	INCBIN "maps/House.blk"

@@ -38,7 +38,7 @@ KantoGrassWildMons:
 
 	end_grass_wildmons
 
-	def_grass_wildmons BEACH_ROUTE
+	def_grass_wildmons CRAGGY_BEACH
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	;	 %,  Species,				min, max
@@ -73,7 +73,7 @@ KantoGrassWildMons:
 
 	end_grass_wildmons
 
-	def_grass_wildmons MOUNTAIN_ROUTE
+	def_grass_wildmons SCENIC_BLUFF
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	;	 %,  Species,				min, max

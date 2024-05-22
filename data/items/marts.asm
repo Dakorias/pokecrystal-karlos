@@ -37,10 +37,10 @@ Marts:
 	dw MartUnderground
 	dw MartHeraldCove
 	dw MartHeraldBerries
-	dw MartSecondTown1
-	dw MartSecondTown2
-	dw MartSecondTown3
-	dw MartSecondTown4
+	dw MartCraggyCoast1
+	dw MartCraggyCoast2
+	dw MartCraggyCoast3
+	dw MartCraggyCoast4
 	assert_table_length NUM_MARTS
 
 MartCherrygrove:
@@ -404,14 +404,14 @@ MartHeraldBerries:
 	db PSNCUREBERRY
 	db -1 ; end
 
-MartSecondTown1:
+MartCraggyCoast1:
 	db 3 ; # items
 	db X_ATTACK
 	db X_DEFEND
 	db X_ACCURACY
 	db -1 ; end
 
-MartSecondTown2:
+MartCraggyCoast2:
 	db 5 ; # items
 	db BERRY
 	db PSNCUREBERRY
@@ -420,7 +420,7 @@ MartSecondTown2:
 	db DREAM_BERRY
 	db -1 ; end
 
-MartSecondTown3:
+MartCraggyCoast3:
 	db 5 ; # items
 	db POTION
 	db SUPER_POTION
@@ -429,7 +429,7 @@ MartSecondTown3:
 	db REPEL
 	db -1 ; end
 
-MartSecondTown4:
+MartCraggyCoast4:
 	db 9 ; # items
 	db POKE_BALL
 	db RESCUE_BALL

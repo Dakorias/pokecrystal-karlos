@@ -207,7 +207,7 @@ DEF EMOTE_LENGTH EQU 6
 ; fruittree arguments
 ; FruitTreeItems indexes (see data/items/fruit_trees.asm)
 	const_def 1
-	const FRUITTREE_ROUTE_29      ; 01
+	const FRUITTREE_SCENIC_BLUFF  ; 01
 	const FRUITTREE_ROUTE_30_1    ; 02
 	const FRUITTREE_ROUTE_38      ; 03
 	const FRUITTREE_ROUTE_46_1    ; 04
@@ -300,7 +300,7 @@ DEF BUG_CONTESTANT_SIZE EQU 4
 ; HealMachineAnim.Pointers indexes (see engine/events/heal_machine_anim.asm)
 	const_def
 	const HEALMACHINE_POKECENTER   ; 0
-	const HEALMACHINE_ELMS_LAB     ; 1
+	const HEALMACHINE_HERALD_LAB   ; 1
 	const HEALMACHINE_HALL_OF_FAME ; 2
 
 ; UnownPuzzle setval arguments

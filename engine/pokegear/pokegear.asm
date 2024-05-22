@@ -226,7 +226,7 @@ TownMap_InitCursorAndPlayerIconPositions:
 
 .FastShip:
 	ld [wPokegearMapPlayerIconLandmark], a
-	ld a, LANDMARK_NEW_BARK_TOWN
+	ld a, LANDMARK_SPECIAL
 	ld [wPokegearMapCursorLandmark], a
 	ret
 
@@ -566,8 +566,8 @@ PokegearMap_KantoMap:
 
 PokegearMap_JohtoMap:
 ; TODO: Change these to the last and first landmarks of the Johto region.
-	ld d, LANDMARK_SILVER_CAVE
-	ld e, LANDMARK_NEW_BARK_TOWN
+	ld d, LANDMARK_HERALD_COVE
+	ld e, LANDMARK_MOUNTAIN_CAVE
 PokegearMap_ContinueMap:
 	ld hl, hJoyLast
 	ld a, [hl]
@@ -1491,7 +1491,7 @@ RadioChannels:
 
 .RuinsOfAlphRadio:
 	ld a, [wPokegearMapPlayerIconLandmark]
-	cp LANDMARK_RUINS_OF_ALPH
+	cp LANDMARK_SPECIAL
 	jr nz, .NoSignal
 	jp LoadStation_UnownRadio
 
@@ -1525,11 +1525,11 @@ RadioChannels:
 	bit STATUSFLAGS_ROCKET_SIGNAL_F, a
 	jr z, .NoSignal
 	ld a, [wPokegearMapPlayerIconLandmark]
-	cp LANDMARK_MAHOGANY_TOWN
+	cp LANDMARK_SPECIAL
 	jr z, .ok
-	cp LANDMARK_ROUTE_43
+	cp LANDMARK_SPECIAL
 	jr z, .ok
-	cp LANDMARK_LAKE_OF_RAGE
+	cp LANDMARK_SPECIAL
 	jr nz, .NoSignal
 .ok
 	jp LoadStation_EvolutionRadio

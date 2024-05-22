@@ -1,8 +1,8 @@
 	object_const_def
-	const SECOND_TOWN_FISHING_FISHER1
-	const SECOND_TOWN_FISHING_FISHER2
+	const CRAGGY_COAST_FISHING_FISHER1
+	const CRAGGY_COAST_FISHING_FISHER2
 
-SecondTownFishing_MapScripts:
+CraggyCoastFishing_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
@@ -15,7 +15,7 @@ DaveTradeEevee:
 	closetext
 	end
 
-SecondTownHouseFisherBattleScript:
+CraggyCoastHouseFisherBattleScript:
 	faceplayer
 	opentext
 	checkevent EVENT_BEAT_FISHER_ARNOLD
@@ -24,7 +24,7 @@ SecondTownHouseFisherBattleScript:
 	yesorno
 	iffalse .NoBattle
 	winlosstext ArnoldWinText, 0
-	setlasttalked SECOND_TOWN_FISHING_FISHER2
+	setlasttalked CRAGGY_COAST_FISHING_FISHER2
 	loadtrainer FISHER, ARNOLD
 	startbattle
 	reloadmapafterbattle
@@ -107,12 +107,12 @@ ArnoldExcitedToFish:
 	cont "while sometimes."
 	done
 
-SecondTownFishing_MapEvents:
+CraggyCoastFishing_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 2,  7, SECOND_TOWN, 6
-	warp_event 3,  7, SECOND_TOWN, 6
+	warp_event 2,  7, CRAGGY_COAST, 6
+	warp_event 3,  7, CRAGGY_COAST, 6
 
 	def_coord_events
 
@@ -120,4 +120,4 @@ SecondTownFishing_MapEvents:
 
 	def_object_events
 	object_event  7,  3, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DaveTradeEevee, -1
-	object_event  2,  3, SPRITE_FISHING_GURU, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SecondTownHouseFisherBattleScript, -1
+	object_event  2,  3, SPRITE_FISHING_GURU, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CraggyCoastHouseFisherBattleScript, -1

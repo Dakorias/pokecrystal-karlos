@@ -239,7 +239,7 @@ INCLUDE "gfx/overworld/heal_machine.pal"
 	push bc
 	ld a, [wHealMachineAnimType]
 	bcpixel 2, 4
-	cp HEALMACHINE_ELMS_LAB
+	cp HEALMACHINE_HERALD_LAB
 	jr z, .okay
 	bcpixel 0, 0
 

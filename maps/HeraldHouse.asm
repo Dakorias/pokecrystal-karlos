@@ -9,14 +9,18 @@ HeraldHouse_MapScripts:
 	HeraldHouseCoolTrainerFScript:
 		faceplayer
 		opentext
-		writetext HeraldHouseCooltrainerMoving
-		yesorno
-		iffalse .No
-		pokemart MARTTYPE_STANDARD, MART_HERALD_COVE
+		checkevent EVENT_GOT_ITEMS_FROM_HERALD_HOUSE
+		iffalse .NoItem
+		writetext HeraldHouseCoolTrainerFScript
+		waitbutton
+		verbosegiveitem POKE_BALL, 5
+		verbosegiveitem POTION, 2
 		closetext
 		end
 
-	.No
+	.NoItem
+		writetext HeraldHouseCooltrainerAfter
+		waitbutton
 		closetext
 		end
 
@@ -27,8 +31,14 @@ HeraldHouse_MapScripts:
 		para "got to get rid of"
 		line "some things."
 
-		para "Could you buy any"
-		line "of these?"
+		para "Could you take any"
+		line "of these? Thanks!"
+		done
+
+	HeraldHouseCooltrainerAfter:
+		text "Thanks! That makes"
+		line "moving that much"
+		cont "easier."
 		done
 
 HeraldHouse_MapEvents:

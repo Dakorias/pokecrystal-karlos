@@ -2433,16 +2433,10 @@ BattleAnim_ShadowSneak:
 	anim_clearobjs
 	anim_sound 0, 1, SFX_BEAT_UP
 	anim_obj ANIM_OBJ_HIT_YFIX, 126, 48, $0
-	anim_wait 6
-	anim_sound 0, 1, SFX_BEAT_UP
-	anim_obj ANIM_OBJ_HIT_YFIX, 130, 52, $0
-	anim_wait 6
+	anim_wait 7
 	anim_sound 0, 1, SFX_BEAT_UP
 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 50, $0
-	anim_wait 6
-	anim_sound 0, 1, SFX_BEAT_UP
-	anim_obj ANIM_OBJ_HIT_YFIX, 134, 60, $0
-	anim_wait 6
+	anim_wait 7
 	anim_sound 0, 1, SFX_BEAT_UP
 	anim_obj ANIM_OBJ_HIT_YFIX, 130, 52, $0
 	anim_wait 12

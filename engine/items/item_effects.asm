@@ -707,7 +707,7 @@ PokeBallEffect:
 .shiny_ball_boxmon
 	ld hl, sBoxMon1DVs
 	call .apply_shiny_ball_DVs
-	
+
 .SkipBoxMonFriendBall:
 	call CloseSRAM
 
@@ -1373,7 +1373,14 @@ ReturnToBattle_UseBall:
 	ret
 
 TownMapEffect:
-	farcall PokegearMap
+	call FadeToMenu
+	farcall _TownMap
+	call Call_ExitMenu
+	xor a
+	ldh [hBGMapMode], a
+	farcall Pack_InitGFX
+	farcall WaitBGMap_DrawPackGFX
+	farcall Pack_InitColors
 	ret
 
 BicycleEffect:
@@ -1382,6 +1389,12 @@ BicycleEffect:
 
 TeachyTVEffect:
 	farcall TeachyTv
+	call Call_ExitMenu
+	xor a
+	ldh [hBGMapMode], a
+	farcall Pack_InitGFX
+	farcall WaitBGMap_DrawPackGFX
+	farcall Pack_InitColors
 	ret
 
 EvoStoneEffect:

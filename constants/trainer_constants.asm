@@ -96,7 +96,9 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const DANNY2
 	const WESLEY
 	const DAVID
-	const ANDREW
+	const ANDREW1
+	const ANDREW2
+	const ANDREW3
 
 	trainerclass DETECTIVE ; 17
 

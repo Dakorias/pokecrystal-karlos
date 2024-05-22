@@ -29,11 +29,11 @@ WadePhoneCalleeScript:
 	farsjump PhoneScript_BugCatchingContest
 
 .WantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_31
+	getlandmarkname STRING_BUFFER_5, LANDMARK_SPECIAL
 	farsjump WadeQuickBattleScript
 
 .HasItem:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_31
+	getlandmarkname STRING_BUFFER_5, LANDMARK_SPECIAL
 	farsjump WadeComeQuickScript
 
 WadePhoneCallerScript:
@@ -75,7 +75,7 @@ WadeTuesdayNight:
 	setflag ENGINE_WADE_TUESDAY_NIGHT
 
 WadeWantsBattle2:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_31
+	getlandmarkname STRING_BUFFER_5, LANDMARK_SPECIAL
 	setflag ENGINE_WADE_READY_FOR_REMATCH
 	farsjump PhoneScript_WantsToBattle_Male
 
@@ -84,7 +84,7 @@ WadeFoundRare:
 
 WadeHasItem2:
 	setflag ENGINE_WADE_HAS_ITEM
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_31
+	getlandmarkname STRING_BUFFER_5, LANDMARK_SPECIAL
 	clearevent EVENT_WADE_HAS_BERRY
 	clearevent EVENT_WADE_HAS_PSNCUREBERRY
 	clearevent EVENT_WADE_HAS_PRZCUREBERRY

@@ -102,19 +102,19 @@ ENDM
 	connection west, HeraldRoute, HERALD_ROUTE, 0
 
 	map_attributes HeraldRoute, HERALD_ROUTE, $35, NORTH | EAST
-	connection north, BeachRoute, BEACH_ROUTE, 15
+	connection north, CraggyBeach, CRAGGY_BEACH, 15
 	connection east, HeraldCove, HERALD_COVE, 0
 
-	map_attributes BeachRoute, BEACH_ROUTE, $35, NORTH | SOUTH
-	connection north, SecondTown, SECOND_TOWN, 0
+	map_attributes CraggyBeach, CRAGGY_BEACH, $35, NORTH | SOUTH
+	connection north, CraggyCoast, CRAGGY_COAST, 0
 	connection south, HeraldRoute, HERALD_ROUTE, -15
 
-	map_attributes SecondTown, SECOND_TOWN, $35, NORTH | SOUTH
-	connection north, MountainRoute, MOUNTAIN_ROUTE, 6
-	connection south, BeachRoute, BEACH_ROUTE, 0
+	map_attributes CraggyCoast, CRAGGY_COAST, $35, NORTH | SOUTH
+	connection north, ScenicBluff, SCENIC_BLUFF, 6
+	connection south, CraggyBeach, CRAGGY_BEACH, 0
 
-	map_attributes MountainRoute, MOUNTAIN_ROUTE, $35, SOUTH
-	connection south, SecondTown, SECOND_TOWN, -6
+	map_attributes ScenicBluff, SCENIC_BLUFF, $35, SOUTH
+	connection south, CraggyCoast, CRAGGY_COAST, -6
 
 	map_attributes HeraldLab, HERALD_LAB, $00, 0
 	map_attributes HeraldPokecenter, HERALD_POKECENTER, $00, 0
@@ -124,12 +124,14 @@ ENDM
 	map_attributes RegistrationCenter, REGISTRATION_CENTER, $00, 0
 	map_attributes HeraldGrotto, HERALD_GROTTO, $05, 0
 	map_attributes MountainCave, MOUNTAIN_CAVE, $00, 0
-	map_attributes SecondTownHouse1, SECOND_TOWN_HOUSE1, $00, 0
-	map_attributes SecondTownHouse2, SECOND_TOWN_HOUSE2, $00, 0
-	map_attributes SecondTownPokecenter, SECOND_TOWN_POKECENTER, $00, 0
-	map_attributes SecondTownFishing, SECOND_TOWN_FISHING, $00, 0
+	map_attributes CraggyCoastHouse1, CRAGGY_COAST_HOUSE1, $00, 0
+	map_attributes CraggyCoastHouse2, CRAGGY_COAST_HOUSE2, $00, 0
+	map_attributes CraggyCoastPokecenter, CRAGGY_COAST_POKECENTER, $00, 0
+	map_attributes CraggyCoastFishing, CRAGGY_COAST_FISHING, $00, 0
 	map_attributes BeachGrotto, BEACH_GROTTO, $71, 0
 	map_attributes MountainGym, MOUNTAIN_GYM, $00, 0
+	map_attributes BerryForest, BERRY_FOREST, $05, 0
+	map_attributes BerryForestHouse, BERRY_FOREST_HOUSE, $00, 0
 
 
 	map_attributes BattleTowerOutside, BATTLE_TOWER_OUTSIDE, $05, 0

@@ -28,7 +28,13 @@
 	RGB 09,13,08, 06,09,04 ; nite
 	RGB 17,24,10, 09,18,03 ; eve
 
-; group 2 (Second Town)
+; group 2 (Craggy Coast)
 	RGB 20,31,14, 11,23,05 ; morn/day
 	RGB 09,13,08, 06,09,04 ; nite
 	RGB 17,24,10, 09,18,03 ; eve
+
+; group 3 (Berry Forest)
+	RGB 20,31,14, 11,23,05 ; morn/day
+	RGB 09,13,08, 06,09,04 ; nite
+	RGB 17,24,10, 09,18,03 ; eve
+	

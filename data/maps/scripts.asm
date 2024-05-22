@@ -42,16 +42,18 @@ INCLUDE "maps/LancesRoom.asm"
 INCLUDE "maps/HallOfFame.asm"
 
 SECTION "Map Scripts 5", ROMX
-INCLUDE "maps/BeachRoute.asm"
-INCLUDE "maps/SecondTown.asm"
-INCLUDE "maps/MountainRoute.asm"
+INCLUDE "maps/CraggyBeach.asm"
+INCLUDE "maps/CraggyCoast.asm"
+INCLUDE "maps/ScenicBluff.asm"
 INCLUDE "maps/MountainCave.asm"
-INCLUDE "maps/SecondTownHouse1.asm"
-INCLUDE "maps/SecondTownHouse2.asm"
-INCLUDE "maps/SecondTownPokecenter.asm"
-INCLUDE "maps/SecondTownFishing.asm"
+INCLUDE "maps/CraggyCoastHouse1.asm"
+INCLUDE "maps/CraggyCoastHouse2.asm"
+INCLUDE "maps/CraggyCoastPokecenter.asm"
+INCLUDE "maps/CraggyCoastFishing.asm"
 INCLUDE "maps/BeachGrotto.asm"
 INCLUDE "maps/MountainGym.asm"
+INCLUDE "maps/BerryForest.asm"
+INCLUDE "maps/BerryForestHouse.asm"
 
 SECTION "Map Scripts 6", ROMX
 

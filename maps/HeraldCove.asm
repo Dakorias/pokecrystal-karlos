@@ -369,12 +369,15 @@ BerryMasterScript:
 	faceplayer
 	opentext
 	checkevent EVENT_TALKED_TO_HERALD_BERRY_MASTER
-	iftrue .BerryShop
+	iftrue .TakenBerries
 	writetext BerryMasterIntro
 	waitbutton
+	verbosegiveitem BERRY, 3
+	verbosegiveitem PSNCUREBERRY, 3
 	setevent EVENT_TALKED_TO_HERALD_BERRY_MASTER
-.BerryShop
-	pokemart MARTTYPE_STANDARD, MART_HERALD_BERRIES
+.TakenBerries
+	writetext BerryMasterAfterIntro
+	waitbutton
 	closetext
 	end
 
@@ -445,6 +448,7 @@ RocketRobbedOakScript1:
 	setscene SCENE_HERALD_COVE_NOOP1
 	setmapscene HERALD_ROUTE, SCENE_HERALD_ROUTE_NOOP1
 	setevent EVENT_ROCKETS_STEAL_SEALED_MAP
+	setevent EVENT_OAK_MISSING_FROM_LAB
 	end
 
 RocketRobbedOakScript2:
@@ -501,6 +505,7 @@ RocketRobbedOakScript2:
 	setscene SCENE_HERALD_COVE_NOOP1
 	setmapscene HERALD_ROUTE, SCENE_HERALD_ROUTE_NOOP1
 	setevent EVENT_ROCKETS_STEAL_SEALED_MAP
+	setevent EVENT_OAK_MISSING_FROM_LAB
 	end
 
 
@@ -1036,7 +1041,7 @@ HeraldGymSignScript:
 		line "there is to know"
 		cont "about berries."
 
-		para "I'll even sell you"
+		para "I'll even give you"
 		line "a small selection"
 		cont "of what I have."
 
@@ -1048,6 +1053,16 @@ HeraldGymSignScript:
 
 		para "that will have to"
 		line "do."
+		done
+
+	BerryMasterAfterIntro:
+		text "What? You want"
+		line "more?"
+
+		para "I can't offer any"
+		line "more right now."
+
+		para "Come back later."
 		done
 
 	BerryMasterSignText:

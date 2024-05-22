@@ -29,6 +29,6 @@ MapScenes::
 	scene_var HERALD_COVE,									wHeraldCoveSceneID
 	scene_var HERALD_LAB, 					        wHeraldLabSceneID
 	scene_var HERALD_ROUTE, 								wHeraldRouteSceneID
-	scene_var BEACH_ROUTE,									wBeachRouteSceneID
+	scene_var CRAGGY_BEACH,									wBeachRouteSceneID
 
 	db -1 ; end

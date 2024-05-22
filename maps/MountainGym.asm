@@ -105,7 +105,7 @@ MountainCaveGymScript:
 	writetext KenjiShoutsFor2ndFight
 	waitbutton
 	closetext
-	sjump HarrisonEnterGymScript
+	sjump YoungsterEnterGymScript
 
 	BlaireEnterGymScript:
 	appear MOUNTAIN_GYM_BLAIRE
@@ -162,7 +162,66 @@ MountainCaveGymScript:
 	writetext KenjiShoutsFor2ndFight
 	waitbutton
 	closetext
+	sjump YoungsterEnterGymScript
+
+	YoungsterEnterGymScript:
+	appear MOUNTAIN_GYM_YOUNGSTER1
+	applymovement MOUNTAIN_GYM_YOUNGSTER1, ChallengerWalkMiddle
+	opentext
+	writetext Youngster2ndGymChallenge
+	waitbutton
+	closetext
+	checkevent EVENT_GOT_EKANS_FROM_OAK
+	iftrue .Youngster1
+	checkevent EVENT_GOT_HOUNDOUR_FROM_OAK
+	iftrue .Youngster2
+	winlosstext YoungsterGymWinText, 0
+	setlasttalked MOUNTAIN_GYM_YOUNGSTER1
+	loadtrainer YOUNGSTER, ANDREW3
+	startbattle
+	reloadmapafterbattle
+	sjump .AfterYoungsterBattle
+
+	.Youngster1
+	winlosstext YoungsterGymWinText, 0
+	setlasttalked MOUNTAIN_GYM_YOUNGSTER1
+	loadtrainer YOUNGSTER, ANDREW1
+	startbattle
+	reloadmapafterbattle
+	sjump .AfterYoungsterBattle
+
+	.Youngster2
+	winlosstext YoungsterGymWinText, 0
+	setlasttalked MOUNTAIN_GYM_YOUNGSTER1
+	loadtrainer YOUNGSTER, ANDREW2
+	startbattle
+	reloadmapafterbattle
+	sjump .AfterYoungsterBattle
+
+	.AfterYoungsterBattle
+	opentext
+	writetext Youngster2ndGymAfter
+	waitbutton
+	closetext
+	applymovement MOUNTAIN_GYM_YOUNGSTER1, ChallengerLeavesGym
+	disappear MOUNTAIN_GYM_YOUNGSTER1
+	playsound SFX_EXIT_BUILDING
+	pause 5
+	applymovement MOUNTAIN_GYM_KENJI, KenjiHealsPlayerMovement
+	turnobject PLAYER, UP
+	opentext
+	writetext KenjiHealsAfter2nd
+	waitbutton
+	closetext
+	special HealParty
+	applymovement MOUNTAIN_GYM_KENJI, KenjiWalksToRefSpot
+	opentext
+	writetext KenjiShoutsFor3rdFight
+	waitbutton
+	closetext
 	sjump HarrisonEnterGymScript
+
+
 
 	HarrisonEnterGymScript:
 	appear MOUNTAIN_GYM_HARRISON
@@ -182,39 +241,6 @@ MountainCaveGymScript:
 	closetext
 	applymovement MOUNTAIN_GYM_HARRISON, ChallengerLeavesGym
 	disappear MOUNTAIN_GYM_HARRISON
-	playsound SFX_EXIT_BUILDING
-	pause 5
-	applymovement MOUNTAIN_GYM_KENJI, KenjiHealsPlayerMovement
-	turnobject PLAYER, UP
-	opentext
-	writetext KenjiHealsAfter2nd
-	waitbutton
-	closetext
-	special HealParty
-	applymovement MOUNTAIN_GYM_KENJI, KenjiWalksToRefSpot
-	opentext
-	writetext KenjiShoutsFor3rdFight
-	waitbutton
-	closetext
-
-	YoungsterEnterGymScript:
-	appear MOUNTAIN_GYM_YOUNGSTER1
-	applymovement MOUNTAIN_GYM_YOUNGSTER1, ChallengerWalkMiddle
-	opentext
-	writetext Youngster2ndGymChallenge
-	waitbutton
-	closetext
-	winlosstext YoungsterGymWinText, 0
-	setlasttalked MOUNTAIN_GYM_YOUNGSTER1
-	loadtrainer YOUNGSTER, ANDREW
-	startbattle
-	reloadmapafterbattle
-	opentext
-	writetext Youngster2ndGymAfter
-	waitbutton
-	closetext
-	applymovement MOUNTAIN_GYM_YOUNGSTER1, ChallengerLeavesGym
-	disappear MOUNTAIN_GYM_YOUNGSTER1
 	playsound SFX_EXIT_BUILDING
 	pause 5
 	applymovement MOUNTAIN_GYM_KENJI, KenjiHealsPlayerMovement

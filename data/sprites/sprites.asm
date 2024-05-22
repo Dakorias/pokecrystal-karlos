@@ -117,4 +117,11 @@ OverworldSprites:
 	overworld_sprite GiovanniHatSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
 	overworld_sprite EdwardSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	overworld_sprite HarrisonSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
+	overworld_sprite CottoneeSpriteGFX, 4, STILL_SPRITE, PAL_OW_GREEN
+	overworld_sprite ShinxSpriteGFX, 4, STILL_SPRITE, PAL_OW_BLUE
+	overworld_sprite MurkrowSpriteGFX, 4, STILL_SPRITE, PAL_OW_BLUE
+	overworld_sprite EkansSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
+	overworld_sprite HoundourSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
+	overworld_sprite BaltoySpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
+	overworld_sprite KenjiSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
 	assert_table_length NUM_OVERWORLD_SPRITES

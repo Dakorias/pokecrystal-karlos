@@ -426,11 +426,11 @@ ButterfreeEvosAttacks:
  ShinxEvosAttacks:
 	 db EVOLVE_LEVEL, 15, LUXIO
 	 db 0 ; no more evolutions
-	 db 1, SCRATCH
+	 db 1, TACKLE
 	 db 1, LEER
-	 db 6, GROWL
-	 db 10, THUNDERSHOCK
-	 db 14, BITE
+	 db 5, GROWL
+	 db 8, THUNDERSHOCK
+	 db 12, BITE
 	 db 18, ROAR
 	 db 22, SPARK
 	 db 30, CRUNCH
@@ -441,11 +441,11 @@ ButterfreeEvosAttacks:
  LuxioEvosAttacks:
 	 db EVOLVE_LEVEL, 30, LUXRAY
 	 db 0 ; no more evolutions
-	 db 1, SCRATCH
+	 db 1, TACKLE
 	 db 1, LEER
-	 db 6, GROWL
-	 db 10, THUNDERSHOCK
-	 db 14, BITE
+	 db 5, GROWL
+	 db 8, THUNDERSHOCK
+	 db 12, BITE
 	 db 18, ROAR
 	 db 22, SPARK
 	 db 30, CRUNCH
@@ -457,11 +457,11 @@ ButterfreeEvosAttacks:
  LuxrayEvosAttacks:
 	 db 0 ; no more evolutions
 	 db 1, THUNDER_FANG
-	 db 1, SCRATCH
+	 db 1, TACKLE
 	 db 1, LEER
-	 db 6, GROWL
-	 db 10, THUNDERSHOCK
-	 db 14, BITE
+	 db 5, GROWL
+	 db 8, THUNDERSHOCK
+	 db 12, BITE
 	 db 18, ROAR
 	 db 22, SPARK
 	 db 30, CRUNCH

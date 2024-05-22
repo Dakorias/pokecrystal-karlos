@@ -425,6 +425,14 @@ HeraldLab_MapScripts:
 	ProfOakScript:
 		faceplayer
 		opentext
+		checkevent EVENT_BEAT_ROCKET_THEIVES
+		writetext OakLabDexCheckText
+		waitbutton
+		special ProfOaksPCBoot
+		writetext OakLabGoodbyeText
+		waitbutton
+		closetext
+		end
 		checkevent EVENT_GOT_MAP_FROM_EDWARD
 		iftrue OakScriptTakesMap
 		checkevent EVENT_GOT_A_POKEMON_FROM_OAK
@@ -475,6 +483,33 @@ HeraldLab_MapScripts:
 		waitbutton
 		closetext
 		end
+
+	HeraldLabHealingMachine:
+	opentext
+	checkevent EVENT_GOT_A_POKEMON_FROM_OAK
+	iftrue .CanHeal
+	writetext HeraldLabHealingMachineText1
+	waitbutton
+	closetext
+	end
+
+.CanHeal:
+	writetext HeraldLabHealingMachineText2
+	yesorno
+	iftrue HeraldLabHealingMachine_HealParty
+	closetext
+	end
+
+HeraldLabHealingMachine_HealParty:
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	playmusic MUSIC_NONE
+	setval HEALMACHINE_HERALD_LAB
+	special HealMachineAnim
+	pause 30
+	special RestartMapMusic
+	closetext
+	end
 
 	HeraldLabBookshelfScript:
 		jumptext HeraldLabBookshelfText
@@ -668,6 +703,13 @@ HeraldLab_MapScripts:
 	OakOffersPokemonText:
 		text "I brought with me"
 		line "3 #MON."
+
+		para "They are fairly"
+		line "common in where"
+		cont "we come from, but"
+
+		para "they are very rare"
+		line "on these islands."
 
 		para "One for each of"
 		line "you. They will be"
@@ -961,6 +1003,29 @@ HeraldLab_MapScripts:
 		text "It's locked."
 		done
 
+	HeraldLabHealingMachineText1:
+		text "I wonder what this"
+		line "does?"
+		done
+
+	HeraldLabHealingMachineText2:
+		text "Would you like to"
+		line "heal your #MON?"
+		done
+
+	OakLabDexCheckText:
+		text "How is your #-"
+		line "DEX coming?"
+
+		para "Let's see…"
+		done
+
+	OakLabGoodbyeText:
+		text "If you're in the"
+		line "area, I hope you"
+		cont "come visit again."
+		done
+
 HeraldLab_MapEvents:
 	db 0, 0 ; filler
 
@@ -979,6 +1044,7 @@ HeraldLab_MapEvents:
 	coord_event 5,  5, SCENE_HERALD_LAB_POKEDEX, PlayerWalkToOakRightScript
 
 	def_bg_events
+	bg_event  2,  1, BGEVENT_READ, HeraldLabHealingMachine
 	bg_event  0,  7, BGEVENT_READ, HeraldLabBookshelfScript
 	bg_event  1,  7, BGEVENT_READ, HeraldLabBookshelfScript
 	bg_event  2,  7, BGEVENT_READ, HeraldLabBookshelfScript
@@ -991,7 +1057,7 @@ HeraldLab_MapEvents:
 	bg_event 12,  0, BGEVENT_READ, HeraldLabDoorScript
 
 	def_object_events
-	object_event  5, 	 2, SPRITE_OAK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ProfOakScript, -1
+	object_event  5, 	 2, SPRITE_OAK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ProfOakScript, EVENT_OAK_MISSING_FROM_LAB
 	object_event  13,  1, SPRITE_GOOD_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RivalPercyLabScript, EVENT_RIVAL_HERALD_LAB
 	object_event  13,  1, SPRITE_BAD_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RivalBlaireLabScript, EVENT_RIVAL_HERALD_LAB
 	object_event  6, 	 1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EkansPokeballScript, EVENT_EKANS_POKEBALL_IN_OAKS_LAB

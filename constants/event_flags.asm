@@ -37,6 +37,7 @@
 	const EVENT_GOT_BALTOY_FROM_OAK
 	const EVENT_GOT_A_POKEMON_FROM_OAK
 	const EVENT_BATTLE_PERCY_2ND_GYM
+	const EVENT_GOT_ITEMS_FROM_HERALD_HOUSE
 	const EVENT_GOT_MAP_FROM_EDWARD
 	const EVENT_GYM_TRAINERS_IN_HERALD_COVE
 	const EVENT_LASS_AT_HERALD_ROUTE
@@ -47,8 +48,8 @@
 	const EVENT_ROCKETS_STEAL_SEALED_MAP
 	const EVENT_BEAT_ROCKET_THEIVES
 	const EVENT_BEAT_KENJI_TOURNAMENT
-	const EVENT_MADE_WHITNEY_CRY
-	const EVENT_HERDED_FARFETCHD
+	const EVENT_SCENIC_BLUFF_SEEN_BLUE
+	const EVENT_OAK_MISSING_FROM_LAB
 	const EVENT_FOUGHT_SUDOWOODO
 	const EVENT_CLEARED_SLOWPOKE_WELL
 	const EVENT_REFUSED_TO_TAKE_EGG_FROM_ELMS_AIDE
@@ -132,11 +133,9 @@
 	const EVENT_GOT_TM12_SWEET_SCENT
 	const EVENT_RELEASED_THE_BEASTS
 	const EVENT_GOT_MASTER_BALL_FROM_ELM
-; Johto hidden items
+; Monego hidden items
 	const EVENT_EDWARD_COIN_GOT
-	const EVENT_HERALD_GROTTO_SUN_STONE
-	const EVENT_BEACH_GROTTO_MYSTIC_WATER
-	const EVENT_BURNED_TOWER_1F_HIDDEN_ETHER
+	const EVENT_SCENIC_BLUFF_SUPER_POTION
 	const_skip ; unused in Crystal
 	const_skip ; unused in Crystal
 	const_skip ; unused in Crystal
@@ -644,16 +643,16 @@
 ; When these events are cleared, the sprite becomes visible; when set, the sprite is hidden.
 ; The map script command macros `disappear` and `appear` set/clear these flags and immediately apply the effect on visibility.
 ; The map script command macros `setevent` and `clearevent` set/clear these flags, and their effects will be seen when the map is reloaded.
-; Johto itemballs
+; Monego itemballs
 	const EVENT_EKANS_POKEBALL_IN_OAKS_LAB
 	const EVENT_HOUNDOUR_POKEBALL_IN_OAKS_LAB
 	const EVENT_BALTOY_POKEBALL_IN_OAKS_LAB
-	const EVENT_VIOLET_CITY_PP_UP
-	const EVENT_VIOLET_CITY_RARE_CANDY
-	const EVENT_LAKE_OF_RAGE_ELIXER
-	const EVENT_LAKE_OF_RAGE_TM_DETECT
-	const EVENT_SPROUT_TOWER_1F_PARLYZ_HEAL
-	const EVENT_SPROUT_TOWER_2F_X_ACCURACY
+	const EVENT_HERALD_GROTTO_SUN_STONE
+	const EVENT_BEACH_GROTTO_MYSTIC_WATER
+	const EVENT_HERALD_ROUTE_POTION
+	const EVENT_CRAGGY_BEACH_GREAT_BALL
+	const EVENT_CRAGGY_BEACH_POTION
+	const EVENT_SCENIC_BLUFF_PEARL
 	const EVENT_SPROUT_TOWER_3F_POTION
 	const EVENT_SPROUT_TOWER_3F_ESCAPE_ROPE
 	const EVENT_TIN_TOWER_3F_FULL_HEAL

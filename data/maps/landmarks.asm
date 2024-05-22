@@ -7,53 +7,15 @@ ENDM
 Landmarks:
 ; entries correspond to constants/landmark_constants.asm
 	table_width 4, Landmarks
-	landmark  -8, -16, SpecialMapName
-	landmark 140, 100, NewBarkTownName
-	landmark 128, 100, Route29Name
-	landmark 100, 100, CherrygroveCityName
-	landmark 100,  80, Route30Name
-	landmark  96,  60, Route31Name
-	landmark  84,  60, VioletCityName
-	landmark  85,  58, SproutTowerName
-	landmark  84,  92, Route32Name
-	landmark  76,  76, RuinsOfAlphName
-	landmark  84, 124, UnionCaveName
-	landmark  82, 124, Route33Name
-	landmark  68, 124, AzaleaTownName
-	landmark  70, 122, SlowpokeWellName
-	landmark  52, 120, IlexForestName
-	landmark  52, 112, Route34Name
-	landmark  52,  92, GoldenrodCityName
-	landmark  50,  92, RadioTowerName
-	landmark  52,  76, Route35Name
-	landmark  52,  60, NationalParkName
-	landmark  64,  60, Route36Name
-	landmark  68,  52, Route37Name
-	landmark  68,  44, EcruteakCityName
-	landmark  70,  42, TinTowerName
-	landmark  66,  42, BurnedTowerName
-	landmark  52,  44, Route38Name
-	landmark  36,  48, Route39Name
-	landmark  36,  60, OlivineCityName
-	landmark  38,  62, LighthouseName
-	landmark  28,  56, BattleTowerName
-	landmark  28,  64, Route40Name
-	landmark  28,  92, WhirlIslandsName
-	landmark  28, 100, Route41Name
-	landmark  20, 100, CianwoodCityName
-	landmark  92,  44, Route42Name
-	landmark  84,  44, MtMortarName
-	landmark 108,  44, MahoganyTownName
-	landmark 108,  36, Route43Name
-	landmark 108,  28, LakeOfRageName
-	landmark 120,  44, Route44Name
-	landmark 130,  38, IcePathName
-	landmark 132,  44, BlackthornCityName
-	landmark 132,  36, DragonsDenName
-	landmark 132,  64, Route45Name
-	landmark 112,  72, DarkCaveName
-	landmark 124,  88, Route46Name
-	landmark 148,  68, SilverCaveName
+	landmark 0, 0, SpecialMapName
+
+	landmark 28, 76, HeraldCoveName
+	landmark 18, 76, HeraldRouteName
+	landmark 20, 64, CraggyBeachName
+	landmark 20, 52, CraggyBeachName
+	landmark 20, 40, ScenicBluffName
+	landmark 20, 28, MountainCaveName
+	landmark 12, 60, BerryForestName
 
 	assert_table_length KANTO_LANDMARK
 	landmark  52, 108, PalletTownName
@@ -106,15 +68,15 @@ Landmarks:
 	landmark  20,  68, Route28Name
 	landmark 140, 116, FastShipName
 
-	landmark 140, 140, HeraldCoveName
-	landmark 140, 140, HeraldRouteName
-	landmark 140, 140, BeachRouteName
-	landmark 140, 140, SecondTownName
-	landmark 140, 140, MountainRouteName
-	landmark 140, 140, MountainCaveName
-
 	assert_table_length NUM_LANDMARKS
 
+HeraldCoveName:  	 	 db "HERALD¯COVE@"
+HeraldRouteName:  	 db "HERALD¯ROUTE@"
+CraggyBeachName:  	 db "CRAGGY¯BEACH@"
+CraggyCoastName:  	 db "CRAGGY¯COAST@"
+ScenicBluffName:     db "SCENIC¯BLUFF@"
+MountainCaveName:    db "MOUNTAIN¯CAVE@"
+BerryForestName:     db "BERRY¯FOREST@"
 NewBarkTownName:     db "NEW BARK¯TOWN@"
 CherrygroveCityName: db "CHERRYGROVE¯CITY@"
 VioletCityName:      db "VIOLET CITY@"
@@ -216,10 +178,4 @@ DiglettsCaveName:    db "DIGLETT'S¯CAVE@"
 TohjoFallsName:      db "TOHJO FALLS@"
 UndergroundName:     db "UNDERGROUND@"
 BattleTowerName:     db "BATTLE¯TOWER@"
-HeraldCoveName:  	 	 db "HERALD¯COVE@"
-HeraldRouteName:  	 db "HERALD¯ROUTE@"
-BeachRouteName:  		 db "BEACH¯ROUTE@"
-SecondTownName:  		 db "SECOND¯TOWN@"
-MountainRouteName:   db "MOUNTAIN¯ROUTE@"
-MountainCaveName:    db "MOUNTAIN¯CAVE@"
 SpecialMapName:      db "SPECIAL@"

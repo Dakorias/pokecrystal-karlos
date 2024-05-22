@@ -1,29 +1,31 @@
 	object_const_def
-	const BEACH_ROUTE_YOUNGSTER1
-	const BEACH_ROUTE_YOUNGSTER2
-	const BEACH_ROUTE_SAILOR1
-	const BEACH_ROUTE_LASS1
-	const BEACH_ROUTE_ROCKET1
-	const BEACH_ROUTE_ROCKET2
-	const BEACH_ROUTE_OAK
-	const BEACH_ROUTE_YOUNGSTER3
-	const BEACH_ROUTE_LASS2
-	const BEACH_ROUTE_COOLTRAINERF1
-	const BEACH_ROUTE_LASS3
-	const BEACH_ROUTE_COOLTRAINERF2
-	const BEACH_ROUTE_FISHER1
+	const CRAGGY_BEACH_YOUNGSTER1
+	const CRAGGY_BEACH_YOUNGSTER2
+	const CRAGGY_BEACH_SAILOR1
+	const CRAGGY_BEACH_LASS1
+	const CRAGGY_BEACH_ROCKET1
+	const CRAGGY_BEACH_ROCKET2
+	const CRAGGY_BEACH_OAK
+	const CRAGGY_BEACH_YOUNGSTER3
+	const CRAGGY_BEACH_LASS2
+	const CRAGGY_BEACH_COOLTRAINERF1
+	const CRAGGY_BEACH_LASS3
+	const CRAGGY_BEACH_COOLTRAINERF2
+	const CRAGGY_BEACH_FISHER1
+	const CRAGGY_BEACH_POKEBALL1
+	const CRAGGY_BEACH_POKEBALL2
 
-BeachRoute_MapScripts:
+CraggyBeach_MapScripts:
 	def_scene_scripts
-	scene_script BeachRouteRockets, SCENE_BEACH_ROUTE_ROCKETS
-	scene_script BeachRouteNoop1, SCENE_BEACH_ROUTE_NOOP1
+	scene_script CraggyBeachRockets, SCENE_CRAGGY_BEACH_ROCKETS
+	scene_script CraggyBeachNoop1, SCENE_CRAGGY_BEACH_NOOP1
 
 	def_callbacks
 
-	BeachRouteRockets:
+	CraggyBeachRockets:
 		end
 
-	BeachRouteNoop1:
+	CraggyBeachNoop1:
 		end
 
 	def_callbacks
@@ -71,39 +73,40 @@ BeachRoute_MapScripts:
 			waitbutton
 			closetext
 			end
+
 	PlayerRightSideBeachScript:
 		applymovement PLAYER, PlayerWalksToRocketsRight
 	RocketBeachTheivesScript:
 		applymovement PLAYER, PlayerWalksToRockets
 		pause 10
-		turnobject BEACH_ROUTE_ROCKET2, LEFT
+		turnobject CRAGGY_BEACH_ROCKET2, LEFT
 		opentext
 		writetext Rocket2TalksToRocket1Text
 		waitbutton
 		closetext
-		turnobject BEACH_ROUTE_ROCKET1, RIGHT
+		turnobject CRAGGY_BEACH_ROCKET1, RIGHT
 		opentext
 		writetext Rocket1TalksToRocket2Text
 		waitbutton
 		closetext
 		pause 5
-		turnobject BEACH_ROUTE_ROCKET1, DOWN
-		turnobject BEACH_ROUTE_ROCKET2, DOWN
-		showemote EMOTE_SHOCK, BEACH_ROUTE_ROCKET1, 15
-		showemote EMOTE_SHOCK, BEACH_ROUTE_ROCKET2, 15
+		turnobject CRAGGY_BEACH_ROCKET1, DOWN
+		turnobject CRAGGY_BEACH_ROCKET2, DOWN
+		showemote EMOTE_SHOCK, CRAGGY_BEACH_ROCKET1, 15
+		showemote EMOTE_SHOCK, CRAGGY_BEACH_ROCKET2, 15
 		playmusic MUSIC_ROCKET_ENCOUNTER
-		applymovement BEACH_ROUTE_ROCKET1, RocketCornersPlayer
+		applymovement CRAGGY_BEACH_ROCKET1, RocketCornersPlayer
 		turnobject PLAYER, LEFT
 		opentext
 		writetext RockerCornersPlayerText
 		waitbutton
 		closetext
 		pause 5
-		turnobject BEACH_ROUTE_ROCKET1, DOWN
-		showemote EMOTE_SHOCK, BEACH_ROUTE_ROCKET1, 15
-		moveobject BEACH_ROUTE_OAK, 7, 80
-		appear BEACH_ROUTE_OAK
-		applymovement BEACH_ROUTE_OAK, OakWalksToRockets
+		turnobject CRAGGY_BEACH_ROCKET1, DOWN
+		showemote EMOTE_SHOCK, CRAGGY_BEACH_ROCKET1, 15
+		moveobject CRAGGY_BEACH_OAK, 7, 80
+		appear CRAGGY_BEACH_OAK
+		applymovement CRAGGY_BEACH_OAK, OakWalksToRockets
 		opentext
 		writetext OakandPlayerFightRocketsText
 		waitbutton
@@ -117,28 +120,29 @@ BeachRoute_MapScripts:
 		writetext RocketsEscapeText
 		waitbutton
 		closetext
-		applymovement BEACH_ROUTE_ROCKET1, Rocket2RunsAway
-		applymovement BEACH_ROUTE_ROCKET2, Rocket1RunsAway
-		disappear BEACH_ROUTE_ROCKET1
-		disappear BEACH_ROUTE_ROCKET2
+		applymovement CRAGGY_BEACH_ROCKET1, Rocket2RunsAway
+		applymovement CRAGGY_BEACH_ROCKET2, Rocket1RunsAway
+		disappear CRAGGY_BEACH_ROCKET1
+		disappear CRAGGY_BEACH_ROCKET2
 		pause 8
-		applymovement BEACH_ROUTE_OAK, PlayerWalksToRockets
+		applymovement CRAGGY_BEACH_OAK, PlayerWalksToRockets
 		turnobject PLAYER, LEFT
 		opentext
 		writetext OakTellsPlayer2ndBadge
 		waitbutton
 		closetext
 		turnobject PLAYER, DOWN
-		applymovement BEACH_ROUTE_OAK, OakLeavesBeachMovement
-		disappear BEACH_ROUTE_OAK
+		applymovement CRAGGY_BEACH_OAK, OakLeavesBeachMovement
+		disappear CRAGGY_BEACH_OAK
 		playmusic MUSIC_ROUTE_30
 		setevent EVENT_BEAT_ROCKET_THEIVES
-		setscene SCENE_BEACH_ROUTE_NOOP1
+		clearevent EVENT_OAK_MISSING_FROM_LAB
+		setscene SCENE_CRAGGY_BEACH_NOOP1
 		end
 
-		BeachRouteGrottoEntryScript:
+		CraggyBeachGrottoEntryScript:
 			opentext
-			writetext BeachRouteGrottoEntryText
+			writetext CraggyBeachGrottoEntryText
 			yesorno
 			iftrue .BeachGrottoWarp
 			closetext
@@ -167,6 +171,12 @@ BeachRoute_MapScripts:
 
 		BeachFisherScript:
 			jumptextfaceplayer BeachFisherText
+
+		CraggyBeachGreatBall:
+			itemball GREAT_BALL
+
+		CraggyBeachPotion:
+			itemball POTION
 
 	PlayerWalksToRocketsRight:
 	step RIGHT
@@ -449,7 +459,7 @@ BeachRoute_MapScripts:
 		line "it to be over."
 		done
 
-	BeachRouteGrottoEntryText:
+	CraggyBeachGrottoEntryText:
 		text "The rock seems to"
 		line "have an opening."
 
@@ -457,18 +467,18 @@ BeachRoute_MapScripts:
 		line "step inside?"
 		done
 
-BeachRoute_MapEvents:
+CraggyBeach_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  5,  3, SECOND_TOWN, 1
+	warp_event  5,  3, CRAGGY_COAST, 1
 
 	def_coord_events
-	coord_event 7, 76, SCENE_BEACH_ROUTE_ROCKETS, PlayerRightSideBeachScript
-	coord_event 8, 76, SCENE_BEACH_ROUTE_ROCKETS, RocketBeachTheivesScript
+	coord_event 7, 76, SCENE_CRAGGY_BEACH_ROCKETS, PlayerRightSideBeachScript
+	coord_event 8, 76, SCENE_CRAGGY_BEACH_ROCKETS, RocketBeachTheivesScript
 
 	def_bg_events
-	bg_event 15,  43, BGEVENT_READ, BeachRouteGrottoEntryScript
+	bg_event 15,  43, BGEVENT_READ, CraggyBeachGrottoEntryScript
 
 	def_object_events
 	object_event  7,  36, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerYoungsterAllen, -1
@@ -484,3 +494,5 @@ BeachRoute_MapEvents:
 	object_event  13, 31, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BeachLass3Script, -1
 	object_event  19, 24, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BeachCooltrainerF2Script, -1
 	object_event  17,  9, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, BeachFisherScript, -1
+	object_event 14, 67, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CraggyBeachGreatBall, -1
+	object_event  4, 48, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CraggyBeachPotion, -1

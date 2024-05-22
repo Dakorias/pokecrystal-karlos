@@ -9,7 +9,8 @@ OutdoorSprites:
 	dw NewBarkGroupSprites
 	dw IndigoGroupSprites
 	dw HeraldCoveGroupSprites
-	dw SecondTownGroupSprites
+	dw CraggyCoastGroupSprites
+	dw BerryForestGroupSprites
 	assert_table_length NUM_MAP_GROUPS
 
 CableClubGroupSprites:
@@ -64,13 +65,16 @@ HeraldCoveGroupSprites:
 		db SPRITE_SAILOR
 		db SPRITE_GRAMPS
 		db SPRITE_GRANNY
+		db SPRITE_EKANS
+		db SPRITE_HOUNDOUR
+		db SPRITE_BALTOY
 		db 0 ; end
 
-SecondTownGroupSprites:
-	; BeachRoute, SecondTown, MountainRoute
+CraggyCoastGroupSprites:
+	; CraggyBeach, CraggyCoast, ScenicBluff
 		db SPRITE_TEACHER
 		db SPRITE_LASS
-		db SPRITE_CLERK
+		db SPRITE_KENJI
 		db SPRITE_HARRISON
 		db SPRITE_YOUNGSTER
 		db SPRITE_BLACK_BELT
@@ -78,10 +82,36 @@ SecondTownGroupSprites:
 		db SPRITE_GOOD_RIVAL
 		db SPRITE_BAD_RIVAL
 		; 9 of 9 walking sprites
+		db SPRITE_CLERK
 		db SPRITE_NURSE
 		db SPRITE_POKE_BALL
 		db SPRITE_FISHING_GURU
 		db SPRITE_SAILOR
 		db SPRITE_GRAMPS
 		db SPRITE_GRANNY
+		db SPRITE_BLUE
+		db SPRITE_FRUIT_TREE
+		db 0 ; end
+
+BerryForestGroupSprites:
+	; BerryForest
+		db SPRITE_TEACHER
+		db SPRITE_LASS
+		db SPRITE_KENJI
+		db SPRITE_HARRISON
+		db SPRITE_YOUNGSTER
+		db SPRITE_BLACK_BELT
+		db SPRITE_POKEFAN_M
+		db SPRITE_GOOD_RIVAL
+		db SPRITE_BAD_RIVAL
+		; 9 of 9 walking sprites
+		db SPRITE_CLERK
+		db SPRITE_NURSE
+		db SPRITE_POKE_BALL
+		db SPRITE_FISHING_GURU
+		db SPRITE_SAILOR
+		db SPRITE_GRAMPS
+		db SPRITE_GRANNY
+		db SPRITE_BLUE
+		db SPRITE_FRUIT_TREE
 		db 0 ; end

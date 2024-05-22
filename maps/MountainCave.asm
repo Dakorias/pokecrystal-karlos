@@ -116,7 +116,7 @@ MountainCave_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 5,  25, MOUNTAIN_ROUTE, 1
+	warp_event 5,  25, SCENIC_BLUFF, 1
 	warp_event 14,  5, MOUNTAIN_GYM, 1
 	def_coord_events
 
@@ -125,4 +125,4 @@ MountainCave_MapEvents:
 	def_object_events
 	object_event  11, 23, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerHikerDonny, -1
 	object_event  3,  14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerYoungsterDavid, -1
-	object_event  6,   6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerHikerConnor, -1
+	object_event  6,   6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerHikerConnor, -1

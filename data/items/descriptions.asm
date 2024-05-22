@@ -100,7 +100,7 @@ ItemDescriptions:
 	dw WhtApricornDesc
 	dw BlackbeltDesc
 	dw BlkApricornDesc
-	dw TeruSama7Desc
+	dw RescueBallDesc
 	dw PnkApricornDesc
 	dw BlackGlassesDesc
 	dw SlowpokeTailDesc
@@ -120,7 +120,7 @@ ItemDescriptions:
 	dw MiracleSeedDesc
 	dw ThickClubDesc
 	dw FocusBandDesc
-	dw TeruSama8Desc
+	dw DuskBallDesc
 	dw EnergyPowderDesc
 	dw EnergyRootDesc
 	dw HealPowderDesc
@@ -130,67 +130,67 @@ ItemDescriptions:
 	dw CardKeyDesc
 	dw MachinePartDesc
 	dw EggTicketDesc
-	dw LostItemDesc
+	dw DawnBallDesc
 	dw StardustDesc
 	dw StarPieceDesc
 	dw BasementKeyDesc
 	dw PassDesc
-	dw TeruSama9Desc
-	dw TeruSama10Desc
-	dw TeruSama11Desc
+	dw CampingKitDesc
+	dw TimerBallDesc
+	dw SpeedBallDesc
 	dw CharcoalDesc
 	dw BerryJuiceDesc
 	dw ScopeLensDesc
-	dw TeruSama12Desc
-	dw TeruSama13Desc
+	dw ShinyBallDesc
+	dw ViralBallDesc
 	dw MetalCoatDesc
 	dw DragonFangDesc
-	dw TeruSama14Desc
+	dw FortuneBallDesc
 	dw LeftoversDesc
-	dw TeruSama15Desc
-	dw TeruSama16Desc
-	dw TeruSama17Desc
+	dw DreamBerryDesc
+	dw TeachyTVDesc
+	dw LightClayDesc
 	dw MysteryBerryDesc
 	dw DragonScaleDesc
 	dw BerserkGeneDesc
-	dw TeruSama18Desc
-	dw TeruSama19Desc
-	dw TeruSama20Desc
+	dw IcyRockDesc
+	dw HeatRockDesc
+	dw SmoothRockDesc
 	dw SacredAshDesc
 	dw HeavyBallDesc
 	dw FlowerMailDesc
 	dw LevelBallDesc
 	dw LureBallDesc
 	dw FastBallDesc
-	dw TeruSama21Desc
+	dw DampRockDesc
 	dw LightBallDesc
 	dw FriendBallDesc
 	dw MoonBallDesc
 	dw LoveBallDesc
-	dw NormalBoxDesc
-	dw GorgeousBoxDesc
+	dw RazorClawDesc
+	dw ChoiceSpecsDesc
 	dw SunStoneDesc
-	dw PolkadotBowDesc
-	dw TeruSama22Desc
+	dw ChoiceScarfDesc
+	dw WideLensDesc
 	dw UpGradeDesc
 	dw BerryDesc
 	dw GoldBerryDesc
 	dw SquirtBottleDesc
-	dw TeruSama23Desc
+	dw BlackSludgeDesc
 	dw ParkBallDesc
 	dw RainbowWingDesc
-	dw TeruSama24Desc
+	dw RockyHelmetDesc
 	dw BrickPieceDesc
-	dw SurfMailDesc
-	dw LiteBlueMailDesc
-	dw PortraitMailDesc
-	dw LovelyMailDesc
-	dw EonMailDesc
-	dw MorphMailDesc
-	dw BlueSkyMailDesc
-	dw MusicMailDesc
-	dw MirageMailDesc
-	dw TeruSama25Desc
+	dw FocusSashDesc
+	dw LifeOrbDesc
+	dw MetronomeDesc
+	dw LoadedDiceDesc
+	dw WhiteHerbDesc
+	dw MuscleBandDesc
+	dw ShellBellDesc
+	dw WiseGlassesDesc
+	dw WknessPolicyDesc
+	dw ChoiceBandDesc
 	assert_table_length NUM_ITEMS
 	dw TeruSama26Desc
 	dw TeruSama26Desc
@@ -648,8 +648,9 @@ BlkApricornDesc:
 	db   "A black APRICORN."
 	next "@"
 
-TeruSama7Desc:
-	db   "?@"
+RescueBallDesc:
+	db   "A BALL for weak-"
+	next "ened #MON.@"
 
 PnkApricornDesc:
 	db   "A pink APRICORN."
@@ -727,8 +728,9 @@ FocusBandDesc:
 	db   "May prevent faint-"
 	next "ing. (HOLD)@"
 
-TeruSama8Desc:
-	db   "?@"
+DuskBallDesc:
+	db   "A BALL that works"
+	next "better at night.@"
 
 EnergyPowderDesc:
 	db   "Restores #MON"
@@ -766,9 +768,9 @@ EggTicketDesc:
 	db   "May use at Golden-"
 	next "rod trade corner.@"
 
-LostItemDesc:
-	db   "The # DOLL lost"
-	next "by the COPYCAT.@"
+DawnBallDesc:
+	db   "A BALL that works"
+	next "better in the day.@"
 
 StardustDesc:
 	db   "Pretty, red sand."
@@ -785,14 +787,16 @@ PassDesc:
 	db   "A ticket for the"
 	next "MAGNET TRAIN.@"
 
-TeruSama9Desc:
+CampingKitDesc:
 	db   "?@"
 
-TeruSama10Desc:
-	db   "?@"
+TimerBallDesc:
+	db   "A BALL for really"
+	next "long battles.@"
 
-TeruSama11Desc:
-	db   "?@"
+SpeedBallDesc:
+	db   "A BALL that catch-"
+	next "es fast #MON.@"
 
 CharcoalDesc:
 	db   "Powers up fire-"
@@ -802,15 +806,18 @@ BerryJuiceDesc:
 	db   "Restores #MON"
 	next "HP by 20.@"
 
+RazorClawDesc:
 ScopeLensDesc:
 	db   "Raises critical"
 	next "hit ratio. (HOLD)@"
 
-TeruSama12Desc:
-	db   "?@"
+ShinyBallDesc:
+	db   "A peculiar golden"
+	next "#BALL.@"
 
-TeruSama13Desc:
-	db   "?@"
+ViralBallDesc:
+	db   "An odd feeling"
+	next "#BALL...@"
 
 MetalCoatDesc:
 	db   "Powers up steel-"
@@ -820,21 +827,25 @@ DragonFangDesc:
 	db   "Powers up dragon-"
 	next "type moves. (HOLD)@"
 
-TeruSama14Desc:
-	db   "?@"
+FortuneBallDesc:
+	db   "A peculiar silver"
+	next "#BALL.@"
 
 LeftoversDesc:
 	db   "Restores HP during"
 	next "battle. (HOLD)@"
 
-TeruSama15Desc:
-	db   "?@"
+DreamBerryDesc:
+	db   "Heals user, but"
+	next "also causes sleep.@"
 
-TeruSama16Desc:
-	db   "?@"
+TeachyTVDesc:
+	db   "Helps #MON to"
+	next "remember moves.@"
 
-TeruSama17Desc:
-	db   "?@"
+LightClayDesc:
+	db   "Boost screen-type"
+	next "moves.@"
 
 MysteryBerryDesc:
 	db   "A self-restore"
@@ -848,14 +859,17 @@ BerserkGeneDesc:
 	db   "Boosts ATTACK but"
 	next "causes confusion.@"
 
-TeruSama18Desc:
-	db   "?@"
+IcyRockDesc:
+	db   "Extends hail"
+	next "duration.@"
 
-TeruSama19Desc:
-	db   "?@"
+HeatRockDesc:
+	db   "Extends sun"
+	next "duration.@"
 
-TeruSama20Desc:
-	db   "?@"
+SmoothRockDesc:
+	db   "Extends sandstorm"
+	next "duration.@"
 
 SacredAshDesc:
 	db   "Fully revives all"
@@ -881,8 +895,9 @@ FastBallDesc:
 	db   "A BALL for catch-"
 	next "ing fast #MON.@"
 
-TeruSama21Desc:
-	db   "?@"
+DampRockDesc:
+	db   "Extends rain"
+	next "duration.@"
 
 LightBallDesc:
 	db   "An odd, electrical"
@@ -900,24 +915,21 @@ LoveBallDesc:
 	db   "For catching the"
 	next "opposite gender.@"
 
-NormalBoxDesc:
-	db   "Open it and see"
-	next "what's inside.@"
-
-GorgeousBoxDesc:
-	db   "Open it and see"
-	next "what's inside.@"
+ChoiceSpecsDesc:
+	db   "Boosts SPATK, but"
+	next "only one move.@"
 
 SunStoneDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
 
-PolkadotBowDesc:
-	db   "Powers up normal-"
-	next "type moves. (HOLD)@"
+ChoiceScarfDesc:
+	db   "Boosts SPEED, but"
+	next "only one move.@"
 
-TeruSama22Desc:
-	db   "?@"
+WideLensDesc:
+	db   "Slightly boosts"
+	next "accuracy. (HOLD)@"
 
 UpGradeDesc:
 	db   "A mysterious box"
@@ -935,8 +947,9 @@ SquirtBottleDesc:
 	db   "A bottle used for"
 	next "watering plants.@"
 
-TeruSama23Desc:
-	db   "?@"
+BlackSludgeDesc:
+	db   "Heals if POISON,"
+	next "damages if not.@"
 
 ParkBallDesc:
 	db   "The Bug-Catching"
@@ -946,51 +959,53 @@ RainbowWingDesc:
 	db   "A mystical feather"
 	next "of rainbow colors.@"
 
-TeruSama24Desc:
-	db   "?@"
+RockyHelmetDesc:
+	db   "Hurts enemy on"
+	next "contact. (HOLD)@"
 
 BrickPieceDesc:
 	db   "A rare chunk of"
 	next "tile.@"
 
-SurfMailDesc:
-	db   "LAPRAS-print MAIL."
-	next "(HOLD)@"
+FocusSashDesc:
+	db   "Prevents fainting"
+	next "1 time. (HOLD)@"
 
-LiteBlueMailDesc:
-	db   "DRATINI-print"
-	next "MAIL. (HOLD)@"
+LifeOrbDesc:
+	db   "Higher damage"
+	next "but drains HP.@"
 
-PortraitMailDesc:
+MetronomeDesc:
 	db   "MAIL featuring the"
 	next "holder's likeness.@"
 
-LovelyMailDesc:
+LoadedDiceDesc:
 	db   "Heart-print MAIL."
 	next "(HOLD)@"
 
-EonMailDesc:
+WhiteHerbDesc:
 	db   "EEVEE-print MAIL."
 	next "(HOLD)@"
 
-MorphMailDesc:
-	db   "DITTO-print MAIL."
-	next "(HOLD)@"
+MuscleBandDesc:
+	db   "Slightly boosts"
+	next "attack. (HOLD)@"
 
-BlueSkyMailDesc:
-	db   "Sky-print MAIL."
-	next "(HOLD)@"
+ShellBellDesc:
+	db   "Heals user based"
+	next "on damage. (HOLD)@"
 
-MusicMailDesc:
-	db   "NATU-print MAIL."
-	next "(HOLD)@"
+WiseGlassesDesc:
+	db   "Slightly boosts"
+	next "sp. attack. (HOLD)@"
 
-MirageMailDesc:
-	db   "MEW-print MAIL."
-	next "(HOLD)@"
+WknessPolicyDesc:
+	db   "Super effective"
+	next "hit ups offenses.@"
 
-TeruSama25Desc:
-	db   "?@"
+ChoiceBandDesc:
+	db   "Boosts ATK, but"
+	next "only one move.@"
 
 TeruSama26Desc:
 	db   "?@"

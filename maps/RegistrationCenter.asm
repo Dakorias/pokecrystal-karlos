@@ -27,6 +27,7 @@ RegistrationCenterOfficerScript:
 	verbosegiveitem POTION
 	verbosegiveitem CANDY_BAG
 	verbosegiveitem EXP_SHARE
+	verbosegiveitem TOWN_MAP
 	writetext RegistrationGoodLuck
 	waitbutton
 	closetext
@@ -73,6 +74,7 @@ RegistrationCenterOfficerScript:
 	end
 
 .Skip
+	verbosegiveitem TEACHY_TV
 	writetext RegistrationGoodLuck
 	waitbutton
 	closetext

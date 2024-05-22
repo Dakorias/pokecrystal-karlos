@@ -36,7 +36,4 @@ SpriteMons:
 	db GROWLITHE
 	db SNORLAX
 	db GYARADOS
-	db COTTONEE
-	db SHINX
-	db MURKROW
 	assert_table_length NUM_POKEMON_SPRITES

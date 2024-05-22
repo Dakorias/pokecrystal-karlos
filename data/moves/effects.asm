@@ -1824,7 +1824,7 @@ RapidSpin:
 	checkfaint
 	buildopponentrage
 	speedup
-	statdownmessage
+	statupmessage
 	kingsrock
 	endmove
 
