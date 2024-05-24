@@ -225,8 +225,10 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const PERCY_2_BALTOY
 
 	trainerclass BREEDER ; 46
+	const DAWN
 
 	trainerclass BUG_MANIAC ; 47
+	const EDWIN
 
 	trainerclass CLOWN ; 48
 
@@ -263,6 +265,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	trainerclass FARMER ; 58
 
 	trainerclass GARDENER ; 59
+	const LILY
 
 	trainerclass DANCER ; 5a
 

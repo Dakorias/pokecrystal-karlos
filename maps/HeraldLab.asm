@@ -121,8 +121,8 @@ HeraldLab_MapScripts:
 		checkevent EVENT_GOT_A_POKEMON_FROM_OAK
 		iftrue LookAtPokeBallScript
 		refreshscreen
-		pokepic HOUNDOUR
-		cry HOUNDOUR
+		pokepic YANMA
+		cry YANMA
 		waitbutton
 		closepokepic
 		opentext
@@ -136,7 +136,7 @@ HeraldLab_MapScripts:
 		playsound SFX_CAUGHT_MON
 		waitsfx
 		promptbutton
-		givepoke HOUNDOUR, 5, BERRY
+		givepoke YANMA, 5, BERRY
 		closetext
 		applymovement HERALD_LAB_BLAIRE, BlaireBaltoyMovement
 		opentext
@@ -813,8 +813,10 @@ HeraldLabHealingMachine_HealParty:
 
 	TakeHoundourText:
 		text "OAK: Do you want"
-		line "HOUNDOUR? It's the"
-		cont "DARK #MON!"
+		line "YANMA? It's the"
+
+		para "CLEAR WING"
+		line "#MON!"
 		done
 
 	TakeBaltoyText:

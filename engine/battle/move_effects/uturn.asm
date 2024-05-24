@@ -5,7 +5,7 @@ BattleCommand_Uturn:
 
 ; Need something to switch to
 	call CheckAnyOtherAlivePartyMons
-	jp z, FailedBatonPass
+	jp z, FailedUturn
 
 	call UpdateBattleMonInParty
 
@@ -34,10 +34,10 @@ BattleCommand_Uturn:
 	; Wildmons don't have anything to switch to
 		ld a, [wBattleMode]
 		dec a ; WILDMON
-		jp z, FailedBatonPass
+		jp z, FailedUturn
 
 		call CheckAnyOtherAliveEnemyMons
-		jp z, FailedBatonPass
+		jp z, FailedUturn
 
 		call UpdateEnemyMonInParty
 
@@ -56,3 +56,6 @@ BattleCommand_Uturn:
 		ld hl, SpikesDamage
 		call CallBattleCore
 		ret
+
+FailedUturn:
+	ret z

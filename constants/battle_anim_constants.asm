@@ -103,6 +103,7 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_ABSORB
 	const ANIM_OBJ_EGG
 	const ANIM_OBJ_FOCUS
+  const ANIM_OBJ_STONE_EDGE
 	const ANIM_OBJ_BIND1
 	const ANIM_OBJ_BIND2
 	const ANIM_OBJ_LEECH_SEED
@@ -124,6 +125,7 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_STRING_SHOT
 	const ANIM_OBJ_HAZE
 	const ANIM_OBJ_MIST
+  const ANIM_OBJ_DEFOG
 	const ANIM_OBJ_SMOG
 	const ANIM_OBJ_POISON_GAS
 	const ANIM_OBJ_HORN
@@ -139,6 +141,7 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_BONE_CLUB
 	const ANIM_OBJ_BONE_RUSH
 	const ANIM_OBJ_SWIFT
+  const ANIM_OBJ_SILVER_WIND
 	const ANIM_OBJ_KINESIS
 	const ANIM_OBJ_FLASH
 	const ANIM_OBJ_SHINY

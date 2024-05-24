@@ -456,7 +456,7 @@ BlaireGroup:
 
 	; BLAIRE1 (2)
 	db "BLAIRE@", TRAINERTYPE_NORMAL
-	db  5, HOUNDOUR
+	db  5, YANMA
 	db -1 ; end
 
 	; BLAIRE1 (3)
@@ -475,7 +475,7 @@ BlaireGroup:
 	db "BLAIRE@", TRAINERTYPE_NORMAL
 	db  16, ROCKRUFF
 	db  15, EEVEE
-	db  18, HOUNDOUR
+	db  18, YANMA
 	db -1 ; end
 
 	; BLAIRE2 (3)
@@ -495,7 +495,7 @@ PercyGroup:
 	; PERCY1 (2)
 	db "PERCY@", TRAINERTYPE_NORMAL
 	db 9, PIDGEY
-	db 11, HOUNDOUR
+	db 11, YANMA
 	db -1 ; end
 
 	; PERCY1 (3)
@@ -515,7 +515,7 @@ PercyGroup:
 	db "PERCY@", TRAINERTYPE_NORMAL
 	db 16, ROCKRUFF
 	db 15, PIDGEY
-	db 17, HOUNDOUR
+	db 17, YANMA
 	db -1 ; end
 
 	; PERCY2 (3)
@@ -526,8 +526,19 @@ PercyGroup:
 	db -1 ; end
 
 BreederGroup:
+	; BREEDER (1)
+	db "DAWN@", TRAINERTYPE_NORMAL
+	db  18, BUNEARY
+	db  17, SHINX
+	db  18, VULPIX
+	db  17, RIOLU
+	db -1 ; end
 
 BugManiacGroup:
+	; BUG_MANIAC (1)
+	db "EDWIN@", TRAINERTYPE_NORMAL
+	db  21, YANMA
+	db -1 ; end
 
 ClownGroup:
 
@@ -564,5 +575,11 @@ SurvivalistGroup:
 FarmerGroup:
 
 GardenerGroup:
+	; GARDENER (1)
+	db "LILY@", TRAINERTYPE_NORMAL
+	db  17, SHROOMISH
+	db  17, HOPPIP
+	db  18, APPLIN
+	db -1 ; end
 
 DancerGroup:
