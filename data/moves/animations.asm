@@ -132,7 +132,7 @@ BattleAnimations::
 	dw BattleAnim_Clamp
 	dw BattleAnim_IronDefense
 	dw BattleAnim_AirSlash
-	dw BattleAnim_SpikeCannon
+	dw BattleAnim_BraveBird
 	dw BattleAnim_Constrict
 	dw BattleAnim_Amnesia
 	dw BattleAnim_Kinesis
@@ -2251,15 +2251,29 @@ BattleAnim_PoisonGas:
 
 BattleAnim_StoneEdge:
 	anim_2gfx ANIM_GFX_ROCKS, ANIM_GFX_HIT
-	anim_obj ANIM_OBJ_STONE_EDGE, 128, 80, $40
-	anim_wait 2
-	anim_obj ANIM_OBJ_STONE_EDGE, 120, 80, $30
-	anim_wait 2
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $40, $2, $0
+	anim_wait 6
+.loop
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $2
+	anim_obj ANIM_OBJ_STONE_EDGE, 120, 80, $40
+	anim_wait 3
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 45, $0
 	anim_obj ANIM_OBJ_STONE_EDGE, 152, 80, $30
-	anim_wait 2
+	anim_wait 3
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj ANIM_OBJ_STONE_EDGE, 140, 80, $30
+	anim_obj ANIM_OBJ_HIT_YFIX, 128, 50, $0
+	anim_wait 3
+	anim_sound 0, 1, SFX_STRENGTH
 	anim_obj ANIM_OBJ_STONE_EDGE, 144, 80, $40
+	anim_wait 3
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj ANIM_OBJ_STONE_EDGE, 132, 80, $30
+	anim_obj ANIM_OBJ_HIT_YFIX, 140, 40, $0
 	anim_wait 2
-	anim_obj ANIM_OBJ_STONE_EDGE, 136, 80, $30
+	anim_loop 3, .loop
+	anim_sound 0, 1, SFX_MEGA_KICK
 	anim_wait 16
 	anim_ret
 
@@ -2348,22 +2362,22 @@ BattleAnim_PinMissile:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_SpikeCannon:
-	anim_2gfx ANIM_GFX_HORN, ANIM_GFX_HIT
-.loop
-	anim_obj ANIM_OBJ_NEEDLE, 64, 92, $18
-	anim_wait 8
-	anim_obj ANIM_OBJ_NEEDLE, 56, 84, $18
-	anim_sound 0, 1, SFX_POISON_STING
-	anim_obj ANIM_OBJ_HIT_SMALL, 136, 56, $0
-	anim_wait 8
-	anim_obj ANIM_OBJ_NEEDLE, 52, 88, $18
-	anim_sound 0, 1, SFX_POISON_STING
-	anim_obj ANIM_OBJ_HIT_SMALL, 128, 48, $0
-	anim_wait 8
-	anim_sound 0, 1, SFX_POISON_STING
-	anim_obj ANIM_OBJ_HIT_SMALL, 132, 52, $0
-	anim_loop 3, .loop
+BattleAnim_BraveBird:
+	anim_1gfx ANIM_GFX_SKY_ATTACK
+	anim_bgp $1b
+	anim_bgeffect ANIM_BG_REMOVE_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 32
+	anim_sound 0, 0, SFX_HYPER_BEAM
+	anim_obj ANIM_OBJ_SKY_ATTACK, 48, 88, $40
+	anim_wait 64
+	anim_incobj 1
+	anim_wait 21
+	anim_sound 0, 1, SFX_HYPER_BEAM
+	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $2, $0
+	anim_wait 64
+	anim_incobj 1
+	anim_wait 32
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, BG_EFFECT_USER, $0
 	anim_wait 16
 	anim_ret
 
@@ -2653,7 +2667,6 @@ BattleAnim_Minimize:
 	anim_ret
 
 BattleAnim_SkyAttack:
-	anim_if_param_equal $1, BattleAnim_FocusEnergy
 	anim_1gfx ANIM_GFX_SKY_ATTACK
 	anim_bgeffect ANIM_BG_REMOVE_MON, $0, BG_EFFECT_USER, $0
 	anim_wait 32

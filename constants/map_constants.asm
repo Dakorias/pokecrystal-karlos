@@ -81,19 +81,19 @@ ENDM
 
 	newgroup CRAGGY_COAST																					; 6
 	map_const CRAGGY_COAST,																 20, 16 ; 1
-	map_const SCENIC_BLUFF, 													   	15, 26 ; 2
+	map_const SCENIC_BLUFF, 													   	 15, 26 ; 2
 	map_const MOUNTAIN_CAVE, 															 10, 14 ; 3
-	map_const CRAGGY_COAST_HOUSE1,													  5,  4 ; 4
-	map_const CRAGGY_COAST_HOUSE2,													  5,  4 ; 5
-	map_const CRAGGY_COAST_POKECENTER,				 								7,  4 ; 6
+	map_const CRAGGY_COAST_HOUSE1,													5,  4 ; 4
+	map_const CRAGGY_COAST_HOUSE2,													5,  4 ; 5
+	map_const CRAGGY_COAST_POKECENTER,				 							7,  4 ; 6
 	map_const CRAGGY_COAST_FISHING,												  5,  4 ; 7
 	map_const BEACH_GROTTO, 																5,  5 ; 8
 	map_const MOUNTAIN_GYM,																	5,  5 ; 9
 	endgroup
 
 	newgroup BERRY_FOREST																					; 7
-	map_const BERRY_FOREST,																			16, 16
-	map_const BERRY_FOREST_HOUSE, 															5,  4
+	map_const BERRY_FOREST,																 16, 16 ; 1
+	map_const BERRY_FOREST_HOUSE, 													5,  4 ; 2
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 6

@@ -33,7 +33,7 @@
 	const EVENT_GOT_SUPER_ROD
 ; Monego Isles story events
 	const EVENT_GOT_EKANS_FROM_OAK
-	const EVENT_GOT_HOUNDOUR_FROM_OAK
+	const EVENT_GOT_YANMA_FROM_OAK
 	const EVENT_GOT_BALTOY_FROM_OAK
 	const EVENT_GOT_A_POKEMON_FROM_OAK
 	const EVENT_BATTLE_PERCY_2ND_GYM
@@ -645,7 +645,7 @@
 ; The map script command macros `setevent` and `clearevent` set/clear these flags, and their effects will be seen when the map is reloaded.
 ; Monego itemballs
 	const EVENT_EKANS_POKEBALL_IN_OAKS_LAB
-	const EVENT_HOUNDOUR_POKEBALL_IN_OAKS_LAB
+	const EVENT_YANMA_POKEBALL_IN_OAKS_LAB
 	const EVENT_BALTOY_POKEBALL_IN_OAKS_LAB
 	const EVENT_HERALD_GROTTO_SUN_STONE
 	const EVENT_BEACH_GROTTO_MYSTIC_WATER

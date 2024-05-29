@@ -210,18 +210,18 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass BLAIRE ; 44
 	const BLAIRE_1_EKANS
-	const BLAIRE_1_HOUNDOUR
+	const BLAIRE_1_YANMA
 	const BLAIRE_1_BALTOY
 	const BLAIRE_2_EKANS
-	const BLAIRE_2_HOUNDOUR
+	const BLAIRE_2_YANMA
 	const BLAIRE_2_BALTOY
 
 	trainerclass PERCY ; 45
 	const PERCY_1_EKANS
-	const PERCY_1_HOUNDOUR
+	const PERCY_1_YANMA
 	const PERCY_1_BALTOY
 	const PERCY_2_EKANS
-	const PERCY_2_HOUNDOUR
+	const PERCY_2_YANMA
 	const PERCY_2_BALTOY
 
 	trainerclass BREEDER ; 46

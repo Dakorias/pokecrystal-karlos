@@ -127,6 +127,7 @@ CraggyBeach_MapScripts:
 		pause 8
 		applymovement CRAGGY_BEACH_OAK, PlayerWalksToRockets
 		turnobject PLAYER, LEFT
+		turnobject CRAGGY_BEACH_OAK, RIGHT
 		opentext
 		writetext OakTellsPlayer2ndBadge
 		waitbutton
@@ -176,7 +177,7 @@ CraggyBeach_MapScripts:
 			itemball GREAT_BALL
 
 		CraggyBeachPotion:
-			itemball POTION
+			itemball POTION, 2
 
 	PlayerWalksToRocketsRight:
 	step RIGHT
@@ -494,5 +495,5 @@ CraggyBeach_MapEvents:
 	object_event  13, 31, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BeachLass3Script, -1
 	object_event  19, 24, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BeachCooltrainerF2Script, -1
 	object_event  17,  9, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, BeachFisherScript, -1
-	object_event 14, 67, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CraggyBeachGreatBall, -1
-	object_event  4, 48, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CraggyBeachPotion, -1
+	object_event 14, 67, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, CraggyBeachGreatBall, EVENT_CRAGGY_BEACH_GREAT_BALL
+	object_event  4, 48, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, CraggyBeachPotion, EVENT_CRAGGY_BEACH_POTION

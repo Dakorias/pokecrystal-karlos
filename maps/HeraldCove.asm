@@ -253,11 +253,11 @@ TrainerLassCandice:
 		closetext
 		checkevent EVENT_GOT_EKANS_FROM_OAK
 		iftrue .Baltoy
-		checkevent EVENT_GOT_HOUNDOUR_FROM_OAK
+		checkevent EVENT_GOT_YANMA_FROM_OAK
 		iftrue .Ekans
 		winlosstext PercyWinText, 0
 		setlasttalked HERALD_COVE_PERCY
-		loadtrainer PERCY, PERCY_1_HOUNDOUR
+		loadtrainer PERCY, PERCY_1_YANMA
 		startbattle
 		reloadmapafterbattle
 		sjump .AfterPercyBattle

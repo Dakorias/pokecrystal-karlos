@@ -74,7 +74,6 @@ RegistrationCenterOfficerScript:
 	end
 
 .Skip
-	verbosegiveitem TEACHY_TV
 	writetext RegistrationGoodLuck
 	waitbutton
 	closetext

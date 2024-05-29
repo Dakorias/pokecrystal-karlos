@@ -13,7 +13,7 @@ HeraldGrotto_MapScripts:
 
 HeraldGrottoCottonee:
 	cry COTTONEE
-	loadwildmon COTTONEE, 9
+	loadwildmon COTTONEE, 7
 	startbattle
 	disappear HERALD_GROTTO_COTTONEE
 	reloadmapafterbattle
@@ -23,7 +23,7 @@ HeraldGrottoCottonee:
 
 HeraldGrottoShinx:
 	cry SHINX
-	loadwildmon SHINX, 9
+	loadwildmon SHINX, 7
 	startbattle
 	disappear HERALD_GROTTO_SHINX
 	reloadmapafterbattle
@@ -33,7 +33,7 @@ HeraldGrottoShinx:
 
 HeraldGrottoMurkrow:
 	cry MURKROW
-	loadwildmon MURKROW, 9
+	loadwildmon MURKROW, 7
 	startbattle
 	disappear HERALD_GROTTO_MURKROW_DUSK
 	disappear HERALD_GROTTO_MURKROW_NITE
@@ -57,8 +57,8 @@ HeraldGrotto_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event 2,  1, SPRITE_COTTONEE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, MORN, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, HeraldGrottoCottonee, EVENT_HERALD_GROTTO_POKEMON_FOUGHT
-	object_event 2,  1, SPRITE_SHINX, SPRITEMOVEDATA_POKEMON, 0, 0, -1, DAY, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, HeraldGrottoShinx, EVENT_HERALD_GROTTO_POKEMON_FOUGHT
-	object_event 2,  1, SPRITE_MURKROW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, EVE, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, HeraldGrottoMurkrow, EVENT_HERALD_GROTTO_POKEMON_FOUGHT
-	object_event 2,  1, SPRITE_MURKROW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, NITE, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, HeraldGrottoMurkrow, EVENT_HERALD_GROTTO_POKEMON_FOUGHT
+	object_event 2,  1, SPRITE_COTTONEE, SPRITEMOVEDATA_STILL, 0, 0, -1, MORN, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, HeraldGrottoCottonee, EVENT_HERALD_GROTTO_POKEMON_FOUGHT
+	object_event 2,  1, SPRITE_SHINX, SPRITEMOVEDATA_STILL, 0, 0, -1, DAY, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, HeraldGrottoShinx, EVENT_HERALD_GROTTO_POKEMON_FOUGHT
+	object_event 2,  1, SPRITE_MURKROW, SPRITEMOVEDATA_STILL, 0, 0, -1, EVE, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, HeraldGrottoMurkrow, EVENT_HERALD_GROTTO_POKEMON_FOUGHT
+	object_event 2,  1, SPRITE_MURKROW, SPRITEMOVEDATA_STILL, 0, 0, -1, NITE, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, HeraldGrottoMurkrow, EVENT_HERALD_GROTTO_POKEMON_FOUGHT
 	object_event 7,  0, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, HeraldGrottoSunStone, EVENT_HERALD_GROTTO_SUN_STONE

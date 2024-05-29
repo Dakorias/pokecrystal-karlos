@@ -84,8 +84,7 @@ HeraldRouteLassScript:
 	jumptextfaceplayer HeraldRouteLassText
 
 HeraldRoutePotion:
-	itemball POTION
-	end
+	itemball POTION, 1
 
 BlockingRocket1Script:
 	faceplayer
@@ -458,4 +457,4 @@ HeraldRoute_MapEvents:
 	object_event  37,  2, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlockingRocket1Script, EVENT_ROCKETS_STEAL_SEALED_MAP
 	object_event  38,  2, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlockingRocket2Script, EVENT_ROCKETS_STEAL_SEALED_MAP
 	object_event  54,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HeraldRouteYoungsterDannyScript, EVENT_BEAT_YOUNGSTER_DANNY1
-	object_event  13, 5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HeraldRoutePotion, -1
+	object_event  13,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, HeraldRoutePotion, EVENT_HERALD_ROUTE_POTION

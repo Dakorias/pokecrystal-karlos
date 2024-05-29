@@ -15,9 +15,9 @@ SECTION "Evolutions and Attacks", ROMX
 INCLUDE "data/pokemon/evos_attacks_pointers.asm"
 
 EkansEvosAttacks:
-db EVOLVE_LEVEL, 25, ARBOK
+db EVOLVE_LEVEL, 26, ARBOK
 db 0 ; no more evolutions
-db 1, IRON_HEAD
+db 1, POISON_STING
 db 1, LEER
 db 6, BITE
 db 11, WRAP
@@ -48,7 +48,7 @@ db 55, CRUNCH
 db 0 ; no more level-up moves
 
 	HoundourEvosAttacks:
-	db EVOLVE_LEVEL, 25, HOUNDOOM
+	db EVOLVE_LEVEL, 24, HOUNDOOM
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, HOWL
@@ -80,7 +80,7 @@ db 0 ; no more level-up moves
 	db 0 ; no more level-up moves
 
  BaltoyEvosAttacks:
- db EVOLVE_LEVEL, 25, CLAYDOL
+ db EVOLVE_LEVEL, 28, CLAYDOL
  db 0 ; no more evolutions
  db 1, RAPID_SPIN
  db 1, HARDEN
@@ -1051,14 +1051,18 @@ GolbatEvosAttacks:
  db EVOLVE_LEVEL, 30, YANMEGA
  db 0 ; no more evolutions
  db 1, QUICK_ATTACK
- db 11, DOUBLE_TEAM
- db 15, PROTECT
- db 18, SUPERSONIC
- db 20, WING_ATTACK
+ db 1, LEER
+ db 6, GUST
+ db 8, LEECH_LIFE
+ db 13, SUPERSONIC
  db 16, TWISTER
- db 32, ANCIENTPOWER
+ db 20, WING_ATTACK
+ db 22, DOUBLE_TEAM
+ db 26, SIGNAL_BEAM
+ db 30, ANCIENTPOWER
  db 36, BUG_BUZZ
  db 43, HYPNOSIS
+ db 47, DRAGON_PULSE
  db 50, U_TURN
  db 55, SLASH
  db 0 ; no more level-up moves
@@ -1066,14 +1070,18 @@ GolbatEvosAttacks:
  YanmegaEvosAttacks:
  db 0 ; no more evolutions
  db 1, QUICK_ATTACK
- db 11, DOUBLE_TEAM
- db 15, PROTECT
- db 18, SUPERSONIC
- db 20, WING_ATTACK
+ db 1, LEER
+ db 6, GUST
+ db 8, LEECH_LIFE
+ db 13, SUPERSONIC
  db 16, TWISTER
- db 32, ANCIENTPOWER
+ db 20, WING_ATTACK
+ db 22, DOUBLE_TEAM
+ db 26, SIGNAL_BEAM
+ db 30, ANCIENTPOWER
  db 36, BUG_BUZZ
  db 43, HYPNOSIS
+ db 47, DRAGON_PULSE
  db 50, U_TURN
  db 55, SLASH
  db 0 ; no more level-up moves

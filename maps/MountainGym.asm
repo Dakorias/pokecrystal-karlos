@@ -60,11 +60,11 @@ MountainCaveGymScript:
 	closetext
 	checkevent EVENT_GOT_EKANS_FROM_OAK
 	iftrue .PercyBaltoy
-	checkevent EVENT_GOT_HOUNDOUR_FROM_OAK
+	checkevent EVENT_GOT_YANMA_FROM_OAK
 	iftrue .PercyEkans
 	winlosstext Percy2GymWinText, 0
 	setlasttalked MOUNTAIN_GYM_PERCY
-	loadtrainer PERCY, PERCY_2_HOUNDOUR
+	loadtrainer PERCY, PERCY_2_YANMA
 	startbattle
 	reloadmapafterbattle
 	sjump .AfterPercyBattle
@@ -115,8 +115,8 @@ MountainCaveGymScript:
 	waitbutton
 	closetext
 	checkevent EVENT_GOT_EKANS_FROM_OAK
-	iftrue .BlaireHoundour
-	checkevent EVENT_GOT_HOUNDOUR_FROM_OAK
+	iftrue .BlaireYanma
+	checkevent EVENT_GOT_YANMA_FROM_OAK
 	iftrue .BlaireBaltoy
 	winlosstext Blaire2GymWinText, 0
 	setlasttalked MOUNTAIN_GYM_BLAIRE
@@ -125,10 +125,10 @@ MountainCaveGymScript:
 	reloadmapafterbattle
 	sjump .AfterBlaireBattle
 
-	.BlaireHoundour
+	.BlaireYanma
 	winlosstext Blaire2GymWinText, 0
 	setlasttalked MOUNTAIN_GYM_BLAIRE
-	loadtrainer BLAIRE, BLAIRE_2_HOUNDOUR
+	loadtrainer BLAIRE, BLAIRE_2_YANMA
 	startbattle
 	reloadmapafterbattle
 	sjump .AfterBlaireBattle
@@ -173,7 +173,7 @@ MountainCaveGymScript:
 	closetext
 	checkevent EVENT_GOT_EKANS_FROM_OAK
 	iftrue .Youngster1
-	checkevent EVENT_GOT_HOUNDOUR_FROM_OAK
+	checkevent EVENT_GOT_YANMA_FROM_OAK
 	iftrue .Youngster2
 	winlosstext YoungsterGymWinText, 0
 	setlasttalked MOUNTAIN_GYM_YOUNGSTER1

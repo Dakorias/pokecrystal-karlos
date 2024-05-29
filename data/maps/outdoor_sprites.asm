@@ -65,9 +65,6 @@ HeraldCoveGroupSprites:
 		db SPRITE_SAILOR
 		db SPRITE_GRAMPS
 		db SPRITE_GRANNY
-		db SPRITE_EKANS
-		db SPRITE_HOUNDOUR
-		db SPRITE_BALTOY
 		db 0 ; end
 
 CraggyCoastGroupSprites:

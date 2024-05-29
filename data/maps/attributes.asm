@@ -110,11 +110,11 @@ ENDM
 	connection south, HeraldRoute, HERALD_ROUTE, -15
 
 	map_attributes CraggyCoast, CRAGGY_COAST, $35, NORTH | SOUTH
-	connection north, ScenicBluff, SCENIC_BLUFF, 6
+	connection north, ScenicBluff, SCENIC_BLUFF, 5
 	connection south, CraggyBeach, CRAGGY_BEACH, 0
 
 	map_attributes ScenicBluff, SCENIC_BLUFF, $35, SOUTH
-	connection south, CraggyCoast, CRAGGY_COAST, -6
+	connection south, CraggyCoast, CRAGGY_COAST, -5
 
 	map_attributes HeraldLab, HERALD_LAB, $00, 0
 	map_attributes HeraldPokecenter, HERALD_POKECENTER, $00, 0

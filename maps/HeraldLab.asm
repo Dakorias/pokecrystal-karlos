@@ -93,12 +93,12 @@ HeraldLab_MapScripts:
 		promptbutton
 		givepoke EKANS, 5, BERRY
 		closetext
-		applymovement HERALD_LAB_BLAIRE, BlaireHoundourMovement
+		applymovement HERALD_LAB_BLAIRE, BlaireYanmaMovement
 		opentext
 		writetext BlaireWantsNextPokemon
 		waitbutton
 		disappear HERALD_LAB_POKE_BALL_2
-		getmonname STRING_BUFFER_3, HOUNDOUR
+		getmonname STRING_BUFFER_3, YANMA
 		writetext BlaireGetsStarterText
 		playsound SFX_CAUGHT_MON
 		waitbutton
@@ -117,7 +117,7 @@ HeraldLab_MapScripts:
 		pause 20
 		sjump AfterPokemonScript
 
-	HoundourPokeballScript:
+	YanmaPokeballScript:
 		checkevent EVENT_GOT_A_POKEMON_FROM_OAK
 		iftrue LookAtPokeBallScript
 		refreshscreen
@@ -126,12 +126,12 @@ HeraldLab_MapScripts:
 		waitbutton
 		closepokepic
 		opentext
-		writetext TakeHoundourText
+		writetext TakeYanmaText
 		yesorno
 		iffalse DidntChooseStarterScript
 		disappear HERALD_LAB_POKE_BALL_2
-		setevent EVENT_GOT_HOUNDOUR_FROM_OAK
-		getmonname STRING_BUFFER_3, HOUNDOUR
+		setevent EVENT_GOT_YANMA_FROM_OAK
+		getmonname STRING_BUFFER_3, YANMA
 		writetext GetStarterText
 		playsound SFX_CAUGHT_MON
 		waitsfx
@@ -194,12 +194,12 @@ HeraldLab_MapScripts:
 		waitbutton
 		closetext
 		pause 30
-		applymovement HERALD_LAB_PERCY, PercyHoundourMovement
+		applymovement HERALD_LAB_PERCY, PercyYanmaMovement
 		opentext
 		writetext PercyWantsNextPokemon
 		waitbutton
 		disappear HERALD_LAB_POKE_BALL_2
-		getmonname STRING_BUFFER_3, HOUNDOUR
+		getmonname STRING_BUFFER_3, YANMA
 		writetext PercyGetsStarterText
 		playsound SFX_CAUGHT_MON
 		waitbutton
@@ -274,8 +274,8 @@ HeraldLab_MapScripts:
 		closetext
 		checkevent EVENT_GOT_EKANS_FROM_OAK
 		iftrue .Ekans
-		checkevent EVENT_GOT_HOUNDOUR_FROM_OAK
-		iftrue .Houndour
+		checkevent EVENT_GOT_YANMA_FROM_OAK
+		iftrue .Yanma
 		winlosstext BlaireWinLabText, BlaireLossLabText
 		setlasttalked HERALD_LAB_BLAIRE
 		loadtrainer BLAIRE, BLAIRE_1_EKANS
@@ -289,7 +289,7 @@ HeraldLab_MapScripts:
 	.Ekans:
 		winlosstext BlaireWinLabText, BlaireLossLabText
 		setlasttalked HERALD_LAB_BLAIRE
-		loadtrainer BLAIRE, BLAIRE_1_HOUNDOUR
+		loadtrainer BLAIRE, BLAIRE_1_YANMA
 		loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 		startbattle
 		dontrestartmapmusic
@@ -297,7 +297,7 @@ HeraldLab_MapScripts:
 		iftrue .AfterVictorious
 		sjump .AfterYourDefeat
 
-	.Houndour:
+	.Yanma:
 		winlosstext BlaireWinLabText, BlaireLossLabText
 		setlasttalked HERALD_LAB_BLAIRE
 		loadtrainer BLAIRE, BLAIRE_1_BALTOY
@@ -556,7 +556,7 @@ HeraldLabHealingMachine_HealParty:
 		step UP
 		step_end
 
-	BlaireHoundourMovement:
+	BlaireYanmaMovement:
 		step RIGHT
 		step UP
 		step_end
@@ -573,7 +573,7 @@ HeraldLabHealingMachine_HealParty:
 		step UP
 		step_end
 
-	PercyHoundourMovement:
+	PercyYanmaMovement:
 		step RIGHT
 		step RIGHT
 		step RIGHT
@@ -811,7 +811,7 @@ HeraldLabHealingMachine_HealParty:
 		cont "SNAKE #MON!"
 		done
 
-	TakeHoundourText:
+	TakeYanmaText:
 		text "OAK: Do you want"
 		line "YANMA? It's the"
 
@@ -1063,5 +1063,5 @@ HeraldLab_MapEvents:
 	object_event  13,  1, SPRITE_GOOD_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RivalPercyLabScript, EVENT_RIVAL_HERALD_LAB
 	object_event  13,  1, SPRITE_BAD_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RivalBlaireLabScript, EVENT_RIVAL_HERALD_LAB
 	object_event  6, 	 1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EkansPokeballScript, EVENT_EKANS_POKEBALL_IN_OAKS_LAB
-	object_event  7, 	 1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HoundourPokeballScript, EVENT_HOUNDOUR_POKEBALL_IN_OAKS_LAB
+	object_event  7, 	 1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, YanmaPokeballScript, EVENT_YANMA_POKEBALL_IN_OAKS_LAB
 	object_event  8, 	 1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BaltoyPokeballScript, EVENT_BALTOY_POKEBALL_IN_OAKS_LAB
