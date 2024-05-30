@@ -72,7 +72,7 @@ ScenicBluff_MapScripts:
 		fruittree FRUITTREE_SCENIC_BLUFF
 
 	ScenicBluffHiddenSuperPotion:
-		hiddenitem SUPER_POTION, EVENT_SCENIC_BLUFF_SUPER_POTION
+		hiddenitem SUPER_POTION, EVENT_SCENIC_BLUFF_HIDDEN_SUPER_POTION
 
 	ScenicBluffBlueTeleport:
 		teleport_from
@@ -164,9 +164,9 @@ ScenicBluff_MapScripts:
 		text "Sorry, was just"
 		line "enjoying the view."
 
-		para "My name is Blue,"
+		para "My name is BLUE,"
 		line "and I'm a GYM"
-		cont "LEADER from Kanto."
+		cont "LEADER from KANTO."
 
 		para "I was just coming"
 		line "to spectate the"
@@ -210,7 +210,6 @@ ScenicBluff_MapEvents:
 	warp_event 12,  5, MOUNTAIN_CAVE, 1
 
 	def_coord_events
-	bg_event 3, 26, BGEVENT_ITEM, ScenicBluffHiddenSuperPotion
 
 	def_bg_events
 
@@ -219,6 +218,6 @@ ScenicBluff_MapEvents:
 	object_event 10, 21, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerYoungsterWesley, -1
 	object_event 12, 11, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 4, TrainerHikerReggie, -1
 	object_event 19, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ScenicBluffLassScript, -1
-	object_event 19, 32, SPRITE_BLUE, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SCENIC_BLUFF_SEEN_BLUE
+	object_event 19, 32, SPRITE_BLUE, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ScenicBluffBlueScript, EVENT_SCENIC_BLUFF_SEEN_BLUE
 	object_event 18, 35, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ScenicBluffPearl, EVENT_SCENIC_BLUFF_PEARL
 	object_event 19, 30, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ScenicBluffFruitTree, -1

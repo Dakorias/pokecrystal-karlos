@@ -7,12 +7,11 @@ ENDM
 Landmarks:
 ; entries correspond to constants/landmark_constants.asm
 	table_width 4, Landmarks
-	landmark 0, 0, SpecialMapName
-
+	landmark -8, -16, SpecialMapName
 	landmark 28, 76, HeraldCoveName
 	landmark 18, 76, HeraldRouteName
 	landmark 20, 64, CraggyBeachName
-	landmark 20, 52, CraggyBeachName
+	landmark 20, 52, CraggyCoastName
 	landmark 20, 40, ScenicBluffName
 	landmark 20, 28, MountainCaveName
 	landmark 12, 60, BerryForestName

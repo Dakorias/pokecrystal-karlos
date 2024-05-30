@@ -192,7 +192,7 @@ BattleCommand_CheckTurn:
 	bit FRZ, [hl]
 	jr z, .not_frozen
 
-	; Flame Wheel and Sacred Fire thaw the user.
+	; Flame Wheel thaws the user.
 	ld a, [wCurPlayerMove]
 	cp FLAME_WHEEL
 	jr z, .not_frozen
@@ -1026,9 +1026,6 @@ BattleCommand_DoTurn:
 	ld a, [wCurEnemyMoveNum]
 	ld c, a
 	ld b, 0
-	add hl, bc
-	ld hl, wWildMonMoves
-	add hl, bc
 	ret z
 
 

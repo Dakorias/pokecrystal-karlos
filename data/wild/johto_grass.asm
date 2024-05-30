@@ -149,9 +149,9 @@ JohtoGrassWildMons:
 	;	 %,  Species,				min, max
 	db 30,  HOPPIP,					15, 17
 	db 25,  ABRA,				    13, 15
-	db 20,  SHROOMISH,	  	14, 16
-	db 10,  NIDORAN_M,		  13, 14
-	db 10,  NIDORAN_F,		  13, 14
+	db 20,  SHROOMISH,	   	14, 16
+	db 10,  SUNKERN,		    13, 14
+	db 10,  APPLIN,		      13, 14
 	db  2,  SKIPLOOM,				17, 18
 	db  2,  APPLIN,					14, 18
 	db  1,  YANMA,			  	14, 17
@@ -159,9 +159,9 @@ JohtoGrassWildMons:
 	; day
 	db 30,  HOPPIP,					15, 17
 	db 25,  ABRA,				    13, 15
-	db 20,  SHROOMISH,	  	14, 16
-	db 10,  NIDORAN_M,		  13, 14
-	db 10,  NIDORAN_F,		  13, 14
+	db 20,  SHROOMISH,	   	14, 16
+	db 10,  SUNKERN,		    13, 14
+	db 10,  APPLIN,		      13, 14
 	db  2,  SKIPLOOM,				17, 18
 	db  2,  APPLIN,					14, 18
 	db  1,  YANMA,			  	14, 17
@@ -169,9 +169,9 @@ JohtoGrassWildMons:
 	; nite
 	db 30,  HOPPIP,					15, 17
 	db 25,  ABRA,				    13, 15
-	db 20,  SHROOMISH,	  	14, 16
-	db 10,  NIDORAN_M,		  13, 14
-	db 10,  NIDORAN_F,		  13, 14
+	db 20,  SHROOMISH,	   	14, 16
+	db 10,  SUNKERN,		    13, 14
+	db 10,  APPLIN,		      13, 14
 	db  2,  SKIPLOOM,				17, 18
 	db  2,  APPLIN,					14, 18
 	db  1,  YANMA,			  	14, 17

@@ -3,8 +3,8 @@ AnimationPointers:
 
 	dw EkansAnimation
 	dw ArbokAnimation
-	dw HoundourAnimation
-	dw HoundoomAnimation
+	dw YanmaAnimation
+	dw YanmegaAnimation
 	dw BaltoyAnimation
 	dw ClaydolAnimation
 	dw BidoofAnimation
@@ -67,14 +67,14 @@ AnimationPointers:
 	dw KadabraAnimation
 	dw AlakazamAnimation
 	dw DittoAnimation
-	dw Nidoran_mAnimation
-	dw NidorinoAnimation
-	dw NidokingAnimation
-	dw Nidoran_fAnimation
-	dw NidorinaAnimation
-	dw NidoqueenAnimation
-	dw YanmaAnimation
-	dw YanmegaAnimation
+	dw DhelmiseAnimation
+	dw SunkernAnimation
+	dw SunfloraAnimation
+	dw LitwickAnimation
+	dw LampentAnimation
+	dw ChandelureAnimation
+	dw HoundourAnimation
+	dw HoundoomAnimation
 	dw NumelAnimation
 	dw CameruptAnimation
 	dw DrifloonAnimation

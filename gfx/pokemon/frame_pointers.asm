@@ -3,8 +3,8 @@ FramesPointers:
 
 	dw EkansFrames
 	dw ArbokFrames
-	dw HoundourFrames
-	dw HoundoomFrames
+	dw YanmaFrames
+	dw YanmegaFrames
 	dw BaltoyFrames
 	dw ClaydolFrames
 	dw BidoofFrames
@@ -67,14 +67,14 @@ FramesPointers:
 	dw KadabraFrames
 	dw AlakazamFrames
 	dw DittoFrames
-	dw Nidoran_mFrames
-	dw NidorinoFrames
-	dw NidokingFrames
-	dw Nidoran_fFrames
-	dw NidorinaFrames
-	dw NidoqueenFrames
-	dw YanmaFrames
-	dw YanmegaFrames
+	dw DhelmiseFrames
+	dw SunkernFrames
+	dw SunfloraFrames
+	dw LitwickFrames
+	dw LampentFrames
+	dw ChandelureFrames
+	dw HoundourFrames
+	dw HoundoomFrames
 	dw NumelFrames
 	dw CameruptFrames
 	dw DrifloonFrames

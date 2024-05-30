@@ -4,8 +4,8 @@ PokedexDataPointerTable:
 
 	dw EkansPokedexEntry
 	dw ArbokPokedexEntry
-	dw HoundourPokedexEntry
-	dw HoundoomPokedexEntry
+	dw YanmaPokedexEntry
+	dw YanmegaPokedexEntry
 	dw BaltoyPokedexEntry
 	dw ClaydolPokedexEntry
 	dw BidoofPokedexEntry
@@ -68,14 +68,14 @@ PokedexDataPointerTable:
 	dw KadabraPokedexEntry
 	dw AlakazamPokedexEntry
 	dw DittoPokedexEntry
-	dw Nidoran_mPokedexEntry
-	dw NidorinoPokedexEntry
-	dw NidokingPokedexEntry
-	dw Nidoran_fPokedexEntry
-	dw NidorinaPokedexEntry
-	dw NidoqueenPokedexEntry
-	dw YanmaPokedexEntry
-	dw YanmegaPokedexEntry
+	dw DhelmisePokedexEntry
+	dw SunkernPokedexEntry
+	dw SunfloraPokedexEntry
+	dw LitwickPokedexEntry
+	dw LampentPokedexEntry
+	dw ChandelurePokedexEntry
+	dw HoundourPokedexEntry
+	dw HoundoomPokedexEntry
 	dw NumelPokedexEntry
 	dw CameruptPokedexEntry
 	dw DrifloonPokedexEntry

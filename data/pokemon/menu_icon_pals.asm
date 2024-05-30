@@ -7,8 +7,8 @@ MonMenuIconPals:
 	;					normal, shiny
 	icon_pals PURPLE, PURPLE ; EKANS
 	icon_pals PURPLE, PURPLE ; ARBOK
-	icon_pals RED, PURPLE ; HOUNDOUR
-	icon_pals RED, PURPLE ; HOUNDOOM
+	icon_pals GREEN, PURPLE ; YANMA
+	icon_pals GREEN, PURPLE ; YANMEGA
 	icon_pals RED, PURPLE ; BALTOY
 	icon_pals GRAY, PURPLE ; CLAYDOL
 	icon_pals PURPLE, PURPLE ; BIDOOF

@@ -264,12 +264,13 @@ YoungsterJamesAfterText:
 	done
 
 LassAlexisSeenText:
-	text "I found all of my"
-	line "#MON! Yours"
-	cont "look really tough."
+	text "BUNEARY and I"
+	line "are visiting from"
+	cont "SINNOH!"
 
-	para "Here, let me show"
-	line "you mine!"
+	para "Look at all the"
+	line "fun #MON I"
+	cont "caught here!"
 	done
 
 LassAlexisBeatenText:
@@ -346,7 +347,7 @@ RocketBlocker2Text:
 	done
 
 HeraldRouteSignText:
-	text "HERALD PASS"
+	text "HERALD ROUTE"
 
 	para "HERALD COVE -"
 	line "SECOND TOWN"

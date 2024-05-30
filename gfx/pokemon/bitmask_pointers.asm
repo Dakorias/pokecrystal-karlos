@@ -3,8 +3,8 @@ BitmasksPointers:
 
 	dw EkansBitmasks
 	dw ArbokBitmasks
-	dw HoundourBitmasks
-	dw HoundoomBitmasks
+	dw YanmaBitmasks
+	dw YanmegaBitmasks
 	dw BaltoyBitmasks
 	dw ClaydolBitmasks
 	dw BidoofBitmasks
@@ -67,14 +67,14 @@ BitmasksPointers:
 	dw KadabraBitmasks
 	dw AlakazamBitmasks
 	dw DittoBitmasks
-	dw Nidoran_mBitmasks
-	dw NidorinoBitmasks
-	dw NidokingBitmasks
-	dw Nidoran_fBitmasks
-	dw NidorinaBitmasks
-	dw NidoqueenBitmasks
-	dw YanmaBitmasks
-	dw YanmegaBitmasks
+	dw DhelmiseBitmasks
+	dw SunkernBitmasks
+	dw SunfloraBitmasks
+	dw LitwickBitmasks
+	dw LampentBitmasks
+	dw ChandelureBitmasks
+	dw HoundourBitmasks
+	dw HoundoomBitmasks
 	dw NumelBitmasks
 	dw CameruptBitmasks
 	dw DrifloonBitmasks

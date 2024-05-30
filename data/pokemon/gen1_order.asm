@@ -2,11 +2,11 @@ Pokered_MonIndices:
 	table_width 1, Pokered_MonIndices
 	db RHYDON
 	db WOOPER
-	db NIDORAN_M
 	db WOOPER
 	db WOOPER
 	db WOOPER
-	db NIDOKING
+	db WOOPER
+	db WOOPER
 	db WOOPER
 	db IVYSAUR
 	db EXEGGUTOR
@@ -14,8 +14,8 @@ Pokered_MonIndices:
 	db EXEGGCUTE
 	db WOOPER
 	db GENGAR
-	db NIDORAN_F
-	db NIDOQUEEN
+	db WOOPER
+	db WOOPER
 	db WOOPER
 	db RHYHORN
 	db LAPRAS
@@ -166,8 +166,8 @@ Pokered_MonIndices:
 	db PIDGEY
 	db WOOPER
 	db WOOPER
-	db NIDORINO
-	db NIDORINA
+	db WOOPER
+	db WOOPER
 	db GEODUDE
 	db PORYGON
 	db WOOPER

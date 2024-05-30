@@ -4,8 +4,8 @@ EvosAttacksPointers::
 	table_width 2, EvosAttacksPointers
 	dw EkansEvosAttacks
 	dw ArbokEvosAttacks
-	dw HoundourEvosAttacks
-	dw HoundoomEvosAttacks
+	dw YanmaEvosAttacks
+	dw YanmegaEvosAttacks
 	dw BaltoyEvosAttacks
 	dw ClaydolEvosAttacks
 	dw BidoofEvosAttacks
@@ -68,14 +68,14 @@ EvosAttacksPointers::
 	dw KadabraEvosAttacks
 	dw AlakazamEvosAttacks
 	dw DittoEvosAttacks
-	dw NidoranMEvosAttacks
-	dw NidorinoEvosAttacks
-	dw NidokingEvosAttacks
-	dw NidoranFEvosAttacks
-	dw NidorinaEvosAttacks
-	dw NidoqueenEvosAttacks
-	dw YanmaEvosAttacks
-	dw YanmegaEvosAttacks
+	dw DhelmiseEvosAttacks
+	dw SunkernEvosAttacks
+	dw SunfloraEvosAttacks
+	dw LitwickEvosAttacks
+	dw LampentEvosAttacks
+	dw ChandelureEvosAttacks
+	dw HoundourEvosAttacks
+	dw HoundoomEvosAttacks
 	dw NumelEvosAttacks
 	dw CameruptEvosAttacks
 	dw DrifloonEvosAttacks

@@ -2,8 +2,8 @@ AnimationIdlePointers:
 	table_width 2, AnimationIdlePointers
 	dw EkansAnimationIdle
 	dw ArbokAnimationIdle
-	dw HoundourAnimationIdle
-	dw HoundoomAnimationIdle
+	dw YanmaAnimationIdle
+	dw YanmegaAnimationIdle
 	dw BaltoyAnimationIdle
 	dw ClaydolAnimationIdle
 	dw BidoofAnimationIdle
@@ -66,14 +66,14 @@ AnimationIdlePointers:
 	dw KadabraAnimationIdle
 	dw AlakazamAnimationIdle
 	dw DittoAnimationIdle
-	dw Nidoran_mAnimationIdle
-	dw NidorinoAnimationIdle
-	dw NidokingAnimationIdle
-	dw Nidoran_fAnimationIdle
-	dw NidorinaAnimationIdle
-	dw NidoqueenAnimationIdle
-	dw YanmaAnimationIdle
-	dw YanmegaAnimationIdle
+	dw DhelmiseAnimationIdle
+	dw SunkernAnimationIdle
+	dw SunfloraAnimationIdle
+	dw LitwickAnimationIdle
+	dw LampentAnimationIdle
+	dw ChandelureAnimationIdle
+	dw HoundourAnimationIdle
+	dw HoundoomAnimationIdle
 	dw NumelAnimationIdle
 	dw CameruptAnimationIdle
 	dw DrifloonAnimationIdle

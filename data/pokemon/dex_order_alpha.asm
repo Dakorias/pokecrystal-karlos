@@ -5,8 +5,8 @@ AlphabeticalPokedexOrder:
 
 	db EKANS
 	db ARBOK
-	db HOUNDOUR
-	db HOUNDOOM
+	db YANMA
+	db YANMEGA
 	db BALTOY
 	db CLAYDOL
 	db BIDOOF
@@ -69,14 +69,14 @@ AlphabeticalPokedexOrder:
 	db KADABRA
 	db ALAKAZAM
 	db DITTO
-	db NIDORAN_M
-	db NIDORINO
-	db NIDOKING
-	db NIDORAN_F
-	db NIDORINA
-	db NIDOQUEEN
-	db YANMA
-	db YANMEGA
+	db DHELMISE
+	db SUNKERN
+	db SUNFLORA
+	db LITWICK
+	db LAMPENT
+	db CHANDELURE
+	db HOUNDOUR
+	db HOUNDOOM
 	db NUMEL
 	db CAMERUPT
 	db DRIFLOON

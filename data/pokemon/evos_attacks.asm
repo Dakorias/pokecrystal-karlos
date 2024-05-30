@@ -19,7 +19,7 @@ db EVOLVE_LEVEL, 26, ARBOK
 db 0 ; no more evolutions
 db 1, POISON_STING
 db 1, LEER
-db 6, BITE
+db 1, BITE
 db 11, WRAP
 db 16, GLARE
 db 20, SCREECH
@@ -35,7 +35,7 @@ ArbokEvosAttacks:
 db 0 ; no more evolutions
 db 1, POISON_STING
 db 1, LEER
-db 6, BITE
+db 1, BITE
 db 11, WRAP
 db 16, GLARE
 db 20, SCREECH
@@ -47,37 +47,45 @@ db 46, GUNK_SHOT
 db 55, CRUNCH
 db 0 ; no more level-up moves
 
-	HoundourEvosAttacks:
-	db EVOLVE_LEVEL, 24, HOUNDOOM
-	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 1, HOWL
-	db 6, EMBER
-	db 12, BITE
-	db 15, ROAR
-	db 17, SMOG
-	db 25, FIRE_FANG
-	db 30, FAINT_ATTACK
-	db 40, FLAMETHROWER
-	db 48, CRUNCH
-	db 60, NASTY_PLOT
-	db 0 ; no more level-up moves
 
-	HoundoomEvosAttacks:
-	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 1, HOWL
-	db 6, EMBER
-	db 12, BITE
-	db 15, ROAR
-	db 17, SMOG
-	db 25, FIRE_FANG
-	db 30, FAINT_ATTACK
-	db 40, FLAMETHROWER
-	db 48, CRUNCH
-	db 60, NASTY_PLOT
-	db 71, FIRE_BLAST
-	db 0 ; no more level-up moves
+YanmaEvosAttacks:
+db EVOLVE_LEVEL, 30, YANMEGA
+db 0 ; no more evolutions
+db 1, GUST
+db 1, LEER
+db 6, QUICK_ATTACK
+db 8, LEECH_LIFE
+db 13, SUPERSONIC
+db 16, TWISTER
+db 20, WING_ATTACK
+db 22, DOUBLE_TEAM
+db 26, SIGNAL_BEAM
+db 30, ANCIENTPOWER
+db 36, BUG_BUZZ
+db 43, HYPNOSIS
+db 47, DRAGON_PULSE
+db 50, U_TURN
+db 55, SLASH
+db 0 ; no more level-up moves
+
+YanmegaEvosAttacks:
+db 0 ; no more evolutions
+db 1, GUST
+db 1, LEER
+db 6, QUICK_ATTACK
+db 8, LEECH_LIFE
+db 13, SUPERSONIC
+db 16, TWISTER
+db 20, WING_ATTACK
+db 22, DOUBLE_TEAM
+db 26, SIGNAL_BEAM
+db 30, ANCIENTPOWER
+db 36, BUG_BUZZ
+db 43, HYPNOSIS
+db 47, DRAGON_PULSE
+db 50, U_TURN
+db 55, SLASH
+db 0 ; no more level-up moves
 
  BaltoyEvosAttacks:
  db EVOLVE_LEVEL, 28, CLAYDOL
@@ -961,8 +969,7 @@ GolbatEvosAttacks:
  db 1, TRANSFORM
  db 0 ; no more level-up moves
 
- NidoranMEvosAttacks:
-	 db EVOLVE_LEVEL, 16, NIDORINO
+ DhelmiseEvosAttacks:
 	 db 0 ; no more evolutions
 	 db 1, PECK
 	 db 1, LEER
@@ -975,8 +982,8 @@ GolbatEvosAttacks:
 	 db 37, POISON_JAB
 	 db 0 ; no more level-up moves
 
- NidorinoEvosAttacks:
-	 db EVOLVE_ITEM, MOON_STONE, NIDOKING
+ SunkernEvosAttacks:
+	 db EVOLVE_ITEM, SUN_STONE, SUNFLORA
 	 db 0 ; no more evolutions
 	 db 1, PECK
 	 db 1, LEER
@@ -989,7 +996,7 @@ GolbatEvosAttacks:
 	 db 37, POISON_JAB
 	 db 0 ; no more level-up moves
 
- NidokingEvosAttacks:
+SunfloraEvosAttacks:
  db 0 ; no more evolutions
  db 1, PECK
  db 1, LEER
@@ -1004,8 +1011,8 @@ GolbatEvosAttacks:
  db 55, EARTHQUAKE
  db 0 ; no more level-up moves
 
- NidoranFEvosAttacks:
- 	db EVOLVE_LEVEL, 16, NIDORINA
+ LitwickEvosAttacks:
+ 	db EVOLVE_LEVEL, 35, LAMPENT
 	db 0 ; no more evolutions
 	db 1, PECK
 	db 1, POISON_STING
@@ -1018,8 +1025,8 @@ GolbatEvosAttacks:
 	db 37, BODY_SLAM
   db 0 ; no more level-up moves
 
- NidorinaEvosAttacks:
- 	db EVOLVE_ITEM, MOON_STONE, NIDOQUEEN
+ LampentEvosAttacks:
+ 	db EVOLVE_ITEM, MOON_STONE, CHANDELURE
 	db 0 ; no more evolutions
 	db 1, PECK
 	db 1, POISON_STING
@@ -1032,7 +1039,7 @@ GolbatEvosAttacks:
 	db 37, BODY_SLAM
   db 0 ; no more level-up moves
 
- NidoqueenEvosAttacks:
+ChandelureEvosAttacks:
  db 0 ; no more evolutions
  db 1, PECK
  db 1, POISON_STING
@@ -1047,43 +1054,36 @@ GolbatEvosAttacks:
  db 55, EARTH_POWER
  db 0 ; no more level-up moves
 
- YanmaEvosAttacks:
- db EVOLVE_LEVEL, 30, YANMEGA
+ HoundourEvosAttacks:
+ db EVOLVE_LEVEL, 24, HOUNDOOM
  db 0 ; no more evolutions
- db 1, QUICK_ATTACK
- db 1, LEER
- db 6, GUST
- db 8, LEECH_LIFE
- db 13, SUPERSONIC
- db 16, TWISTER
- db 20, WING_ATTACK
- db 22, DOUBLE_TEAM
- db 26, SIGNAL_BEAM
- db 30, ANCIENTPOWER
- db 36, BUG_BUZZ
- db 43, HYPNOSIS
- db 47, DRAGON_PULSE
- db 50, U_TURN
- db 55, SLASH
+ db 1, TACKLE
+ db 1, HOWL
+ db 6, EMBER
+ db 12, BITE
+ db 15, ROAR
+ db 17, SMOG
+ db 25, FIRE_FANG
+ db 30, FAINT_ATTACK
+ db 40, FLAMETHROWER
+ db 48, CRUNCH
+ db 60, NASTY_PLOT
  db 0 ; no more level-up moves
 
- YanmegaEvosAttacks:
+ HoundoomEvosAttacks:
  db 0 ; no more evolutions
- db 1, QUICK_ATTACK
- db 1, LEER
- db 6, GUST
- db 8, LEECH_LIFE
- db 13, SUPERSONIC
- db 16, TWISTER
- db 20, WING_ATTACK
- db 22, DOUBLE_TEAM
- db 26, SIGNAL_BEAM
- db 30, ANCIENTPOWER
- db 36, BUG_BUZZ
- db 43, HYPNOSIS
- db 47, DRAGON_PULSE
- db 50, U_TURN
- db 55, SLASH
+ db 1, TACKLE
+ db 1, HOWL
+ db 6, EMBER
+ db 12, BITE
+ db 15, ROAR
+ db 17, SMOG
+ db 25, FIRE_FANG
+ db 30, FAINT_ATTACK
+ db 40, FLAMETHROWER
+ db 48, CRUNCH
+ db 60, NASTY_PLOT
+ db 71, FIRE_BLAST
  db 0 ; no more level-up moves
 
  NumelEvosAttacks:

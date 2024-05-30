@@ -71,16 +71,6 @@ InitMapNameSign::
 	ret z
 	cp LANDMARK_SPECIAL ; redundant check
 	ret z
-	cp LANDMARK_SPECIAL
-	ret z
-	cp LANDMARK_SPECIAL
-	ret z
-	cp LANDMARK_SPECIAL
-	ret z
-	cp LANDMARK_SPECIAL
-	ret z
-	cp LANDMARK_SPECIAL
-	ret z
 	ld a, 1
 	and a
 	ret

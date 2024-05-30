@@ -67,8 +67,6 @@
 	const EVENT_LAKE_OF_RAGE_EXPLAINED_WEIRD_MAGIKARP
 	const EVENT_LAKE_OF_RAGE_ASKED_FOR_MAGIKARP
 	const EVENT_LAKE_OF_RAGE_ELIXIR_ON_STANDBY
-	const_skip ; unused
-	const_skip ; unused
 	const EVENT_HEALED_MOOMOO
 	const EVENT_GOT_TM13_SNORE_FROM_MOOMOO_FARM
 	const EVENT_TALKED_TO_FARMER_ABOUT_MOOMOO
@@ -135,7 +133,8 @@
 	const EVENT_GOT_MASTER_BALL_FROM_ELM
 ; Monego hidden items
 	const EVENT_EDWARD_COIN_GOT
-	const EVENT_SCENIC_BLUFF_SUPER_POTION
+	const EVENT_SCENIC_BLUFF_HIDDEN_SUPER_POTION
+	const_skip
 	const_skip ; unused in Crystal
 	const_skip ; unused in Crystal
 	const_skip ; unused in Crystal

@@ -21,8 +21,8 @@
 	const_def 1
 	const EKANS 		 ; 01
 	const ARBOK      ; 02
-	const HOUNDOUR   ; 03
-	const HOUNDOOM   ; 04
+	const YANMA      ; 03
+	const YANMEGA    ; 04
 	const BALTOY     ; 05
 	const CLAYDOL    ; 06
 	const BIDOOF     ; 07
@@ -85,14 +85,14 @@
 	const KADABRA    ; 41
 	const ALAKAZAM   ; 42
 	const DITTO      ; 43
-	const NIDORAN_M  ; 44
-	const NIDORINO   ; 45
-	const NIDOKING   ; 46
-	const NIDORAN_F  ; 47
-	const NIDORINA   ; 48
-	const NIDOQUEEN  ; 49
-	const YANMA      ; 4a
-	const YANMEGA    ; 4b
+	const DHELMISE   ; 44
+	const SUNKERN    ; 45
+	const SUNFLORA   ; 46
+	const LITWICK    ; 47
+	const LAMPENT    ; 48
+	const CHANDELURE ; 49
+	const HOUNDOUR   ; 4a
+	const HOUNDOOM   ; 4b
 	const NUMEL      ; 4c
 	const CAMERUPT   ; 4d
 	const DRIFLOON   ; 4e

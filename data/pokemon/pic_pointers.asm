@@ -7,10 +7,10 @@ PokemonPicPointers::
 	dba EkansBackpic
 	dba ArbokFrontpic
 	dba ArbokBackpic
-	dba HoundourFrontpic
-	dba HoundourBackpic
-	dba HoundoomFrontpic
-	dba HoundoomBackpic
+	dba YanmaFrontpic
+	dba YanmaBackpic
+	dba YanmegaFrontpic
+	dba YanmegaBackpic
 	dba BaltoyFrontpic
 	dba BaltoyBackpic
 	dba ClaydolFrontpic
@@ -136,22 +136,22 @@ PokemonPicPointers::
 	dba AlakazamBackpic
 	dba DittoFrontpic
 	dba DittoBackpic
-	dba NidoranMFrontpic
-	dba NidoranMBackpic
-	dba NidorinoFrontpic
-	dba NidorinoBackpic
-	dba NidokingFrontpic
-	dba NidokingBackpic
-	dba NidoranFFrontpic
-	dba NidoranFBackpic
-	dba NidorinaFrontpic
-	dba NidorinaBackpic
-	dba NidoqueenFrontpic
-	dba NidoqueenBackpic
-	dba YanmaFrontpic
-	dba YanmaBackpic
-	dba YanmegaFrontpic
-	dba YanmegaBackpic
+	dba DhelmiseFrontpic
+	dba DhelmiseBackpic
+	dba SunkernFrontpic
+	dba SunkernBackpic
+	dba SunfloraFrontpic
+	dba SunfloraBackpic
+	dba LitwickFrontpic
+	dba LitwickBackpic
+	dba LampentFrontpic
+	dba LampentBackpic
+	dba ChandelureFrontpic
+	dba ChandelureBackpic
+	dba HoundourFrontpic
+	dba HoundourBackpic
+	dba HoundoomFrontpic
+	dba HoundoomBackpic
 	dba NumelFrontpic
 	dba NumelBackpic
 	dba CameruptFrontpic

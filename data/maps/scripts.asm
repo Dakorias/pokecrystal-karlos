@@ -24,7 +24,7 @@ INCLUDE "maps/HeraldPokecenter.asm"
 INCLUDE "maps/HeraldGym.asm"
 INCLUDE "maps/HeraldHouse.asm"
 INCLUDE "maps/HeraldPort.asm"
-
+INCLUDE "maps/CraggyBeach.asm"
 
 SECTION "Map Scripts 4", ROMX
 
@@ -42,7 +42,6 @@ INCLUDE "maps/LancesRoom.asm"
 INCLUDE "maps/HallOfFame.asm"
 
 SECTION "Map Scripts 5", ROMX
-INCLUDE "maps/CraggyBeach.asm"
 INCLUDE "maps/CraggyCoast.asm"
 INCLUDE "maps/ScenicBluff.asm"
 INCLUDE "maps/MountainCave.asm"
@@ -52,10 +51,10 @@ INCLUDE "maps/CraggyCoastPokecenter.asm"
 INCLUDE "maps/CraggyCoastFishing.asm"
 INCLUDE "maps/BeachGrotto.asm"
 INCLUDE "maps/MountainGym.asm"
-INCLUDE "maps/BerryForest.asm"
-INCLUDE "maps/BerryForestHouse.asm"
 
 SECTION "Map Scripts 6", ROMX
+INCLUDE "maps/BerryForest.asm"
+INCLUDE "maps/BerryForestHouse.asm"
 
 
 SECTION "Map Scripts 7", ROMX

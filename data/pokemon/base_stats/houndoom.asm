@@ -1,4 +1,4 @@
-	db HOUNDOOM ; 004
+	db HOUNDOOM ; 074
 
 	db  75,  90,  50,  95, 110,  80
 	;   hp  atk  def  spd  sat  sdf
@@ -13,7 +13,7 @@
 	db 5 ; unknown 2
 	INCBIN "gfx/pokemon/houndoom/front.dimensions"
 	dw NULL, NULL ; unused (beta front/back pics)
-	db GROWTH_MEDIUM_SLOW ; growth rate
+	db GROWTH_SLOW ; growth rate
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset

@@ -81,7 +81,7 @@ ENDM
 
 	newgroup CRAGGY_COAST																					; 6
 	map_const CRAGGY_COAST,																 20, 16 ; 1
-	map_const SCENIC_BLUFF, 													   	 15, 26 ; 2
+	map_const SCENIC_BLUFF, 													   	 14, 26 ; 2
 	map_const MOUNTAIN_CAVE, 															 10, 14 ; 3
 	map_const CRAGGY_COAST_HOUSE1,													5,  4 ; 4
 	map_const CRAGGY_COAST_HOUSE2,													5,  4 ; 5
@@ -96,4 +96,4 @@ ENDM
 	map_const BERRY_FOREST_HOUSE, 													5,  4 ; 2
 	endgroup
 
-DEF NUM_MAP_GROUPS EQU const_value ; 6
+DEF NUM_MAP_GROUPS EQU const_value ; 7
