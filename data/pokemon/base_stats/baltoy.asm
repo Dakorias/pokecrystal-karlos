@@ -1,6 +1,6 @@
 	db BALTOY ; 005
 
-	db  70,  80,  100,  60,  80,  110
+	db  50,  50,  65,  55,  50,  70
 	;   hp  atk  def  spd  sat  sdf
 
 	db GROUND, PSYCHIC_TYPE ; type
