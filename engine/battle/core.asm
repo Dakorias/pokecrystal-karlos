@@ -264,6 +264,9 @@ HandleBetweenTurnEffects:
 	call HandlePerishSong
 	call CheckFaint_PlayerThenEnemy
 	ret c
+	call HandleTrickRoom
+	call CheckFaint_PlayerThenEnemy
+	ret c
 	jr .NoMoreFaintingConditions
 
 .CheckEnemyFirst:
@@ -280,6 +283,9 @@ HandleBetweenTurnEffects:
 	ret c
 	call HandlePerishSong
 	call CheckFaint_EnemyThenPlayer
+	ret c
+	call HandleTrickRoom
+	call CheckFaint_PlayerThenEnemy
 	ret c
 
 .NoMoreFaintingConditions:
@@ -535,6 +541,10 @@ DetermineMoveOrder:
 	ld c, 2
 	call CompareBytes
 	jr z, .speed_tie
+	ld a, [wTrickRoom]
+	ld d, a
+	and d ; Is Trick Room active?
+	jp nz, .trick_room
 	jp nc, .player_first
 	jp .enemy_first
 
@@ -551,6 +561,7 @@ DetermineMoveOrder:
 	call BattleRandom
 	cp 50 percent + 1
 	jp c, .enemy_first
+
 .player_first
 	scf
 	ret
@@ -558,6 +569,27 @@ DetermineMoveOrder:
 .enemy_first
 	and a
 	ret
+
+.trick_room
+	ld hl, wTrickRoom
+	jp nc, .enemy_first
+	jp .player_first
+
+
+HandleTrickRoom:
+	ld hl, wTrickRoom
+	ld a, [hl]
+	and a
+	ret z
+	dec [hl]
+	ret nz
+	ld hl, TrickRoomEndedText
+	jp StdBattleTextbox
+
+.end_trick_room
+	ld hl, TrickRoomEndedText
+	jp StdBattleTextbox
+
 
 CheckContestBattleOver:
 	ld a, [wBattleType]
@@ -609,13 +641,15 @@ ParsePlayerAction:
 	bit SUBSTATUS_ENCORED, [hl]
 	jr z, .not_encored
 	ld a, [wLastPlayerMove]
+	and a
+	jr z, .not_encored
 	ld [wCurPlayerMove], a
 	jr .encored
 
 .not_encored
 	ld a, [wBattlePlayerAction]
 	cp BATTLEPLAYERACTION_SWITCH
-	jr z, .reset_rage
+	jp z, .reset_rage
 	and a
 	jr nz, .reset_bide
 	ld a, [wPlayerSubStatus3]
@@ -639,6 +673,7 @@ ParsePlayerAction:
 	ldh [hBGMapMode], a
 	pop af
 	ret nz
+	call SetChoiceLock
 
 .encored
 	call SetPlayerTurn
@@ -829,8 +864,8 @@ GetMovePriority:
 
 	ld b, a
 
-	; Vital Throw goes last.
-	cp VITAL_THROW
+	; Trick Room goes last.
+	cp TRICK_ROOM
 	ld a, 0
 	ret z
 
@@ -1294,9 +1329,33 @@ HandleLeftovers:
 	ld [wNamedObjectIndex], a
 	call GetItemName
 	ld a, b
+	cp HELD_BLACK_SLUDGE
+	jr nz, .check_leftovers
+
+; check if user is poison type
+	ld hl, wBattleMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .gottype
+	ld hl, wEnemyMonType1
+.gottype
+	ld a, [hli]
+	cp POISON
+	jp z, .get_hp
+	ld a, [hl]
+	cp POISON
+	jp z, .get_hp
+
+; User is not poison, deal damage
+	call GetEighthMaxHP
+	call SubtractHPFromTarget
+	ld hl, BattleText_UsersHurtByStringBuffer1
+	jp StdBattleTextbox
+
+.check_leftovers
 	cp HELD_LEFTOVERS
 	ret nz
-
+.get_hp
 	ld hl, wBattleMonHP
 	ldh a, [hBattleTurn]
 	and a
@@ -1322,6 +1381,7 @@ HandleLeftovers:
 	call RestoreHP
 	ld hl, BattleText_TargetRecoveredWithItem
 	jp StdBattleTextbox
+
 
 HandleMysteryberry:
 	ldh a, [hSerialConnectionStatus]
@@ -1687,14 +1747,22 @@ HandleWeather:
 
 	ld hl, wWeatherCount
 	dec [hl]
-	jr z, .ended
+	jr nz, .continues
 
+	; ended
+	ld hl, .WeatherEndedMessages
+	call .PrintWeatherMessage
+	xor a
+	ld [wBattleWeather], a
+	ret
+
+.continues
 	ld hl, .WeatherMessages
 	call .PrintWeatherMessage
 
 	ld a, [wBattleWeather]
 	cp WEATHER_SANDSTORM
-	ret nz
+	jr nz, .check_hail
 
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
@@ -1751,12 +1819,51 @@ HandleWeather:
 	ld hl, SandstormHitsText
 	jp StdBattleTextbox
 
-.ended
-	ld hl, .WeatherEndedMessages
-	call .PrintWeatherMessage
-	xor a
-	ld [wBattleWeather], a
-	ret
+	.check_hail
+		ld a, [wBattleWeather]
+		cp WEATHER_HAIL
+		ret nz
+
+		ldh a, [hSerialConnectionStatus]
+		cp USING_EXTERNAL_CLOCK
+		jr z, .enemy_first_hail
+
+	; player first
+		call SetPlayerTurn
+		call .HailDamage
+		call SetEnemyTurn
+		jr .HailDamage
+
+	.enemy_first_hail
+		call SetEnemyTurn
+		call .HailDamage
+		call SetPlayerTurn
+
+	.HailDamage:
+		ld a, BATTLE_VARS_SUBSTATUS3
+		call GetBattleVar
+		bit SUBSTATUS_UNDERGROUND, a
+		ret nz
+
+		ld hl, wBattleMonType1
+		ldh a, [hBattleTurn]
+		and a
+		jr z, .ok1
+		ld hl, wEnemyMonType1
+	.ok1
+		ld a, [hli]
+		cp ICE
+		ret z
+
+		ld a, [hl]
+		cp ICE
+		ret z
+
+		call GetSixteenthMaxHP
+		call SubtractHPFromUser
+
+		ld hl, PeltedByHailText
+		jp StdBattleTextbox
 
 .PrintWeatherMessage:
 	ld a, [wBattleWeather]
@@ -1775,12 +1882,14 @@ HandleWeather:
 	dw BattleText_RainContinuesToFall
 	dw BattleText_TheSunlightIsStrong
 	dw BattleText_TheSandstormRages
+	dw BattleText_HailContinuesToFall
 
 .WeatherEndedMessages:
 ; entries correspond to WEATHER_* constants
 	dw BattleText_TheRainStopped
 	dw BattleText_TheSunlightFaded
 	dw BattleText_TheSandstormSubsided
+	dw BattleText_TheHailStopped
 
 SubtractHPFromTarget:
 	call SubtractHP
@@ -4172,7 +4281,7 @@ PursuitSwitch:
 
 	ld a, BATTLE_VARS_MOVE
 	call GetBattleVarAddr
-	ld a, $ff
+	xor a ; NO_MOVE
 	ld [hl], a
 
 	pop af
@@ -5808,6 +5917,7 @@ ParseEnemyAction:
 	bit SUBSTATUS_ENCORED, [hl]
 	ld a, [wLastEnemyMove]
 	jp nz, .finish
+	call SetChoiceLock
 	ld hl, wEnemyMonMoves
 	ld b, 0
 	add hl, bc
@@ -5888,6 +5998,7 @@ ParseEnemyAction:
 
 .skip_load
 	call SetEnemyTurn
+	call SetChoiceLock
 	callfar UpdateMoveData
 	call CheckEnemyLockedIn
 	jr nz, .raging
@@ -5923,6 +6034,30 @@ ParseEnemyAction:
 .struggle
 	ld a, STRUGGLE
 	jr .finish
+
+SetChoiceLock:
+	push hl
+	push bc
+	callfar GetUserItem
+	ld a, b
+	cp HELD_CHOICE_BOOST
+	jr nz, .done
+	ld hl, wPlayerEncoreCount
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .GotEncoreCount
+	ld hl, wEnemyEncoreCount
+.GotEncoreCount
+	ld a, -1 ; Set encore count to 255
+	ld [hl], a
+	ld a, BATTLE_VARS_SUBSTATUS5
+	call GetBattleVarAddr
+	set SUBSTATUS_ENCORED, [hl]
+
+.done
+	pop bc
+	pop hl
+	ret
 
 ResetVarsForSubstatusRage:
 	xor a
@@ -6192,12 +6327,13 @@ LoadEnemyMon:
 	jr nc, .GenerateDVs
 
 .CheckMagikarpArea:
+; TODO: Replace GROUP_NONE and MAP_NONE with the map you want for large Magikarp.
 ; BUG: Magikarp in Lake of Rage are shorter, not longer (see docs/bugs_and_glitches.md)
 	ld a, [wMapGroup]
-	cp GROUP_LAKE_OF_RAGE
+	cp GROUP_NONE
 	jr z, .Happiness
 	ld a, [wMapNumber]
-	cp MAP_LAKE_OF_RAGE
+	cp MAP_NONE
 	jr z, .Happiness
 ; 40% chance of not flooring
 	call Random
@@ -6791,7 +6927,7 @@ BadgeStatBoosts:
 	rrca
 	ld c, a
 	ld a, d
-	and ((1 << ZEPHYRBADGE) | (1 << HIVEBADGE) | (1 << FOGBADGE) | (1 << STORMBADGE) | (1 << GLACIERBADGE) | (1 << RISINGBADGE))
+	and ((1 << ANCHORBADGE) | (1 << HIVEBADGE) | (1 << FOGBADGE) | (1 << STORMBADGE) | (1 << GLACIERBADGE) | (1 << RISINGBADGE))
 	or b
 	or c
 	ld b, a
@@ -7402,6 +7538,37 @@ BoostExp:
 	adc b
 	ldh [hProduct + 2], a
 	pop bc
+	ret
+
+CheckOpponentFullHP:
+; check if the opponent has full HP
+; z: yes, nz: no
+	ld hl, wEnemyMonHP
+	ld a, [hBattleTurn]
+	and a
+	jr z, DoCheckFullHP
+	ld hl, wBattleMonHP
+	jr DoCheckFullHP
+
+CheckFullHP:
+; check if the user has full HP
+; z: yes, nz: no
+	ld hl, wBattleMonHP
+	ld a, [hBattleTurn]
+	and a
+	jr z, DoCheckFullHP
+	ld hl, wEnemyMonHP
+	; fallthrough
+DoCheckFullHP:
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	cp b
+	ret nz
+	ld a, [hl]
+	cp c
 	ret
 
 Text_MonGainedExpPoint:
@@ -8123,9 +8290,9 @@ InitEnemyTrainer:
 	callfar GetTrainerAttributes
 	callfar ReadTrainerParty
 
-	; RIVAL1's first mon has no held item
+	; RIVALP's first mon has no held item
 	ld a, [wTrainerClass]
-	cp RIVAL1
+	cp POKEMON_PROF
 	jr nz, .ok
 	xor a
 	ld [wOTPartyMon1Item], a
