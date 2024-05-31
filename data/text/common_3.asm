@@ -623,6 +623,51 @@ _PharmacyComeAgainText::
 	line "See you around."
 	done
 
+_MartHouseIntroText::
+	text "Hey, I'm trying to"
+	line "move out, but I've"
+
+	para "got to get rid of"
+	line "some things."
+
+	para "Could you buy any"
+	line "of these? Thanks!"
+	done
+
+_MartHouseHowManyText::
+	text "How many?"
+	done
+
+_MartHouseFinalPriceText::
+	text_decimal wItemQuantityChange, 1, 2
+	text " @"
+	text_ram wStringBuffer2
+	text "(S)"
+	line "will cost ¥@"
+	text_decimal hMoneyTemp, 3, 6
+	text "."
+	done
+
+_MartHouseThanksText::
+	text "Thanks a bunch!"
+	done
+
+_MartHousePackFullText::
+	text "I don't think you"
+	line "can carry this..."
+	done
+
+_MartHouseNoMoneyText::
+	text "Huh? That's not"
+	line "enough money."
+	done
+
+_MartHouseComeAgainText::
+	text "Thanks! That makes"
+	line "moving so much"
+	cont "easier."
+	done
+
 _NothingToSellText::
 	text "You don't have"
 	line "anything to sell."

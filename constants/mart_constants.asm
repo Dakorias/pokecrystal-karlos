@@ -5,7 +5,7 @@
 	const MARTTYPE_BARGAIN
 	const MARTTYPE_PHARMACY
 	const MARTTYPE_ROOFTOP
-	const MARTTYPE_NO_DIALOG
+	const MARTTYPE_HOUSE
 
 ; Marts indexes (see data/items/marts.asm)
 	const_def

@@ -405,7 +405,8 @@ MartHeraldBerries:
 	db -1 ; end
 
 MartCraggyCoast1:
-	db 3 ; # items
+	db 4 ; # items
+	db POKE_BALL
 	db X_ATTACK
 	db X_DEFEND
 	db X_ACCURACY
@@ -430,8 +431,7 @@ MartCraggyCoast3:
 	db -1 ; end
 
 MartCraggyCoast4:
-	db 9 ; # items
-	db POKE_BALL
+	db 8 ; # items
 	db RESCUE_BALL
 	db DUSK_BALL
 	db DAWN_BALL
