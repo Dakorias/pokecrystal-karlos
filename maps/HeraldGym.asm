@@ -14,7 +14,7 @@ HeraldGym_MapScripts:
 	HeraldGymNoop1Scene:
 		end
 
-	EdwardScript:
+	EdwardGymScript:
 		faceplayer
 		opentext
 		checkevent EVENT_BEAT_EDWARD
@@ -27,8 +27,6 @@ HeraldGym_MapScripts:
 		iftrue EdwardStartGymChallengeScript
 		checkevent EVENT_GOT_MAP_FROM_EDWARD
 		iftrue EdwardComeBackLaterScript
-		checkevent EVENT_GOT_A_POKEMON_FROM_OAK
-		iftrue EdwardMapScript
 		writetext EdwardHowDidYouGetHereScript
 		waitbutton
 		closetext
@@ -109,42 +107,9 @@ HeraldGym_MapScripts:
 		text "Come back once"
 		line "you're all regis-"
 		cont "tered up."
-		done
 
-	EdwardGivesMapText:
-		text "EDWARD: There you"
-		line "are <PLAYER>!"
-
-		para "Here's that map he"
-		line "was lookin' fer."
-		done
-
-	PlayerShouldJoinConference:
-		text "That should keep"
-		line "'im busy for a"
-		cont "little while."
-
-		para "...Ah, I see you"
-		line "have a #MON!"
-
-		para "Why don't you go"
-		line "on and get signed"
-		cont "up to battle?"
-
-		para "There's a BATTLE"
-		line "CONFERENCE open on"
-		cont "the islands now."
-
-		para "It's a great way"
-		line "to travel and bond"
-		cont "with your #MON!"
-
-		para "Give that MAP to"
-		line "OAK, and then go"
-		cont "sign up."
-
-		para "I'll be here when"
-		line "you're ready!"
+		para "I'll give you a"
+		line "good challenge!"
 		done
 
 	EdwardHowDidYouGetHereText:
@@ -257,4 +222,4 @@ HeraldGym_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  4,  2, SPRITE_EDWARD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, EdwardScript, -1
+	object_event  4,  2, SPRITE_EDWARD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, EdwardGymScript, EVENT_EDWARD_MISSING_FROM_GYM

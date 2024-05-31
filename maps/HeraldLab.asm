@@ -226,6 +226,7 @@ HeraldLab_MapScripts:
 		playsound SFX_EXIT_BUILDING
 		disappear HERALD_LAB_PERCY
 		setscene SCENE_HERALD_LAB_RIVAL_FIGHT
+		setevent EVENT_EDWARD_MISSING_FROM_GYM
 		end
 
 	.PercyEkansExit:
@@ -761,8 +762,9 @@ HeraldLabHealingMachine_HealParty:
 		line "run and grab that"
 		cont "map from EDWARD?"
 
-		para "He would be in the"
-		line "local GYM."
+		para "He would at his"
+		line "home over in"
+		cont "HERALD BAY."
 
 		para "PERCY: I'm gonna go"
 		line "play with my new"

@@ -541,8 +541,8 @@ MountainGym_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 3,  9, MOUNTAIN_CAVE, 2
-	warp_event 4,  9, MOUNTAIN_CAVE, 2
+	warp_event 3,  9, MT_MONEGO, 2
+	warp_event 4,  9, MT_MONEGO, 2
 
 	def_coord_events
 

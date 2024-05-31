@@ -76,19 +76,22 @@ ENDM
 	map_const PLAYERS_HOUSE_2F,                             4,  3 ;  9
 	map_const REGISTRATION_CENTER,							 						5,  5 ; 10
 	map_const HERALD_GROTTO,																4,  8 ; 11
-	map_const CRAGGY_BEACH,																 12, 40 ; 12
+	map_const HERALD_BAY,																	 14, 20 ; 12
+	map_const HERALD_BAY_HOUSE,														 5,  4  ; 13
+	map_const CRAGGY_BEACH,																 12, 40 ; 14
 	endgroup
 
 	newgroup CRAGGY_COAST																					; 6
 	map_const CRAGGY_COAST,																 20, 16 ; 1
 	map_const SCENIC_BLUFF, 													   	 14, 26 ; 2
-	map_const MOUNTAIN_CAVE, 															 10, 14 ; 3
-	map_const CRAGGY_COAST_HOUSE1,													5,  4 ; 4
-	map_const CRAGGY_COAST_HOUSE2,													5,  4 ; 5
-	map_const CRAGGY_COAST_POKECENTER,				 							7,  4 ; 6
-	map_const CRAGGY_COAST_FISHING,												  5,  4 ; 7
-	map_const BEACH_GROTTO, 																5,  5 ; 8
-	map_const MOUNTAIN_GYM,																	5,  5 ; 9
+	map_const MT_MONEGO, 															     10, 14 ; 3
+	map_const MT_MONEGO_B1F,															 10, 14 ; 4
+	map_const CRAGGY_COAST_HOUSE1,													5,  4 ; 5
+	map_const CRAGGY_COAST_HOUSE2,													5,  4 ; 6
+	map_const CRAGGY_COAST_POKECENTER,				 							7,  4 ; 7
+	map_const CRAGGY_COAST_FISHING,												  5,  4 ; 8
+	map_const BEACH_GROTTO, 																5,  5 ; 9
+	map_const MOUNTAIN_GYM,																	5,  5 ; 10
 	endgroup
 
 	newgroup BERRY_FOREST																					; 7

@@ -37,6 +37,12 @@ HeraldCove_Blocks:
 HeraldRoute_Blocks:
 	INCBIN "maps/HeraldRoute.blk"
 
+HeraldBay_Blocks:
+	INCBIN "maps/HeraldBay.blk"
+
+HeraldBayHouse_Blocks:
+	INCBIN "maps/House.blk"
+
 HeraldLab_Blocks:
 	INCBIN "maps/HeraldLab.blk"
 
@@ -100,8 +106,11 @@ CraggyCoast_Blocks:
 ScenicBluff_Blocks:
 	INCBIN "maps/ScenicBluff.blk"
 
-MountainCave_Blocks:
-	INCBIN "maps/MountainCave.blk"
+MtMonego_Blocks:
+	INCBIN "maps/MtMonego.blk"
+
+MtMonegoB1F_Blocks:
+	INCBIN "maps/MtMonegoB1F.blk"
 
 CraggyCoastHouse1_Blocks:
 	INCBIN "maps/House.blk"

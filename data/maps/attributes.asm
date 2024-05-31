@@ -101,9 +101,13 @@ ENDM
 	map_attributes HeraldCove, HERALD_COVE, $35, WEST
 	connection west, HeraldRoute, HERALD_ROUTE, 0
 
-	map_attributes HeraldRoute, HERALD_ROUTE, $35, NORTH | EAST
+	map_attributes HeraldRoute, HERALD_ROUTE, $35, NORTH | SOUTH | EAST
 	connection north, CraggyBeach, CRAGGY_BEACH, 15
+	connection south, HeraldBay, HERALD_BAY, 0
 	connection east, HeraldCove, HERALD_COVE, 0
+
+	map_attributes HeraldBay, HERALD_BAY, $35, NORTH
+	connection north, HeraldRoute, HERALD_ROUTE, 0
 
 	map_attributes CraggyBeach, CRAGGY_BEACH, $35, NORTH | SOUTH
 	connection north, CraggyCoast, CRAGGY_COAST, 0
@@ -120,10 +124,12 @@ ENDM
 	map_attributes HeraldPokecenter, HERALD_POKECENTER, $00, 0
 	map_attributes HeraldGym, HERALD_GYM, $00, 0
 	map_attributes HeraldHouse, HERALD_HOUSE, $00, 0
+	map_attributes HeraldBayHouse, HERALD_HOUSE, $00, 0
 	map_attributes HeraldPort, HERALD_PORT, $00, 0
 	map_attributes RegistrationCenter, REGISTRATION_CENTER, $00, 0
 	map_attributes HeraldGrotto, HERALD_GROTTO, $05, 0
-	map_attributes MountainCave, MOUNTAIN_CAVE, $00, 0
+	map_attributes MtMonego, MT_MONEGO, $00, 0
+	map_attributes MtMonegoB1F, MT_MONEGO_B1F, $00, 0
 	map_attributes CraggyCoastHouse1, CRAGGY_COAST_HOUSE1, $00, 0
 	map_attributes CraggyCoastHouse2, CRAGGY_COAST_HOUSE2, $00, 0
 	map_attributes CraggyCoastPokecenter, CRAGGY_COAST_POKECENTER, $00, 0

@@ -8,13 +8,14 @@ Landmarks:
 ; entries correspond to constants/landmark_constants.asm
 	table_width 4, Landmarks
 	landmark -8, -16, SpecialMapName
-	landmark 28, 76, HeraldCoveName
-	landmark 18, 76, HeraldRouteName
-	landmark 20, 64, CraggyBeachName
-	landmark 20, 52, CraggyCoastName
-	landmark 20, 40, ScenicBluffName
-	landmark 20, 28, MountainCaveName
-	landmark 12, 60, BerryForestName
+	landmark 20, 84, HeraldCoveName
+	landmark 8, 84, HeraldRouteName
+	landmark 0, 0, HeraldBayName
+	landmark 12, 73, CraggyBeachName
+	landmark 12, 60, CraggyCoastName
+	landmark 12, 48, ScenicBluffName
+	landmark 12, 36, MtMonegoName
+	landmark 4, 68, BerryForestName
 
 	assert_table_length KANTO_LANDMARK
 	landmark  52, 108, PalletTownName
@@ -71,10 +72,11 @@ Landmarks:
 
 HeraldCoveName:  	 	 db "HERALD¯COVE@"
 HeraldRouteName:  	 db "HERALD¯ROUTE@"
+HeraldBayName:  		 db "HERALD¯BAY@"
 CraggyBeachName:  	 db "CRAGGY¯BEACH@"
 CraggyCoastName:  	 db "CRAGGY¯COAST@"
 ScenicBluffName:     db "SCENIC¯BLUFF@"
-MountainCaveName:    db "MOUNTAIN¯CAVE@"
+MtMonegoName:        db "MT.¯MONEGO@"
 BerryForestName:     db "BERRY¯FOREST@"
 NewBarkTownName:     db "NEW BARK¯TOWN@"
 CherrygroveCityName: db "CHERRYGROVE¯CITY@"

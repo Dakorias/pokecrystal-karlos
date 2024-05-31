@@ -1,9 +1,9 @@
 	object_const_def
-	const MOUNTAIN_CAVE_YOUNGSTER1
-	const MOUNTAIN_CAVE_YOUNGSTER2
-	const MOUNTAIN_CAVE_YOUNGSTER3
+	const MT_MONEGO_YOUNGSTER1
+	const MT_MONEGO_YOUNGSTER2
+	const MT_MONEGO_YOUNGSTER3
 
-MountainCave_MapScripts:
+MtMonego_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
@@ -112,7 +112,7 @@ MountainCave_MapScripts:
 		done
 
 
-MountainCave_MapEvents:
+MtMonego_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events

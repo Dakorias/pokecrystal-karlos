@@ -567,7 +567,7 @@ PokegearMap_KantoMap:
 PokegearMap_JohtoMap:
 ; TODO: Change these to the last and first landmarks of the Johto region.
 	ld d, LANDMARK_HERALD_COVE
-	ld e, LANDMARK_MOUNTAIN_CAVE
+	ld e, LANDMARK_MT_MONEGO
 PokegearMap_ContinueMap:
 	ld hl, hJoyLast
 	ld a, [hl]

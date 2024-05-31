@@ -3090,85 +3090,80 @@ BattleCommand_DamageCalc:
 ; Critical hits
 	call .CriticalMultiplier
 
-; Update wCurDamage. Max 999 (capped at 997, then add 2).
-DEF MAX_DAMAGE EQU 999
-DEF MIN_DAMAGE EQU 2
-DEF DAMAGE_CAP EQU MAX_DAMAGE - MIN_DAMAGE
-
+; Update wCurDamage (capped at 997).
 	ld hl, wCurDamage
 	ld b, [hl]
-	ldh a, [hQuotient + 3]
+	ldh a, [hProduct + 3]
 	add b
-	ldh [hQuotient + 3], a
+	ldh [hProduct + 3], a
 	jr nc, .dont_cap_1
 
-	ldh a, [hQuotient + 2]
+	ldh a, [hProduct + 2]
 	inc a
-	ldh [hQuotient + 2], a
+	ldh [hProduct + 2], a
 	and a
 	jr z, .Cap
 
 .dont_cap_1
-	ldh a, [hQuotient]
+	ldh a, [hProduct]
 	ld b, a
-	ldh a, [hQuotient + 1]
+	ldh a, [hProduct + 1]
 	or a
 	jr nz, .Cap
 
-	ldh a, [hQuotient + 2]
-	cp HIGH(DAMAGE_CAP + 1)
+	ldh a, [hProduct + 2]
+	cp HIGH(MAX_STAT_VALUE - MIN_NEUTRAL_DAMAGE + 1)
 	jr c, .dont_cap_2
 
-	cp HIGH(DAMAGE_CAP + 1) + 1
+	cp HIGH(MAX_STAT_VALUE - MIN_NEUTRAL_DAMAGE + 1) + 1
 	jr nc, .Cap
 
-	ldh a, [hQuotient + 3]
-	cp LOW(DAMAGE_CAP + 1)
+	ldh a, [hProduct + 3]
+	cp LOW(MAX_STAT_VALUE - MIN_NEUTRAL_DAMAGE + 1)
 	jr nc, .Cap
 
 .dont_cap_2
 	inc hl
 
-	ldh a, [hQuotient + 3]
+	ldh a, [hProduct + 3]
 	ld b, [hl]
 	add b
 	ld [hld], a
 
-	ldh a, [hQuotient + 2]
+	ldh a, [hProduct + 2]
 	ld b, [hl]
 	adc b
 	ld [hl], a
 	jr c, .Cap
 
 	ld a, [hl]
-	cp HIGH(DAMAGE_CAP + 1)
+	cp HIGH(MAX_STAT_VALUE - MIN_NEUTRAL_DAMAGE + 1)
 	jr c, .dont_cap_3
 
-	cp HIGH(DAMAGE_CAP + 1) + 1
+	cp HIGH(MAX_STAT_VALUE - MIN_NEUTRAL_DAMAGE + 1) + 1
 	jr nc, .Cap
 
 	inc hl
 	ld a, [hld]
-	cp LOW(DAMAGE_CAP + 1)
+	cp LOW(MAX_STAT_VALUE - MIN_NEUTRAL_DAMAGE + 1)
 	jr c, .dont_cap_3
 
 .Cap:
-	ld a, HIGH(DAMAGE_CAP)
+	ld a, HIGH(MAX_STAT_VALUE - MIN_NEUTRAL_DAMAGE)
 	ld [hli], a
-	ld a, LOW(DAMAGE_CAP)
+	ld a, LOW(MAX_STAT_VALUE - MIN_NEUTRAL_DAMAGE)
 	ld [hld], a
 
 .dont_cap_3
-; Add back MIN_DAMAGE (capping at 999).
+; Minimum neutral damage is 2 (bringing the cap to 999).
 	inc hl
 	ld a, [hl]
-	add MIN_DAMAGE
+	add MIN_NEUTRAL_DAMAGE
 	ld [hld], a
 	jr nc, .dont_floor
 	inc [hl]
 .dont_floor
 
-; Returns nz and nc.
 	ld a, 1
 	and a
 	ret
@@ -3181,18 +3176,18 @@ DEF DAMAGE_CAP EQU MAX_DAMAGE - MIN_DAMAGE
 ; x2
 	ldh a, [hQuotient + 3]
 	add a
-	ldh [hQuotient + 3], a
+	ldh [hProduct + 3], a
 
 	ldh a, [hQuotient + 2]
 	rl a
-	ldh [hQuotient + 2], a
+	ldh [hProduct + 2], a
 
 ; Cap at $ffff.
 	ret nc
 
 	ld a, $ff
-	ldh [hQuotient + 2], a
-	ldh [hQuotient + 3], a
+	ldh [hProduct + 2], a
+	ldh [hProduct + 3], a
 
 	ret
 
