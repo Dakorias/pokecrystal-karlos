@@ -18,6 +18,11 @@ HeraldBayHouse_MapScripts:
 		closetext
 		setmapscene HERALD_LAB, SCENE_HERALD_LAB_POKEDEX
 		clearevent EVENT_EDWARD_MISSING_FROM_GYM
+		special FadeBlackQuickly
+		special ReloadSpritesNoPalettes
+		disappear HERALD_BAY_EDWARD
+		pause 25
+		special FadeInQuickly
 		end
 
 	EdwardGivesMapText:

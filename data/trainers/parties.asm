@@ -256,6 +256,14 @@ LassGroup:
 	db 5, FLETCHLING
 	db -1 ; end
 
+	; LASS (1)
+	db "LANEY@", TRAINERTYPE_NORMAL
+	db 5, PIDGEY
+	db 5, KRABBY
+	db 5, SENTRET
+	db 5, FLETCHLING
+	db -1 ; end
+
 	; LASS (2)
 	db "CANDICE@", TRAINERTYPE_NORMAL
 	db 7, PIDGEY

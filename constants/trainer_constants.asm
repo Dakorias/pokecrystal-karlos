@@ -103,9 +103,11 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	trainerclass DETECTIVE ; 17
 
 	trainerclass BIRD_KEEPER ; 18
+	const PERRY
 
 	trainerclass LASS ; 19
 	const ALEXIS
+	const LANEY
 	const CANDICE
 	const NICOLE
 

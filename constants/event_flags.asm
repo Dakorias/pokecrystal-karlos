@@ -516,6 +516,7 @@
 ; Swimmer F
 
 ; Bird Keeper
+	const EVENT_BEAT_BIRD_KEEPER_PERRY
 
 ; Boarder
 
@@ -584,6 +585,7 @@
 
 ; Lass
 	const EVENT_BEAT_LASS_ALEXIS
+	const EVENT_BEAT_LASS_LANEY
 	const EVENT_BEAT_LASS_CANDICE
 	const EVENT_BEAT_LASS_NICOLE
 ; Hiker

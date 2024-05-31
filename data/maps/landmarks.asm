@@ -10,7 +10,7 @@ Landmarks:
 	landmark -8, -16, SpecialMapName
 	landmark 20, 84, HeraldCoveName
 	landmark 8, 84, HeraldRouteName
-	landmark 0, 0, HeraldBayName
+	landmark 4, 92, HeraldBayName
 	landmark 12, 73, CraggyBeachName
 	landmark 12, 60, CraggyCoastName
 	landmark 12, 48, ScenicBluffName
