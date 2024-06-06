@@ -16,6 +16,7 @@ Landmarks:
 	landmark 12, 48, ScenicBluffName
 	landmark 12, 36, MtMonegoName
 	landmark 4, 68, BerryForestName
+	landmark 4, 36, RuggedCliffName
 
 	assert_table_length KANTO_LANDMARK
 	landmark  52, 108, PalletTownName
@@ -78,6 +79,7 @@ CraggyCoastName:  	 db "CRAGGY¯COAST@"
 ScenicBluffName:     db "SCENIC¯BLUFF@"
 MtMonegoName:        db "MT.¯MONEGO@"
 BerryForestName:     db "BERRY¯FOREST@"
+RuggedCliffName:     db "RUGGED¯CLIFF@"
 NewBarkTownName:     db "NEW BARK¯TOWN@"
 CherrygroveCityName: db "CHERRYGROVE¯CITY@"
 VioletCityName:      db "VIOLET CITY@"

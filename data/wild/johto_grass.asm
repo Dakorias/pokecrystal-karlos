@@ -43,7 +43,7 @@ JohtoGrassWildMons:
 	; morn
 	;	 %,  Species,				min, max
 	db 30,  PIDGEY,					2,  4
-	db 25,  SENTRET,				2,  4
+	db 25,  WOOPER,			  	2,  4
 	db 25,  CATERPIE,				2,  5
 	db 10,  FLETCHLING,			3,  5
 	db  5,  KRABBY,					3,  4
@@ -53,7 +53,7 @@ JohtoGrassWildMons:
 
 	; day
 	db 30,  PIDGEY,					2,  4
-	db 25,  SENTRET,				2,  4
+	db 25,  WOOPER,			  	2,  4
 	db 25,  CATERPIE,				2,  5
 	db 10,  FLETCHLING,			3,  5
 	db  5,  KRABBY,					3,  4
@@ -63,7 +63,7 @@ JohtoGrassWildMons:
 
 	; nite
 	db 30,  PIDGEY,					2,  4
-	db 25,  SENTRET,				2,  4
+	db 25,  WOOPER,			  	2,  4
 	db 25,  CATERPIE,				2,  5
 	db 10,  FLETCHLING,			3,  5
 	db  5,  KRABBY,					3,  4
@@ -173,8 +173,78 @@ JohtoGrassWildMons:
 	db 15,  ROCKRUFF,		 		10, 12
 	db  5,  ARON,						11,  13
 	db  2,  GEODUDE,				11,  12
-	db  2,  BAGON,	    11,  12
+	db  2,  BAGON,	        11,  12
 	db  1,  ARON,			    	12,  13
+
+	end_grass_wildmons
+
+	def_grass_wildmons MT_MONEGO_B1F
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	;	 %,  Species,				min, max
+	db 30,  GEODUDE,				10,  12
+	db 25,  MACHOP,					9,  12
+	db 20,  TYROGUE,			 	10, 11
+	db 15,  ROCKRUFF,		 		10, 12
+	db  5,  ARON,						11,  13
+	db  2,  GEODUDE,				11,  12
+	db  2,  BAGON,	        11,  12
+	db  1,  ARON,			    	12,  13
+
+	; day
+	db 30,  GEODUDE,				10,  12
+	db 25,  MACHOP,					9,  12
+	db 20,  TYROGUE,			 	10, 11
+	db 15,  ROCKRUFF,		 		10, 12
+	db  5,  ARON,						11,  13
+	db  2,  GEODUDE,				11,  12
+	db  2,  BAGON,	        11,  12
+	db  1,  ARON,			    	12,  13
+
+	; nite
+	db 30,  GEODUDE,				10,  12
+	db 25,  MACHOP,					9,  12
+	db 20,  TYROGUE,			 	10, 11
+	db 15,  ROCKRUFF,		 		10, 12
+	db  5,  ARON,						11,  13
+	db  2,  GEODUDE,				11,  12
+	db  2,  BAGON,	        11,  12
+	db  1,  ARON,			    	12,  13
+
+	end_grass_wildmons
+
+	def_grass_wildmons RUGGED_CLIFF
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	;	 %,  Species,				min, max
+	db 25,  FLETCHLING,			10,  12
+	db 25,  MACHOP,					9,  12
+	db 25,  TYROGUE,			 	10, 11
+	db 15,  BIDOOF,		  		10, 12
+	db  5,  MACHOP,					11,  13
+	db  2,  FLETCHLING,			11,  12
+	db  2,  BIDOOF,					11,  12
+	db  1,  TYROGUE,				12,  13
+
+	; day
+	db 25,  FLETCHLING,			10,  12
+	db 25,  MACHOP,					9,  12
+	db 25,  TYROGUE,			 	10, 11
+	db 15,  BIDOOF,		  		10, 12
+	db  5,  MACHOP,					11,  13
+	db  2,  FLETCHLING,			11,  12
+	db  2,  BIDOOF,					11,  12
+	db  1,  TYROGUE,				12,  13
+
+	; nite
+	db 25,  FLETCHLING,			10,  12
+	db 25,  MACHOP,					9,  12
+	db 25,  TYROGUE,			 	10, 11
+	db 15,  BIDOOF,		  		10, 12
+	db  5,  MACHOP,					11,  13
+	db  2,  FLETCHLING,			11,  12
+	db  2,  BIDOOF,					11,  12
+	db  1,  TYROGUE,				12,  13
 
 	end_grass_wildmons
 

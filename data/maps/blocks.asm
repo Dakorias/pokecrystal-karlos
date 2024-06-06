@@ -135,3 +135,6 @@ BerryForest_Blocks:
 
 BerryForestHouse_Blocks:
 	INCBIN "maps/House.blk"
+
+RuggedCliff_Blocks:
+	INCBIN "maps/RuggedCliff.blk"

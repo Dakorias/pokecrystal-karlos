@@ -138,6 +138,7 @@ ENDM
 	map_attributes MountainGym, MOUNTAIN_GYM, $00, 0
 	map_attributes BerryForest, BERRY_FOREST, $05, 0
 	map_attributes BerryForestHouse, BERRY_FOREST_HOUSE, $00, 0
+	map_attributes RuggedCliff, RUGGED_CLIFF, $05, 0
 
 
 	map_attributes BattleTowerOutside, BATTLE_TOWER_OUTSIDE, $05, 0
