@@ -492,7 +492,7 @@ StatsScreen_PlaceVerticalDivider: ; unreferenced
 StatsScreen_PlaceHorizontalDivider:
 	hlcoord 0, 7
 	ld b, SCREEN_WIDTH
-	ld a, $62 ; horizontal divider (empty HP/exp bar)
+	ld a, $76 ; horizontal divider
 .loop
 	ld [hli], a
 	dec b
@@ -646,7 +646,7 @@ LoadPinkPage:
 	hlcoord 10, 16
 	ld [hl], $40 ; left exp bar end cap
 	hlcoord 19, 16
-	ld [hl], $41 ; right exp bar end cap
+	ld [hl], $7f ; right exp bar end cap
 	ret
 
 .PrintNextLevel:
