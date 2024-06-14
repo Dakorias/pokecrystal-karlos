@@ -59,7 +59,8 @@ SECTION "Map Scripts 6", ROMX
 INCLUDE "maps/BerryForest.asm"
 INCLUDE "maps/BerryForestHouse.asm"
 INCLUDE "maps/RuggedCliff.asm"
-
+INCLUDE "maps/RuggedCliffHouse.asm"
+INCLUDE "maps/RuggedCliffPokecenter.asm"
 
 SECTION "Map Scripts 7", ROMX
 

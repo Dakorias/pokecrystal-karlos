@@ -1,15 +1,18 @@
 	object_const_def
 
-MtMonegoB1F_MapScripts:
+RuggedCliffHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-MtMonegoB1F_MapEvents:
+
+RuggedCliffHouse_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 17,  7, MT_MONEGO, 5
+	warp_event 2,  7, RUGGED_CLIFF, 3
+	warp_event 3,  7, RUGGED_CLIFF, 3
+
 	def_coord_events
 
 	def_bg_events

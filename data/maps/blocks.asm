@@ -98,13 +98,13 @@ HeraldGrotto_Blocks:
 CraggyBeach_Blocks:
 	INCBIN "maps/CraggyBeach.blk"
 
-SECTION "Map Blocks 5", ROMX
-
 CraggyCoast_Blocks:
 	INCBIN "maps/CraggyCoast.blk"
 
 ScenicBluff_Blocks:
 	INCBIN "maps/ScenicBluff.blk"
+
+SECTION "Map Blocks 5", ROMX
 
 MtMonego_Blocks:
 	INCBIN "maps/MtMonego.blk"
@@ -138,3 +138,9 @@ BerryForestHouse_Blocks:
 
 RuggedCliff_Blocks:
 	INCBIN "maps/RuggedCliff.blk"
+
+RuggedCliffHouse_Blocks:
+	INCBIN "maps/House.blk"
+
+RuggedCliffPokecenter_Blocks:
+	INCBIN "maps/Pokecenter1F.blk"

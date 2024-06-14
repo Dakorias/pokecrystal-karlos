@@ -93,6 +93,8 @@ ENDM
 	map_const BEACH_GROTTO, 																5,  5 ; 9
 	map_const MOUNTAIN_GYM,																	5,  5 ; 10
 	map_const RUGGED_CLIFF,																 18, 22 ; 11
+	map_const RUGGED_CLIFF_HOUSE,														5,  4 ; 12
+	map_const RUGGED_CLIFF_POKECENTER,				 							7,  4 ; 13
 	endgroup
 
 	newgroup BERRY_FOREST																					; 7

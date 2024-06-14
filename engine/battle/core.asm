@@ -8086,7 +8086,7 @@ PlaceExpBar:
 	sub $8
 	jr c, .next
 	ld b, a
-	ld a, $5d ; full bar
+	ld a, $5c ; full bar
 	ld [hld], a
 	dec c
 	jr z, .finish

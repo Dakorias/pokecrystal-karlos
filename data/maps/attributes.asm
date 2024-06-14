@@ -128,8 +128,8 @@ ENDM
 	map_attributes HeraldPort, HERALD_PORT, $00, 0
 	map_attributes RegistrationCenter, REGISTRATION_CENTER, $00, 0
 	map_attributes HeraldGrotto, HERALD_GROTTO, $05, 0
-	map_attributes MtMonego, MT_MONEGO, $00, 0
-	map_attributes MtMonegoB1F, MT_MONEGO_B1F, $00, 0
+	map_attributes MtMonego, MT_MONEGO, $09, 0
+	map_attributes MtMonegoB1F, MT_MONEGO_B1F, $09, 0
 	map_attributes CraggyCoastHouse1, CRAGGY_COAST_HOUSE1, $00, 0
 	map_attributes CraggyCoastHouse2, CRAGGY_COAST_HOUSE2, $00, 0
 	map_attributes CraggyCoastPokecenter, CRAGGY_COAST_POKECENTER, $00, 0
@@ -139,6 +139,8 @@ ENDM
 	map_attributes BerryForest, BERRY_FOREST, $05, 0
 	map_attributes BerryForestHouse, BERRY_FOREST_HOUSE, $00, 0
 	map_attributes RuggedCliff, RUGGED_CLIFF, $05, 0
+	map_attributes RuggedCliffHouse, RUGGED_CLIFF_HOUSE, $00, 0
+	map_attributes RuggedCliffPokecenter, RUGGED_CLIFF_POKECENTER, $00, 0
 
 
 	map_attributes BattleTowerOutside, BATTLE_TOWER_OUTSIDE, $05, 0
