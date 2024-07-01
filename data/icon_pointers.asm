@@ -4,8 +4,8 @@ IconPointers:
 	dw NullIcon
 	dw EkansIcon
 	dw ArbokIcon
-	dw HoundourIcon
-	dw HoundoomIcon
+	dw YanmaIcon
+	dw YanmegaIcon
 	dw BaltoyIcon
 	dw ClaydolIcon
 	dw BidoofIcon
@@ -74,8 +74,8 @@ IconPointers:
 	dw Nidoran_fIcon
 	dw NidorinaIcon
 	dw NidoqueenIcon
-	dw YanmaIcon
-	dw YanmegaIcon
+	dw HoundourIcon
+	dw HoundoomIcon
 	dw NumelIcon
 	dw CameruptIcon
 	dw DrifloonIcon

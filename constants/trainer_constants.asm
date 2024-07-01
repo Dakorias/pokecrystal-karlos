@@ -89,7 +89,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass YOUNGSTER ; 16
 	const KEVIN
-	const JAMES
 	const ALEX
 	const DANNY1
 	const ALLEN
@@ -103,7 +102,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	trainerclass DETECTIVE ; 17
 
 	trainerclass BIRD_KEEPER ; 18
-	const PERRY
 
 	trainerclass LASS ; 19
 	const ALEXIS
@@ -136,6 +134,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const SABRINA1
 
 	trainerclass BUG_CATCHER ; 24
+	const JAMES
 
 	trainerclass FISHER ; 25
 	const ARNOLD
@@ -263,6 +262,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	trainerclass TOURIST ; 56
 
 	trainerclass SURVIVALIST ; 57
+	const PERRY
 
 	trainerclass FARMER ; 58
 

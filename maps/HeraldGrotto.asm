@@ -32,8 +32,8 @@ HeraldGrottoShinx:
 	end
 
 HeraldGrottoMurkrow:
-	cry MURKROW
-	loadwildmon MURKROW, 7
+	cry HOUNDOUR
+	loadwildmon HOUNDOUR, 7
 	startbattle
 	disappear HERALD_GROTTO_MURKROW_DUSK
 	disappear HERALD_GROTTO_MURKROW_NITE

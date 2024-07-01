@@ -1,6 +1,6 @@
 	db CLAYDOL ; 006
 
-	db  70,  80,  100,  60,  80,  110
+	db  70,  75,  105,  55,  75,  120
 	;   hp  atk  def  spd  sat  sdf
 
 	db GROUND, PSYCHIC_TYPE ; type

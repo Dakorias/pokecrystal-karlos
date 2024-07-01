@@ -516,7 +516,6 @@
 ; Swimmer F
 
 ; Bird Keeper
-	const EVENT_BEAT_BIRD_KEEPER_PERRY
 
 ; Boarder
 
@@ -628,6 +627,49 @@
 	const EVENT_BEAT_YOUNGSTER_WESLEY
 	const EVENT_BEAT_YOUNGSTER_DAVID
 ; Teacher
+
+; Breeder
+
+; BugManiac
+
+; Clown
+
+; Cyclist
+
+; Nurse
+
+; Engineer
+
+; HexManiac
+
+; MysteryMan
+
+; Painter
+
+; Ranger
+
+; RuinManiac
+
+; ScubaDiver
+
+; SuperTrainer
+
+; Surfer
+
+; RocketCapt
+
+; RocketSci
+
+; Tourist
+
+; Survivalist
+	const EVENT_BEAT_SURVIVALIST_PERRY
+
+; Farmer
+
+; Gardener
+
+; Dancer
 
 ; Elite Four and Champion
 	const EVENT_BEAT_ELITE_4_WILL

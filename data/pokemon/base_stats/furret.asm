@@ -1,6 +1,6 @@
 	db FURRET ; 019
 
-	db  85,  76,  64,  90,  45,  55
+	db  85,  76,  64, 100,  45,  55
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type

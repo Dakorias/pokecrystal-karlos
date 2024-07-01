@@ -351,7 +351,7 @@ HeraldLab_MapScripts:
 
 	LabTryToLeaveRightScript:
 		opentext
-		writetext LabTryToLeaveText
+		writetext LabTryToLeaveRightText
 		waitbutton
 		closetext
 		applymovement PLAYER, CantLeaveRightMovement
@@ -842,6 +842,12 @@ HeraldLabHealingMachine_HealParty:
 		line "picked just yet!"
 		done
 
+	LabTryToLeaveRightText:
+		text "Wait! Don't go"
+		line "over there yet!"
+		cont "It's not ready!"
+		done
+
 	GetStarterText:
 		text "<PLAYER> got a"
 		line "@"
@@ -1042,6 +1048,8 @@ HeraldLab_MapEvents:
 	coord_event 5,  6, SCENE_HERALD_LAB_CANT_LEAVE, LabTryToLeaveScript
 	coord_event 9,  2, SCENE_HERALD_LAB_CANT_LEAVE, LabTryToLeaveRightScript
 	coord_event 9,  3, SCENE_HERALD_LAB_CANT_LEAVE, LabTryToLeaveRightScript
+	coord_event 9,  2, SCENE_HERALD_LAB_RIVAL_FIGHT, LabTryToLeaveRightScript
+	coord_event 9,  3, SCENE_HERALD_LAB_RIVAL_FIGHT, LabTryToLeaveRightScript
 	coord_event 4,  9, SCENE_HERALD_LAB_RIVAL_FIGHT, BlaireFightLeftScript
 	coord_event 5,  9, SCENE_HERALD_LAB_RIVAL_FIGHT, BlaireFightRightScript
 	coord_event 4,  5, SCENE_HERALD_LAB_POKEDEX, PlayerWalkToOakLeftScript

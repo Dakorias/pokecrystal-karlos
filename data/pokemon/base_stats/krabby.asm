@@ -1,6 +1,6 @@
 	db KRABBY ; 120
 
-	db  30, 105,  90,  50,  25,  25
+	db  30, 105,  25,  60,  25,  85
 	;   hp  atk  def  spd  sat  sdf
 
 	db POISON, WATER ; type

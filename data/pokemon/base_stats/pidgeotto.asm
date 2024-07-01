@@ -1,6 +1,6 @@
 	db PIDGEOTTO ; 013
 
-	db  63,  60,  55,  71,  50,  50
+	db  63,  65,  55,  71,  50,  60
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, FLYING ; type

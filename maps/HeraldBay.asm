@@ -7,13 +7,13 @@ HeraldBay_MapScripts:
 
 	def_callbacks
 
-TrainerBirdKeeperPerry:
-	trainer BIRD_KEEPER, PERRY, EVENT_BEAT_BIRD_KEEPER_PERRY, BirdKeeperPerrySeenText, BirdKeeperPerryBeatenText, 0, .Script
+TrainerSurvivalistPerry:
+	trainer SURVIVALIST, PERRY, EVENT_BEAT_SURVIVALIST_PERRY, SurvivalistPerrySeenText, SurvivalistPerryBeatenText, 0, .Script
 
 	.Script:
 		endifjustbattled
 		opentext
-		writetext BirdKeeperPerryAfterText
+		writetext SurvivalistPerryAfterText
 		waitbutton
 		closetext
 		end
@@ -30,9 +30,9 @@ TrainerLassLaney:
 		end
 
 
-		BirdKeeperPerrySeenText:
-		BirdKeeperPerryBeatenText:
-		BirdKeeperPerryAfterText:
+		SurvivalistPerrySeenText:
+		SurvivalistPerryBeatenText:
+		SurvivalistPerryAfterText:
 		LassLaneySeenText:
 		LassLaneyBeatenText:
 		LassLaneyAfterText:
@@ -50,5 +50,5 @@ HeraldBay_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  15, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperPerry, -1
+	object_event  15, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerSurvivalistPerry, -1
 	object_event  11, 24, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerLassLaney, -1
