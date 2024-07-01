@@ -4,13 +4,12 @@ RainDanceMoves:
 	db WATER_GUN
 	db HYDRO_PUMP
 	db SURF
+	db BUBBLEBEAM
 	db THUNDER
 	db WATERFALL
+	db CLAMP
+	db BUBBLE
 	db CRABHAMMER
-	db HYDRO_CANNON
-	db DIVE
-	db MUDDY_WATER
-	db WATER_PULSE
-	db BRINE
-	db AQUA_JET
+	db OCTAZOOKA
+	db WHIRLPOOL
 	db -1 ; end

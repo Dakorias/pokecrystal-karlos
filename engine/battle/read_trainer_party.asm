@@ -19,10 +19,10 @@ ReadTrainerParty:
 	call ByteFill
 
 	ld a, [wOtherTrainerClass]
-	cp HARRISON
+	cp CAL
 	jr nz, .not_cal2
 	ld a, [wOtherTrainerID]
-	cp HARRISON
+	cp CAL2
 	jr z, .cal2
 	ld a, [wOtherTrainerClass]
 .not_cal2
@@ -334,7 +334,7 @@ Battle_GetTrainerName::
 
 GetTrainerName::
 	ld a, c
-	cp HARRISON
+	cp CAL
 	jr nz, .not_cal2
 
 	ld a, BANK(sMysteryGiftTrainerHouseFlag)
