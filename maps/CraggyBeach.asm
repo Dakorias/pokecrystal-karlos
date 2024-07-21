@@ -135,7 +135,6 @@ CraggyBeach_MapScripts:
 		turnobject PLAYER, DOWN
 		applymovement CRAGGY_BEACH_OAK, OakLeavesBeachMovement
 		disappear CRAGGY_BEACH_OAK
-		playmusic MUSIC_ROUTE_30
 		setevent EVENT_BEAT_ROCKET_THEIVES
 		clearevent EVENT_OAK_MISSING_FROM_LAB
 		setscene SCENE_CRAGGY_BEACH_NOOP1
@@ -494,6 +493,7 @@ CraggyBeach_MapEvents:
 	warp_event  5,  3, CRAGGY_COAST, 1
 	warp_event  4, 30, BERRY_FOREST, 1
 	warp_event  4, 31, BERRY_FOREST, 2
+	warp_event 15, 44, BEACH_GROTTO, 1
 
 	def_coord_events
 	coord_event 7, 76, SCENE_CRAGGY_BEACH_ROCKETS, PlayerRightSideBeachScript

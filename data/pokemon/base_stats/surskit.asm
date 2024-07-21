@@ -1,6 +1,6 @@
 	db SURSKIT ; 023
 
-	db  40,  40,  30,  65,  60,  50
+	db  40,  40,  30,  75,  60,  50
 	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, WATER ; type

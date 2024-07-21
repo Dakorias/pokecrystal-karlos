@@ -15,6 +15,7 @@ HeraldBayHouse_MapScripts:
 		waitbutton
 		verbosegiveitem SEALED_MAP
 		setevent EVENT_GOT_MAP_FROM_EDWARD
+		clearevent EVENT_EDWARD_MISSING_FROM_GYM
 		writetext PlayerShouldJoinConference
 		waitbutton
 		closetext
