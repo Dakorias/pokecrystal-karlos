@@ -95,9 +95,6 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	const DANNY2
 	const WESLEY
 	const DAVID
-	const ANDREW1
-	const ANDREW2
-	const ANDREW3
 
 	trainerclass DETECTIVE ; 17
 
@@ -171,6 +168,9 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass BLACKBELT_T ; 32
 	const LAU
+	const HONDA1
+	const HONDA2
+	const HONDA3
 
 	trainerclass EXECUTIVEM ; 33
 
@@ -246,6 +246,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 	trainerclass PAINTER ; 4e
 
 	trainerclass RANGER ; 4f
+	const GERALD
 
 	trainerclass RUIN_MANIAC ; 50
 
@@ -263,6 +264,7 @@ DEF NUM_NONTRAINER_PHONECONTACTS EQU const_value - 1
 
 	trainerclass SURVIVALIST ; 57
 	const PERRY
+	const JOHN
 
 	trainerclass FARMER ; 58
 

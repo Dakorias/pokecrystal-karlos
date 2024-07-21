@@ -119,8 +119,6 @@
 	const BIG_PEARL    ; 6f
 	const EVERSTONE    ; 70
 	const SPELL_TAG    ; 71
-	const RAGECANDYBAR ; 72
-	const GS_BALL      ; 73
 	const BLUE_CARD    ; 74
 	const MIRACLE_SEED ; 75
 	const THICK_CLUB   ; 76
@@ -257,7 +255,7 @@ DEF TM01 EQU const_value
 	add_tm SANDSTORM    ; e3
 	add_tm FIRE_BLAST   ; e4
 	add_tm COUNTER      ; e5
-	add_tm DEFENSE_CURL ; e6
+	add_tm BATON_PASS   ; e6
 	add_tm THUNDERPUNCH ; e7
 	add_tm DREAM_EATER  ; e8
 	add_tm AIR_SLASH    ; e9
@@ -268,6 +266,17 @@ DEF TM01 EQU const_value
 	add_tm FIRE_PUNCH   ; ee
 	add_tm SPIKES       ; ef
 	add_tm SUBSTITUTE   ; f0
+	add_tm TAUNT        ; f
+	add_tm CALM_MIND    ; f
+	add_tm FLASH_CANNON ; f
+	add_tm DEFENSE_CURL ; f
+	add_tm THUNDER_FANG ; f
+	add_tm BRINE        ; f
+	add_tm FIRE_FANG    ; f
+	add_tm OMINOUS_WIND ; f
+	add_tm ICE_FANG     ; f
+	add_tm LEAF_BLADE   ; f
+	add_tm DEFOG        ; f
 DEF NUM_TMS EQU __tmhm_value__ - 1
 
 MACRO add_hm

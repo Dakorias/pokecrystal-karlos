@@ -141,6 +141,10 @@ ENDM
 	map_attributes RuggedCliff, RUGGED_CLIFF, $05, 0
 	map_attributes RuggedCliffHouse, RUGGED_CLIFF_HOUSE, $00, 0
 	map_attributes RuggedCliffPokecenter, RUGGED_CLIFF_POKECENTER, $00, 0
+	map_attributes HeraldBayGrotto, HERALD_BAY_GROTTO, $05, 0
+	map_attributes RuggedCliffGrotto, RUGGED_CLIFF_GROTTO, $05, 0
+	map_attributes MountainGymBreak, MOUNTAIN_GYM_BREAK, $00, 0
+	map_attributes MountainGymArena, MOUNTAIN_GYM_ARENA, $00, 0
 
 
 	map_attributes BattleTowerOutside, BATTLE_TOWER_OUTSIDE, $05, 0

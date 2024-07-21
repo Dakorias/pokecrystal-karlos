@@ -136,7 +136,6 @@ Sailor1ScriptGym:
 	setscene SCENE_HERALD_COVE_NOOP1
 	pause 25
 	special FadeInQuickly
-	setmapscene HERALD_GYM, SCENE_HERALD_GYM_NOOP1
 	end
 
 Sailor2and3ScriptGym:
@@ -191,7 +190,6 @@ SailorEndChallengeEarly:
 	setscene SCENE_HERALD_COVE_NOOP1
 	pause 25
 	special FadeInQuickly
-	setmapscene HERALD_GYM, SCENE_HERALD_GYM_NOOP1
 	end
 
 
@@ -597,6 +595,7 @@ HeraldGymSignScript:
 		step LEFT
 		step LEFT
 		step LEFT
+		step DOWN
 		step LEFT
 		step_end
 
@@ -1081,7 +1080,6 @@ HeraldGymSignScript:
 
 	HeraldCoveSignText:
 		text "HERALD COVE:"
-		line ""
 
 		para "The call of a new"
 		line "adventure awaits."

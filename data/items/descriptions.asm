@@ -114,8 +114,6 @@ ItemDescriptions:
 	dw BigPearlDesc
 	dw EverStoneDesc
 	dw SpellTagDesc
-	dw RageCandyBarDesc
-	dw GSBallDesc
 	dw BlueCardDesc
 	dw MiracleSeedDesc
 	dw ThickClubDesc
@@ -256,6 +254,8 @@ ItemDescriptions:
 	dw TeruSama30Desc
 	dw TeruSama31Desc
 	dw TeruSama32Desc
+	dw TeruSama33Desc
+	dw TeruSama33Desc
 	dw TeruSama33Desc
 	assert_table_length $ff
 

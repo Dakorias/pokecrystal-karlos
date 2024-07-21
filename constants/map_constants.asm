@@ -76,7 +76,7 @@ ENDM
 	map_const PLAYERS_HOUSE_2F,                             4,  3 ;  9
 	map_const REGISTRATION_CENTER,							 						5,  5 ; 10
 	map_const HERALD_GROTTO,																4,  8 ; 11
-	map_const HERALD_BAY,																	 14, 20 ; 12
+	map_const HERALD_BAY,																	 17, 20 ; 12
 	map_const HERALD_BAY_HOUSE,														 5,  4  ; 13
 	map_const CRAGGY_BEACH,																 12, 40 ; 14
 	endgroup
@@ -91,15 +91,19 @@ ENDM
 	map_const CRAGGY_COAST_POKECENTER,				 							7,  4 ; 7
 	map_const CRAGGY_COAST_FISHING,												  5,  4 ; 8
 	map_const BEACH_GROTTO, 																5,  5 ; 9
-	map_const MOUNTAIN_GYM,																	5,  5 ; 10
+	map_const MOUNTAIN_GYM,																	4,  4 ; 10
 	map_const RUGGED_CLIFF,																 18, 22 ; 11
 	map_const RUGGED_CLIFF_HOUSE,														5,  4 ; 12
 	map_const RUGGED_CLIFF_POKECENTER,				 							7,  4 ; 13
+	map_const MOUNTAIN_GYM_BREAK,														6,  5 ; 14
+	map_const MOUNTAIN_GYM_ARENA, 													6,  7 ; 15
 	endgroup
 
 	newgroup BERRY_FOREST																					; 7
 	map_const BERRY_FOREST,																 16, 16 ; 1
 	map_const BERRY_FOREST_HOUSE, 													5,  4 ; 2
+	map_const HERALD_BAY_GROTTO, 														5,  5 ; 3
+	map_const RUGGED_CLIFF_GROTTO, 													5,  5 ; 4
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 7

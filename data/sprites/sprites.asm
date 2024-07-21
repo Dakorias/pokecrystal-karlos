@@ -108,7 +108,7 @@ OverworldSprites:
 	overworld_sprite EnteiSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
 	overworld_sprite RaikouSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
 	overworld_sprite GoodRivalSpriteGFX, 12, WALKING_SPRITE, PAL_OW_GREEN
-	overworld_sprite BadRivalSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
+	overworld_sprite BadRivalSpriteGFX, 12, WALKING_SPRITE, PAL_NPC_PURPLE
 	overworld_sprite CelioSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
 	overworld_sprite MainGirlSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	overworld_sprite MainBoySpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE

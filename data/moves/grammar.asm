@@ -8,13 +8,11 @@ MoveGrammar:
 	db GROWTH
 	db STRENGTH
 	db HARDEN
-	db MINIMIZE
 	db SMOKESCREEN
 	db DEFENSE_CURL
 	db SMOG
 	db ACID_ARMOR
 	db REST
-	db SHARPEN
 	db SUBSTITUTE
 	db PROTECT
 	db SPIKES
@@ -35,7 +33,6 @@ MoveGrammar:
 	db 0 ; end set
 
 ; 2: originally "[mon]の¯[move]¯した!" ("[mon]¯did¯[move]!")
-	db MEDITATE
 	db AGILITY
 	db DOUBLE_TEAM
 	db TRANSFORM

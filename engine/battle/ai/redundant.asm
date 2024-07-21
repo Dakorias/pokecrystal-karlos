@@ -29,7 +29,6 @@ AI_Redundant:
 	dbw EFFECT_SNORE,        .Snore
 	dbw EFFECT_SLEEP_TALK,   .SleepTalk
 	dbw EFFECT_MEAN_LOOK,    .MeanLook
-	dbw EFFECT_NIGHTMARE,    .Nightmare
 	dbw EFFECT_SPIKES,       .Spikes
 	dbw EFFECT_FORESIGHT,    .Foresight
 	dbw EFFECT_PERISH_SONG,  .PerishSong
@@ -38,12 +37,14 @@ AI_Redundant:
 	dbw EFFECT_SAFEGUARD,    .Safeguard
 	dbw EFFECT_RAIN_DANCE,   .RainDance
 	dbw EFFECT_SUNNY_DAY,    .SunnyDay
-	dbw EFFECT_TELEPORT,     .Teleport
 	dbw EFFECT_MORNING_SUN,  .MorningSun
 	dbw EFFECT_SYNTHESIS,    .Synthesis
 	dbw EFFECT_MOONLIGHT,    .Moonlight
 	dbw EFFECT_SWAGGER,      .Swagger
 	dbw EFFECT_FUTURE_SIGHT, .FutureSight
+	dbw EFFECT_TRICK_ROOM,   .TrickRoom
+	dbw EFFECT_FLATTER,      .Flatter
+	dbw EFFECT_HAIL, 				 .Hail
 	db -1
 
 .LightScreen:
@@ -103,20 +104,12 @@ AI_Redundant:
 .SleepTalk:
 	ld a, [wEnemyMonStatus]
 	and SLP_MASK
-	jr z, .Redundant
-	jr .NotRedundant
+	jp z, .Redundant
+	jp .NotRedundant
 
 .MeanLook:
 	ld a, [wEnemySubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
-	ret
-
-.Nightmare:
-	ld a, [wBattleMonStatus]
-	and a
-	jr z, .Redundant
-	ld a, [wPlayerSubStatus1]
-	bit SUBSTATUS_NIGHTMARE, a
 	ret
 
 .Spikes:
@@ -164,12 +157,19 @@ AI_Redundant:
 	jr z, .Redundant
 	jr .NotRedundant
 
+.Hail:
+	ld a, [wBattleWeather]
+	cp WEATHER_HAIL
+	jr z, .Redundant
+	jr .NotRedundant
+
 .DreamEater:
 	ld a, [wBattleMonStatus]
 	and SLP_MASK
 	jr z, .Redundant
 	jr .NotRedundant
 
+.Flatter:
 .Swagger:
 	ld a, [wPlayerSubStatus3]
 	bit SUBSTATUS_CONFUSED, a
@@ -181,6 +181,13 @@ AI_Redundant:
 	bit 5, a
 	ret
 
+.TrickRoom
+	ld a, [wTrickRoom]
+	ld d, a
+	and d
+	jr nz, .Redundant
+	jr .NotRedundant
+
 .Heal:
 .MorningSun:
 .Synthesis:
@@ -188,7 +195,6 @@ AI_Redundant:
 	farcall AICheckEnemyMaxHP
 	jr nc, .NotRedundant
 
-.Teleport:
 .Redundant:
 	ld a, 1
 	and a

@@ -144,3 +144,17 @@ RuggedCliffHouse_Blocks:
 
 RuggedCliffPokecenter_Blocks:
 	INCBIN "maps/Pokecenter1F.blk"
+
+HeraldBayGrotto_Blocks:
+	INCBIN "maps/ForestGrotto.blk"
+
+RuggedCliffGrotto_Blocks:
+	INCBIN "maps/ForestGrotto.blk"
+
+SECTION "Map Blocks 6", ROMX
+
+MountainGymBreak_Blocks:
+	INCBIN "maps/MountainGymBreak.blk"
+
+MountainGymArena_Blocks:
+	INCBIN "maps/MountainGymArena.blk"

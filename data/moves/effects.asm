@@ -1213,7 +1213,7 @@ HydroCannon:
 	rechargenextturn
 	checkfaint
 	buildopponentrage
-	paralyzetarget
+	confusetarget
 	endmove
 
 Metronome:

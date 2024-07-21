@@ -4099,7 +4099,6 @@ BattleAnim_IceFang:
 
 BattleAnim_CrossPoison:
 	anim_1gfx ANIM_GFX_CUT
-	anim_bgeffect ANIM_BG_WHITE_HUES, $0, $8, $0
 	anim_sound 0, 1, SFX_CUT
 	anim_obj ANIM_OBJ_CUT_LONG_DOWN_LEFT, 150, 30, $0
 	anim_obj ANIM_OBJ_CUT_LONG_DOWN_RIGHT, 120, 30, $0

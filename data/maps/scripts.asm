@@ -61,6 +61,10 @@ INCLUDE "maps/BerryForestHouse.asm"
 INCLUDE "maps/RuggedCliff.asm"
 INCLUDE "maps/RuggedCliffHouse.asm"
 INCLUDE "maps/RuggedCliffPokecenter.asm"
+INCLUDE "maps/HeraldBayGrotto.asm"
+INCLUDE "maps/RuggedCliffGrotto.asm"
+INCLUDE "maps/MountainGymBreak.asm"
+INCLUDE "maps/MountainGymArena.asm"
 
 SECTION "Map Scripts 7", ROMX
 

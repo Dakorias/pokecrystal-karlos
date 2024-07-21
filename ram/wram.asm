@@ -3074,8 +3074,11 @@ wHeraldLabSceneID::									db
 wHeraldPortSceneID::								db
 wHeraldRouteSceneID::								db
 wBeachRouteSceneID::								db
+wMountainGymSceneID::								db
+wMountainGymBreakSceneID::					db
+wMountainGymArenaSceneID::					db
 
-	ds 108
+	ds 105
 
 ; fight counts
 wJackFightCount::    db
@@ -3228,7 +3231,7 @@ wPlayerDataEnd::
 wCurMapData::
 
 wVisitedSpawns:: flag_array NUM_SPAWNS
-	ds 3
+	ds 2
 
 wDigWarpNumber:: db
 wDigMapGroup::   db
@@ -3240,7 +3243,6 @@ wBackupWarpNumber:: db
 wBackupMapGroup::   db
 wBackupMapNumber::  db
 
-	ds 3
 
 wLastSpawnMapGroup:: db
 wLastSpawnMapNumber:: db
@@ -3282,7 +3284,7 @@ wPartyMon{d:n}Nickname:: ds MON_NAME_LENGTH
 endr
 wPartyMonNicknamesEnd::
 
-	ds 22
+	ds 13
 
 wPokedexCaught:: flag_array NUM_POKEMON
 wEndPokedexCaught::

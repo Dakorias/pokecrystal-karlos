@@ -155,6 +155,12 @@ CraggyBeach_MapScripts:
 			warp BEACH_GROTTO, 4,  7
 			end
 
+		CraggyBeachSignScript:
+			jumptext CraggyBeachSignText
+
+		CraggyBeachTrashSignScript:
+			jumptext CraggyBeachTrashSignText
+
 		BeachYoungsterScript:
 			jumptextfaceplayer BeachYoungsterText
 
@@ -428,7 +434,7 @@ CraggyBeach_MapScripts:
 	BeachLass3Text:
 		text "There sure are a"
 		line "lot of tourists"
-		cont "here now. . ."
+		cont "here now..."
 
 		para "I'll just stay"
 		line "away from the big"
@@ -468,11 +474,26 @@ CraggyBeach_MapScripts:
 		line "step inside?"
 		done
 
+	CraggyBeachSignText:
+		text "CRAGGY BEACH"
+
+		para "HERALD PASS -"
+		line "CRAGGY COAST"
+		done
+
+	CraggyBeachTrashSignText:
+		text "Please do not"
+		line "litter on the"
+		cont "beach!"
+		done
+
 CraggyBeach_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
 	warp_event  5,  3, CRAGGY_COAST, 1
+	warp_event  4, 30, BERRY_FOREST, 1
+	warp_event  4, 31, BERRY_FOREST, 2
 
 	def_coord_events
 	coord_event 7, 76, SCENE_CRAGGY_BEACH_ROCKETS, PlayerRightSideBeachScript
@@ -480,10 +501,12 @@ CraggyBeach_MapEvents:
 
 	def_bg_events
 	bg_event 15,  43, BGEVENT_READ, CraggyBeachGrottoEntryScript
+	bg_event 10, 31, BGEVENT_READ, CraggyBeachSignScript
+	bg_event  9, 59, BGEVENT_READ, CraggyBeachTrashSignScript
 
 	def_object_events
 	object_event  7,  36, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerYoungsterAllen, -1
-	object_event  8,   6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerYoungsterDanny2, -1
+	object_event  8,   6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerYoungsterDanny2, EVENT_BEAT_YOUNGSTER_DANNY1
 	object_event  16, 20, SPRITE_SAILOR, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerSailorTucker, -1
 	object_event  7,  14, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerLassNicole, -1
 	object_event  7,  74, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BEAT_ROCKET_THEIVES

@@ -201,8 +201,7 @@ MartMahogany1:
 	db -1 ; end
 
 MartMahogany2:
-	db 8 ; # items
-	db RAGECANDYBAR
+	db 7 ; # items
 	db GREAT_BALL
 	db SUPER_POTION
 	db HYPER_POTION

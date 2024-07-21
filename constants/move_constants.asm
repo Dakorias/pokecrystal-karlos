@@ -9,7 +9,7 @@
 	const POUND        ; 01
 	const KARATE_CHOP  ; 02
 	const SWIFT        ; 03
-	const COMET_PUNCH  ; 04
+	const TAILWIND     ; 04
 	const FLATTER      ; 05
 	const BUG_BUZZ	   ; 06
 	const FIRE_PUNCH   ; 07
@@ -28,7 +28,7 @@
 	const U_TURN		   ; 14
 	const DARK_PULSE   ; 15
 	const VINE_WHIP    ; 16
-	const STOMP        ; 17
+	const BANEFULBUNKR ; 17
 	const DOUBLE_KICK  ; 18
 	const DARK_VOID    ; 19
 	const HOWL				 ; 1a
@@ -101,7 +101,7 @@
 	const CONFUSION    ; 5d
 	const PSYCHIC_M    ; 5e
 	const HYPNOSIS     ; 5f
-	const MEDITATE     ; 60
+	const BULK_UP      ; 60
 	const AGILITY      ; 61
 	const QUICK_ATTACK ; 62
 	const RAGE         ; 63
@@ -112,19 +112,19 @@
 	const DOUBLE_TEAM  ; 68
 	const RECOVER      ; 69
 	const HARDEN       ; 6a
-	const MINIMIZE     ; 6b
+	const TAUNT        ; 6b
 	const SMOKESCREEN  ; 6c
 	const CONFUSE_RAY  ; 6d
 	const ERUPTION		 ; 6e
 	const DEFENSE_CURL ; 6f
-	const BARRIER      ; 70
+	const COIL         ; 70
 	const LIGHT_SCREEN ; 71
 	const HAZE         ; 72
 	const REFLECT      ; 73
 	const FOCUS_ENERGY ; 74
 	const FRENZY_PLANT ; 75
 	const METRONOME    ; 76
-	const MIRROR_MOVE  ; 77
+	const PSYSHOCK     ; 77
 	const SELFDESTRUCT ; 78
 	const FLASH_CANNON ; 79
 	const LICK         ; 7a
@@ -164,7 +164,7 @@
 	const REST         ; 9c
 	const ROCK_SLIDE   ; 9d
 	const KNOCK_OFF    ; 9e
-	const SHARPEN      ; 9f
+	const ACID_RAIN    ; 9f
 	const CONVERSION   ; a0
 	const TRI_ATTACK   ; a1
 	const TRICK_ROOM   ; a2

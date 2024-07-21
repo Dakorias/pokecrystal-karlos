@@ -3,16 +3,8 @@
 
 HeraldGym_MapScripts:
 	def_scene_scripts
-	scene_script HeraldGymEdwardFront, SCENE_HERALD_GYM_EDWARD_FRONT
-	scene_script HeraldGymNoop1Scene, SCENE_HERALD_GYM_NOOP1
 
 	def_callbacks
-
-	HeraldGymEdwardFront:
-		end
-
-	HeraldGymNoop1Scene:
-		end
 
 	EdwardGymScript:
 		faceplayer
@@ -25,9 +17,7 @@ HeraldGym_MapScripts:
 		iffalse EdwardGoOutside
 		checkitem ID_CARD
 		iftrue EdwardStartGymChallengeScript
-		checkevent EVENT_GOT_MAP_FROM_EDWARD
-		iftrue EdwardComeBackLaterScript
-		writetext EdwardHowDidYouGetHereScript
+		writetext EdwardComeBackLaterText
 		waitbutton
 		closetext
 		end
@@ -70,12 +60,6 @@ HeraldGym_MapScripts:
 
 	.No
 		writetext EdwardNoGymChallenge
-		waitbutton
-		closetext
-		end
-
-	EdwardComeBackLaterScript:
-		writetext EdwardComeBackLaterText
 		waitbutton
 		closetext
 		end

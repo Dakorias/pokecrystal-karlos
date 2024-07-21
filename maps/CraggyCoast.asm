@@ -67,6 +67,12 @@ CraggyCoastFisher3:
 CraggyCoastLass:
 	jumptextfaceplayer CraggyCoastLassText
 
+CraggyCoastSignScript:
+	jumptext CraggyCoastSignText
+
+FishingHouseSignScript:
+	jumptext FishingHouseSignText
+
 CraggyCoastGrampsText:
 	text "You know, before"
 	line "they started work"
@@ -146,6 +152,17 @@ CraggyCoastLassText:
 	cont "register. . ."
 	done
 
+FishingHouseSignText:
+	text "The Fishing House"
+	done
+
+CraggyCoastSignText:
+	text "CRAGGY COAST:"
+
+	para "A sea town full"
+	line "of life."
+	done
+
 CraggyCoast_MapEvents:
 	db 0, 0 ; filler
 
@@ -160,6 +177,8 @@ CraggyCoast_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event 16, 20, BGEVENT_READ, CraggyCoastSignScript
+	bg_event 32,  8, BGEVENT_READ, FishingHouseSignScript
 
 	def_object_events
 	object_event  21,  27, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CraggyCoastClerk1Script, -1

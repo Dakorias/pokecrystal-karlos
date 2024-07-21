@@ -248,7 +248,7 @@ YoungsterKevinAfterText:
 	done
 
 YoungsterJamesSeenText:
-	text "Go FLETCHLING!"
+	text "Go my #MON!"
 	line "We will win this"
 	cont "time!"
 	done
@@ -264,7 +264,7 @@ YoungsterJamesAfterText:
 	done
 
 LassAlexisSeenText:
-	text "BUNEARY and I"
+	text "My #MON and I"
 	line "are visiting from"
 	cont "SINNOH!"
 
@@ -347,10 +347,10 @@ RocketBlocker2Text:
 	done
 
 HeraldRouteSignText:
-	text "HERALD ROUTE"
+	text "HERALD PASS"
 
 	para "HERALD COVE -"
-	line "SECOND TOWN"
+	line "CRAGGY BEACH"
 	done
 
 RegistrationCenterSignText:
@@ -450,7 +450,7 @@ HeraldRoute_MapEvents:
 	def_object_events
 	object_event 31,  12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterKevin, -1
 	object_event 17, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterJames, -1
-	object_event  8, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerLassAlexis, -1
+	object_event  8, 13, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerLassAlexis, -1
 	object_event 19,  5, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCoolTrainerFStacy, -1
 	object_event  9, 16, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BlockingLassScript, EVENT_LASS_AT_HERALD_ROUTE
 	object_event  9,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, HeraldRouteYoungsterScript, -1

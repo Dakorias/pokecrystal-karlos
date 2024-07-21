@@ -1598,7 +1598,7 @@ BattleTowerMons:
 
 	db WOOPER
 	db BRIGHTPOWDER
-	db MIRROR_MOVE, PURSUIT, PECK, POUND
+	db POUND, PURSUIT, PECK, POUND
 	dw 0 ; OT ID
 	dt 27000 ; Exp
 	; Stat exp
@@ -2095,7 +2095,7 @@ BattleTowerMons:
 
 	db EXEGGUTOR
 	db BRIGHTPOWDER
-	db POUND, STOMP, PSYCH_UP, CONFUSION
+	db POUND, POUND, PSYCH_UP, CONFUSION
 	dw 0 ; OT ID
 	dt 64000 ; Exp
 	; Stat exp

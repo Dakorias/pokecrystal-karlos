@@ -9,6 +9,8 @@ HeraldBayHouse_MapScripts:
 	EdwardHouseScript:
 		faceplayer
 		opentext
+		checkevent EVENT_GOT_MAP_FROM_EDWARD
+		iftrue .EdwardGoSignUp
 		writetext EdwardGivesMapText
 		waitbutton
 		verbosegiveitem SEALED_MAP
@@ -17,12 +19,12 @@ HeraldBayHouse_MapScripts:
 		waitbutton
 		closetext
 		setmapscene HERALD_LAB, SCENE_HERALD_LAB_POKEDEX
-		clearevent EVENT_EDWARD_MISSING_FROM_GYM
-		special FadeBlackQuickly
-		special ReloadSpritesNoPalettes
-		disappear HERALD_BAY_EDWARD
-		pause 25
-		special FadeInQuickly
+		end
+
+	.EdwardGoSignUp
+		writetext EdwardGivesMapText
+		waitbutton
+		closetext
 		end
 
 	EdwardGivesMapText:
@@ -60,6 +62,17 @@ HeraldBayHouse_MapScripts:
 		para "I'll be at the GYM"
 		line "when you're ready!"
 		done
+
+	PlayerComeBackLater:
+		text "You still haven't"
+		line "signed up?"
+
+		para "Go on and get"
+		line "registered!"
+
+		para "I'll meet ya' at"
+		line "the GYM when"
+		cont "you're all done."
 
 HeraldBayHouse_MapEvents:
 	db 0, 0 ; filler

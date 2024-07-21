@@ -35,7 +35,7 @@ ScenicBluff_MapScripts:
 			end
 
 	TrainerHikerReggie:
-		trainer HIKER, REGGIE, EVENT_BEAT_LASS_NICOLE, HikerReggieSeenText, HikerReggieBeatenText, 0, .Script
+		trainer HIKER, REGGIE, EVENT_BEAT_HIKER_REGGIE, HikerReggieSeenText, HikerReggieBeatenText, 0, .Script
 
 		.Script:
 			endifjustbattled

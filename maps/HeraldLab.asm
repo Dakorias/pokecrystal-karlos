@@ -306,8 +306,8 @@ HeraldLab_MapScripts:
 		startbattle
 		dontrestartmapmusic
 		reloadmap
-		iftrue .AfterYourDefeat
-		sjump .AfterVictorious
+		iftrue .AfterVictorious
+		sjump .AfterYourDefeat
 
 	.AfterVictorious:
 		opentext
@@ -427,13 +427,7 @@ HeraldLab_MapScripts:
 		faceplayer
 		opentext
 		checkevent EVENT_BEAT_ROCKET_THEIVES
-		writetext OakLabDexCheckText
-		waitbutton
-		special ProfOaksPCBoot
-		writetext OakLabGoodbyeText
-		waitbutton
-		closetext
-		end
+		iftrue OakScriptCheckPokedex
 		checkevent EVENT_GOT_MAP_FROM_EDWARD
 		iftrue OakScriptTakesMap
 		checkevent EVENT_GOT_A_POKEMON_FROM_OAK
@@ -457,6 +451,15 @@ HeraldLab_MapScripts:
 		checkevent EVENT_GOT_A_POKEMON_FROM_OAK
 		iftrue BlaireScriptAfterPokemon
 		writetext BlairePickPokemonText
+		waitbutton
+		closetext
+		end
+
+	OakScriptCheckPokedex:
+		writetext OakLabDexCheckText
+		waitbutton
+		special ProfOaksPCBoot
+		writetext OakLabGoodbyeText
 		waitbutton
 		closetext
 		end
@@ -1071,7 +1074,7 @@ HeraldLab_MapEvents:
 	def_object_events
 	object_event  5, 	 2, SPRITE_OAK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ProfOakScript, EVENT_OAK_MISSING_FROM_LAB
 	object_event  13,  1, SPRITE_GOOD_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RivalPercyLabScript, EVENT_RIVAL_HERALD_LAB
-	object_event  13,  1, SPRITE_BAD_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RivalBlaireLabScript, EVENT_RIVAL_HERALD_LAB
+	object_event  13,  1, SPRITE_BAD_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, RivalBlaireLabScript, EVENT_RIVAL_HERALD_LAB
 	object_event  6, 	 1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EkansPokeballScript, EVENT_EKANS_POKEBALL_IN_OAKS_LAB
 	object_event  7, 	 1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, YanmaPokeballScript, EVENT_YANMA_POKEBALL_IN_OAKS_LAB
 	object_event  8, 	 1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BaltoyPokeballScript, EVENT_BALTOY_POKEBALL_IN_OAKS_LAB
