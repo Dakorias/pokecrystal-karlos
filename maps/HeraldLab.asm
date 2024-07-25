@@ -92,6 +92,10 @@ HeraldLab_MapScripts:
 		waitsfx
 		promptbutton
 		givepoke EKANS, 5, BERRY
+		writetext PlayerReceivesPokeballs
+		giveitem POKE_BALL, 5
+		playsound SFX_ITEM
+		waitbutton
 		closetext
 		applymovement HERALD_LAB_BLAIRE, BlaireYanmaMovement
 		opentext
@@ -137,6 +141,10 @@ HeraldLab_MapScripts:
 		waitsfx
 		promptbutton
 		givepoke YANMA, 5, BERRY
+		writetext PlayerReceivesPokeballs
+		giveitem POKE_BALL, 5
+		playsound SFX_ITEM
+		waitbutton
 		closetext
 		applymovement HERALD_LAB_BLAIRE, BlaireBaltoyMovement
 		opentext
@@ -182,6 +190,10 @@ HeraldLab_MapScripts:
 		waitsfx
 		promptbutton
 		givepoke BALTOY, 5, BERRY
+		writetext PlayerReceivesPokeballs
+		giveitem POKE_BALL, 5
+		playsound SFX_ITEM
+		waitbutton
 		closetext
 		applymovement HERALD_LAB_BLAIRE, BlaireEkansMovement
 		opentext
@@ -309,15 +321,15 @@ HeraldLab_MapScripts:
 		iftrue .AfterVictorious
 		sjump .AfterYourDefeat
 
-	.AfterVictorious:
+	.AfterYourDefeat:
+		setevent EVENT_BATTLE_PERCY_2ND_GYM
 		opentext
 		writetext RivalBlaireYouWonText
 		waitbutton
 		closetext
 		sjump .FinishRival
 
-	.AfterYourDefeat
-		setevent EVENT_BATTLE_PERCY_2ND_GYM
+	.AfterVictorious
 		opentext
 		writetext RivalBlaireYouLostText
 		waitbutton
@@ -403,11 +415,7 @@ HeraldLab_MapScripts:
 		playsound SFX_KEY_ITEM
 		waitsfx
 		setflag ENGINE_POKEDEX
-		writetext OakGivesOutPokeballs
-		waitbutton
-		writetext PlayerReceivesPokeballs
-		giveitem POKE_BALL, 5
-		playsound SFX_ITEM
+		writetext OakTalksToGroup
 		waitbutton
 		writetext OakGoRegisterForConference
 		waitbutton
@@ -421,6 +429,7 @@ HeraldLab_MapScripts:
 		disappear HERALD_LAB_BLAIRE
 		setscene SCENE_HERALD_LAB_NOOP1
 		setevent EVENT_LASS_AT_HERALD_ROUTE
+		clearevent EVENT_LASS_BATTLE_HERALD_ROUTE
 		end
 
 	ProfOakScript:
@@ -719,6 +728,10 @@ HeraldLabHealingMachine_HealParty:
 		line "you. They will be"
 		cont "your new partner!"
 
+		para "I also left some-"
+		line "thing else on the"
+		cont "table for you."
+
 		para "Go on, <PLAYER>!"
 		line "You can be first!"
 		done
@@ -938,7 +951,7 @@ HeraldLabHealingMachine_HealParty:
 		line "#DEX!"
 		done
 
-	OakGivesOutPokeballs:
+	OakTalksToGroup:
 		text "BLAIRE: #DEX?"
 		line "Why do we need"
 		cont "this?"
@@ -959,10 +972,6 @@ HeraldLabHealingMachine_HealParty:
 
 		para "when they came by"
 		line "my hometown!"
-
-		para "OAK: Oh! I have"
-		line "one more thing for"
-		cont "you all. Here!"
 		done
 
 	PlayerReceivesPokeballs:
@@ -971,13 +980,14 @@ HeraldLabHealingMachine_HealParty:
 		done
 
 	OakGoRegisterForConference:
-		text "Now, as I'm sure"
-		line "you know by now,"
-		cont "there is a BATTLE"
+		text "OAK: Now, as you"
+		line "know by now, there"
 
-		para "CONFERENCE taking"
-		line "place here at the"
-		cont "islands."
+		para "is a BATTLE"
+		line "CONFERENCE taking"
+
+		para "place here at the"
+		line "islands."
 
 		para "I want you all to"
 		line "participate."

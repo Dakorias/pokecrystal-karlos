@@ -953,7 +953,7 @@ BattleTower_RandomlyChooseReward:
 	sub 6
 .okay
 	add HP_UP
-	cp LUCKY_PUNCH
+	cp SHINY_BALL
 	jr z, .loop
 	push af
 	ld a, BANK(sBattleTowerReward)

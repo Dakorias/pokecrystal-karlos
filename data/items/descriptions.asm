@@ -30,7 +30,7 @@ ItemDescriptions:
 	dw ProteinDesc
 	dw IronDesc
 	dw CarbosDesc
-	dw LuckyPunchDesc
+	dw BerryBoxDesc
 	dw CalciumDesc
 	dw RareCandyDesc
 	dw XAccuracyDesc
@@ -375,9 +375,9 @@ CarbosDesc:
 	db   "Raises SPEED of"
 	next "one #MON.@"
 
-LuckyPunchDesc:
-	db   "Ups critical hit"
-	next "ratio of CHANSEY.@"
+BerryBoxDesc:
+	db   "A box of BERRIES"
+	next "for someone...@"
 
 CalciumDesc:
 	db   "Ups SPECIAL stats"

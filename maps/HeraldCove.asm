@@ -23,6 +23,11 @@ HeraldCove_MapScripts:
 	scene_script HeraldCoveNoop1, SCENE_HERALD_COVE_NOOP1
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .HeraldCoveFlyPointCallback
+
+	.HeraldCoveFlyPointCallback:
+	setflag ENGINE_FLYPOINT_HERALD_COVE
+	endcallback
 
 	HeraldCoveOakEscort:
 	sdefer OakEscortScript
@@ -36,6 +41,8 @@ HeraldCove_MapScripts:
 
 	HeraldCoveNoop1:
 		end
+
+
 
 	OakEscortScript:
 	applymovement PLAYER, PlayerExitDoorMovement
@@ -76,6 +83,7 @@ HeraldCove_MapScripts:
 	writetext OakTalksToPlayerText2
 	waitbutton
 	closetext
+	setevent EVENT_LASS_BATTLE_HERALD_ROUTE
 	follow HERALD_COVE_OAK, PLAYER
 	applymovement HERALD_COVE_OAK, OakWalksToLab
 	disappear HERALD_COVE_OAK

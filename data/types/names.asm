@@ -12,17 +12,13 @@ TypeNames:
 	dw Dark
 	dw Steel
 	assert_table_length UNUSED_TYPES
-	dw Normal
-	dw Normal
-	dw Normal
-	dw Normal
-	dw Normal
-	dw Normal
-	dw Normal
-	dw Normal
-	dw Normal
-	dw CurseType
+
+	rept UNUSED_TYPES_END - UNUSED_TYPES - 1 ; discount CURSE_TYPE
+		dw Normal
+	endr
+		dw CurseType
 	assert_table_length UNUSED_TYPES_END
+
 	dw Fire
 	dw Water
 	dw Grass

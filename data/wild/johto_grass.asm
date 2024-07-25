@@ -258,8 +258,8 @@ JohtoGrassWildMons:
 	db 10,  SUNKERN,		    13, 14
 	db 10,  APPLIN,		      13, 14
 	db  2,  SKIPLOOM,				17, 18
-	db  2,  APPLIN,					14, 18
-	db  1,  YANMA,			  	14, 17
+	db  2,  TREEKO,					14, 18
+	db  1,  TREEKO,			  	14, 17
 
 	; day
 	db 30,  HOPPIP,					15, 17
@@ -268,8 +268,8 @@ JohtoGrassWildMons:
 	db 10,  SUNKERN,		    13, 14
 	db 10,  APPLIN,		      13, 14
 	db  2,  SKIPLOOM,				17, 18
-	db  2,  APPLIN,					14, 18
-	db  1,  YANMA,			  	14, 17
+	db  2,  TREEKO,					14, 18
+	db  1,  TREEKO,			  	14, 17
 
 	; nite
 	db 30,  HOPPIP,					15, 17
@@ -278,8 +278,8 @@ JohtoGrassWildMons:
 	db 10,  SUNKERN,		    13, 14
 	db 10,  APPLIN,		      13, 14
 	db  2,  SKIPLOOM,				17, 18
-	db  2,  APPLIN,					14, 18
-	db  1,  YANMA,			  	14, 17
+	db  2,  TREEKO,					14, 18
+	db  1,  TREEKO,			  	14, 17
 
 	end_grass_wildmons
 	db -1 ; end

@@ -15,7 +15,8 @@ SpawnPoints:
 	spawn NEW_BARK_TOWN,                15,  8
 	spawn BATTLE_TOWER_OUTSIDE,          8, 10
 	spawn HERALD_COVE,									19, 18
-	spawn HERALD_ROUTE,									26,  6
+	spawn CRAGGY_COAST,									 7, 16
+	spawn RUGGED_CLIFF, 							  11,  4
 	spawn NONE,                          6,  2
 
 	spawn N_A,                          -1, -1

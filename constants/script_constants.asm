@@ -207,6 +207,7 @@ DEF EMOTE_LENGTH EQU 6
 ; fruittree arguments
 ; FruitTreeItems indexes (see data/items/fruit_trees.asm)
 	const_def 1
+	const FRUITTREE_HERALD_ROUTE  ; 01
 	const FRUITTREE_SCENIC_BLUFF  ; 01
 	const FRUITTREE_BERRY_FOREST_1 ; 02
 	const FRUITTREE_BERRY_FOREST_2      ; 03

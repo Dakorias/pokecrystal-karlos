@@ -192,15 +192,15 @@ ScenicBluff_MapScripts:
 		line "leagues away from"
 		cont "me right now, so"
 
-		para "I will let you"
-		line "pass without a"
-		cont "battle this time."
+		para "I'll let you pass"
+		line "without a battle"
+		cont "this time."
 
 		para "I hope you get"
 		line "strong enough to"
 		cont "battle me one day."
 
-		para "Smell Ya Later."
+		para "Smell ya later."
 		done
 
 ScenicBluff_MapEvents:

@@ -78,6 +78,8 @@ EngineFlags:
 	engine_flag wVisitedSpawns, SPAWN_NEW_BARK
 	engine_flag wVisitedSpawns, SPAWN_BATTLE_TOWER
 	engine_flag wVisitedSpawns, SPAWN_HERALD_COVE
+	engine_flag wVisitedSpawns, SPAWN_CRAGGY_COAST
+	engine_flag wVisitedSpawns, SPAWN_RUGGED_CLIFF
 
 	engine_flag wLuckyNumberShowFlag, LUCKYNUMBERSHOW_GAME_OVER_F
 

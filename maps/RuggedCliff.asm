@@ -8,6 +8,11 @@ RuggedCliff_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .RuggedCliffFlyPointCallback
+
+	.RuggedCliffFlyPointCallback:
+	setflag ENGINE_FLYPOINT_RUGGED_CLIFF
+	endcallback
 
 TrainerRangerGerald:
 	trainer RANGER, GERALD, EVENT_BEAT_RANGER_GERALD, RangerGeraldSeenText, RangerGeraldBeatenText, 0, .Script

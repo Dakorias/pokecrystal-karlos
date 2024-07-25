@@ -9,7 +9,8 @@
 	const HERALD_ROUTE_ROCKET1
 	const HERALD_ROUTE_ROCKET2
 	const HERALD_ROUTE_YOUNGSTER4
-	const HERALD_ROUTE_POKE_BALL
+	const HERALD_ROUTE_POKE_BALL1
+	const HERALD_ROUTE_POKE_BALL2
 
 HeraldRoute_MapScripts:
 	def_scene_scripts
@@ -35,13 +36,13 @@ TrainerYoungsterKevin:
 		closetext
 		end
 
-TrainerYoungsterJames:
-	trainer YOUNGSTER, JAMES, EVENT_BEAT_YOUNGSTER_JAMES, YoungsterJamesSeenText, YoungsterJamesBeatenText, 0, .Script
+TrainerBugCatcherJames:
+	trainer BUG_CATCHER, JAMES, EVENT_BEAT_BUG_CATCHER_JAMES, BugCatcherJamesSeenText, BugCatcherJamesBeatenText, 0, .Script
 
 	.Script:
 		endifjustbattled
 		opentext
-		writetext YoungsterJamesAfterText
+		writetext BugCatcherJamesAfterText
 		waitbutton
 		closetext
 		end
@@ -85,6 +86,9 @@ HeraldRouteLassScript:
 
 HeraldRoutePotion:
 	itemball POTION, 1
+
+HeraldRouteGreatBall:
+	itemball GREAT_BALL, 1
 
 BlockingRocket1Script:
 	faceplayer
@@ -247,17 +251,17 @@ YoungsterKevinAfterText:
 	line "to get more..."
 	done
 
-YoungsterJamesSeenText:
+BugCatcherJamesSeenText:
 	text "Go my #MON!"
 	line "We will win this"
 	cont "time!"
 	done
 
-YoungsterJamesBeatenText:
+BugCatcherJamesBeatenText:
 	text "Darn, not again..."
 	done
 
-YoungsterJamesAfterText:
+BugCatcherJamesAfterText:
 	text "I just got beat by"
 	line "some girl. She was"
 	cont "really tough."
@@ -449,8 +453,8 @@ HeraldRoute_MapEvents:
 
 	def_object_events
 	object_event 31,  12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterKevin, -1
-	object_event 17, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterJames, -1
-	object_event 11, 11, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerLassAlexis, -1
+	object_event 17, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherJames, -1
+	object_event 11, 11, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerLassAlexis, EVENT_LASS_BATTLE_HERALD_ROUTE
 	object_event 19,  5, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCoolTrainerFStacy, -1
 	object_event  9, 16, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BlockingLassScript, EVENT_LASS_AT_HERALD_ROUTE
 	object_event  9,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, HeraldRouteYoungsterScript, -1
@@ -459,3 +463,4 @@ HeraldRoute_MapEvents:
 	object_event  38,  2, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlockingRocket2Script, EVENT_ROCKETS_STEAL_SEALED_MAP
 	object_event  51, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HeraldRouteYoungsterDannyScript, EVENT_BEAT_YOUNGSTER_DANNY1
 	object_event  13,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, HeraldRoutePotion, EVENT_HERALD_ROUTE_POTION
+	object_event   5, 11, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, HeraldRouteGreatBall, EVENT_HERALD_ROUTE_GREAT_BALL

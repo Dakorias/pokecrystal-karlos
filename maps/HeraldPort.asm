@@ -13,6 +13,16 @@ HeraldPort_MapScripts:
 	scene_script HeraldPortNoop1Scene, SCENE_HERALD_PORT_NOOP1
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, InitializeEventsCallback
+
+	InitializeEventsCallback:
+		checkevent EVENT_INITIALIZED_EVENTS
+		iftrue .SkipInitialization
+		jumpstd InitializeEventsScript
+		endcallback
+
+	.SkipInitialization:
+		endcallback
 
 	HeraldPortIntroScene:
 		sdefer PlayerOakIntroScript
@@ -22,9 +32,6 @@ HeraldPort_MapScripts:
 		end
 
 	PlayerOakIntroScript:
-		disappear HERALD_PORT_OAK
-		disappear HERALD_PORT_BLAIRE
-		disappear HERALD_PORT_PERCY
 		moveobject HERALD_PORT_OAK, 9, 6
 		moveobject HERALD_PORT_PERCY, 9, 6
 		moveobject HERALD_PORT_BLAIRE, 9, 6
@@ -111,6 +118,7 @@ HeraldPort_MapScripts:
 		applymovement HERALD_PORT_SAILOR1, SailorStepsBackMovement
 		setscene SCENE_HERALD_PORT_NOOP1
 		setevent EVENT_GYM_TRAINERS_IN_HERALD_COVE
+		setevent EVENT_START_HERALD_PORT
 		end
 
 	Sailor1Script:
@@ -129,6 +137,18 @@ HeraldPort_MapScripts:
 
 	HeraldPortCooltrainerFScript:
 		jumptextfaceplayer HeraldPortCooltrainerFText
+
+	HealedPartyAfterWhiteout:
+		pause 5
+		turnobject HERALD_PORT_SAILOR1, UP
+		opentext
+		writetext SailorDoneHealingText
+		waitbutton
+		closetext
+		applymovement HERALD_PORT_SAILOR1, SailorStepsAwayMovement
+		applymovement PLAYER , PlayerExitShipMovement
+		applymovement HERALD_PORT_SAILOR1, SailorStepsBackMovement
+		end
 
 	SailorStepsAwayMovement:
 		step LEFT
@@ -332,6 +352,16 @@ HeraldPort_MapScripts:
 		line "bigger city."
 		done
 
+	SailorDoneHealingText:
+		text "All done healing?"
+		line "Then come on out."
+
+		para "There's a #MON"
+		line "CENTER in town"
+
+		para "that you can use"
+		line "next time."
+		done
 
 HeraldPort_MapEvents:
 	db 0, 0 ; filler
@@ -341,6 +371,7 @@ HeraldPort_MapEvents:
 	warp_event 9,  11, HERALD_COVE, 1
 
 	def_coord_events
+	coord_event 9,  7, SCENE_HERALD_PORT_NOOP1, HealedPartyAfterWhiteout
 
 	def_bg_events
 

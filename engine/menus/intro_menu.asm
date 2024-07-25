@@ -371,7 +371,7 @@ Continue:
 	farcall CopyMysteryGiftReceivedDecorationsToPC
 	farcall ClockContinue
 	ld a, [wSpawnAfterChampion]
-	cp SPAWN_LANCE
+	cp SPAWN_HERALD_COVE
 	jr z, .SpawnAfterE4
 	ld a, MAPSETUP_CONTINUE
 	ldh [hMapEntryMethod], a
@@ -381,13 +381,13 @@ Continue:
 	ret
 
 .SpawnAfterE4:
-	ld a, SPAWN_NEW_BARK
+	ld a, SPAWN_HERALD_COVE
 	ld [wDefaultSpawnpoint], a
 	call PostCreditsSpawn
 	jp FinishContinueFunction
 
 SpawnAfterRed:
-	ld a, SPAWN_NEW_BARK
+	ld a, SPAWN_HERALD_COVE
 	ld [wDefaultSpawnpoint], a
 
 PostCreditsSpawn:
@@ -469,7 +469,7 @@ FinishContinueFunction:
 	set 1, [hl]
 	farcall OverworldLoop
 	ld a, [wSpawnAfterChampion]
-	cp SPAWN_RED
+	cp SPAWN_HERALD_COVE
 	jr z, .AfterRed
 	jp Reset
 

@@ -3,6 +3,7 @@
 	const HERALD_BAY_LASS
 	const HERALD_BAY_TM54
 	const HERALD_BAY_GREAT_BALL
+	const HERALD_BAY_POTION
 
 HeraldBay_MapScripts:
 	def_scene_scripts
@@ -54,6 +55,9 @@ HeraldBayGrottoEntryScript:
 
 	HeraldBayGreatBall:
 		itemball GREAT_BALL
+
+	HeraldBayPotion:
+		itemball POTION
 
 	EdwardsHouseSignScript:
 		opentext
@@ -133,3 +137,4 @@ HeraldBay_MapEvents:
 	object_event 14, 23, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerLassLaney, -1
 	object_event 28,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_ITEMBALL, 0, HeraldBayTM54, EVENT_HERALD_BAY_TM54
 	object_event 6,  33, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, HeraldBayGreatBall, EVENT_HERALD_BAY_GREAT_BALL
+	object_event 4,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, HeraldBayPotion, EVENT_HERALD_BAY_POTION

@@ -158,7 +158,7 @@ ItemEffects:
 	dw NoEffect            ; DRAGON_FANG
 	dw PokeBallEffect      ; FORTUNE_BALL
 	dw NoEffect            ; LEFTOVERS
-	dw DreamBerryEffect    ; DREAM_BERRY
+	dw RestoreHPEffect     ; DREAM_BERRY
 	dw TeachyTVEffect      ; TEACHY_TV
 	dw NoEffect            ; LIGHT_CLAY
 	dw RestorePPEffect     ; MYSTERYBERRY
@@ -2008,16 +2008,6 @@ EnergypowderEnergyRootCommon:
 
 .skip_happiness
 	jp StatusHealer_Jumptable
-
-DreamBerryEffect:
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
-	ld d, h
-	ld e, l
-	ld a, [de]
-	and SLP_MASK
-	ld hl, FellAsleepText
-	call StdBattleTextbox
 
 ItemRestoreHP:
 	ld b, PARTYMENUACTION_HEALING_ITEM

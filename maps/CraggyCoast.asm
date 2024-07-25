@@ -13,6 +13,11 @@ CraggyCoast_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .CraggyCoastFlyPointCallback
+
+	.CraggyCoastFlyPointCallback:
+	setflag ENGINE_FLYPOINT_CRAGGY_COAST
+	endcallback
 
 CraggyCoastClerk1Script:
 	faceplayer

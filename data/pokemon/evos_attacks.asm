@@ -19,8 +19,8 @@ db EVOLVE_LEVEL, 26, ARBOK
 db 0 ; no more evolutions
 db 1, POISON_STING
 db 1, LEER
-db 1, BITE
-db 8, WRAP
+db 6, WRAP
+db 9, BITE
 db 13, GLARE
 db 16, SCREECH
 db 20, SLUDGE
@@ -63,7 +63,7 @@ db 0 ; no more evolutions
 db 1, GUST
 db 1, LEER
 db 6, QUICK_ATTACK
-db 8, LEECH_LIFE
+db 9, LEECH_LIFE
 db 13, SUPERSONIC
 db 16, TWISTER
 db 20, WING_ATTACK
@@ -102,8 +102,8 @@ db 0 ; no more evolutions
 db 1, RAPID_SPIN
 db 1, HARDEN
 db 6, SAND_TOMB
-db 11, CONFUSION
-db 16, SANDSTORM
+db 10, CONFUSION
+db 15, SANDSTORM
 db 21, PSYBEAM
 db 27, ANCIENTPOWER
 db 31, COSMIC_POWER
@@ -137,7 +137,7 @@ db 0 ; no more evolutions
 db 1, TACKLE
 db 1, GROWL
 db 8, DEFENSE_CURL
-db 12, BITE
+db 11, BITE
 db 18, HEADBUTT
 db 21, ROLLOUT
 db 25, TAKE_DOWN
@@ -155,7 +155,7 @@ db 0 ; no more evolutions
 db 1, TACKLE
 db 1, GROWL
 db 8, DEFENSE_CURL
-db 12, BITE
+db 11, BITE
 db 15, WATER_GUN
 db 18, HEADBUTT
 db 21, ROLLOUT
@@ -166,6 +166,7 @@ db 36, BRINE
 db 40, REST
 db 42, SLEEP_TALK
 db 46, BODY_SLAM
+db 50, HYDRO_PUMP
 db 0 ; no more level-up moves
 
  FletchlingEvosAttacks:

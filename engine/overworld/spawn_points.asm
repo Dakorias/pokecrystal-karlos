@@ -5,7 +5,7 @@ EnterMapSpawnPoint:
 	push hl
 	push de
 	ld a, [wDefaultSpawnpoint]
-	cp SPAWN_N_A
+	cp SPAWN_HERALD_COVE
 	jr z, .spawn_n_a
 	ld l, a
 	ld h, 0
@@ -32,7 +32,7 @@ IsSpawnPoint:
 	ld c, 0
 .loop
 	ld a, [hl]
-	cp SPAWN_N_A
+	cp SPAWN_HERALD_COVE
 	jr z, .nope
 	cp d
 	jr nz, .next

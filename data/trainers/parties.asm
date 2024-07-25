@@ -300,7 +300,7 @@ BugCatcherGroup:
 	; BUG_CATCHER (1)
 	db "JAMES@", TRAINERTYPE_NORMAL
 	db 7, METAPOD
-	db 8, METAPOD
+	db 8, SURSKIT
 	db -1 ; end
 
 FisherGroup:

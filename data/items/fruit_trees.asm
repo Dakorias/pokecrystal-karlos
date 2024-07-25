@@ -1,6 +1,7 @@
 FruitTreeItems:
 ; entries correspond to FRUITTREE_* constants
 	table_width 1, FruitTreeItems
+	db BERRY        ; HERALD_ROUTE
 	db BERRY        ; SCENIC_BLUFF
 	db BERRY        ; BERRY_FOREST_1
 	db PRZCUREBERRY ; BERRY_FOREST_2

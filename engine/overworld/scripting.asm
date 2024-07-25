@@ -2069,7 +2069,7 @@ Script_warp:
 	ld [wXCoord], a
 	call GetScriptByte
 	ld [wYCoord], a
-	ld a, SPAWN_N_A
+	ld a, SPAWN_HERALD_COVE
 	ld [wDefaultSpawnpoint], a
 	ld a, MAPSETUP_WARP
 	ldh [hMapEntryMethod], a
@@ -2082,7 +2082,7 @@ Script_warp:
 	call GetScriptByte
 	call GetScriptByte
 	call GetScriptByte
-	ld a, SPAWN_N_A
+	ld a, SPAWN_HERALD_COVE
 	ld [wDefaultSpawnpoint], a
 	ld a, MAPSETUP_BADWARP
 	ldh [hMapEntryMethod], a

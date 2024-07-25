@@ -2577,12 +2577,14 @@ PlayerAttackDamage:
 .physicalcrit
 	ld hl, wBattleMonAttack
 	call CheckDamageStatsCritical
+	jr c, .thickclub
 
 	ld hl, wEnemyDefense
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
 	ld hl, wPlayerAttack
+	jr .thickclub
 
 .special
 	ld hl, wEnemyMonSpclDef
@@ -2607,12 +2609,14 @@ PlayerAttackDamage:
 	ld c, [hl]
 	ld hl, wPlayerSpAtk
 
+.thickclub
+; Note: Returns player attack at hl in hl.
+	call ThickClubBoost
+	jr .done
+
 .lightball
 ; Note: Returns player special attack at hl in hl.
 	call LightBallBoost
-	jr .done
-
-
 
 .done
 	call TruncateHL_BC
@@ -2717,7 +2721,20 @@ CheckDamageStatsCritical:
 	pop hl
 	ret
 
+ThickClubBoost:
+; Return in hl the stat value at hl.
 
+; If the attacking monster is Cubone or Marowak and
+; it's holding a Thick Club, double it.
+	push bc
+	push de
+;	ld b, CUBONE
+;	ld c, MAROWAK
+;	ld d, THICK_CLUB
+	call SpeciesItemBoost
+	pop de
+	pop bc
+	ret
 
 LightBallBoost:
 ; Return in hl the stat value at hl.
@@ -2726,9 +2743,9 @@ LightBallBoost:
 ; holding a Light Ball, double it.
 	push bc
 	push de
-	ld b, PIKACHU
-	ld c, PIKACHU
-	ld d, LIGHT_BALL
+;	ld b, PIKACHU
+;	ld c, PIKACHU
+;	ld d, LIGHT_BALL
 	call SpeciesItemBoost
 	pop de
 	pop bc
@@ -2744,35 +2761,34 @@ SpeciesItemBoost:
 	ld l, [hl]
 	ld h, a
 
-	push hl
-	ld a, MON_SPECIES
-	call BattlePartyAttr
+;	push hl
+;	ld a, MON_SPECIES
+;	call BattlePartyAttr
 
-	ldh a, [hBattleTurn]
-	and a
-	ld a, [hl]
-	jr z, .CompareSpecies
-	ld a, [wTempEnemyMonSpecies]
-.CompareSpecies:
-	pop hl
+;	ldh a, [hBattleTurn]
+;	and a
+;	ld a, [hl]
+;	jr z, .CompareSpecies
+;	ld a, [wTempEnemyMonSpecies]
+; .CompareSpecies:
+;	pop hl
 
-	cp b
-	jr z, .GetItemHeldEffect
-	cp c
-	ret nz
+;	cp b
+;	jr z, .GetItemHeldEffect
+;	cp c
+;	ret nz
 
-.GetItemHeldEffect:
-	push hl
-	call GetUserItem
-	ld a, [hl]
-	pop hl
-	cp d
-	ret nz
+; .GetItemHeldEffect:
+;	push hl
+;	call GetUserItem
+;	ld a, [hl]
+;	pop hl
+;	cp d
+;	ret nz
 
 ; Double the stat
-; BUG: Thick Club and Light Ball can make (Special) Attack wrap around above 1024 (see docs/bugs_and_glitches.md)
-	sla l
-	rl h
+;	sla l
+;	rl h
 	ret
 
 EnemyAttackDamage:
@@ -2804,12 +2820,14 @@ EnemyAttackDamage:
 .physicalcrit
 	ld hl, wEnemyMonAttack
 	call CheckDamageStatsCritical
+	jr c, .thickclub
 
 	ld hl, wPlayerDefense
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
 	ld hl, wEnemyAttack
+	jr .thickclub
 
 .special
 	ld hl, wBattleMonSpclDef
@@ -2837,7 +2855,8 @@ EnemyAttackDamage:
 	call LightBallBoost
 	jr .done
 
-
+.thickclub
+	call ThickClubBoost
 
 .done
 	call TruncateHL_BC
@@ -4277,14 +4296,14 @@ RaiseStat:
 	add hl, bc
 	ld b, [hl]
 	inc b
-	ld a, $d
+	ld a, MAX_STAT_LEVEL
 	cp b
 	jp c, .cant_raise_stat
 	ld a, [wLoweredStat]
 	and $f0
 	jr z, .got_num_stages
 	inc b
-	ld a, $d
+	ld a, MAX_STAT_LEVEL
 	cp b
 	jr nc, .got_num_stages
 	ld b, a
@@ -4292,7 +4311,7 @@ RaiseStat:
 	ld [hl], b
 	push hl
 	ld a, c
-	cp $5
+	cp ACCURACY
 	jr nc, .done_calcing_stats
 	ld hl, wBattleMonStats + 1
 	ld de, wPlayerStats
@@ -4765,7 +4784,7 @@ LowerStat:
 .got_num_stages
 	ld [hl], b
 	ld a, c
-	cp 5
+	cp ACCURACY
 	jr nc, .accuracy_evasion
 
 	push hl
