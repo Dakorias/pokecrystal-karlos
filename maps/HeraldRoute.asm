@@ -11,6 +11,7 @@
 	const HERALD_ROUTE_YOUNGSTER4
 	const HERALD_ROUTE_POKE_BALL1
 	const HERALD_ROUTE_POKE_BALL2
+	const HERALD_ROUTE_FRUIT_TREE
 
 HeraldRoute_MapScripts:
 	def_scene_scripts
@@ -193,6 +194,9 @@ HeraldRouteYoungsterDannyScript:
 	waitbutton
 	closetext
 	end
+
+HeraldRouteFruitTree:
+	fruittree FRUITTREE_HERALD_ROUTE
 
 RocketPushesPlayerBack:
 	fix_facing
@@ -464,3 +468,4 @@ HeraldRoute_MapEvents:
 	object_event  51, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HeraldRouteYoungsterDannyScript, EVENT_BEAT_YOUNGSTER_DANNY1
 	object_event  13,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, HeraldRoutePotion, EVENT_HERALD_ROUTE_POTION
 	object_event   5, 11, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, HeraldRouteGreatBall, EVENT_HERALD_ROUTE_GREAT_BALL
+	object_event 15, 14, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HeraldRouteFruitTree, -1

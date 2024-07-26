@@ -1,32 +1,17 @@
 	object_const_def
 	const BERRY_FOREST_HOUSE_GRAMPS
+	const BERRY_FOREST_HOUSE_GRAMPS2
 
 BerryForestHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, .BerryMaster
-
-	.BerryMaster
-		checkevent ENGINE_BERRY_FOREST_MASTER_BERRIES
-		iffalse .BerryMasterDisappear
-		sjump .BerryMasterAppear
-
-	.BerryMasterDisappear:
-		disappear BERRY_FOREST_HOUSE_GRAMPS
-		endcallback
-
-	.BerryMasterAppear:
-		checkflag ENGINE_DAILY_MOVE_TUTOR
-		iftrue .BerryMasterDone
-		appear BERRY_FOREST_HOUSE_GRAMPS
-
-	.BerryMasterDone:
-		endcallback
 
 BerryForestMasterScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BERRY_FOREST_MASTER_FINISHED
+	iftrue .OutForNow
 	checkevent EVENT_BERRY_MASTER_POKEFAN_M
 	iftrue .Thanks
 	checkitem BERRY_BOX
@@ -39,6 +24,12 @@ BerryForestMasterScript:
 	verbosegiveitem BERRY_BOX
 	closetext
 	end
+
+	.OutForNow
+		writetext BerryMasterSorryAllOutText
+		waitbutton
+		closetext
+		end
 
 	.No
 	writetext BerryMasterNoDelivery
@@ -63,9 +54,10 @@ BerryForestMasterScript:
 	BerryForestMasterAfterScript:
 		faceplayer
 		opentext
+		checkflag ENGINE_BERRY_FOREST_MASTER_BERRIES
+		iftrue .HasNoBerries
 		writetext BerryMasterGivesBerries
 		waitbutton
-		closetext
 		readvar VAR_WEEKDAY
 		ifequal MONDAY, BerryMasterMondayScript
 		ifequal TUESDAY, BerryMasterTuesdayScript
@@ -75,51 +67,47 @@ BerryForestMasterScript:
 		ifequal SATURDAY, BerryMasterSaturdayScript
 		ifequal SUNDAY, BerryMasterSundayScript
 
+		.HasNoBerries
+		writetext BerryMasterSorryAllOutText
+		waitbutton
+		closetext
+		end
+
 		BerryMasterMondayScript:
 			verbosegiveitem GOLD_BERRY, 3
 			closetext
-			sjump BerryMasterLeavesScript
+			setflag ENGINE_BERRY_FOREST_MASTER_BERRIES
+			end
 		BerryMasterTuesdayScript:
 			verbosegiveitem PSNCUREBERRY, 3
 			closetext
-			sjump BerryMasterLeavesScript
+			setflag ENGINE_BERRY_FOREST_MASTER_BERRIES
+			end
 		BerryMasterWednesdayScript:
 			verbosegiveitem PRZCUREBERRY, 3
 			closetext
-			sjump BerryMasterLeavesScript
+			setflag ENGINE_BERRY_FOREST_MASTER_BERRIES
+			end
 		BerryMasterThursdayScript:
 			verbosegiveitem MYSTERYBERRY, 3
 			closetext
-			sjump BerryMasterLeavesScript
+			setflag ENGINE_BERRY_FOREST_MASTER_BERRIES
+			end
 		BerryMasterFridayScript:
 			verbosegiveitem DREAM_BERRY, 3
 			closetext
-			sjump BerryMasterLeavesScript
+			setflag ENGINE_BERRY_FOREST_MASTER_BERRIES
+			end
 		BerryMasterSaturdayScript:
 			verbosegiveitem MIRACLEBERRY, 3
 			closetext
-			sjump BerryMasterLeavesScript
+			setflag ENGINE_BERRY_FOREST_MASTER_BERRIES
+			end
 		BerryMasterSundayScript:
 			verbosegiveitem MINT_BERRY, 3
 			closetext
-			sjump BerryMasterLeavesScript
-
-		BerryMasterLeavesScript:
-			readvar VAR_FACING
-			ifequal DOWN, .WalkAroundPlayer
-			applymovement BERRY_FOREST_HOUSE_GRAMPS, BerryMasterLeavesMovement
-			sjump .Leaves
-
-		.WalkAroundPlayer:
-			applymovement BERRY_FOREST_HOUSE_GRAMPS, BerryMasterWalksAround
-		.Leaves
-			playsound SFX_ENTER_DOOR
-			disappear BERRY_FOREST_HOUSE_GRAMPS
 			setflag ENGINE_BERRY_FOREST_MASTER_BERRIES
-			waitsfx
 			end
-
-
 
 	BerryMasterWalksAround:
 		step RIGHT
@@ -193,6 +181,7 @@ BerryForestMasterScript:
 		para "You'll have to"
 		line "find him on your"
 		cont "own I'm afraid."
+		done
 
 	BerryMasterGivesBerries:
 		text "Ah, good timing!"
@@ -202,6 +191,15 @@ BerryForestMasterScript:
 		para "I'll be heading"
 		line "to get more in"
 		cont "just a moment!"
+		done
+
+	BerryMasterSorryAllOutText:
+		text "Sorry, I'm fresh"
+		line "out at the moment."
+
+		para "Come back later"
+		line "and I might have"
+		cont "some for you!"
 		done
 
 BerryForestHouse_MapEvents:

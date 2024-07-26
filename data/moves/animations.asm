@@ -4133,27 +4133,23 @@ BattleAnim_PainSplit:
 	anim_ret
 
 BattleAnim_GunkShot:
-	anim_1gfx ANIM_GFX_FIRE
-	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
-	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $2, $0
+	anim_3gfx ANIM_GFX_EGG, ANIM_GFX_POISON, ANIM_GFX_HIT
+	anim_bgeffect ANIM_BG_BLACK_HUES, $0, $8, $0
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $40, $2, $0
+	anim_wait 50
 .loop
-	anim_sound 0, 0, SFX_EMBER
-	anim_obj ANIM_OBJ_SLUDGE_BOMB, 48, 104, $0
-	anim_wait 8
-	anim_loop 8, .loop
-	anim_wait 96
-	anim_call BattleAnim_TargetObj_1Row
-	anim_bgeffect ANIM_BG_TACKLE, $0, BG_EFFECT_USER, $0
-	anim_wait 4
-	anim_sound 0, 1, SFX_EMBER
-	anim_obj ANIM_OBJ_FIRE_BLAST, 136, 48, $1
-	anim_obj ANIM_OBJ_FIRE_BLAST, 136, 48, $4
-	anim_obj ANIM_OBJ_FIRE_BLAST, 136, 48, $5
-	anim_wait 8
-	anim_bgeffect ANIM_BG_SHOW_MON, $0, BG_EFFECT_TARGET, $0
-	anim_wait 4
-	anim_incobj 9
-	anim_wait 8
+	anim_sound 6, 2, SFX_SLUDGE_BOMB
+	anim_obj ANIM_OBJ_SLUDGE_BOMB, 64, 92, $10
+	anim_wait 6
+	anim_sound 6, 2, SFX_SLUDGE_BOMB
+	anim_obj ANIM_OBJ_SLUDGE_BOMB, 56, 84, $10
+	anim_wait 7
+	anim_sound 6, 2, SFX_SLUDGE_BOMB
+	anim_obj ANIM_OBJ_SLUDGE_BOMB, 52, 88, $10
+	anim_wait 5
+	anim_loop 3, .loop
+	anim_call BattleAnimSub_Sludge
+	anim_wait 56
 	anim_ret
 
 BattleAnim_Magnitude:

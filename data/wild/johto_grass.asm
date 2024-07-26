@@ -144,7 +144,7 @@ JohtoGrassWildMons:
 	end_grass_wildmons
 
 	def_grass_wildmons MT_MONEGO
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
 	;	 %,  Species,				min, max
 	db 25,  GEODUDE,				10,  12
@@ -258,8 +258,8 @@ JohtoGrassWildMons:
 	db 10,  SUNKERN,		    13, 14
 	db 10,  APPLIN,		      13, 14
 	db  2,  SKIPLOOM,				17, 18
-	db  2,  TREEKO,					14, 18
-	db  1,  TREEKO,			  	14, 17
+	db  2,  CHIKORITA,		  11, 13
+	db  1,  CHIKORITA,			12, 14
 
 	; day
 	db 30,  HOPPIP,					15, 17
@@ -268,8 +268,8 @@ JohtoGrassWildMons:
 	db 10,  SUNKERN,		    13, 14
 	db 10,  APPLIN,		      13, 14
 	db  2,  SKIPLOOM,				17, 18
-	db  2,  TREEKO,					14, 18
-	db  1,  TREEKO,			  	14, 17
+	db  2,  BULBASAUR,			11, 13
+	db  1,  BULBASAUR,			12, 14
 
 	; nite
 	db 30,  HOPPIP,					15, 17
@@ -278,8 +278,8 @@ JohtoGrassWildMons:
 	db 10,  SUNKERN,		    13, 14
 	db 10,  APPLIN,		      13, 14
 	db  2,  SKIPLOOM,				17, 18
-	db  2,  TREEKO,					14, 18
-	db  1,  TREEKO,			  	14, 17
+	db  2,  TREEKO,					11, 13
+	db  1,  TREEKO,			  	12, 14
 
 	end_grass_wildmons
 	db -1 ; end

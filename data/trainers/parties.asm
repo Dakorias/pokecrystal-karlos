@@ -563,7 +563,7 @@ RangerGroup:
 	; GERALD (1)
 	db "GERALD@", TRAINERTYPE_NORMAL
 	db 14, GROWLITHE
-	db 16, LOMBRE
+	db 15, LOMBRE
 	db -1 ; end
 
 RuinManiacGroup:

@@ -261,6 +261,13 @@ InitBattleAnimBuffer:
 	ld a, [wFXAnimID + 1]
 	or a
 	jr nz, .no_sub
+	ld a, [wFXAnimID]
+	cp NO_MOVE
+	jr z, .do_sub
+	cp NO_MOVE
+	jr z, .do_sub
+	cp NO_MOVE
+	jr nz, .no_sub
 
 .do_sub
 	pop af

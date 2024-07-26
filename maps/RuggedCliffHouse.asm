@@ -23,6 +23,8 @@ RuggedCliffHousePokefanM:
 	waitbutton
 	verbosegiveitem NUGGET
 	closetext
+	takeitem BERRY_BOX
+	setevent EVENT_BERRY_MASTER_POKEFAN_M
 	end
 
 	.Finished

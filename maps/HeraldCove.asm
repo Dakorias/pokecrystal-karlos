@@ -313,6 +313,7 @@ HeraldCoveOldRodFisher:
 	special BillsGrandfather
 	ifnotequal KRABBY, .NotKrabby
 	scall .IsKrabby
+	end
 
 	.SaidNo
 		writetext DontHaveKrabbyText
@@ -337,10 +338,8 @@ HeraldCoveOldRodFisher:
 	.IsKrabby
 		writetext ThatsAKrabbyText
 		waitbutton
-		closetext
 		verbosegiveitem OLD_ROD
 		setevent EVENT_GOT_OLD_ROD
-		opentext
 		writetext ThanksForHelpingFisherText
 		waitbutton
 		closetext
@@ -492,6 +491,15 @@ RocketRobbedOakScript2:
 	setevent EVENT_OAK_MISSING_FROM_LAB
 	end
 
+WalkBackToBeachScript:
+	turnobject HERALD_COVE_SAILOR3, RIGHT
+	opentext
+	writetext ShouldGoBackToBeachText
+	waitbutton
+	closetext
+	applymovement PLAYER, WalkBackToBeachMovement
+	turnobject HERALD_COVE_SAILOR3, DOWN
+	end
 
 HeraldCoveSailorScript:
 	jumptextfaceplayer HeraldCoveSailorText
@@ -695,6 +703,10 @@ HeraldGymSignScript:
 		step LEFT
 		step LEFT
 		step LEFT
+		step LEFT
+		step_end
+
+	WalkBackToBeachMovement:
 		step LEFT
 		step_end
 
@@ -983,7 +995,7 @@ HeraldGymSignScript:
 		text "Perfect! That's"
 		line "just what I need!"
 
-		para "Thanks you! Here,"
+		para "Thank you! Here,"
 		line "take this as a"
 		cont "thank you from me."
 		done
@@ -1166,6 +1178,14 @@ HeraldGymSignScript:
 		cont "have to stop them!"
 		done
 
+	ShouldGoBackToBeachText:
+		text "Hey! The treasure"
+		line "is on the beach!"
+
+		para "You don't have to"
+		line "go that far!"
+		done
+
 HeraldCove_MapEvents:
 	db 0, 0 ; filler
 
@@ -1182,6 +1202,10 @@ HeraldCove_MapEvents:
 	coord_event 19, 18, SCENE_HERALD_COVE_GYM_CHALLENGE, PokecenterEnterScript
 	coord_event 13, 12, SCENE_HERALD_COVE_OAK_ROBBED, RocketRobbedOakScript1
 	coord_event 25, 14, SCENE_HERALD_COVE_OAK_ROBBED, RocketRobbedOakScript2
+	coord_event 28, 16, SCENE_HERALD_COVE_GYM_CHALLENGE, WalkBackToBeachScript
+	coord_event 28, 17, SCENE_HERALD_COVE_GYM_CHALLENGE, WalkBackToBeachScript
+	coord_event 28, 18, SCENE_HERALD_COVE_GYM_CHALLENGE, WalkBackToBeachScript
+	coord_event 28, 19, SCENE_HERALD_COVE_GYM_CHALLENGE, WalkBackToBeachScript
 
 	def_bg_events
 	bg_event 10,  4, BGEVENT_READ, BerryMasterSignScript

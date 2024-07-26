@@ -308,6 +308,10 @@ PokemonPicPointers::
 	dba FroslassBackpic
 	dba SkarmoryFrontpic
 	dba SkarmoryBackpic
+	dba StunkyFrontpic
+	dba StunkyBackpic
+	dba SkuntankFrontpic
+	dba SkuntankBackpic
 	dba CubchooFrontpic
 	dba CubchooBackpic
 	dba BearticFrontpic
@@ -318,10 +322,6 @@ PokemonPicPointers::
 	dba LombreBackpic
 	dba LudicoloFrontpic
 	dba LudicoloBackpic
-	dba StunkyFrontpic
-	dba StunkyBackpic
-	dba SkuntankFrontpic
-	dba SkuntankBackpic
 	dba DuskullFrontpic
 	dba DuskullBackpic
 	dba DusclopsFrontpic

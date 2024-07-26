@@ -17,7 +17,7 @@ INCLUDE "data/pokemon/evos_attacks_pointers.asm"
 EkansEvosAttacks:
 db EVOLVE_LEVEL, 26, ARBOK
 db 0 ; no more evolutions
-db 1, POISON_STING
+db 1, GUNK_SHOT
 db 1, LEER
 db 6, WRAP
 db 9, BITE
@@ -70,30 +70,32 @@ db 20, WING_ATTACK
 db 22, DOUBLE_TEAM
 db 26, SIGNAL_BEAM
 db 30, ANCIENTPOWER
-db 36, U_TURN
+db 34, AIR_SLASH
+db 38, U_TURN
 db 41, HYPNOSIS
 db 47, DRAGON_PULSE
 db 50, BUG_BUZZ
-db 55, AIR_SLASH
+db 55, HURRICANE
 db 0 ; no more level-up moves
 
 YanmegaEvosAttacks:
 db 0 ; no more evolutions
 db 1, GUST
 db 1, LEER
-db 1, QUICK_ATTACK
-db 1, LEECH_LIFE
+db 6, QUICK_ATTACK
+db 9, LEECH_LIFE
 db 13, SUPERSONIC
 db 16, TWISTER
 db 20, WING_ATTACK
 db 22, DOUBLE_TEAM
 db 26, SIGNAL_BEAM
 db 30, ANCIENTPOWER
-db 36, U_TURN
+db 34, AIR_SLASH
+db 38, U_TURN
 db 41, HYPNOSIS
 db 47, DRAGON_PULSE
 db 50, BUG_BUZZ
-db 55, AIR_SLASH
+db 55, HURRICANE
 db 0 ; no more level-up moves
 
 BaltoyEvosAttacks:
@@ -370,7 +372,7 @@ CaterpieEvosAttacks:
 MetapodEvosAttacks:
 	db EVOLVE_LEVEL, 10, BUTTERFREE
 	db 0 ; no more evolutions
-	db 1, HARDEN
+	db 1, TACKLE
 	db 1, STRING_SHOT
 	db 7, HARDEN
 	db 0 ; no more level-up moves
@@ -1312,11 +1314,9 @@ ChandelureEvosAttacks:
  db 13, LEECH_SEED
  db 17, BULLET_SEED
  db 21, POISONPOWDER
- db 22, MACH_PUNCH
- db 30, ROCK_SMASH
+ db 30, GROWTH
  db 35, GIGA_DRAIN
  db 42, SPORE
- db 51, DYNAMICPUNCH
  db 0 ; no more level-up moves
 
  BreloomEvosAttacks:
@@ -1327,9 +1327,11 @@ ChandelureEvosAttacks:
  db 13, LEECH_SEED
  db 17, BULLET_SEED
  db 21, POISONPOWDER
- db 30, GROWTH
+ db 22, MACH_PUNCH
+ db 30, ROCK_SMASH
  db 35, GIGA_DRAIN
  db 42, SPORE
+ db 51, DYNAMICPUNCH
  db 0 ; no more level-up moves
 
  BunearyEvosAttacks:
@@ -1542,12 +1544,12 @@ ChandelureEvosAttacks:
 
  VulpixEvosAttacks:
  db 0 ; no more evolutions
- db 1, PSYSHOCK
+ db 1, ICY_WIND
  db 0 ; no more level-up moves
 
  NinetalesEvosAttacks:
  db 0 ; no more evolutions
- db 1, PSYSHOCK
+ db 1, ICY_WIND
  db 0 ; no more level-up moves
 
  GrowlitheEvosAttacks:
