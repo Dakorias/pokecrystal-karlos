@@ -17,7 +17,7 @@ INCLUDE "data/pokemon/evos_attacks_pointers.asm"
 EkansEvosAttacks:
 db EVOLVE_LEVEL, 26, ARBOK
 db 0 ; no more evolutions
-db 1, GUNK_SHOT
+db 1, POISON_STING
 db 1, LEER
 db 6, WRAP
 db 9, BITE

@@ -294,7 +294,7 @@ UpdateAnimFrame:
 	jr z, .skip_attributes
 	call GetSpriteOAMAttr
 	ld [de], a
-	.skip_attributes
+.skip_attributes
 	inc hl
 	inc de
 	ld a, e

@@ -55,3 +55,9 @@ SECTION "Pokégear GFX", ROMX
 
 PokegearGFX::
 INCBIN "gfx/pokegear/pokegear.2bpp.lz"
+
+SECTION "Bill's PC Graphics", ROMX
+
+BillsPC_TileGFX::   INCBIN "gfx/pc/pc.2bpp.lz"
+BillsPC_ObjGFX::    INCBIN "gfx/pc/pc_mail.2bpp"
+BillsPC_CursorGFX:: INCBIN "gfx/pc/cursor.2bpp"

@@ -1,5 +1,3 @@
-INCLUDE "charmap.asm"
-
 INCLUDE "macros/asserts.asm"
 INCLUDE "macros/const.asm"
 INCLUDE "macros/predef.asm"
@@ -22,6 +20,7 @@ INCLUDE "macros/scripts/pic_anims.asm"
 
 INCLUDE "macros/legacy.asm"
 
+INCLUDE "constants/charmap.asm"
 INCLUDE "constants/hardware_constants.asm"
 INCLUDE "constants/deco_constants.asm"
 INCLUDE "constants/wram_constants.asm"
@@ -52,6 +51,7 @@ INCLUDE "constants/item_constants.asm"
 INCLUDE "constants/item_data_constants.asm"
 INCLUDE "constants/music_constants.asm"
 INCLUDE "constants/npc_trade_constants.asm"
+INCLUDE "constants/pc_constants.asm"
 INCLUDE "constants/phone_constants.asm"
 INCLUDE "constants/pokemon_constants.asm"
 INCLUDE "constants/pokemon_data_constants.asm"

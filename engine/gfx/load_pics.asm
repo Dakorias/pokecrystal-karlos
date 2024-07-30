@@ -79,7 +79,15 @@ GetAnimatedFrontpic:
 	ldh [rSVBK], a
   jp CloseSRAM
 
-_GetFrontpic:
+PrepareFrontpic:
+	ldh a, [rSVBK]
+	push af
+	call _PrepareFrontpic
+	pop af
+	ldh [rSVBK], a
+	ret
+
+_PrepareFrontpic:
 	ld a, BANK(sEnemyFrontpicTileCount)
 	call OpenSRAM
 	push de
@@ -89,28 +97,26 @@ _GetFrontpic:
 	ld b, a
 	push bc
 	call GetFrontpicPointer
-	ld a, BANK(wDecompressScratch)
+	ld a, BANK(wDecompressEnemyFrontpic)
 	ldh [rSVBK], a
 	ld a, b
-	ld de, wDecompressScratch
+	ld de, wDecompressEnemyFrontpic
 	call FarDecompress
-	; Save decompressed size
-	swap e
-	swap d
-	ld a, d
-	and $f0
-	or e
-	ld [sEnemyFrontpicTileCount], a
 	pop bc
-	ld hl, sPaddedEnemyFrontpic
-	ld de, wDecompressScratch
+	ld hl, wDecompressScratch
+	ld de, wDecompressEnemyFrontpic
 	call PadFrontpic
 	pop hl
 	push hl
-	ld de, sPaddedEnemyFrontpic
+	ld de, wDecompressScratch
 	ld c, 7 * 7
 	ldh a, [hROMBank]
-	ld b, a
+	pop hl
+	ret
+
+_GetFrontpic:
+	call _PrepareFrontpic
+	push hl
 	call Get2bpp
 	pop hl
 	ret
@@ -142,8 +148,10 @@ GetFrontpicPointer:
 	ret
 
 GetAnimatedEnemyFrontpic:
+	ld a, BANK(vTiles3)
+	ldh [rVBK], a
 	push hl
-	ld de, sPaddedEnemyFrontpic
+	ld de, wDecompressScratch
 	ld c, 7 * 7
 	ldh a, [hROMBank]
 	ld b, a
@@ -157,22 +165,17 @@ GetAnimatedEnemyFrontpic:
 	call GetFarWRAMByte
 	pop hl
 	and $f
-	ld de, wDecompressScratch + 5 * 5 tiles
+	ld de, wDecompressEnemyFrontpic + 5 * 5 tiles
 	ld c, 5 * 5
 	cp 5
 	jr z, .got_dims
-	ld de, wDecompressScratch + 6 * 6 tiles
+	ld de, wDecompressEnemyFrontpic + 6 * 6 tiles
 	ld c, 6 * 6
 	cp 6
 	jr z, .got_dims
-	ld de, wDecompressScratch + 7 * 7 tiles
+	ld de, wDecompressEnemyFrontpic + 7 * 7 tiles
 	ld c, 7 * 7
 .got_dims
-	; Get animation size (The total tiles used - the base sprite size)
-	ld a, [sEnemyFrontpicTileCount]
-	sub c
-	ret z ; Return if there are no animation tiles
-	ld c, a
 	push hl
 	push bc
 	call LoadFrontpicTiles
@@ -181,24 +184,10 @@ GetAnimatedEnemyFrontpic:
 	ld de, wDecompressScratch
 	ldh a, [hROMBank]
 	ld b, a
-	; If we can load it in a single pass, then just load it.
-	ld a, c
-	sub 128 - 7 * 7
-	jr c, .finish
-	; Otherwise, load the first part.
-	inc a
-	ld [sEnemyFrontpicTileCount], a
-	ld c, 127 - 7 * 7
 	call Get2bpp
-	; then load the rest into vTiles4
-	ld de, wDecompressScratch + (127 -7 * 7) tiles
-	ld hl, vTiles4
-	ldh a, [hROMBank]
-	ld b, a
-	ld a, [sEnemyFrontpicTileCount]
-	ld c, a
-	.finish
-	jp Get2bpp
+	xor a
+	ldh [rVBK], a
+	ret
 
 LoadFrontpicTiles:
 	ld hl, wDecompressScratch

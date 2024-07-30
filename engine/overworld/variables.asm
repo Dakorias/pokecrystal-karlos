@@ -125,14 +125,7 @@ _GetVarAction::
 
 .BoxFreeSpace:
 ; Remaining slots in the current box.
-	ld a, BANK(sBoxCount)
-	call OpenSRAM
-	ld hl, sBoxCount
-	ld a, MONS_PER_BOX
-	sub [hl]
-	ld b, a
-	call CloseSRAM
-	ld a, b
+	newfarcall CheckFreeDatabaseEntries
 	jp .loadstringbuffer2
 
 .BattleResult:
