@@ -23,7 +23,7 @@ HeraldBayHouse_MapScripts:
 		end
 
 	.EdwardGoSignUp
-		writetext EdwardGivesMapText
+		writetext PlayerComeBackLater
 		waitbutton
 		closetext
 		end

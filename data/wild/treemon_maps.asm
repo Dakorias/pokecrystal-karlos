@@ -3,10 +3,10 @@ MACRO treemon_map
 	db \2 ; treemon set
 ENDM
 
-TreeMonMaps:
+TreeMonMaps::
 	treemon_map NEW_BARK_TOWN,        TREEMON_SET_CITY
 	db -1
 
-RockMonMaps:
+RockMonMaps::
 	treemon_map BATTLE_TOWER_OUTSIDE, TREEMON_SET_ROCK
 	db -1
