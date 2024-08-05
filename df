@@ -1,0 +1,526 @@
+[33mcommit bb730f023609d4a94982efeb53b0edff0304050a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Karlos <45156321+Dakorias@users.noreply.github.com>
+Date:   Wed Oct 11 09:02:28 2023 -0400
+
+    Update README.md
+
+[33mcommit aba1f140443ddb8589a23f877546963430e12167[m
+Author: vulcandth <vulcandth@gmail.com>
+Date:   Sun Sep 17 13:09:28 2023 -0500
+
+    Sync sprite and battle anim consts/labels (#1055)
+    
+    * Sync sprite and battle anim consts/labels
+    
+    * Add `; 00` comments
+    
+    * Renamed to `SpriteAnimFunc_` and `BattleAnimFunc_`
+
+[33mcommit b0ddb0758dd86950ad3c504aa09a4e3e2dffd495[m
+Author: Tiddlywinks <not@home.net>
+Date:   Sat Jul 15 10:38:22 2023 -0500
+
+    1) Fix DECOFLAG order. 2) The doll is Staryu, not Starmie (and the sprite can be either)
+
+[33mcommit 0b91f5c6569cff5c88698b455f353ba7d083b727[m
+Author: vulcandth <vulcandth@gmail.com>
+Date:   Mon Aug 21 22:49:53 2023 -0500
+
+    CI copy `.map` files to symbols branch
+
+[33mcommit 6180be355ed1343e99f9682e8869abb7d8839e76[m
+Author: SoupPotato <toomanyluigis11@gmail.com>
+Date:   Tue Aug 22 01:09:23 2023 +0100
+
+    Labeled framesets and related constants (#1063)
+    
+    * Labeled Framesets and Constants Related
+    
+    * Feedback Implemented with PascalCase and Constant Renames
+    
+    * Fix framset.asm comment spacing
+    
+    * `BATTLEANIMFRAMESET_35` to `BATTLEANIMFRAMESET_THUNDER_WAVE_EXTRA`
+    
+    * Feedback applied and labeled 1E & B2
+    
+    * Fixed SpinningBone
+    
+    ---------
+    
+    Co-authored-by: vulcandth <vulcandth@gmail.com>
+
+[33mcommit 5db85badf8e283b2e408f528ae3c399b3f208d01[m
+Author: Idain <luiscarlosholguinperez@outlook.com>
+Date:   Mon Aug 21 11:53:32 2023 -0400
+
+    Replace hardcoded numbers for stats (#1073)
+
+[33mcommit fceffda3679da80a505114f5c27fe00284019734[m
+Author: AnonymousRandomPerson <chenghanngan.us@gmail.com>
+Date:   Fri Aug 18 23:45:23 2023 -0400
+
+    Added newer decomp projects to readme
+
+[33mcommit 0d899cbd3b318b50776aac0a4aafad6133a5e647[m
+Author: Rangi <35663410+Rangi42@users.noreply.github.com>
+Date:   Wed Aug 16 10:22:35 2023 -0400
+
+    Define all unused type names with `rept` (#1071)
+    
+    Fixes #1070
+
+[33mcommit f3b31087e394c4e09590146ee847b931147c51aa[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Tue Aug 15 19:54:16 2023 -0400
+
+    Use `MAP_CONNECTION_PADDING_WIDTH` in `MACRO connection`
+    
+    Fixes #1033
+
+[33mcommit 9c0ef02d4b6f6aae697adc6c6ecc16065f1f57c2[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Tue Aug 15 19:45:33 2023 -0400
+
+    Verify that there aren't too many OAM constants
+    
+    Fixes #1062
+
+[33mcommit df05357a4d72357342c4c1baa3a1f7dde7a83974[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Tue Aug 15 19:34:16 2023 -0400
+
+    Add dupeframes.py tool to find duplicate animated Pokémon frames
+    
+    Fixes #1067
+
+[33mcommit a5c36a72c41e592dfcb3a4eff8df15594b42cc43[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Tue Aug 15 19:19:15 2023 -0400
+
+    Avoid `goto`, support '\r', and fix typo in scan_includes.c
+
+[33mcommit 8e716325366e3dd9d3417c824d74fe5072fd0ac8[m
+Author: Lorenzooone <lollo.lollo.rbiz@gmail.com>
+Date:   Mon Aug 14 18:12:00 2023 +0200
+
+    Fix segfaults at EOF for scan_includes, and add token/newline checks (#1068)
+
+[33mcommit e07a1e77738863f00b6b08b51db6108cb335bc69[m
+Author: vulcandth <vulcandth@gmail.com>
+Date:   Mon Aug 14 09:19:25 2023 -0500
+
+    Define relationship between map_object and object_events (#1054)
+
+[33mcommit 6926900f0fb013a947aa5eab6c50c88e4f66dad8[m
+Author: Idain <luiscarlosholguinperez@outlook.com>
+Date:   Thu Aug 10 13:29:03 2023 -0400
+
+    Document fix about AI item pointer overflowing (#1066)
+
+[33mcommit 768b3bdec15ac9f79e43f88695514494c93f2f99[m
+Author: SatoMew <SatoMew@users.noreply.github.com>
+Date:   Thu Jul 27 01:59:00 2023 +0100
+
+    Improve mobile-related labels (#1061)
+
+[33mcommit c931b98a8144b4d5c5bce8444ffc658ddf41ffd7[m
+Author: SnorlaxMonster <snorlaxmonster@gmail.com>
+Date:   Thu Jul 27 10:51:34 2023 +1000
+
+    Rename BATTLETYPE_SHINY to BATTLETYPE_FORCESHINY (#1058)
+    
+    * Rename BATTLETYPE_SHINY to BATTLETYPE_FORCED_SHINY
+    
+    The name BATTLETYPE_SHINY gave the impression that it applied to all
+    battles with Shiny Pokémon, rather than merely battles with forced
+    Shiny Pokémon (i.e. Red Gyarados only).
+    
+    * Rename to BATTLETYPE_FORCESHINY
+    
+    Align name of BATTLETYPE with BATTLETYPE_FORCEITEM
+    
+    ---------
+    
+    Co-authored-by: SnorlaxMonster <snorlaxmonster@users.noreply.github.com>
+
+[33mcommit 94df3c5aa3f7426d48e51567c55037e35161fa33[m
+Author: Idain <luiscarlosholguinperez@outlook.com>
+Date:   Wed Jul 26 20:50:16 2023 -0400
+
+    Replace magic numbers with TILE_WIDTH (#1056)
+    
+    * Replace magic numbers with TILE_WIDTH
+    
+    * Address more instances
+
+[33mcommit 1d64befdb7caf0db43f30810fb19fe5b1fba7786[m
+Author: Idain <luiscarlosholguinperez@outlook.com>
+Date:   Tue Jul 18 09:58:37 2023 -0400
+
+    Replace magic number with TEXTBOX_FRAME_TILES (#1057)
+
+[33mcommit 31c55dc74d4d771c805fdf4e7994daaa17f65b5c[m
+Author: vulcandth <vulcandth@gmail.com>
+Date:   Thu Jun 22 15:15:43 2023 -0500
+
+    Use BattleAnim_Dummy in data/moves/animations.asm (#1052)
+
+[33mcommit 438c48daad9a2b52a3e770def77efa43fa0f3222[m
+Author: vulcandth <vulcandth@gmail.com>
+Date:   Thu Jun 1 07:47:53 2023 -0500
+
+    Rename PAL_NPC_SILVER to PAL_NPC_EMOTE (#1053)
+
+[33mcommit 5e983d32aac373d1530696605d2cd76e3b9c8e80[m
+Author: Idain <luiscarlosholguinperez@outlook.com>
+Date:   Sun May 28 10:12:33 2023 -0400
+
+    Use NO_INPUT instead of magic number (#1051)
+    
+    This is for the Virtual Console builds, where it disables the print functions of Unown and Mail.
+
+[33mcommit 5e8c7c8f789ca9fdde73dde7262b6c13bcf48c05[m
+Author: mid-kid <esteve.varela@gmail.com>
+Date:   Wed May 17 16:18:18 2023 +0200
+
+    Fix tools/free_space.awk for new rgbds (#1049)
+
+[33mcommit 8c6242a1524f3e757f6430e8f729133f9bd76c96[m
+Author: Idain <luiscarlosholguinperez@outlook.com>
+Date:   Sat May 6 20:12:45 2023 -0400
+
+    Fix macro definitiosn for unused commands
+
+[33mcommit 354fefaefbba77a3408fa9edb5cc4393b9c702ab[m
+Author: mid-kid <esteve.varela@gmail.com>
+Date:   Sat Apr 1 03:29:33 2023 +0200
+
+    Use time capsule label for time capsule copies
+
+[33mcommit a1e711b80dbd652cdf3b89811f7539d93782b0b5[m
+Author: mid-kid <esteve.varela@gmail.com>
+Date:   Sat Apr 1 02:58:53 2023 +0200
+
+    Use more appropriate labels for link operations
+
+[33mcommit 4c4fd7258c0c0bc289af2af0658c12bf96f75032[m
+Author: mid-kid <esteve.varela@gmail.com>
+Date:   Fri Mar 31 13:13:52 2023 +0200
+
+    Define SERIAL_PATCH_PREAMBLE_LENGTH
+
+[33mcommit 5ae35e57702a17f118d53c35e13772b140fd37f9[m
+Author: mid-kid <esteve.varela@gmail.com>
+Date:   Thu Mar 30 21:23:46 2023 +0200
+
+    Label wOTLinkBattleRNData
+
+[33mcommit 08cfbbb1d942f8cf5ea6120fc34312897110e39a[m
+Author: mid-kid <esteve.varela@gmail.com>
+Date:   Thu Mar 30 21:05:07 2023 +0200
+
+    Document link patch lists a little bit better
+
+[33mcommit 2fc7d17851a534c0a5d03932303376d18d4b8c15[m
+Author: mid-kid <esteve.varela@gmail.com>
+Date:   Thu Mar 30 12:47:02 2023 +0200
+
+    Unionize wSwitchMonBuffer
+
+[33mcommit c8e9a82190fcb8687e3e48c1268f4b888e536f57[m
+Author: mid-kid <esteve.varela@gmail.com>
+Date:   Thu Mar 30 05:15:35 2023 +0200
+
+    Make wMysteryGift*GameVersion constants consistent
+
+[33mcommit a6ac67dea2ea7a1a35fce63a8bd10deb7147c3ed[m
+Author: mid-kid <esteve.varela@gmail.com>
+Date:   Thu Mar 30 04:51:49 2023 +0200
+
+    IsMailEuropean → ParseMailLanguage (and give it constants)
+
+[33mcommit 1674b6ca5a8b7ae9a2d4e34a8c846f2ee88cb85d[m
+Author: Damien Doury <DamienDoury@users.noreply.github.com>
+Date:   Thu Apr 6 18:05:59 2023 +0200
+
+    Fixed the wrong CheckHiddenOpponent bugfix (#1046)
+
+[33mcommit 06dd208cc72b49da3d57233ecf948618b7520d9a[m
+Author: vulcandth <vulcandth@gmail.com>
+Date:   Sat Apr 1 13:56:21 2023 -0500
+
+    Update `EndBug` to v9.
+    
+    fixes #1038
+
+[33mcommit c75d121c78324077bd058c179c94c596c6457f77[m
+Author: vulcandth <vulcandth@gmail.com>
+Date:   Thu Mar 16 21:25:33 2023 -0500
+
+    Missed `DEF` in `add_tm`
+
+[33mcommit cfd432f468962a2f67a492afbc5203546117544a[m
+Author: mid-kid <esteve.varela@gmail.com>
+Date:   Wed Mar 8 13:51:04 2023 +0100
+
+    Minor battle tower fixes
+
+[33mcommit cf1c50555505f525ede5e2cd426f002312038de0[m
+Author: mid-kid <esteve.varela@gmail.com>
+Date:   Sun Feb 26 12:28:06 2023 +0100
+
+    GetNicknamenamePointer -> GetNicknamePointer
+    
+    Found this commit on an old drive
+
+[33mcommit 18efb2fab3cec16c8f82ebec71b6c2201c349f1d[m
+Author: mid-kid <esteve.varela@gmail.com>
+Date:   Fri Feb 24 11:46:09 2023 +0100
+
+    Document scripting engine fix for MBC30
+
+[33mcommit 0aadbec02a3a26fbad302cc56b841f3bd987370c[m
+Author: Andrew Cook <ariscop@gmail.com>
+Date:   Tue Feb 21 13:33:43 2023 +1100
+
+    Label indirect access to rIE in lib/mobile
+
+[33mcommit c01409be5a9930d6f0687ce53c1c898e1855c884[m
+Author: vulcandth <vulcandth@gmail.com>
+Date:   Tue Jan 3 21:16:08 2023 -0600
+
+    Relabel some `map_object` struct fields (#1029)
+
+[33mcommit 2d40e99d1127fcfd1625274a24b95153b47fd836[m
+Author: Daniel Harding <33dannye@gmail.com>
+Date:   Thu Dec 29 07:59:32 2022 -0600
+
+    Ensure linked songs are in the same bank (#1027)
+
+[33mcommit ce99c9e93c7a5e898eacbeaf998b769dbb7d1208[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Tue Dec 27 18:34:46 2022 -0500
+
+    Use `rgbgfx -c embedded` to extract palettes
+    
+    Fixes #1026
+
+[33mcommit cb8505e022f7030d4a144b43bf1e6557a0cb49fa[m
+Author: vulcandth <vulcandth@gmail.com>
+Date:   Mon Dec 26 12:55:01 2022 -0600
+
+    Define `InitDefaultEZChatMsgs` and `sEZChatMessages` (#1022)
+
+[33mcommit 25e12c9391878f474a9139950298a2ddc964ba0a[m
+Author: vulcandth <vulcandth@gmail.com>
+Date:   Mon Dec 26 12:14:10 2022 -0600
+
+    wUnlockedUnowns engine_flag constants (#1025)
+
+[33mcommit f739f8b1acd3d381015192636600bd3b38bdf28f[m
+Author: vulcandth <vulcandth@gmail.com>
+Date:   Fri Dec 23 18:48:14 2022 -0600
+
+    Add table assert `DoBattleAnimFrame.Jumptable`
+
+[33mcommit 4387298b2c71c0379dd1b4c2a4a2e911f822b9cc[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Wed Dec 14 22:30:20 2022 -0500
+
+    Comment the Crystal 1.0 bugs as "BUG:" too
+
+[33mcommit 8fd66c080f201c401419674229f2714853de008f[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Sat Dec 3 11:11:20 2022 -0500
+
+    Use rgbds 0.6.1 (0.6.0 also still works)
+
+[33mcommit eb28b5ae565f374a69da5f00070d6de358e41eb6[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Sat Dec 3 11:10:55 2022 -0500
+
+    Only patch Stadium data for a 2MB ROM
+
+[33mcommit b232b4be5fd614fdb9b1c420ca260964b258ac33[m
+Author: vulcandth <vulcandth@gmail.com>
+Date:   Thu Dec 1 15:54:01 2022 -0600
+
+    Bug: PRZ and BRN stat reductions don't apply to switched Pokémon (#1021)
+    
+    Co-authored-by: Rangi <35663410+Rangi42@users.noreply.github.com>
+
+[33mcommit c4e3f2bbc23fe731deb177ed5743fdc6ac6572e0[m
+Author: vulcandth <vulcandth@gmail.com>
+Date:   Tue Nov 22 20:03:24 2022 -0600
+
+    `TrainerWalkToPlayer` should reference `wSeenTrainerDistance` (#1020)
+
+[33mcommit f7d26fbe9c878c67271db67257073f6ccc34daf3[m
+Author: vulcandth <vulcandth@gmail.com>
+Date:   Mon Nov 7 20:27:09 2022 -0600
+
+    `.CheckNPC` label and comment correction
+
+[33mcommit 8b429e2a545e87407a3b8c7b92f7ceafc455e390[m
+Author: mid-kid <esteve.varela@gmail.com>
+Date:   Tue Oct 25 17:55:30 2022 +0200
+
+    Make sure tools are built before dependencies are generated
+    
+    Avoids calling a program that doesn't exist yet (not actively harmful,
+    but yeah...)
+
+[33mcommit 0425018d1ce5b3b726e3cd83f59f14ead9171c92[m
+Author: mid-kid <esteve.varela@gmail.com>
+Date:   Tue Oct 25 17:51:13 2022 +0200
+
+    Fix preinclude dependencies
+
+[33mcommit a95336d9e76a60e4e2db7ef845e06c7e67e925ef[m
+Author: Idain <luiscarlosholguinperez@outlook.com>
+Date:   Mon Oct 17 00:16:12 2022 -0400
+
+    Fix Spelling Typos in `engine/battle_anims/functions.asm`
+
+[33mcommit 90bec40276b6a690cfa9b0a331cde183bd7f94f7[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Fri Oct 14 16:17:52 2022 -0400
+
+    Fix LodePNG to avoid `-Wcast-qual` warnings
+    
+    <https://github.com/lvandeve/lodepng/issues/160>
+
+[33mcommit 89a888277a7b03093128bce2974c3cbddc500cc5[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Wed Oct 12 21:43:00 2022 -0400
+
+    Revise macros in tools
+
+[33mcommit ce004be92c54459cb0fc772e296d07256666fe58[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Wed Oct 12 21:41:08 2022 -0400
+
+    Revise constants in CheckShininess
+
+[33mcommit 1222ea7def97c6d78abef09f25787ef555e5c1cd[m
+Author: mid-kid <esteve.varela@gmail.com>
+Date:   Sat Oct 8 19:07:00 2022 +0200
+
+    Fix rgbdscheck running on older rgbds
+
+[33mcommit 770d2fc4cb3368b237d8ba33dcd6e5d9f0740863[m
+Author: vulcandth <vulcandth@gmail.com>
+Date:   Sun Oct 2 23:29:47 2022 -0500
+
+    FAQ.md require 0.6.0
+
+[33mcommit c61bd0d5a7bff94a04bf8f5c82badf36415425d2[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Sun Oct 2 22:34:10 2022 -0400
+
+    Update tools/unnamed.py for rgbds 0.6.0 object files
+
+[33mcommit 8e135931a6358c831f9197a44c15d8c0c26eaf43[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Sun Oct 2 22:03:53 2022 -0400
+
+    Require rgbds 0.6.0
+
+[33mcommit 70a3ec1accb6de1c1c273470af0ddfa2edc1b0a9[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Fri Sep 30 16:55:35 2022 -0400
+
+    `startswith` works with a tuple
+
+[33mcommit f76f5c3583b729c8c78f23ae46ddae9254e8a906[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Fri Sep 30 16:55:09 2022 -0400
+
+    Fix array size
+
+[33mcommit 38578cc34d07a22d435e271c2448f1fe927d5923[m
+Author: Rangi <35663410+Rangi42@users.noreply.github.com>
+Date:   Fri Sep 30 16:42:29 2022 -0400
+
+    Generate the correct Stadium base data for every ROM (#1010)
+
+[33mcommit a9869f18962353b056559dc14dfc00fef0df5978[m
+Author: Idain <luiscarlosholguinperez@outlook.com>
+Date:   Wed Sep 28 20:51:39 2022 -0400
+
+    Replace hardcoded wMonType constants (#1011)
+
+[33mcommit bceeea8e3b6a829494cd80468c4514ad1b0978bc[m
+Author: vulcandth <vulcandth@gmail.com>
+Date:   Sat Sep 24 20:04:28 2022 -0500
+
+    Fix Typo: `GoldenrodPokecomCenterSaveBeforeTradeCornetText` -> `GoldenrodPokecomCenterSaveBeforeTradeCornerText`
+
+[33mcommit f7507b7782471014f77f5177ac76f8af6132be6a[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Fri Sep 23 23:10:24 2022 -0400
+
+    $f -> BATTLEACTION_FORFEIT
+    
+    (thanks, Vulcandth)
+
+[33mcommit 8fc3b8e6e36663f00f8ce7c2830db55a538a72b5[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Fri Sep 23 22:06:52 2022 -0400
+
+    Dance Theatre -> Dance Theater
+    
+    Fixes #1008
+
+[33mcommit 553a272e52182d0a0869a3cca420a6c6f826804e[m
+Author: Idain <luiscarlosholguinperez@outlook.com>
+Date:   Wed Sep 21 23:01:39 2022 -0400
+
+    TYPO: NUM_MOVE_EFECTS  >  NUM_MOVE_EFFECTS (#1009)
+
+[33mcommit 29fada7d8c08fb04c9aee9408f6acb3cc44fad51[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Sun Sep 18 23:56:11 2022 -0400
+
+    Don't use removeprefix in tools/unnamed.py (it worked locally...)
+
+[33mcommit 55ca2da25acc0598539eede5359f25f08223de2d[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Sun Sep 18 23:41:45 2022 -0400
+
+    Fix tools/unnamed.py and add tools/consts.py
+
+[33mcommit 6c26e2617c8cabdb8e05ca0f7180123a169b13a2[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Sun Sep 18 23:08:43 2022 -0400
+
+    Update and add more tool scripts
+
+[33mcommit 711f5c87b35b4842376a1836005ad42acb1bf015[m
+Author: Rangi <remy.oukaour+rangi42@gmail.com>
+Date:   Thu Sep 15 18:05:52 2022 -0400
+
+    Comment about the redundant event `const_next 1900`
+    
+    Fixes #1006
+
+[33mcommit 0f5540740bb494cfc6a5c724a2eeac4e064e9659[m
+Author: Andrew Cook <ariscop@gmail.com>
+Date:   Thu Sep 15 10:49:58 2022 +1000
+
+    Some Mobile code labeling and removed magic numbers (#993)
+    
+    * Macro loop for EmptyAllSRAMBanks
+    
+    * Many things labeled and magic numbers removed
+    
+    * Conform to the style guide
+    
+    * Rename URLs in mobile_46
+    
+    * MOBILEAPI_19 -> MOBILEAPI_TELEPHONESTATUS
+    
+    * Update engine/menus/empty_sram.asm
+    
+    Co-authored-by: Rangi <35663410+Rangi42@users.noreply.gith
